@@ -1,0 +1,3 @@
+https://github.com/open-duelyst/duelyst These assets are taken from here. 
+They are all licensed under the "Creative Commons 0" License (license found here > https://github.com/open-duelyst/duelyst/blob/main/LICENSE)
+
