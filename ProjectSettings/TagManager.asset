@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Battlemap_Foreground
+    uniqueID: 1335703095
+    locked: 0
+  - name: BattleMap_Units
+    uniqueID: 2699390215
+    locked: 0
   - name: Card Background
     uniqueID: 4224862247
     locked: 0

@@ -1,0 +1,2542 @@
+fileFormatVersion: 2
+guid: 687023e45feb5fe4597e961088a302b7
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: f1_3rdgeneral_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1917
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f35cb150555a6f645b841303d87e6dbe
+      internalID: 1682412370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_1
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1917
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d5fd70cf400644b941b4e0e8b0bcd2
+      internalID: 2069881484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_2
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1917
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0779791d232012f4fb82456cb0480df8
+      internalID: 291738730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_3
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1917
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e05b0fa6e3ee1b343a6d429820f5bc12
+      internalID: 283463501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_4
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1917
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd5f79dd9e919c548833728c02c8254d
+      internalID: 1388218386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_5
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1917
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04aa699953b10ed499ecf7654a57beeb
+      internalID: -1313067668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_6
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1917
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624939f14dd369b449cbd29d6328ba16
+      internalID: -2016008168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_7
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1917
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb2ec0f25cca53f48a605b2557eafffb
+      internalID: -355151189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1786
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a1521bfb8fcef4aa018861edc3ea74
+      internalID: -1951569735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_9
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1786
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c1b6402368ae72438601e3f24addb0b
+      internalID: -1157117283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_10
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1786
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b67fcc0b841954993f901de9e41a83
+      internalID: -190525657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_11
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1786
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec2c78f2ebb6e44fb6085354a6b2c69
+      internalID: -886155579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_12
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1786
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67982b2b37f0646469a37001a9e3b8a0
+      internalID: 631036713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_13
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1786
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8a68367a10be1849bcfa5b7c46c41ca
+      internalID: 2119426756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_14
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1786
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe49d9e9d2b993e4dbf76eb1b198ea7c
+      internalID: 373432468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_15
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1786
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56be0260169f6154b8556a50a415a937
+      internalID: -1268632827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1655
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b702756d71a9e7c41b4b0466dbd28b72
+      internalID: -1824974376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_17
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1655
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06bcd7f13b6c85743acaf65e40e9377d
+      internalID: -2086234624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_18
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1655
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f38b77ce98356224aa2f4c11bb292c1a
+      internalID: 1662758851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_19
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1655
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ef57f08f776fe249897cece5c6d7935
+      internalID: 1702277276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_20
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1655
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86ff27518136994ba5f8dfc81cdbdd8
+      internalID: 1630589605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_21
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1655
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83bf16c7fef8dae4eb723b3413d6907c
+      internalID: 249992896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_22
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1655
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 110b21638fe68dc40a821a8fb22c321f
+      internalID: 1402348006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_23
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1655
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ce7e5100e04f3047b05de088dd0d75c
+      internalID: -508678183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1524
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03c6095029e476b44b328ba38c813fc2
+      internalID: 1333459134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_25
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1524
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0ce88ef41ef7ca4791dc9e32bf246ff
+      internalID: -1981635814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_26
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1524
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a8a340ff557dbe4c8297a8c25d6b3d0
+      internalID: 946094235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_27
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1524
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2d98b41bd56b814783c2930097fa0e3
+      internalID: 2076424601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_28
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1524
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2328f48f8dd330a4e8f3d1b6980dd5bb
+      internalID: 493552861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_29
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1524
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b0f59d7be869894694cc00b71656590
+      internalID: 818782860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_30
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1524
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2965d841908a21c488cd471bf0c4f9c4
+      internalID: 671710284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_31
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1524
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c90c828d513044e4793ea83df9bb156b
+      internalID: -1784443755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1393
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0403162f53f6949bdf14c48896a49c
+      internalID: -1860214167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_33
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1393
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53b748fda31e23c459f54111bd162cda
+      internalID: 1992430857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_34
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1393
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666d463c3d0ff404a99a73cb805a2273
+      internalID: -986320273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_35
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1393
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7889ffd987f558c40b7b023a2604125f
+      internalID: -2042296727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_36
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1393
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e62bc83e6b608742b2ac5d6a4a22ecd
+      internalID: -913652096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_37
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1393
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23070f492c4751648aa6147167bd7416
+      internalID: -1783435914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_38
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1393
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d23b28a07ccd724dbd81e1f20de0138
+      internalID: 1230442092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_39
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1393
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c8b533d3d4cd345be2e23dc43eb837
+      internalID: -577438512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1262
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a9b4634caba4942847c1262f015356
+      internalID: 902876892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_41
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1262
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ecb16f504991a24ca3fc2dd5e1ff04a
+      internalID: 1840391364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_42
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1262
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3389a2651341ce047be0bf105b3f5147
+      internalID: -1347334480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_43
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1262
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8efcbe3d97fa8d4c9fbf894845dafbb
+      internalID: -1890254960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_44
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1262
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96066851858aa974bb7176cb29da29d9
+      internalID: -1016387720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_45
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1262
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d17b5518d6fdc24bb66ffdd92664d48
+      internalID: -1632794814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_46
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1262
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4564184052c3db942b3866453e30bffc
+      internalID: 1402533168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_47
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1131
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e70138871bebad4ebe5a1dfd97f39bd
+      internalID: -486936940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_48
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1131
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf293895479478b45a226b12411bc73d
+      internalID: -1679057930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_49
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1131
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d6330e6d4ef45e468c3bda2376fcee5
+      internalID: -417613253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_50
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1131
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 718e754f29af9344188dbc50deca9296
+      internalID: -1246902663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_51
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1131
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f0272cbf0c8a4d4e9d0e6cff51f51e6
+      internalID: -510622509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_52
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1131
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf43d847e20064a48aad0bdc35b9a905
+      internalID: -1931184222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_53
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1131
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4915b68f97b1e41913c5f598b8191e
+      internalID: 1400717429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34fdcae657c6e2545b24d93e8c39b8c4
+      internalID: 669048859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_55
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1000
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cb990d7d5ed9d84ea05f864f2934f38
+      internalID: -1584361035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_56
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1000
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3072f4916ed68da46b61ccdd8c87a193
+      internalID: 712134263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_57
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1000
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc79fcc1b4af9b8418e8100305ea84de
+      internalID: -296433467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_58
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1000
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 750d82d0833f9184481903d04d893a87
+      internalID: -1987403197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_59
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1000
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8a81c09edc2f7f49a26164db9fb2a2b
+      internalID: 234981665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_60
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1000
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b2f7fffc6e604541990cd0d3b56b3e6
+      internalID: -499271215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 869
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f872b30ec444c004695a25be606aa1ae
+      internalID: -1820403241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_62
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 869
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ee024d90d35a1a49811fbe3897c34f5
+      internalID: -2006223134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_63
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 869
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d93a6aaf139f7140a87549d99d3612b
+      internalID: 89519339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_64
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 869
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e5e5dbcd972d834bb557f82a0f6b4f3
+      internalID: 648668993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_65
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 869
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36f5902eae57ba14aa8236a36e90eb2d
+      internalID: -1264516319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_66
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 869
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bebd87860bf999c47a29045f0ea7ee86
+      internalID: 1980976132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_67
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 869
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41366242d4b564a45bb8f8939ef02194
+      internalID: -958030743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 738
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4df2040052723943b90d4d7ec66f66d
+      internalID: -457622290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_69
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 738
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c54edbcbeae672a4f9ad5d795cf26ccb
+      internalID: -693460860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_70
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 738
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7626c1b03ac986248b2460bbbc22cb78
+      internalID: 1576810571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_71
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 738
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105e2577b7397424abbf3ef3b5a52b78
+      internalID: -1376590161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_72
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 738
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff3801985765fb43acebc0d51d98420
+      internalID: 1260910837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_73
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 738
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ebaaabc88b8dc448bf798af44b4bcd0
+      internalID: -1187453670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_74
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 738
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64739ecd22309c54c839ecd4cb59a48c
+      internalID: -242682164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 607
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea27c5cffa53dff4c90044435ac6a0d4
+      internalID: 1574692288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_76
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 607
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f30225d60469ef4a9ef8cc5676eba57
+      internalID: 2127383962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_77
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 607
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5affef1d4aaf40f488ce818cd2e095fd
+      internalID: -175699624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_78
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 607
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31c5ba7b0ebb30a4daec3b1c705256ba
+      internalID: -180935479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_79
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 607
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d3f531de50d7a34abc306598beebb39
+      internalID: -656373020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_80
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 607
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e6f32a7ce04ada45bc72093d57f5d89
+      internalID: 1074413042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_81
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 607
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1279a938941ffc849a2b22e5959006ed
+      internalID: 982190144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_82
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 476
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7bc70e50421a340b21cc3f1d000768
+      internalID: -1719898707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_83
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 476
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f12d3d3b4c238b4bb84c4e2cf911198
+      internalID: 213190654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_84
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 476
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14a12b2fd9477734dadbc82f0ba4226a
+      internalID: -2121933143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_85
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 476
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0db81042907e684dbde9ba00c17defe
+      internalID: 2124736463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_86
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 476
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f48707667f2d9f547bcf867c42215f28
+      internalID: -514535021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_87
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 476
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18031dc35f8651c45b3d23acd3fe87a5
+      internalID: 1963246580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_88
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 476
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bf050f80a40a704fbc212dbfa66d270
+      internalID: 503860693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_89
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 345
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8379478312277f489c994396e554b22
+      internalID: -1979038462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_90
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 345
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0f6b0e3438cec047a29a57311500967
+      internalID: 1346979976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_91
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 345
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee02aad601056174e8b99d709b83af58
+      internalID: 664316537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_92
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 345
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07c1553e2316aa04cad0cc272ab062e6
+      internalID: -849001444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_93
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 345
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4744a1e969a52b64caadd7f783652eae
+      internalID: -543161578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_94
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 345
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab7910b5e1b550f40b4d36458a212ce8
+      internalID: 102306292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_95
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 345
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cb83d4f06e10a54d908fb0dc61bb325
+      internalID: -295969181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 214
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1905683e7319b8c43ba79e4d601d50c7
+      internalID: -1490020453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_97
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 214
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced1b943e55d085458d0591ec601cfa1
+      internalID: 627419999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_98
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 214
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20a8adee02fd27045931f9323404d799
+      internalID: 1489303544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_99
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 214
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52aa6e15efc5f694b87303dc84b66b6f
+      internalID: 869546096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_100
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 214
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ce63c55e90f61448ae1ebdf64819f53
+      internalID: -2031284220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_101
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 214
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff259b05f3944547923e2237a04a1f9
+      internalID: -374868640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_102
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 214
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e063214a7d0265341a3fe20ce801a52d
+      internalID: 31347410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_103
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 83
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a03bc23ffa4fdd84eb86c8dba1156125
+      internalID: 295748241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_104
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 83
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b1d198b81c98794c9069721ca0404ae
+      internalID: -122063128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_105
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 83
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5020dc6b221f8494eb96746a43ab01f8
+      internalID: -1452353071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_106
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 83
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe6870cb2e111b34fa4ff6680822cf58
+      internalID: 877177466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_107
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 83
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca5aae5051e6e4447aa33a1b117b1b4c
+      internalID: 2088458779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_108
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 83
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40181d10385407a46b981bd5f5702dfc
+      internalID: -726600058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: f1_3rdgeneral_109
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 83
+        width: 131
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e901be03f30a4bb48ad9194ffa4af768
+      internalID: 595522886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      f1_3rdgeneral_67: -958030743
+      f1_3rdgeneral_21: 249992896
+      f1_3rdgeneral_68: -457622290
+      f1_3rdgeneral_8: -1951569735
+      f1_3rdgeneral_52: -1931184222
+      f1_3rdgeneral_86: -514535021
+      f1_3rdgeneral_87: 1963246580
+      f1_3rdgeneral_29: 818782860
+      f1_3rdgeneral_31: -1784443755
+      f1_3rdgeneral_89: -1979038462
+      f1_3rdgeneral_16: -1824974376
+      f1_3rdgeneral_103: 295748241
+      f1_3rdgeneral_0: 1682412370
+      f1_3rdgeneral_17: -2086234624
+      f1_3rdgeneral_15: -1268632827
+      f1_3rdgeneral_27: 2076424601
+      f1_3rdgeneral_26: 946094235
+      f1_3rdgeneral_53: 1400717429
+      f1_3rdgeneral_5: -1313067668
+      f1_3rdgeneral_56: 712134263
+      f1_3rdgeneral_6: -2016008168
+      f1_3rdgeneral_34: -986320273
+      f1_3rdgeneral_82: -1719898707
+      f1_3rdgeneral_91: 664316537
+      f1_3rdgeneral_51: -510622509
+      f1_3rdgeneral_96: -1490020453
+      f1_3rdgeneral_41: 1840391364
+      f1_3rdgeneral_105: -1452353071
+      f1_3rdgeneral_50: -1246902663
+      f1_3rdgeneral_57: -296433467
+      f1_3rdgeneral_46: 1402533168
+      f1_3rdgeneral_66: 1980976132
+      f1_3rdgeneral_90: 1346979976
+      f1_3rdgeneral_62: -2006223134
+      f1_3rdgeneral_32: -1860214167
+      f1_3rdgeneral_23: -508678183
+      f1_3rdgeneral_47: -486936940
+      f1_3rdgeneral_64: 648668993
+      f1_3rdgeneral_83: 213190654
+      f1_3rdgeneral_104: -122063128
+      f1_3rdgeneral_9: -1157117283
+      f1_3rdgeneral_85: 2124736463
+      f1_3rdgeneral_71: -1376590161
+      f1_3rdgeneral_19: 1702277276
+      f1_3rdgeneral_49: -417613253
+      f1_3rdgeneral_79: -656373020
+      f1_3rdgeneral_12: 631036713
+      f1_3rdgeneral_65: -1264516319
+      f1_3rdgeneral_36: -913652096
+      f1_3rdgeneral_99: 869546096
+      f1_3rdgeneral_92: -849001444
+      f1_3rdgeneral_10: -190525657
+      f1_3rdgeneral_37: -1783435914
+      f1_3rdgeneral_81: 982190144
+      f1_3rdgeneral_94: 102306292
+      f1_3rdgeneral_101: -374868640
+      f1_3rdgeneral_39: -577438512
+      f1_3rdgeneral_38: 1230442092
+      f1_3rdgeneral_58: -1987403197
+      f1_3rdgeneral_76: 2127383962
+      f1_3rdgeneral_14: 373432468
+      f1_3rdgeneral_75: 1574692288
+      f1_3rdgeneral_93: -543161578
+      f1_3rdgeneral_69: -693460860
+      f1_3rdgeneral_13: 2119426756
+      f1_3rdgeneral_109: 595522886
+      f1_3rdgeneral_43: -1890254960
+      f1_3rdgeneral_77: -175699624
+      f1_3rdgeneral_95: -295969181
+      f1_3rdgeneral_55: -1584361035
+      f1_3rdgeneral_28: 493552861
+      f1_3rdgeneral_22: 1402348006
+      f1_3rdgeneral_88: 503860693
+      f1_3rdgeneral_7: -355151189
+      f1_3rdgeneral_73: -1187453670
+      f1_3rdgeneral_80: 1074413042
+      f1_3rdgeneral_61: -1820403241
+      f1_3rdgeneral_78: -180935479
+      f1_3rdgeneral_4: 1388218386
+      f1_3rdgeneral_98: 1489303544
+      f1_3rdgeneral_25: -1981635814
+      f1_3rdgeneral_72: 1260910837
+      f1_3rdgeneral_2: 291738730
+      f1_3rdgeneral_70: 1576810571
+      f1_3rdgeneral_24: 1333459134
+      f1_3rdgeneral_54: 669048859
+      f1_3rdgeneral_45: -1632794814
+      f1_3rdgeneral_84: -2121933143
+      f1_3rdgeneral_60: -499271215
+      f1_3rdgeneral_30: 671710284
+      f1_3rdgeneral_74: -242682164
+      f1_3rdgeneral_33: 1992430857
+      f1_3rdgeneral_59: 234981665
+      f1_3rdgeneral_1: 2069881484
+      f1_3rdgeneral_11: -886155579
+      f1_3rdgeneral_42: -1347334480
+      f1_3rdgeneral_102: 31347410
+      f1_3rdgeneral_97: 627419999
+      f1_3rdgeneral_44: -1016387720
+      f1_3rdgeneral_63: 89519339
+      f1_3rdgeneral_106: 877177466
+      f1_3rdgeneral_35: -2042296727
+      f1_3rdgeneral_20: 1630589605
+      f1_3rdgeneral_48: -1679057930
+      f1_3rdgeneral_3: 283463501
+      f1_3rdgeneral_100: -2031284220
+      f1_3rdgeneral_18: 1662758851
+      f1_3rdgeneral_40: 902876892
+      f1_3rdgeneral_107: 2088458779
+      f1_3rdgeneral_108: -726600058
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

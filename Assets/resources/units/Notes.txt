@@ -1,0 +1,8 @@
+1. Unit tile sheets have an assosciated PList file
+2. The slicing can be figured out by going into the PList file and adding 1 to the dimensions listed there
+3. The Animation names and length can be figured out using the PList files
+4. Files go from bottom right to top left 
+	First up then left
+5. if frames were moved, they can be realligned by doing Slice > Smart 
+	
+Figured out with the help of lev

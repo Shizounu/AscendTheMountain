@@ -1,0 +1,3378 @@
+fileFormatVersion: 2
+guid: 35bcaa7c29b639e44b5336a6bada73d3
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: boss_chaosknight_0
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 1926
+        width: 76
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e58506b304705234283ef275978136e5
+      internalID: -63652955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_1
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 1924
+        width: 76
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea43f5ccbb4ecf4fac67ef3c97c9142
+      internalID: 1832199015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_2
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 1924
+        width: 76
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8346c6c1d2710f74695a74229471e1ef
+      internalID: 759516146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_3
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 1924
+        width: 76
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22aa059ef58c879469de17bd2ba051f7
+      internalID: -1185200775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_4
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 1980
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd243ee06533084eb0e2a9a1294d6bc
+      internalID: 2117383368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_5
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 1924
+        width: 76
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e393767f7a3ea594297533127f8b1fff
+      internalID: 1421171556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_6
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1922
+        width: 89
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a75441c6848401439074b2dbdf12771
+      internalID: 138080029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_7
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 1917
+        width: 88
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5f12c2aa8f7964d87ca685c8ba4902
+      internalID: -1029171022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_8
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 1924
+        width: 84
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16d06bd4afa7a3642bee0a47181ed26a
+      internalID: -1681076284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_9
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 1785
+        width: 76
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ffc21934ccbac04a9054f8e12b3fbef
+      internalID: 840010655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_10
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 1783
+        width: 76
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06cd57056a733d94aa3fdfe3dd2ad165
+      internalID: 1497909513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_11
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 1783
+        width: 76
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66b2c849bafa5024b92579ea2576d0cf
+      internalID: 1734001472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_12
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 1838
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1a956d44bc8ef144b3554fcc5e46ac3
+      internalID: 182066298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_13
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 1833
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d7f06809f1eee46b1d98ab2e68dd06
+      internalID: 593719683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_14
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 1783
+        width: 76
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cf963fcfd4208b4cb46130663e949a4
+      internalID: -1540078104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_15
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1775
+        width: 89
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc073fa9a5a3c34e8713af593e5151c
+      internalID: -2144910922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_16
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 1749
+        width: 62
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8b51f2b0205a4c4a9b884cb09a2ec1b
+      internalID: -795923787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_17
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 1783
+        width: 71
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 165304b065e8cf3429b80370d5171089
+      internalID: 544686036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1833
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7898ec78f2d575145897e6a8e2ae8942
+      internalID: 1771958083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_19
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1776
+        width: 75
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89678541c8b329c4aba59badbd2a51ac
+      internalID: -1238963107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_20
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 1644
+        width: 76
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503a4616b523182448e929dd1da8af65
+      internalID: 793564047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_21
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 1642
+        width: 76
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb23afa26b58814abdf7e7226310e38
+      internalID: -809291331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_22
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1635
+        width: 75
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 644b3e78709dbe6498980c2b1dd1af33
+      internalID: -629859555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_23
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1642
+        width: 82
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 390cffa21e8cb124caf4cbfd68a6cb95
+      internalID: -200888180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_24
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 1704
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ed3f6dbe776ae4e9f39bf2bb690e68
+      internalID: 411563917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_25
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1634
+        width: 89
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 208e9d041fa55f041b4cd0ee012fb7fe
+      internalID: 1158017878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_26
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 1642
+        width: 90
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b23ad9d1651560e4796cd0865f899f95
+      internalID: 335263999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_27
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 1642
+        width: 72
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c78459e64bcaf743a8dc6680ae7aa17
+      internalID: 393215864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_28
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 1642
+        width: 76
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 806eea7a1c9287545af0c1f48e1b43b6
+      internalID: 2080828184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_29
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 1503
+        width: 76
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1001226161b504147b712e6a7cda9258
+      internalID: 1303848207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_30
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 1501
+        width: 76
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78f74d2ccbef1434e91891894c3fb4be
+      internalID: -848791771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_31
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1494
+        width: 75
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e93bc6de01fa3ab4b8cc7011fc8e729e
+      internalID: -1652350754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_32
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1501
+        width: 81
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb3c8de86bbb4d4e996954f3393ab07
+      internalID: -1015521538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_33
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 1501
+        width: 76
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12db5da8d3e9a8c40bc0b37c2cdaa311
+      internalID: -44521694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_34
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1493
+        width: 89
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 904e5986407c8a94983c7c90d7e2163e
+      internalID: 2129796825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_35
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 1501
+        width: 95
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd66f78ad718544981421ff58424574
+      internalID: 1397109938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_36
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 1526
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6598f182a63c3cc47a101c39928b935b
+      internalID: -2036756338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_37
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 1503
+        width: 81
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e07ce637d254946a478810a26962c8
+      internalID: -1797946814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_38
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1352
+        width: 89
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 263869c7f26d33a4fbd6cc1f5bd7369c
+      internalID: 1900517795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_39
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1461
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bfc9469c04df1b40b58f4464a1253e1
+      internalID: -1503127675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_40
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 1461
+        width: 42
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b776be312e8fa7438928e2ec47976cf
+      internalID: 925570416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_41
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 1448
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a07d144d8ae7c14b8fc416b52a36a5a
+      internalID: -748710006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_42
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1409
+        width: 8
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc77457e34a312a42948334c0e708eb2
+      internalID: -74981046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_43
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 1431
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c6be1bad2d289742a5f3f21b109c277
+      internalID: -340637957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_44
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 1428
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1377581e681f034f98c20c77ea0f734
+      internalID: -97029475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_45
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 1360
+        width: 75
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5439fa543d04ecf449f69db6f00287a5
+      internalID: 709791785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_46
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 1403
+        width: 5
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce3f954d2e067c14a86f17a4c2d2fe21
+      internalID: -1316463696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_47
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 1362
+        width: 76
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cfaeeacf2622ee418814d9d38d39a85
+      internalID: 420310021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_48
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 1360
+        width: 76
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23a141dcde45d0e4ebdac052ad41c49e
+      internalID: 1041136155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_49
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 1420
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc408213e99b8c4dbe632e03835a41b
+      internalID: -1594654355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_50
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 1405
+        width: 8
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b51acf2a718f8a4448feb351e7f9fad0
+      internalID: -1432617598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_51
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 1412
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a571b53d1e988074599ddb82937a4ce5
+      internalID: 56926179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_52
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 1417
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2098c86d78e68b74da4a434e9c5b6971
+      internalID: 1545227277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_53
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 1413
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61d3d4c8fa275eb4e89dcd788138880b
+      internalID: 1494056399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_54
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1409
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91dd636cf41c4244ebf2eddadeeee27c
+      internalID: 1789826145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_55
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 1360
+        width: 76
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e33f782009e2744af79719c336a07f
+      internalID: -1516980318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_56
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 1362
+        width: 76
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d1f11b42caa6c54bb1256a1573cafec
+      internalID: 666054464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_57
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1353
+        width: 75
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423d87079d0846e4b8228fed5ced1843
+      internalID: -1477132801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_58
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 1360
+        width: 76
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0a87412ea589f64dbcf5b1e6205b74b
+      internalID: 1225545864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_59
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 1386
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3bfc89d2978f7b4e84233c3b1e12e9c
+      internalID: -2110861427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_60
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1211
+        width: 89
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd25df4bbb5eed849bc8a909b19f84f1
+      internalID: -1609323663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_61
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 1318
+        width: 40
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faeab1744c35aa7429eec7b5ada164d8
+      internalID: -1869192689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_62
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 1301
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76165e9b4156c754fbfc9ebc4c9015ea
+      internalID: -2080698904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_63
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 1223
+        width: 76
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e156d377f1fdb774bb6fecbec39edefb
+      internalID: 2133799386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_64
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 1219
+        width: 76
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae94ccc76e7028429cfab3b54b70cb1
+      internalID: -1515600592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_65
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1212
+        width: 75
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 006adde7d70a7aa47b51d05a55e59996
+      internalID: 1430272707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_66
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 1219
+        width: 79
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55bd2de6f5dd8f142ac515506e5a3be5
+      internalID: -81856158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_67
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1219
+        width: 76
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df984a6fec8e2a41a0c7f4b7895b244
+      internalID: 2102808854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_68
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 1219
+        width: 87
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e72789bf7c690f84380bf7201c33c3b9
+      internalID: -1941062505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_69
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 1263
+        width: 5
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 551665208015b0649be6ad2822d426d1
+      internalID: 248322350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_70
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 1219
+        width: 76
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72ecdc146736b024a9d1ae6ef1ffabda
+      internalID: -938955128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_71
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1071
+        width: 75
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f883562e60f7efa48a9ad1f0fffdd944
+      internalID: -1979806102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_72
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 1144
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 020403d0d12da834692b7b57cd13868c
+      internalID: -2027187681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_73
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1078
+        width: 78
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db3497d4f98625247bc5edc016119f83
+      internalID: 1150615492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_74
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1072
+        width: 88
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f1892d9c76ea3e4281c427e84593201
+      internalID: -1327305660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_75
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 1078
+        width: 92
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e5819236e4f6d04aa513d74c32d6f33
+      internalID: -226652238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_76
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1078
+        width: 79
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 652cc56ff62b0a142ac9ca0a4c930abf
+      internalID: 2036859543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_77
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 1078
+        width: 76
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08098657b1ebf5d469613bfcd82393b5
+      internalID: 2110521144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_78
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1078
+        width: 76
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4fd203847e8c874eb06e10ca9583985
+      internalID: -1295621333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_79
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 930
+        width: 75
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 368cfcb8e088925489f5d8260aa228e9
+      internalID: 705423145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_80
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 1005
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 118e169f3df6953488f95eab547be938
+      internalID: 2030620643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_81
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 937
+        width: 91
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2addfd468dede4d43834afab4710c40c
+      internalID: -872437679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_82
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 937
+        width: 79
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28e69b4ded4c2e743a40b0b458d1056f
+      internalID: -1395474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_83
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 937
+        width: 76
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 935f9cfe17fb3584eb3d6e1f326a9a9d
+      internalID: 83800145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_84
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 937
+        width: 76
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ba685b4a7a8a9a43a54c9f784957cbc
+      internalID: 1777742416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_85
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 937
+        width: 76
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23d527eeee9b0e7408c0da1a0e70f9df
+      internalID: -1265420188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_86
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 932
+        width: 93
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 714d678188e7bce4a91768a468c9a136
+      internalID: -2063973313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_87
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 796
+        width: 78
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 730ebf3c85b6afe48b5cb089616dbc6b
+      internalID: 1741846805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_88
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 796
+        width: 76
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc03983c32ec24742a851903e55e062e
+      internalID: 239914691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_89
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 789
+        width: 75
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ca409d9e4362244482c12104e060cdb
+      internalID: 512946101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_90
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 796
+        width: 76
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1499d1615b42bc74f94a442f2ba2bdf8
+      internalID: -1555151127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_91
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 796
+        width: 76
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e8fce0dcefdd143a16792ab7109c4c
+      internalID: 448686137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_92
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 791
+        width: 88
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2b98d5f0e48e894e953a4aabe6f8921
+      internalID: -1182569313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_93
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 852
+        width: 70
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68612319e25f59443bfcd159bcbcced4
+      internalID: -440321796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_94
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 796
+        width: 90
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0bb00b879c7a314b88575d8f788b53b
+      internalID: 1815527441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_95
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 655
+        width: 77
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7561f97af835d8349a9c6ec120c9a0a7
+      internalID: 52483099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_96
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 655
+        width: 76
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da6bbcd52b99a2246b8eae2b23d48c2a
+      internalID: -550152889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_97
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 648
+        width: 77
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed05348269a33f4aa9855e5320d6b03
+      internalID: 634597380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_98
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 715
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7884f9c7df610e146a49f4b486c5abbc
+      internalID: 1223391808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_99
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 645
+        width: 93
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4b360c36817a93409e18b1a80d96d17
+      internalID: 1554526226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_100
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 655
+        width: 89
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e264b065fab40b445bfc1118f4d97a0c
+      internalID: -124426465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_101
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 655
+        width: 76
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 916bb50541c886e49854389481cd736a
+      internalID: -91961700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_102
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 655
+        width: 76
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a99e8b2cfeb8cce43a17eebe31276c02
+      internalID: 392107745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_103
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 514
+        width: 76
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5690b6f37f0a14a448766f18da5e0256
+      internalID: 26908351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_104
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 514
+        width: 76
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09364f7876dfc784ea7134ac26b3a5cc
+      internalID: 1642664259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_105
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 508
+        width: 76
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 463e4d2f08f23d94d90865f88586ab34
+      internalID: -1614826339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_106
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 514
+        width: 76
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd94e377339156640a0dfcc78d6eeec2
+      internalID: 2124976308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_107
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 574
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5758a8a496ab504a928c68de772ec37
+      internalID: -274877916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_108
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 505
+        width: 91
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72d5bb8d925d2bc47b99a7ac83301b96
+      internalID: -1631043007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_109
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 571
+        width: 19
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2be40f8ebbaf0a4fa2a0dc193d5f2ea
+      internalID: 700804318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_110
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 514
+        width: 88
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9587ef11014679d459aa7449171849f7
+      internalID: -1432011963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_111
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 514
+        width: 76
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c59ff18d72c011d419b6bf894f79930a
+      internalID: 1086131314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_112
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 373
+        width: 76
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef5b312227774b14a8e6f5d29d5be989
+      internalID: 509673583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_113
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 373
+        width: 76
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4b259a61aa0099419e3270f52558297
+      internalID: 1233104663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_114
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 366
+        width: 75
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e239dbb0c13c8c5418479d8a4af1bda0
+      internalID: 1691583811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_115
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 373
+        width: 76
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3afc4905c1432a43af176424248a582
+      internalID: -448559331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_116
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 428
+        width: 4
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 130804e7e55ddc246b90df3daa0790a1
+      internalID: -663335273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_117
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 370
+        width: 93
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2881c8f33f03d458c80efb15c25a7a
+      internalID: -1314793209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_118
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 434
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bf6221d3583fdf459ed0ae89f5fd1d6
+      internalID: 832996310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_119
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 433
+        width: 9
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4a31dea983f88042bc0395312347144
+      internalID: -1421067144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_120
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 373
+        width: 84
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fb4f5e1e6aead04091fe0d17975c764
+      internalID: 56469449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_121
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 373
+        width: 76
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc5eaa447a9d9cd4fa2e57029c94e23d
+      internalID: 896520694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_122
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 428
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72685edbc090b58459436e425f1831f0
+      internalID: 660642931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_123
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 364
+        width: 35
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd4e18c4b0a20e6439db344e14798196
+      internalID: -401281558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_124
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 365
+        width: 17
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a73c248808579004c8c5c388631d670f
+      internalID: -885224968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_125
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 301
+        width: 13
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a46ef622d526e4594d1f77091bc25f
+      internalID: -863529889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_126
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 330
+        width: 5
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad60803925a31764cb3217d85cb20014
+      internalID: -1268871415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_127
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 319
+        width: 5
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f21e491e6a39d347abcdf4a7dd19a1d
+      internalID: 1450940252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_128
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 293
+        width: 15
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f85b58e3cf4d0f54f9da92fbb1cbd793
+      internalID: 414955047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_129
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 315
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81f255d64bfde6b47abf9dc300918287
+      internalID: -1733276161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_130
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 232
+        width: 84
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe7e7ab7cff0f4d4597b3cec971d5830
+      internalID: 370979959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_131
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 232
+        width: 76
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e34fcb98e7c88e43900e6dbee438c34
+      internalID: -669920532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_132
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 305
+        width: 4
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaa77893d28e4b34f89ee42af171b802
+      internalID: -988808253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_133
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 232
+        width: 76
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a092a787867c5479575f5987e9447f
+      internalID: 28560035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_134
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 231
+        width: 74
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e25989413441d04bbe406d151fcf331
+      internalID: 420982228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_135
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 232
+        width: 76
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3a3b8339422f14886dea1e10f877d3
+      internalID: -939604442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_136
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 232
+        width: 76
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e71a641b3a7c55e448382a0bfb2df938
+      internalID: 466626686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_137
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 224
+        width: 92
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23fa75c6b5510c342b48f718611e640c
+      internalID: 2035309941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_138
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 91
+        width: 76
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 320f18f54d260cb43b15a4fd436f26c8
+      internalID: -921697984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_139
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 91
+        width: 76
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f2512dff58b35419f568b9837e78cb
+      internalID: 1071765404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_140
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 144
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f71cb2d92b823e5499db3521f07e3ae4
+      internalID: 2123923787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_141
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 149
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b71dcd29a8a9662439dc0928fc5a774e
+      internalID: -1597374219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_142
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 86
+        width: 76
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ad2e4af91383e345b74f7632cbac3aa
+      internalID: 1977198017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_143
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 131
+        width: 62
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e72ae3fa9860441987285c9853f214
+      internalID: 1621030657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_144
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 84
+        width: 90
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b6f8fbba9cd9a34a81703d76bfa98f1
+      internalID: -39090485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_145
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 91
+        width: 74
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae5e5b12a34aa7647aeda67c0b76911e
+      internalID: 324489699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_146
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 91
+        width: 76
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dee17418971860d4184a85c02fda5032
+      internalID: 842625935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_chaosknight_147
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 91
+        width: 83
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 152960ccfc364de498e5de1fc9a099c9
+      internalID: -1537274021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      boss_chaosknight_22: -629859555
+      boss_chaosknight_7: -1029171022
+      boss_chaosknight_9: 840010655
+      boss_chaosknight_104: 1642664259
+      boss_chaosknight_75: -226652238
+      boss_chaosknight_77: 2110521144
+      boss_chaosknight_128: 414955047
+      boss_chaosknight_8: -1681076284
+      boss_chaosknight_58: 1225545864
+      boss_chaosknight_82: -1395474
+      boss_chaosknight_141: -1597374219
+      boss_chaosknight_98: 1223391808
+      boss_chaosknight_109: 700804318
+      boss_chaosknight_139: 1071765404
+      boss_chaosknight_76: 2036859543
+      boss_chaosknight_26: 335263999
+      boss_chaosknight_140: 2123923787
+      boss_chaosknight_91: 448686137
+      boss_chaosknight_142: 1977198017
+      boss_chaosknight_51: 56926179
+      boss_chaosknight_10: 1497909513
+      boss_chaosknight_41: -748710006
+      boss_chaosknight_42: -74981046
+      boss_chaosknight_92: -1182569313
+      boss_chaosknight_123: -401281558
+      boss_chaosknight_102: 392107745
+      boss_chaosknight_39: -1503127675
+      boss_chaosknight_50: -1432617598
+      boss_chaosknight_68: -1941062505
+      boss_chaosknight_44: -97029475
+      boss_chaosknight_56: 666054464
+      boss_chaosknight_118: 832996310
+      boss_chaosknight_13: 593719683
+      boss_chaosknight_23: -200888180
+      boss_chaosknight_30: -848791771
+      boss_chaosknight_100: -124426465
+      boss_chaosknight_125: -863529889
+      boss_chaosknight_28: 2080828184
+      boss_chaosknight_69: 248322350
+      boss_chaosknight_12: 182066298
+      boss_chaosknight_19: -1238963107
+      boss_chaosknight_85: -1265420188
+      boss_chaosknight_95: 52483099
+      boss_chaosknight_111: 1086131314
+      boss_chaosknight_27: 393215864
+      boss_chaosknight_31: -1652350754
+      boss_chaosknight_57: -1477132801
+      boss_chaosknight_130: 370979959
+      boss_chaosknight_21: -809291331
+      boss_chaosknight_83: 83800145
+      boss_chaosknight_147: -1537274021
+      boss_chaosknight_48: 1041136155
+      boss_chaosknight_103: 26908351
+      boss_chaosknight_115: -448559331
+      boss_chaosknight_40: 925570416
+      boss_chaosknight_90: -1555151127
+      boss_chaosknight_32: -1015521538
+      boss_chaosknight_60: -1609323663
+      boss_chaosknight_24: 411563917
+      boss_chaosknight_144: -39090485
+      boss_chaosknight_16: -795923787
+      boss_chaosknight_132: -988808253
+      boss_chaosknight_129: -1733276161
+      boss_chaosknight_11: 1734001472
+      boss_chaosknight_136: 466626686
+      boss_chaosknight_34: 2129796825
+      boss_chaosknight_84: 1777742416
+      boss_chaosknight_101: -91961700
+      boss_chaosknight_145: 324489699
+      boss_chaosknight_17: 544686036
+      boss_chaosknight_37: -1797946814
+      boss_chaosknight_126: -1268871415
+      boss_chaosknight_70: -938955128
+      boss_chaosknight_2: 759516146
+      boss_chaosknight_20: 793564047
+      boss_chaosknight_29: 1303848207
+      boss_chaosknight_112: 509673583
+      boss_chaosknight_138: -921697984
+      boss_chaosknight_117: -1314793209
+      boss_chaosknight_79: 705423145
+      boss_chaosknight_88: 239914691
+      boss_chaosknight_110: -1432011963
+      boss_chaosknight_5: 1421171556
+      boss_chaosknight_146: 842625935
+      boss_chaosknight_106: 2124976308
+      boss_chaosknight_64: -1515600592
+      boss_chaosknight_66: -81856158
+      boss_chaosknight_14: -1540078104
+      boss_chaosknight_99: 1554526226
+      boss_chaosknight_131: -669920532
+      boss_chaosknight_49: -1594654355
+      boss_chaosknight_45: 709791785
+      boss_chaosknight_124: -885224968
+      boss_chaosknight_53: 1494056399
+      boss_chaosknight_121: 896520694
+      boss_chaosknight_71: -1979806102
+      boss_chaosknight_25: 1158017878
+      boss_chaosknight_63: 2133799386
+      boss_chaosknight_108: -1631043007
+      boss_chaosknight_35: 1397109938
+      boss_chaosknight_120: 56469449
+      boss_chaosknight_67: 2102808854
+      boss_chaosknight_134: 420982228
+      boss_chaosknight_38: 1900517795
+      boss_chaosknight_33: -44521694
+      boss_chaosknight_54: 1789826145
+      boss_chaosknight_94: 1815527441
+      boss_chaosknight_135: -939604442
+      boss_chaosknight_59: -2110861427
+      boss_chaosknight_36: -2036756338
+      boss_chaosknight_74: -1327305660
+      boss_chaosknight_133: 28560035
+      boss_chaosknight_15: -2144910922
+      boss_chaosknight_43: -340637957
+      boss_chaosknight_96: -550152889
+      boss_chaosknight_143: 1621030657
+      boss_chaosknight_105: -1614826339
+      boss_chaosknight_47: 420310021
+      boss_chaosknight_73: 1150615492
+      boss_chaosknight_113: 1233104663
+      boss_chaosknight_119: -1421067144
+      boss_chaosknight_52: 1545227277
+      boss_chaosknight_116: -663335273
+      boss_chaosknight_4: 2117383368
+      boss_chaosknight_46: -1316463696
+      boss_chaosknight_93: -440321796
+      boss_chaosknight_86: -2063973313
+      boss_chaosknight_61: -1869192689
+      boss_chaosknight_89: 512946101
+      boss_chaosknight_6: 138080029
+      boss_chaosknight_3: -1185200775
+      boss_chaosknight_114: 1691583811
+      boss_chaosknight_97: 634597380
+      boss_chaosknight_1: 1832199015
+      boss_chaosknight_65: 1430272707
+      boss_chaosknight_87: 1741846805
+      boss_chaosknight_62: -2080698904
+      boss_chaosknight_72: -2027187681
+      boss_chaosknight_0: -63652955
+      boss_chaosknight_18: 1771958083
+      boss_chaosknight_55: -1516980318
+      boss_chaosknight_127: 1450940252
+      boss_chaosknight_107: -274877916
+      boss_chaosknight_122: 660642931
+      boss_chaosknight_78: -1295621333
+      boss_chaosknight_81: -872437679
+      boss_chaosknight_80: 2030620643
+      boss_chaosknight_137: 2035309941
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

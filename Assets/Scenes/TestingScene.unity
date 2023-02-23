@@ -490,7 +490,7 @@ PrefabInstance:
     - target: {fileID: 5864993051583382390, guid: 04c987eed29c6504db8b9bef3ea1da9a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1272865494, guid: 612cb2fb8f6f04d489f56c6a62e602d0, type: 3}
+      objectReference: {fileID: 1447856023, guid: 612cb2fb8f6f04d489f56c6a62e602d0, type: 3}
     - target: {fileID: 5864993051668096355, guid: 04c987eed29c6504db8b9bef3ea1da9a, type: 3}
       propertyPath: m_Name
       value: Card_Unit
@@ -542,6 +542,6 @@ PrefabInstance:
     - target: {fileID: 5864993051668096357, guid: 04c987eed29c6504db8b9bef3ea1da9a, type: 3}
       propertyPath: UnitInfo
       value: 
-      objectReference: {fileID: 11400000, guid: c726e582302af8446b1d1150cb7e9840, type: 2}
+      objectReference: {fileID: 11400000, guid: 4cb81d2f806fbaa43b1d8d8e4656f112, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04c987eed29c6504db8b9bef3ea1da9a, type: 3}
