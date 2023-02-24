@@ -7,8 +7,6 @@ namespace Card
     [CreateAssetMenu(fileName = "New Unit Info", menuName = "Cards/Unit Info")]
     public class CardInfo_Unit : CardInfo
     {
-
-        [Header("Unit Stats")]
         public int Attack = 1;
         public int Health = 1;
 

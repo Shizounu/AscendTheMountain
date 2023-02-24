@@ -7,8 +7,6 @@ namespace Card
     [CreateAssetMenu(fileName = "New Artifact Info", menuName = "Cards/Artifact Info")]
     public class CardInfo_Artifact : CardInfo
     {
-
-        [Header("Spell Info")]
         [TextArea] public string Description;
     }
 }

@@ -1,0 +1,2572 @@
+fileFormatVersion: 2
+guid: 6c8c90496ca159c43ae38c1a0ebd9e37
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -305572620789844557
+    second: Groundbreaker_attack000
+  - first:
+      213: 8597071968977709138
+    second: Groundbreaker_attack001
+  - first:
+      213: 4270196622258336088
+    second: Groundbreaker_attack002
+  - first:
+      213: -1214425041385424241
+    second: Groundbreaker_attack003
+  - first:
+      213: 8435605045855957779
+    second: Groundbreaker_attack004
+  - first:
+      213: -2624456430662058532
+    second: Groundbreaker_attack005
+  - first:
+      213: -4052066082915059830
+    second: Groundbreaker_attack006
+  - first:
+      213: 7099464774229229643
+    second: Groundbreaker_attack007
+  - first:
+      213: 7023440291275175663
+    second: Groundbreaker_attack008
+  - first:
+      213: 8890790175062710164
+    second: Groundbreaker_attack009
+  - first:
+      213: -2038913374462325759
+    second: Groundbreaker_attack010
+  - first:
+      213: -5372157028448832027
+    second: Groundbreaker_attack011
+  - first:
+      213: 5461976867864426189
+    second: Groundbreaker_attack012
+  - first:
+      213: -4362170971815674807
+    second: Groundbreaker_attack013
+  - first:
+      213: -4322934936103396399
+    second: Groundbreaker_attack014
+  - first:
+      213: 2612615534235435153
+    second: Groundbreaker_attack015
+  - first:
+      213: -4271976723783033332
+    second: Groundbreaker_attack016
+  - first:
+      213: -3567264887326358514
+    second: Groundbreaker_attack017
+  - first:
+      213: 7814586841367436454
+    second: Groundbreaker_attack018
+  - first:
+      213: -6834120671876858861
+    second: Groundbreaker_attack019
+  - first:
+      213: -3367537411749749626
+    second: Groundbreaker_attack020
+  - first:
+      213: 8455114911848908991
+    second: Groundbreaker_attack021
+  - first:
+      213: -86849351319683888
+    second: Groundbreaker_attack022
+  - first:
+      213: -8764893871745581132
+    second: Groundbreaker_attack023
+  - first:
+      213: -4143840897713233319
+    second: Groundbreaker_attack024
+  - first:
+      213: 4300933609426219528
+    second: Groundbreaker_attack025
+  - first:
+      213: -1292852743607928876
+    second: Groundbreaker_attack026
+  - first:
+      213: 479033671251457362
+    second: Groundbreaker_attack027
+  - first:
+      213: 5434925460530831920
+    second: Groundbreaker_attack028
+  - first:
+      213: 1871372114695154363
+    second: Groundbreaker_breathing000
+  - first:
+      213: -6844058433979034940
+    second: Groundbreaker_breathing001
+  - first:
+      213: -5340985498621321555
+    second: Groundbreaker_breathing002
+  - first:
+      213: -1385841702572091912
+    second: Groundbreaker_breathing003
+  - first:
+      213: 4380753740123118904
+    second: Groundbreaker_breathing004
+  - first:
+      213: -3103369082755213967
+    second: Groundbreaker_breathing005
+  - first:
+      213: 487116026973645618
+    second: Groundbreaker_breathing006
+  - first:
+      213: -3337180723018804834
+    second: Groundbreaker_breathing007
+  - first:
+      213: -8391683973739891105
+    second: Groundbreaker_breathing008
+  - first:
+      213: -8125253464949549114
+    second: Groundbreaker_breathing009
+  - first:
+      213: -1008523243401939761
+    second: Groundbreaker_breathing010
+  - first:
+      213: 5081902614667696102
+    second: Groundbreaker_breathing011
+  - first:
+      213: -439831765461499176
+    second: Groundbreaker_breathing012
+  - first:
+      213: -7120410023146190137
+    second: Groundbreaker_breathing013
+  - first:
+      213: 2549332588219663405
+    second: Groundbreaker_death000
+  - first:
+      213: 4009921790194809602
+    second: Groundbreaker_death001
+  - first:
+      213: 6601277072099229691
+    second: Groundbreaker_death002
+  - first:
+      213: -7498915801998514081
+    second: Groundbreaker_death003
+  - first:
+      213: 6642534148091322293
+    second: Groundbreaker_death004
+  - first:
+      213: 8220141410752202094
+    second: Groundbreaker_death005
+  - first:
+      213: -1172482510846896004
+    second: Groundbreaker_death006
+  - first:
+      213: 3211661427575252898
+    second: Groundbreaker_death007
+  - first:
+      213: 913611418247147038
+    second: Groundbreaker_death008
+  - first:
+      213: -6264100288741799155
+    second: Groundbreaker_death009
+  - first:
+      213: 5030256135164157103
+    second: Groundbreaker_death010
+  - first:
+      213: -8542400644298226464
+    second: Groundbreaker_death011
+  - first:
+      213: -298554594940625137
+    second: Groundbreaker_death012
+  - first:
+      213: -8101168137790557022
+    second: Groundbreaker_death013
+  - first:
+      213: -7834262314132285863
+    second: Groundbreaker_death014
+  - first:
+      213: -8493840006317390453
+    second: Groundbreaker_death015
+  - first:
+      213: -9092851757113811243
+    second: Groundbreaker_death016
+  - first:
+      213: 893541818929150702
+    second: Groundbreaker_death017
+  - first:
+      213: -8448140730100246797
+    second: Groundbreaker_death018
+  - first:
+      213: -7680206593878327188
+    second: Groundbreaker_death019
+  - first:
+      213: 4770796236941424851
+    second: Groundbreaker_death020
+  - first:
+      213: -8601947124605183572
+    second: Groundbreaker_death021
+  - first:
+      213: -3246834784831077861
+    second: Groundbreaker_death022
+  - first:
+      213: -3083815180466243823
+    second: Groundbreaker_death023
+  - first:
+      213: 2994682051383079632
+    second: Groundbreaker_death024
+  - first:
+      213: -5557306660812294390
+    second: Groundbreaker_death025
+  - first:
+      213: 5828635580800429077
+    second: Groundbreaker_death026
+  - first:
+      213: -2083902220495328378
+    second: Groundbreaker_death027
+  - first:
+      213: -136551694404954472
+    second: Groundbreaker_hit000
+  - first:
+      213: 8960009426340176838
+    second: Groundbreaker_hit001
+  - first:
+      213: -8177425273176256279
+    second: Groundbreaker_hit002
+  - first:
+      213: -6127448850333740772
+    second: Groundbreaker_idle000
+  - first:
+      213: -4476279579362656503
+    second: Groundbreaker_idle001
+  - first:
+      213: 7101745624581371674
+    second: Groundbreaker_idle002
+  - first:
+      213: -6612241232561985924
+    second: Groundbreaker_idle003
+  - first:
+      213: -7719993190088690080
+    second: Groundbreaker_idle004
+  - first:
+      213: 5464732850169935287
+    second: Groundbreaker_idle005
+  - first:
+      213: 3142305937317672692
+    second: Groundbreaker_idle006
+  - first:
+      213: 5721879258685597406
+    second: Groundbreaker_idle007
+  - first:
+      213: 7344855836683757834
+    second: Groundbreaker_idle008
+  - first:
+      213: -5773263260084374846
+    second: Groundbreaker_idle009
+  - first:
+      213: 3511502201098101779
+    second: Groundbreaker_idle010
+  - first:
+      213: -2921814826328989018
+    second: Groundbreaker_idle011
+  - first:
+      213: 2550427408976629744
+    second: Groundbreaker_idle012
+  - first:
+      213: -1847137536392200244
+    second: Groundbreaker_idle013
+  - first:
+      213: 8255419166440611631
+    second: Groundbreaker_idle014
+  - first:
+      213: 3898642924611414623
+    second: Groundbreaker_idle015
+  - first:
+      213: -5483455231354953336
+    second: Groundbreaker_idle016
+  - first:
+      213: 7234065297912031130
+    second: Groundbreaker_idle017
+  - first:
+      213: 5677454409238412608
+    second: Groundbreaker_run000
+  - first:
+      213: 8584007458615946266
+    second: Groundbreaker_run001
+  - first:
+      213: -3679399348814201939
+    second: Groundbreaker_run002
+  - first:
+      213: -8607127221027786373
+    second: Groundbreaker_run003
+  - first:
+      213: 3282789564248370020
+    second: Groundbreaker_run004
+  - first:
+      213: -8503215409536971943
+    second: Groundbreaker_run005
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 70
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Groundbreaker_attack000
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 320
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b57cb4025362cbf0800000000000000
+      internalID: -305572620789844557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack001
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2586263186fee4770800000000000000
+      internalID: 8597071968977709138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack002
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 38
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 851f7c61439c24b30800000000000000
+      internalID: 4270196622258336088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack003
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 179
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8af1e1fbde752fe0800000000000000
+      internalID: -1214425041385424241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack004
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 320
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 313bcbf681a411570800000000000000
+      internalID: 8435605045855957779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack005
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 461
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cddf5e108ce049bd0800000000000000
+      internalID: -2624456430662058532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack006
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 602
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a877079cd5b24c7c0800000000000000
+      internalID: -4052066082915059830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack007
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b40055bf89d568260800000000000000
+      internalID: 7099464774229229643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack008
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe67f9eabb5487160800000000000000
+      internalID: 7023440291275175663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack009
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 38
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 497552d0f8e626b70800000000000000
+      internalID: 8890790175062710164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack010
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 179
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c416ba61354b3e0800000000000000
+      internalID: -2038913374462325759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack011
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 320
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e570b145a34275b0800000000000000
+      internalID: -5372157028448832027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack012
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 461
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc6b574c507dccb40800000000000000
+      internalID: 5461976867864426189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack013
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 602
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94cf767ec947673c0800000000000000
+      internalID: -4362170971815674807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack014
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1db5e6a5499d104c0800000000000000
+      internalID: -4322934936103396399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack015
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19045c47cffd14420800000000000000
+      internalID: 2612615534235435153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack016
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 38
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0edc2abdc3e6b4c0800000000000000
+      internalID: -4271976723783033332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack017
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 179
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0440333c778e7ec0800000000000000
+      internalID: -3567264887326358514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack018
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 320
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6acd52a245df27c60800000000000000
+      internalID: 7814586841367436454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack019
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 461
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31c30a825735821a0800000000000000
+      internalID: -6834120671876858861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack020
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 602
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68c51d4e09a1441d0800000000000000
+      internalID: -3367537411749749626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack021
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb8ccd7173a965570800000000000000
+      internalID: 8455114911848908991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack022
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dcfd91a9f27bcef0800000000000000
+      internalID: -86849351319683888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack023
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 38
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bf3b984677dc5680800000000000000
+      internalID: -8764893871745581132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack024
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 179
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 952211698ae1e76c0800000000000000
+      internalID: -4143840897713233319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack025
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 320
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8027368945cffab30800000000000000
+      internalID: 4300933609426219528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack026
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 461
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d73c5e874dde0ee0800000000000000
+      internalID: -1292852743607928876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack027
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 602
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 255f462069ed5a600800000000000000
+      internalID: 479033671251457362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_attack028
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 032aaaf29ebbc6b40800000000000000
+      internalID: 5434925460530831920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_breathing000
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbae9faf50378f910800000000000000
+      internalID: 1871372114695154363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_breathing001
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 38
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c2d9ac9d150501a0800000000000000
+      internalID: -6844058433979034940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_breathing002
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 179
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daed92c9cf101e5b0800000000000000
+      internalID: -5340985498621321555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_breathing003
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 320
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f59443605084cce0800000000000000
+      internalID: -1385841702572091912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_breathing004
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 461
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83d908001509bcc30800000000000000
+      internalID: 4380753740123118904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_breathing005
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 602
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1751277f24e9ee4d0800000000000000
+      internalID: -3103369082755213967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_breathing006
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23be928127592c600800000000000000
+      internalID: 487116026973645618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_breathing007
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e91de2540d3ffa1d0800000000000000
+      internalID: -3337180723018804834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_breathing008
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 38
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5635ed03efba8b80800000000000000
+      internalID: -8391683973739891105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_breathing009
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 179
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c79ba7e50d4d3f80800000000000000
+      internalID: -8125253464949549114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_breathing010
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 320
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc47d4914710102f0800000000000000
+      internalID: -1008523243401939761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_breathing011
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 461
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e79562c08b868640800000000000000
+      internalID: 5081902614667696102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_breathing012
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 602
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d20cb2f65765e9f0800000000000000
+      internalID: -439831765461499176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_breathing013
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ca8d3b3fc83f2d90800000000000000
+      internalID: -7120410023146190137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death000
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2409276b7c016320800000000000000
+      internalID: 2549332588219663405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death001
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 38
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20bf8a96f9a16a730800000000000000
+      internalID: 4009921790194809602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death002
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 179
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bffb762a5827c9b50800000000000000
+      internalID: 6601277072099229691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death003
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f58a05d1fcf7ee790800000000000000
+      internalID: -7498915801998514081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death004
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 461
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bf92613d950f2c50800000000000000
+      internalID: 6642534148091322293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death005
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 602
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e650d579f0fc31270800000000000000
+      internalID: 8220141410752202094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death006
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c78dc935e518abfe0800000000000000
+      internalID: -1172482510846896004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death007
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a762716d0d129c20800000000000000
+      internalID: 3211661427575252898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death008
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 38
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1eac5f8ebccdac00800000000000000
+      internalID: 913611418247147038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death009
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 179
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0b8f1cd9f17119a0800000000000000
+      internalID: -6264100288741799155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death010
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 320
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fac50b1bd4f0fc540800000000000000
+      internalID: 5030256135164157103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death011
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 461
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e44983afdb437980800000000000000
+      internalID: -8542400644298226464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death012
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 602
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0fd08e7d225bdbf0800000000000000
+      internalID: -298554594940625137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death013
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a4f741208ed29f80800000000000000
+      internalID: -8101168137790557022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death014
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9565ae8deeb174390800000000000000
+      internalID: -7834262314132285863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death015
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 38
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85437c3481df1a80800000000000000
+      internalID: -8493840006317390453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death016
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 179
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ded1fdb083bfc180800000000000000
+      internalID: -9092851757113811243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death017
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 320
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eea7a35dc8f766c00800000000000000
+      internalID: 893541818929150702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death018
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 461
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f69dd124cc22ca80800000000000000
+      internalID: -8448140730100246797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death019
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c60054a5bcc6a6590800000000000000
+      internalID: -7680206593878327188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death020
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d8f9a696e5453240800000000000000
+      internalID: 4770796236941424851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death021
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 461
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca9173d4aaebf9880800000000000000
+      internalID: -8601947124605183572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death022
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 602
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1203c537fce0f2d0800000000000000
+      internalID: -3246834784831077861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death023
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1173a5f9e661435d0800000000000000
+      internalID: -3083815180466243823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death024
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d23def857f3f8920800000000000000
+      internalID: 2994682051383079632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death025
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 38
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a07fe5e290b70e2b0800000000000000
+      internalID: -5557306660812294390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death026
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 179
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51cefc6ed2973e050800000000000000
+      internalID: 5828635580800429077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_death027
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 320
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68b6ab0b8fd7413e0800000000000000
+      internalID: -2083902220495328378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_hit000
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 461
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 896d38915feda1ef0800000000000000
+      internalID: -136551694404954472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_hit001
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 602
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c36821e919585c70800000000000000
+      internalID: 8960009426340176838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_hit002
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e017073a03f38e80800000000000000
+      internalID: -8177425273176256279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle000
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c115b783cbde6faa0800000000000000
+      internalID: -6127448850333740772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle001
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 38
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90ff0cc507f01e1c0800000000000000
+      internalID: -4476279579362656503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle002
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 179
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a177b56d4087e8260800000000000000
+      internalID: 7101745624581371674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle003
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 320
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c76a3f3d1a99c34a0800000000000000
+      internalID: -6612241232561985924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle004
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 461
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 066345c88131dd490800000000000000
+      internalID: -7719993190088690080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle005
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 602
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b579c6e291a6db40800000000000000
+      internalID: 5464732850169935287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle006
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f6bb61f996bb9b20800000000000000
+      internalID: 3142305937317672692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle007
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed661a5bed2386f40800000000000000
+      internalID: 5721879258685597406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle008
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 38
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a096dfff77b2ee560800000000000000
+      internalID: 7344855836683757834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle009
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 320
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c27bdb27af31efa0800000000000000
+      internalID: -5773263260084374846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle010
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 179
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 314647ca5ac5bb030800000000000000
+      internalID: 3511502201098101779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle011
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 320
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a2e03955e0a377d0800000000000000
+      internalID: -2921814826328989018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle012
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ffc8793730f46320800000000000000
+      internalID: 2550427408976629744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle013
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 461
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccf7d0c7236ad56e0800000000000000
+      internalID: -1847137536392200244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle014
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 602
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2fd4a72ef3219270800000000000000
+      internalID: 8255419166440611631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle015
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5aad838513ca1630800000000000000
+      internalID: 3898642924611414623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle016
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 881a459058ad6e3b0800000000000000
+      internalID: -5483455231354953336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_idle017
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 38
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a97e60c8f00946460800000000000000
+      internalID: 7234065297912031130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_run000
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 179
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04d712b64be5ace40800000000000000
+      internalID: 5677454409238412608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_run001
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1c6b18bd45802770800000000000000
+      internalID: 8584007458615946266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_run002
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 461
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dab302b59c520fcc0800000000000000
+      internalID: -3679399348814201939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_run003
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 602
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b713b0e15675d8880800000000000000
+      internalID: -8607127221027786373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_run004
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 743
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46b226937bfce8d20800000000000000
+      internalID: 3282789564248370020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Groundbreaker_run005
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 884
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95bcbe113a28ef980800000000000000
+      internalID: -8503215409536971943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Groundbreaker_death010: 5030256135164157103
+      Groundbreaker_idle003: -6612241232561985924
+      Groundbreaker_attack015: 2612615534235435153
+      Groundbreaker_breathing007: -3337180723018804834
+      Groundbreaker_run004: 3282789564248370020
+      Groundbreaker_death008: 913611418247147038
+      Groundbreaker_idle008: 7344855836683757834
+      Groundbreaker_breathing005: -3103369082755213967
+      Groundbreaker_attack001: 8597071968977709138
+      Groundbreaker_breathing011: 5081902614667696102
+      Groundbreaker_attack000: -305572620789844557
+      Groundbreaker_attack002: 4270196622258336088
+      Groundbreaker_idle014: 8255419166440611631
+      Groundbreaker_attack027: 479033671251457362
+      Groundbreaker_idle000: -6127448850333740772
+      Groundbreaker_idle007: 5721879258685597406
+      Groundbreaker_idle011: -2921814826328989018
+      Groundbreaker_death020: 4770796236941424851
+      Groundbreaker_idle009: -5773263260084374846
+      Groundbreaker_run000: 5677454409238412608
+      Groundbreaker_death021: -8601947124605183572
+      Groundbreaker_idle006: 3142305937317672692
+      Groundbreaker_attack017: -3567264887326358514
+      Groundbreaker_death022: -3246834784831077861
+      Groundbreaker_death003: -7498915801998514081
+      Groundbreaker_idle005: 5464732850169935287
+      Groundbreaker_run001: 8584007458615946266
+      Groundbreaker_idle004: -7719993190088690080
+      Groundbreaker_breathing009: -8125253464949549114
+      Groundbreaker_breathing001: -6844058433979034940
+      Groundbreaker_attack009: 8890790175062710164
+      Groundbreaker_attack013: -4362170971815674807
+      Groundbreaker_death001: 4009921790194809602
+      Groundbreaker_idle013: -1847137536392200244
+      Groundbreaker_attack023: -8764893871745581132
+      Groundbreaker_death019: -7680206593878327188
+      Groundbreaker_hit000: -136551694404954472
+      Groundbreaker_idle016: -5483455231354953336
+      Groundbreaker_breathing008: -8391683973739891105
+      Groundbreaker_death023: -3083815180466243823
+      Groundbreaker_breathing003: -1385841702572091912
+      Groundbreaker_attack007: 7099464774229229643
+      Groundbreaker_attack019: -6834120671876858861
+      Groundbreaker_attack028: 5434925460530831920
+      Groundbreaker_run005: -8503215409536971943
+      Groundbreaker_run002: -3679399348814201939
+      Groundbreaker_attack018: 7814586841367436454
+      Groundbreaker_death004: 6642534148091322293
+      Groundbreaker_attack026: -1292852743607928876
+      Groundbreaker_breathing000: 1871372114695154363
+      Groundbreaker_breathing010: -1008523243401939761
+      Groundbreaker_attack003: -1214425041385424241
+      Groundbreaker_attack012: 5461976867864426189
+      Groundbreaker_death027: -2083902220495328378
+      Groundbreaker_run003: -8607127221027786373
+      Groundbreaker_attack025: 4300933609426219528
+      Groundbreaker_attack020: -3367537411749749626
+      Groundbreaker_breathing002: -5340985498621321555
+      Groundbreaker_attack014: -4322934936103396399
+      Groundbreaker_idle012: 2550427408976629744
+      Groundbreaker_attack016: -4271976723783033332
+      Groundbreaker_death002: 6601277072099229691
+      Groundbreaker_attack008: 7023440291275175663
+      Groundbreaker_idle017: 7234065297912031130
+      Groundbreaker_breathing013: -7120410023146190137
+      Groundbreaker_attack022: -86849351319683888
+      Groundbreaker_hit002: -8177425273176256279
+      Groundbreaker_death009: -6264100288741799155
+      Groundbreaker_death026: 5828635580800429077
+      Groundbreaker_death006: -1172482510846896004
+      Groundbreaker_breathing004: 4380753740123118904
+      Groundbreaker_death012: -298554594940625137
+      Groundbreaker_breathing012: -439831765461499176
+      Groundbreaker_attack006: -4052066082915059830
+      Groundbreaker_idle010: 3511502201098101779
+      Groundbreaker_death013: -8101168137790557022
+      Groundbreaker_hit001: 8960009426340176838
+      Groundbreaker_death025: -5557306660812294390
+      Groundbreaker_attack004: 8435605045855957779
+      Groundbreaker_attack021: 8455114911848908991
+      Groundbreaker_death000: 2549332588219663405
+      Groundbreaker_death005: 8220141410752202094
+      Groundbreaker_breathing006: 487116026973645618
+      Groundbreaker_idle001: -4476279579362656503
+      Groundbreaker_death015: -8493840006317390453
+      Groundbreaker_death016: -9092851757113811243
+      Groundbreaker_idle015: 3898642924611414623
+      Groundbreaker_attack010: -2038913374462325759
+      Groundbreaker_death007: 3211661427575252898
+      Groundbreaker_death011: -8542400644298226464
+      Groundbreaker_attack005: -2624456430662058532
+      Groundbreaker_death014: -7834262314132285863
+      Groundbreaker_death017: 893541818929150702
+      Groundbreaker_death018: -8448140730100246797
+      Groundbreaker_attack011: -5372157028448832027
+      Groundbreaker_idle002: 7101745624581371674
+      Groundbreaker_death024: 2994682051383079632
+      Groundbreaker_attack024: -4143840897713233319
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

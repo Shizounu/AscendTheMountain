@@ -25,7 +25,7 @@ namespace Card
         [ContextMenu("Load info")]
         private void LoadInfo(){
             if(UnitInfo == null){
-                Debug.LogError("No card info selected");
+                //Debug.LogError("No card info selected");
                 return;
             }
 

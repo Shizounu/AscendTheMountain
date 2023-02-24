@@ -1,50 +1,13 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1107 &-5290000592884585219
-AnimatorStateMachine:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Base Layer
-  m_ChildStates:
-  - serializedVersion: 1
-    m_State: {fileID: 4246517021322204629}
-    m_Position: {x: 430, y: 30, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 4234634826406996741}
-    m_Position: {x: 420, y: 100, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 6568122856111848500}
-    m_Position: {x: 420, y: 170, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -3722856096149325769}
-    m_Position: {x: 410, y: 230, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 7493290470996806038}
-    m_Position: {x: 400, y: 310, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 6629353994498363786}
-    m_Position: {x: 670, y: 320, z: 0}
-  m_ChildStateMachines: []
-  m_AnyStateTransitions: []
-  m_EntryTransitions: []
-  m_StateMachineTransitions: {}
-  m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 50, y: 20, z: 0}
-  m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 800, y: 120, z: 0}
-  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 4234634826406996741}
---- !u!1102 &-3722856096149325769
+--- !u!1102 &-4680826094472311939
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Archdeacon_Hit
+  m_Name: Groundbreaker_breathing
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -57,7 +20,33 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1a7a5c6b04a8f9e46a2620739a502e90, type: 2}
+  m_Motion: {fileID: 7400000, guid: e21d1b42842258d42a8b05760e965223, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-1265286087416405351
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Groundbreaker_hit
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: bfee051ffb3a0ce45a10dbb61f597aab, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -69,13 +58,13 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Archdeacon_Animator
+  m_Name: GroundBreaker_Animator
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
-    m_StateMachine: {fileID: -5290000592884585219}
+    m_StateMachine: {fileID: 3826147545246990994}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -85,14 +74,51 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &4234634826406996741
+--- !u!1107 &3826147545246990994
+AnimatorStateMachine:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Base Layer
+  m_ChildStates:
+  - serializedVersion: 1
+    m_State: {fileID: 4062909467010851333}
+    m_Position: {x: 451.0704, y: 187.84827, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -4680826094472311939}
+    m_Position: {x: 461.0704, y: 197.84827, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 7141643290520615526}
+    m_Position: {x: 471.0704, y: 207.84827, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -1265286087416405351}
+    m_Position: {x: 481.0704, y: 217.84827, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 6899545901033516191}
+    m_Position: {x: 491.0704, y: 227.84827, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 6714565241144606532}
+    m_Position: {x: 501.0704, y: 237.84827, z: 0}
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: 4062909467010851333}
+--- !u!1102 &4062909467010851333
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Archdeacon_Breathing
+  m_Name: Groundbreaker_attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -105,20 +131,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 07e16e1ace2fdbb4f856402713e96ea1, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4f3d6866697f26f4fb1c02dc050c9202, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &4246517021322204629
+--- !u!1102 &6714565241144606532
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Archdeacon_Attack
+  m_Name: Groundbreaker_run
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -131,20 +157,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cec811c26a61e95428c591a0b7b16579, type: 2}
+  m_Motion: {fileID: 7400000, guid: a7b2fc644fc832c43b2bd6df26bd4932, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &6568122856111848500
+--- !u!1102 &6899545901033516191
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Archdeacon_Death
+  m_Name: Groundbreaker_idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -157,20 +183,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7d963fe57b9e3af4a978c931f9fc6e90, type: 2}
+  m_Motion: {fileID: 7400000, guid: 21a2d7d789944c24b9cefc1291ee65ee, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &6629353994498363786
+--- !u!1102 &7141643290520615526
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Archdeacon_Walking
+  m_Name: Groundbreaker_death
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -183,33 +209,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 042d8989f3e6f3c40add4c0b693d52e6, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &7493290470996806038
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Archdeacon_Idle
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ff6dfebe73df4a64bb924e6d36931f81, type: 2}
+  m_Motion: {fileID: 7400000, guid: f71208f9bcf434642be4799a789ead56, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

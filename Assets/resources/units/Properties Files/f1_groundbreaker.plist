@@ -6,30 +6,20 @@
 		<dict>
 			<key>f1_groundbreaker_attack_000.png</key>
 			<dict>
-				<key>frame</key>
-				<string>{{846,564},{140,140}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{0,0},{140,140}}</string>
-				<key>sourceSize</key>
-				<string>{140,140}</string>
+				<key>frame</key> <string>{{846,564},{140,140}}</string>
+				<key>offset</key> <string>{0,0}</string>
+				<key>rotated</key> <false/>
+				<key>sourceColorRect</key> <string>{{0,0},{140,140}}</string>
+				<key>sourceSize</key> <string>{140,140}</string>
 			</dict>
 
 			<key>f1_groundbreaker_attack_001.png</key>
 			<dict>
-				<key>frame</key>
-				<string>{{1833,0},{140,140}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{0,0},{140,140}}</string>
-				<key>sourceSize</key>
-				<string>{140,140}</string>
+				<key>frame</key> <string>{{1833,0},{140,140}}</string>
+				<key>offset</key> <string>{0,0}</string>
+				<key>rotated</key> <false/>
+				<key>sourceColorRect</key> <string>{{0,0},{140,140}}</string>
+				<key>sourceSize</key> <string>{140,140}</string>
 			</dict>
 
 			<key>f1_groundbreaker_attack_002.png</key>
