@@ -14,17 +14,18 @@ public class SpriteSheetEditor : EditorWindow {
         var window = GetWindow<SpriteSheetEditor>();
         window.titleContent = new GUIContent("SpriteSheetEditor");
         window.Show();
+
+
     }
 
-    string spriteSheetName;
+    string spriteSheetName ="";
     string resourceDirectory = "units";
     Sprite sprite;
     XmlDocument pListFile; 
-    string pListFilePath;
-    float animationScale = 1;
-
-
+    string pListFilePath = "";
+    float animationScale = 25;
     string spritePath;
+
     private void OnGUI() {
         
         spriteSheetName = EditorGUILayout.TextField("Sprite Sheet Name", spriteSheetName);  
@@ -90,6 +91,7 @@ public class SpriteSheetEditor : EditorWindow {
         CreateAnimations();
         
     }
+
     private List<FrameData> ParseFrameData(string filePath){
         pListFile = new();
         pListFile.Load(filePath);
@@ -126,6 +128,7 @@ public class SpriteSheetEditor : EditorWindow {
             return new Vector2Int(results[0], results[1]);
         }
     }
+
     private void SliceSprite(Sprite sprite, Vector2Int slicingSize, List<FrameData> frameDatas){
         spritePath = AssetDatabase.GetAssetPath(sprite);
         // https://forum.unity.com/threads/solved-slicing-a-sprite-through-script-on-importing.701294/
@@ -172,6 +175,7 @@ public class SpriteSheetEditor : EditorWindow {
         textureImporter.spritesheet = spriteMetaDatas.ToArray();
         AssetDatabase.ImportAsset(spritePath, ImportAssetOptions.ForceUpdate);
     }
+
     private void CreateAnimations(){
         List<Sprite> allSprites = AssetDatabase.LoadAllAssetsAtPath(spritePath).OfType<Sprite>().ToList();
 
@@ -179,7 +183,6 @@ public class SpriteSheetEditor : EditorWindow {
         Dictionary<String, List<Sprite>> animations = new Dictionary<string, List<Sprite>>();
 
         foreach (Sprite sprite in allSprites){
-            //if it doesnt contain the key
             string key = getAnimationName(sprite.name);
             if(!animations.ContainsKey(getAnimationName(sprite.name)))
                 animations.Add(key, new List<Sprite>());
@@ -215,17 +218,14 @@ public class SpriteSheetEditor : EditorWindow {
             controller.AddMotion(animClip);
         }
 
-        
-        
-
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
-        
         string getAnimationName(string spriteName){
             return spriteName.Replace($"{spriteSheetName}_", "").TrimEnd(new char[] {'0', '1', '2', '3', '4', '5', '6','7','8','9'});
         }
     }
+
 
     private struct FrameData{
         public FrameData(String _frameName, Vector2Int _sourceSize, Vector2Int _frameBasePos, Vector2Int _offset, Vector2Int _sourceColorBasePos, bool _rotated){

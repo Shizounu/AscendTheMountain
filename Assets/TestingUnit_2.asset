@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4982cd76757a4d4f84a63d137bb4984, type: 3}
+  m_Name: TestingUnit_2
+  m_EditorClassIdentifier: 
+  Name: TestBoi2
+  Cost: 2
+  Attack: 2
+  Health: 2
+  MoveDistance: 2
