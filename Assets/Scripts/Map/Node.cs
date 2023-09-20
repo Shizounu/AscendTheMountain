@@ -36,9 +36,9 @@ namespace Map
             {
                 LineRenderer lineRenderer = Instantiate(connectionLine, transform.position, Quaternion.identity, ConnectionRenderer);
                 lineRenderer.SetPositions(new Vector3[]{
-                transform.position,
-                node.transform.position
-            });
+                    transform.position,
+                    node.transform.position
+                });
             }
             connectedNodes = nodesToConnect;
         }

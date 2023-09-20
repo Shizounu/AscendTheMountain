@@ -227,7 +227,7 @@ Transform:
   m_GameObject: {fileID: 373522322791368736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 373522322197462469}
@@ -246,7 +246,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -289,6 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4ac047d662e2a4a8b3a0dac4e1f4d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene:
-    m_Handle: 0
+  sceneIndex:
+    useConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 0}
   eventReference: {fileID: 0}

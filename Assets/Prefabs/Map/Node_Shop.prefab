@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4744569096540333971, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
+      propertyPath: sceneIndex.Variable
+      value: 
+      objectReference: {fileID: 11400000, guid: c53061a4b1d4f9d46bce05f66322ef29, type: 2}
     - target: {fileID: 373522321379718691, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -21,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 373522322791368742, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 373522322791368742, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
       propertyPath: m_LocalPosition.y
