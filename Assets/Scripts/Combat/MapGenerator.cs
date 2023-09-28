@@ -23,6 +23,8 @@ namespace Combat {
                     );
 
                     Tile instance = Instantiate(prefab_Tile, new Vector3(position.x, position.y, 0), Quaternion.identity, this.transform);
+
+                    result[x, y] = instance;
                 }
             }
 
