@@ -24,7 +24,9 @@ namespace Map {
         public int MoveDistance;
 
         public Vector2Int currentPosition;
-    
+
+        [Header("References")]
+        public UnitVisualsManager VisualsManager;
         public void AddMaxHealth(int val)
         {
             MaxHealth += val;
@@ -38,6 +40,8 @@ namespace Map {
 
             currentPosition = _startPos;
             manager = _manager;
+
+            VisualsManager.Init(_definition.animatorController);
         }
 
         public void Move(Vector2Int movePos) {

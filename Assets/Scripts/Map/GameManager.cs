@@ -5,7 +5,7 @@ using UnityEngine;
 
 using UnityEngine.Events;
 using Shizounu.Library.ScriptableArchitecture;
-
+using UnityEngine.SceneManagement;
 namespace Map{
     public class GameManager : MonoBehaviour
     {
@@ -20,6 +20,15 @@ namespace Map{
         public Node currentNode;
         public UnityEvent OnFinalNode;
 
+        [Space(), Header("Scene Managment")]
+        public IntReference mapSceneIndex;
+        [Space()]
+        public ScriptableEvent OnDisableMap;
+        public ChangeMapActivityListener disableListener;
+        [Space()]
+        public ScriptableEvent OnEnableMap;
+        public ChangeMapActivityListener enableListener;
+        
         [Header("References")]
         [SerializeField] private MapGenerator mapGenerator;
 
@@ -28,6 +37,8 @@ namespace Map{
         private void Start()
         {
             mapGenerator.GenerateMap();
+            disableListener = new ChangeMapActivityListener(OnDisableMap, () => SetActiveMap(false));
+            enableListener = new ChangeMapActivityListener(OnEnableMap, () => SetActiveMap(true));
         }
 
         private void Update()
@@ -37,6 +48,13 @@ namespace Map{
                 OnFinalNode.Invoke();
                 hasRaisedFinalFlag = true;
             }
+        }
+
+        private void SetActiveMap(bool value){
+            Scene s = SceneManager.GetSceneByBuildIndex(mapSceneIndex);
+            GameObject[] rootObjects = s.GetRootGameObjects();
+            for (int i = 0; i < rootObjects.Length; i++) 
+                rootObjects[i].SetActive(value);
         }
 
         private bool IsNonContinuable()

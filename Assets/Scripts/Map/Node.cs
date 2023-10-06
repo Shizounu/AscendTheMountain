@@ -9,7 +9,6 @@ namespace Map
     public class Node : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("Visualization")]
-        [SerializeField] private float timeTillFullGlow = 1f;
         [SerializeField] private float hoverTime = 0;
         [SerializeField] private HoverState hoverState;
         [SerializeField] private Color selectedColor = Color.red;

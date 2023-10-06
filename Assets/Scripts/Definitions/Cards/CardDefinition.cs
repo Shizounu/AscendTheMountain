@@ -9,7 +9,7 @@ namespace Cards
     {
         [Header("Visuals")]
         public string Name;
-    
+        public RuntimeAnimatorController animatorController;
         [Header("Stats")]
         public int Cost;
     }

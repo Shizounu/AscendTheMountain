@@ -401,6 +401,12 @@ MonoBehaviour:
   OnFinalNode:
     m_PersistentCalls:
       m_Calls: []
+  mapSceneIndex:
+    useConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: b9e5d2a8be7b19f4c8ebdc6b2a13d263, type: 2}
+  OnDisableMap: {fileID: 11400000, guid: 93edf5b615fd77744b44e29453cbe914, type: 2}
+  OnEnableMap: {fileID: 11400000, guid: 43b89a754914d55439e363fd6f86aa81, type: 2}
   mapGenerator: {fileID: 1922893525}
   hasRaisedFinalFlag: 0
 --- !u!4 &1694533745
@@ -530,6 +536,78 @@ MonoBehaviour:
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: cc6a3a84b008dca4384a96b48468ce7b, type: 2}
   mapDefinition:
+  - minNodeCount: 3
+    maxNodeCount: 4
+    layerWidth: 8
+    weightedNodes:
+    - weight: 1
+      node: {fileID: 8667408130154066567, guid: 3fa935908787cfa4c966d8691347274a, type: 3}
+    - weight: 1
+      node: {fileID: 4487319317875606994, guid: 0811894918f9a984f8ff2c574198255e, type: 3}
+    - weight: 1
+      node: {fileID: 7608244497847085687, guid: 727365d0e3e1b1a42a4fcaf297ef74ef, type: 3}
+    - weight: 1
+      node: {fileID: 2387849338838026397, guid: 2c5f46e54f2b6d045942a29c6031534b, type: 3}
+  - minNodeCount: 3
+    maxNodeCount: 4
+    layerWidth: 8
+    weightedNodes:
+    - weight: 1
+      node: {fileID: 8667408130154066567, guid: 3fa935908787cfa4c966d8691347274a, type: 3}
+    - weight: 1
+      node: {fileID: 4487319317875606994, guid: 0811894918f9a984f8ff2c574198255e, type: 3}
+    - weight: 1
+      node: {fileID: 7608244497847085687, guid: 727365d0e3e1b1a42a4fcaf297ef74ef, type: 3}
+    - weight: 1
+      node: {fileID: 2387849338838026397, guid: 2c5f46e54f2b6d045942a29c6031534b, type: 3}
+  - minNodeCount: 3
+    maxNodeCount: 4
+    layerWidth: 8
+    weightedNodes:
+    - weight: 1
+      node: {fileID: 8667408130154066567, guid: 3fa935908787cfa4c966d8691347274a, type: 3}
+    - weight: 1
+      node: {fileID: 4487319317875606994, guid: 0811894918f9a984f8ff2c574198255e, type: 3}
+    - weight: 1
+      node: {fileID: 7608244497847085687, guid: 727365d0e3e1b1a42a4fcaf297ef74ef, type: 3}
+    - weight: 1
+      node: {fileID: 2387849338838026397, guid: 2c5f46e54f2b6d045942a29c6031534b, type: 3}
+  - minNodeCount: 3
+    maxNodeCount: 4
+    layerWidth: 8
+    weightedNodes:
+    - weight: 1
+      node: {fileID: 8667408130154066567, guid: 3fa935908787cfa4c966d8691347274a, type: 3}
+    - weight: 1
+      node: {fileID: 4487319317875606994, guid: 0811894918f9a984f8ff2c574198255e, type: 3}
+    - weight: 1
+      node: {fileID: 7608244497847085687, guid: 727365d0e3e1b1a42a4fcaf297ef74ef, type: 3}
+    - weight: 1
+      node: {fileID: 2387849338838026397, guid: 2c5f46e54f2b6d045942a29c6031534b, type: 3}
+  - minNodeCount: 3
+    maxNodeCount: 4
+    layerWidth: 8
+    weightedNodes:
+    - weight: 1
+      node: {fileID: 8667408130154066567, guid: 3fa935908787cfa4c966d8691347274a, type: 3}
+    - weight: 1
+      node: {fileID: 4487319317875606994, guid: 0811894918f9a984f8ff2c574198255e, type: 3}
+    - weight: 1
+      node: {fileID: 7608244497847085687, guid: 727365d0e3e1b1a42a4fcaf297ef74ef, type: 3}
+    - weight: 1
+      node: {fileID: 2387849338838026397, guid: 2c5f46e54f2b6d045942a29c6031534b, type: 3}
+  - minNodeCount: 3
+    maxNodeCount: 4
+    layerWidth: 8
+    weightedNodes:
+    - weight: 1
+      node: {fileID: 8667408130154066567, guid: 3fa935908787cfa4c966d8691347274a, type: 3}
+    - weight: 1
+      node: {fileID: 4487319317875606994, guid: 0811894918f9a984f8ff2c574198255e, type: 3}
+    - weight: 1
+      node: {fileID: 7608244497847085687, guid: 727365d0e3e1b1a42a4fcaf297ef74ef, type: 3}
+    - weight: 1
+      node: {fileID: 2387849338838026397, guid: 2c5f46e54f2b6d045942a29c6031534b, type: 3}
   - minNodeCount: 3
     maxNodeCount: 4
     layerWidth: 8
