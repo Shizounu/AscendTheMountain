@@ -41,6 +41,7 @@ namespace Map {
             currentPosition = _startPos;
             manager = _manager;
 
+            
             VisualsManager.Init(_definition.animatorController);
         }
 

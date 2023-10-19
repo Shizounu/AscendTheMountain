@@ -4,12 +4,14 @@ using UnityEngine;
 
 namespace Cards
 {
-    [System.Serializable]
+    [CreateAssetMenu(fileName = "new Unit", menuName = "Cards/Unit")]
     public class UnitDefinition : CardDefinition
     {
         public int Health;
         public int Attack;
         public int MoveDistance;
+
+        
 
     }
 }

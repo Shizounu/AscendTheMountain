@@ -22,18 +22,7 @@ namespace Map
 
         private void Start()
         {
-            CardDefinition cardDefinition = new UnitDefinition();
-            ((UnitDefinition)cardDefinition).Name = "Testing unit";
-            ((UnitDefinition)cardDefinition).Health = 3;
-            ((UnitDefinition)cardDefinition).Attack = 1;
-            ((UnitDefinition)cardDefinition).MoveDistance = 2;
 
-            Hand[0] = cardDefinition; 
-            Hand[1] = cardDefinition;
-            Hand[2] = cardDefinition;
-            Hand[3] = cardDefinition;
-            Hand[4] = cardDefinition;
-            
         }
 
         public void PlayCard(CardDefinition definition, Vector2Int position) {

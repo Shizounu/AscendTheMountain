@@ -49,6 +49,8 @@ MonoBehaviour:
   _Health: 3
   Attack: 1
   MoveDistance: 2
+  currentPosition: {x: 0, y: 0}
+  VisualsManager: {fileID: 168147488}
 --- !u!1 &3596932010359617844
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,6 +61,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6983602356409521447}
   - component: {fileID: 5595679595123996328}
+  - component: {fileID: 168147490}
+  - component: {fileID: 168147488}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
@@ -133,3 +137,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &168147490
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3596932010359617844}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &168147488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3596932010359617844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf0482ce837c4149bff2fef2293e58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 168147490}
