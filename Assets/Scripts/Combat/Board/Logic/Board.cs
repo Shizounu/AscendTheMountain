@@ -6,7 +6,7 @@ using Shizounu.Library.AI;
 
 namespace Combat
 {
-    public enum Actor
+    public enum Actors
     {
         Actor1,
         Actor2,
@@ -21,16 +21,34 @@ namespace Combat
 
     public class Board {
         public Board() {
-            tiles = new Tile[5, 9];
+            tiles = new Tile[9, 5];
+            
         }
         public Board(Vector2Int boardSize) {
             tiles = new Tile[boardSize.x, boardSize.y];
         }
 
         public Tile[,] tiles;
-        public Actor currentActor;
+        private Actors _currentActor;
+        public Actors currentActor {
+            get => _currentActor;
+            set {
+                _currentActor = value;
+                if(_currentActor == Actors.Actor1) {
+                    actor1.Enable();
+                    actor2.Disable();
+                }
+                if (_currentActor == Actors.Actor2) {
+                    actor2.Enable();
+                    actor1.Disable();
+                }
+
+            }
+        }
         public Phase currentPhase;
-        
+
+        public ActorManager actor1;
+        public ActorManager actor2;
 
 
         private Queue<ICommand> commandQueue = new Queue<ICommand>();
@@ -47,14 +65,11 @@ namespace Combat
         }
 
         public void DoQueuedCommands() {
-            do
-            {
-                do
-                {
-                    subCommandQueue.Dequeue().Execute(this);
-                } while (subCommandQueue.Count > 0);
+            while (commandQueue.Count > 0) {
                 commandQueue.Dequeue().Execute(this);
-            } while (commandQueue.Count > 0);
+                while (subCommandQueue.Count > 0)
+                    subCommandQueue.Dequeue().Execute(this);
+            }
         }
 
        

@@ -15,18 +15,17 @@ public class GameManager {
             return _instance;
         }
     }
-
     private GameManager() {
         currentBoard = new Board();
         OnCommandExecute += currentBoard.SetCommand;
     }
 
+
+    public Board currentBoard;    
     public event OnCommandExecuteHandler OnCommandExecute;
 
     public void ExecuteCommand(ICommand command) {
         OnCommandExecute.Invoke(command);
         
     }
-
-    public Board currentBoard;    
 }

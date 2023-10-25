@@ -11,7 +11,7 @@ namespace Commands
             for (int x = 0; x < board.tiles.GetLength(0); x++) {
                 for (int y = 0; y < board.tiles.GetLength(1); y++) {
                     //Try get command, if its null skip it. ? for skipping if there is no player
-                    foreach (var effect in board.tiles[x, y].unit?.effect) {
+                    foreach (var effect in board.tiles[x, y].unit?.effects) {
                         ICommand command = Helpers.GetInterface<ITrigger_OnPhaseStart>(effect);
                         if (command != null)
                             board.SetSubCommand(command);
@@ -27,8 +27,8 @@ namespace Commands
         }
     }
 
-    public class Command_DoPhase : ICommand
-    {
+    public class Command_DoPhase : ICommand {
+
         public void Execute(Board board)
         {
             board.currentPhase = Phase.Phase;
@@ -51,7 +51,7 @@ namespace Commands
                 for (int y = 0; y < board.tiles.GetLength(1); y++)
                 {
                     //Try get command, if its null skip it. ? for skipping if there is no player
-                    foreach (var effect in board.tiles[x, y].unit?.effect){
+                    foreach (var effect in board.tiles[x, y].unit?.effects){
                         ICommand command = Helpers.GetInterface<ITrigger_OnPhaseEnd>(effect);
                         if (command != null)
                             board.SetSubCommand(command);

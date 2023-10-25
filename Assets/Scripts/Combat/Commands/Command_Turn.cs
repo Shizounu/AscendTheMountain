@@ -10,7 +10,7 @@ namespace Commands
         public void Execute(Board board)
         {
             board.currentActor += 1;
-            if(board.currentActor == Actor.Reset)
+            if(board.currentActor == Actors.Reset)
                 board.currentActor = 0;
 
             board.SetSubCommand(new Command_DoStartPhase());
@@ -23,10 +23,10 @@ namespace Commands
     }
 
     public class Command_SetTurn : ICommand {
-        public Command_SetTurn(Actor _actor) {
+        public Command_SetTurn(Actors _actor) {
             actor = _actor;
         }
-        public Actor actor;
+        public Actors actor;
         public void Execute(Board board)
         {
             board.currentActor = actor;
