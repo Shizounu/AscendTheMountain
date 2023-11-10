@@ -22,7 +22,12 @@ namespace Combat
     public class Board {
         public Board() {
             tiles = new Tile[9, 5];
-            
+
+            for (int x = 0; x < tiles.GetLength(0); x++) {
+                for (int y = 0; y < tiles.GetLength(1); y++) {
+                    tiles[x, y] = new(new Vector2Int(x,y));
+                }
+            }
         }
         public Board(Vector2Int boardSize) {
             tiles = new Tile[boardSize.x, boardSize.y];
@@ -78,6 +83,9 @@ namespace Combat
     }
 
     public class Tile {
+        public Tile(Vector2Int pos) {
+            position = pos;
+        }
         public Vector2Int position;
         public Unit unit;
         public Obstacle obstacle;

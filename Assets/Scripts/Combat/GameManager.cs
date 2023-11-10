@@ -18,6 +18,7 @@ public class GameManager {
     private GameManager() {
         currentBoard = new Board();
         OnCommandExecute += currentBoard.SetCommand;
+        OnCommandExecute += _ => currentBoard.DoQueuedCommands();
     }
 
 
@@ -25,7 +26,6 @@ public class GameManager {
     public event OnCommandExecuteHandler OnCommandExecute;
 
     public void ExecuteCommand(ICommand command) {
-        OnCommandExecute.Invoke(command);
-        
+        OnCommandExecute.Invoke(command);        
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Cards
 {
     [System.Serializable]
-    public class CardDefinition : ScriptableObject
+    public abstract class CardDefinition : ScriptableObject
     {
         [Header("Visuals")]
         public string Name;

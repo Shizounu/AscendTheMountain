@@ -3,14 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ActorManager : MonoBehaviour {
-    
-    public Cards.CardDefinition[] Hand;
-    public List<CardDefinition> Deck;
+namespace Combat
+{
+    public abstract class ActorManager : MonoBehaviour {
+        public bool isEnabled;
+        public List<CardDefinition> Deck = new();
+        public Cards.CardDefinition[] Hand = new Cards.CardDefinition[6];
 
-    public abstract void Enable();
-    public abstract void Disable();
+        public abstract void Enable();
+        public abstract void Disable();
 
     
     
+    }
+
 }

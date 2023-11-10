@@ -1,3 +1,5 @@
+using Cards;
+using Combat;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +8,9 @@ public class PlayerActorManager : ActorManager {
     private static PlayerActorManager _instance;
     public static PlayerActorManager Instance {
         get {
+            /*
             if (_instance == null)
-                _instance = new PlayerActorManager();
+                _instance = new PlayerActorManager();*/
             return _instance;
         }
     }
@@ -25,9 +28,8 @@ public class PlayerActorManager : ActorManager {
         Input.InputManager.Instance.InputActions.BattlefieldControls.RightClick.performed += ctx => OnCancel();
     }
 
-    public InputStates.InputState currentState;
-    public bool isEnabled;
-    
+    [SerializeReference, Editor.SubclassPicker] public InputStates.InputState currentState;
+    [SerializeReference, Editor.SubclassPicker] public ICommand command;
 
 
     public void OnTileSelect(Vector2Int position)
@@ -99,7 +101,10 @@ namespace InputStates
         {
             Debug.Log($"The tile {position} was selected");
             //If selected tile has a Unit -> Transfer into that unit control
-
+            Unit unit = GameManager.Instance.currentBoard.tiles[position.x, position.y].unit;
+            if (unit != null) {
+                sm.currentState = new InputState_UnitSelected(unit);
+            }
             //If selected tile has no Unit -> Remain here
         }
     }
@@ -125,19 +130,42 @@ namespace InputStates
 
         public override void OnTileSelect(PlayerActorManager sm, Vector2Int position)
         {
+            //needs more sophisticated check
             if (GameManager.Instance.currentBoard.tiles[position.x, position.y].unit == null) {
-                //checks if tile is free
-                
+                //dispatch summon command 
+                GameManager.Instance.ExecuteCommand(new Commands.Command_SummonUnit((UnitDefinition)sm.Hand[curCard], position));
                 //dispatch "remove from hand" command
+                GameManager.Instance.ExecuteCommand(new Commands.Command_RemoveHandCard(curCard, Actors.Actor1));
+
                 
-                //dispatch summon command
 
                 //return to a base state
-
+                sm.currentState = new InputState_Default();
             } else {
                 //Throw visual error
                 Debug.Log("Cant summon there");
             }
+        }
+    }
+
+    public class InputState_UnitSelected : InputState {
+        public InputState_UnitSelected(Unit _unit) {
+            unit = _unit;
+        }
+        Unit unit;
+        public override void OnCancel(PlayerActorManager sm)
+        {
+            sm.currentState = new InputState_Default();
+        }
+
+        public override void OnHandSelect(PlayerActorManager sm, int handIndex)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void OnTileSelect(PlayerActorManager sm, Vector2Int position)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
