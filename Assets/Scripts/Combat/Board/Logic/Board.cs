@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Shizounu.Library.AI;
 
-
+using Commands;
 namespace Combat
 {
     public enum Actors
@@ -32,8 +32,12 @@ namespace Combat
         public Board(Vector2Int boardSize) {
             tiles = new Tile[boardSize.x, boardSize.y];
         }
-
+        /// <summary>
+        /// Holds the information about each of the tiles
+        /// </summary>
         public Tile[,] tiles;
+
+        #region TODO: Rewrite, not useful
         private Actors _currentActor;
         public Actors currentActor {
             get => _currentActor;
@@ -54,30 +58,38 @@ namespace Combat
 
         public ActorManager actor1;
         public ActorManager actor2;
+        #endregion
 
 
+        #region Command Handling
         private Queue<ICommand> commandQueue = new Queue<ICommand>();
         /// <summary>
         /// Sub command queue is for commands that get executed my other commands and need to happen right after them
         /// Not manually added to, only by other commands. All commands added by a command go herek
         /// </summary>
         private Queue<ICommand> subCommandQueue = new Queue<ICommand>();
-        public void SetCommand(ICommand command) {
-            commandQueue.Enqueue(command);  
+        public void SetCommand(ICommand command)
+        {
+            commandQueue.Enqueue(command);
         }
-        public void SetSubCommand(ICommand subCommand) { 
+        public void SetSubCommand(ICommand subCommand)
+        {
             subCommandQueue.Enqueue(subCommand);
         }
 
-        public void DoQueuedCommands() {
-            while (commandQueue.Count > 0) {
+        public void DoQueuedCommands()
+        {
+            while (commandQueue.Count > 0)
+            {
                 commandQueue.Dequeue().Execute(this);
                 while (subCommandQueue.Count > 0)
                     subCommandQueue.Dequeue().Execute(this);
             }
         }
+        #endregion
 
-       
+
+
 
 
     }

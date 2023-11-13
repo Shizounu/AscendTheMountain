@@ -3,6 +3,7 @@ using Combat;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Commands;
 
 public class PlayerActorManager : ActorManager {
     private static PlayerActorManager _instance;
@@ -133,11 +134,11 @@ namespace InputStates
             //needs more sophisticated check
             if (GameManager.Instance.currentBoard.tiles[position.x, position.y].unit == null) {
                 //dispatch summon command 
-                GameManager.Instance.ExecuteCommand(new Commands.Command_SummonUnit((UnitDefinition)sm.Hand[curCard], position));
+                GameManager.Instance.currentBoard.SetCommand(new Commands.Command_SummonUnit((UnitDefinition)sm.Hand[curCard], position));
                 //dispatch "remove from hand" command
-                GameManager.Instance.ExecuteCommand(new Commands.Command_RemoveHandCard(curCard, Actors.Actor1));
+                GameManager.Instance.currentBoard.SetCommand(new Commands.Command_RemoveHandCard(curCard, Actors.Actor1));
 
-                
+                GameManager.Instance.currentBoard.DoQueuedCommands();
 
                 //return to a base state
                 sm.currentState = new InputState_Default();

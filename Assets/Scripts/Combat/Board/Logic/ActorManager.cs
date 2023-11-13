@@ -17,4 +17,10 @@ namespace Combat
     
     }
 
+    public class DeckInformation
+    {
+        public List<CardDefinition> Deck = new();
+        public Cards.CardDefinition[] Hand = new Cards.CardDefinition[6];
+    }
+
 }

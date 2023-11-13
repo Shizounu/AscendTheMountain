@@ -41,7 +41,8 @@ namespace Combat
         public List<IEffect> effects;
 
         public void Death() {
-            GameManager.Instance.ExecuteCommand(new Command_RemoveUnit(this)); 
+            GameManager.Instance.currentBoard.SetCommand(new Command_RemoveUnit(this));
+            GameManager.Instance.currentBoard.DoQueuedCommands();
         }
     }
 }

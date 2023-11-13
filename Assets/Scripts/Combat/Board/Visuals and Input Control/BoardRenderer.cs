@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Combat;
-
+using Commands;
 public class BoardRenderer : MonoBehaviour
 {
     [Header("References")]
@@ -18,7 +18,7 @@ public class BoardRenderer : MonoBehaviour
     public TileVisualsManager tilePrefab;
     private void Awake()
     {
-        GameManager.Instance.OnCommandExecute += ProcessCommand;
+        //GameManager.Instance.OnCommandExecute += ProcessCommand;
     }
 
     private void Start() {
