@@ -14,6 +14,9 @@ namespace Combat {
                 return _instance;
             }
         }
+        public static bool IsInstantiated {
+            get => _instance == null;
+        }
 
         private GameManager() {
             currentBoard = new Board();

@@ -6,15 +6,14 @@ using UnityEngine;
 using Commands;
 
 public class PlayerActorManager : ActorManager {
+    #region Singleton Boilerplate
     private static PlayerActorManager _instance;
     public static PlayerActorManager Instance {
         get {
-            /*
-            if (_instance == null)
-                _instance = new PlayerActorManager();*/
             return _instance;
         }
     }
+    #endregion
 
     private void Awake() {
         if (_instance != null) {
@@ -25,14 +24,16 @@ public class PlayerActorManager : ActorManager {
         _instance = this;
 
         currentState = new InputStates.InputState_Default();
-
         Input.InputManager.Instance.InputActions.BattlefieldControls.RightClick.performed += ctx => OnCancel();
+
+        
     }
 
+    public override DeckInformation deckInformation => GameManager.Instance.currentBoard.Actor1_Deck;
+
+
+    #region Input Functions
     [SerializeReference, Editor.SubclassPicker] public InputStates.InputState currentState;
-    [SerializeReference, Editor.SubclassPicker] public ICommand command;
-
-
     public void OnTileSelect(Vector2Int position)
     {
         if(!isEnabled) {
@@ -62,7 +63,9 @@ public class PlayerActorManager : ActorManager {
         }
         currentState.OnCancel(this);
     }
-
+    #endregion
+    
+    
     public override void Enable()
     {
         currentState = new InputStates.InputState_Default();
@@ -134,9 +137,9 @@ namespace InputStates
             //needs more sophisticated check
             if (GameManager.Instance.currentBoard.tiles[position.x, position.y].unit == null) {
                 //dispatch summon command 
-                GameManager.Instance.currentBoard.SetCommand(new Commands.Command_SummonUnit((UnitDefinition)sm.Hand[curCard], position));
+                GameManager.Instance.currentBoard.SetCommand(new Commands.Command_SummonUnit((UnitDefinition) sm.deckInformation.Hand[curCard], position));
                 //dispatch "remove from hand" command
-                GameManager.Instance.currentBoard.SetCommand(new Commands.Command_RemoveHandCard(curCard, Actors.Actor1));
+                //GameManager.Instance.currentBoard.SetCommand(new Commands.Command_RemoveHandCard(curCard, Actors.Actor1));
 
                 GameManager.Instance.currentBoard.DoQueuedCommands();
 

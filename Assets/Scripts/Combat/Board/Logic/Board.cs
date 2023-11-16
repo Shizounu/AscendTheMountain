@@ -6,18 +6,7 @@ using Shizounu.Library.AI;
 using Commands;
 namespace Combat
 {
-    public enum Actors
-    {
-        Actor1,
-        Actor2,
-        Reset
-    }
-    public enum Phase
-    {
-        StartPhase,
-        Phase,
-        EndPhase
-    }
+
 
     public class Board {
         public Board() {
@@ -37,28 +26,8 @@ namespace Combat
         /// </summary>
         public Tile[,] tiles;
 
-        #region TODO: Rewrite, not useful
-        private Actors _currentActor;
-        public Actors currentActor {
-            get => _currentActor;
-            set {
-                _currentActor = value;
-                if(_currentActor == Actors.Actor1) {
-                    actor1.Enable();
-                    actor2.Disable();
-                }
-                if (_currentActor == Actors.Actor2) {
-                    actor2.Enable();
-                    actor1.Disable();
-                }
-
-            }
-        }
-        public Phase currentPhase;
-
-        public ActorManager actor1;
-        public ActorManager actor2;
-        #endregion
+        public DeckInformation Actor1_Deck;
+        public DeckInformation Actor2_Deck;
 
 
         #region Command Handling

@@ -5,22 +5,23 @@ using UnityEngine;
 
 namespace Commands
 {
+    /// <summary>
+    /// TODO: FIX AFTER ACTOR DEFINING ACTOR BETTER
+    /// </summary>
     public class Command_RemoveHandCard : ICommand {
         public Command_RemoveHandCard()
         {
 
         }
-        public Command_RemoveHandCard(int _handIndex, Actors _side) {
+        public Command_RemoveHandCard(int _handIndex) {
             handIndex = _handIndex;
-            side = _side;
+            
         }
         [SerializeField] private int handIndex;
-        [SerializeField] private Actors side;
+        
 
         public void Execute(Board board) {
-            ActorManager manager = (side == Actors.Actor1) ? board.actor1 : board.actor2;
-
-            manager.Hand[handIndex] = null; //cleaner way of removing hand cards maybe, works for now
+            
         }
 
         public void Unexecute(Board board)

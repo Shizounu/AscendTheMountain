@@ -47,4 +47,19 @@ public class BoardRenderer : MonoBehaviour
         }
     }
 
+    private void OnDrawGizmos() {
+        if (GameManager.IsInstantiated) {
+            Vector3 offset = new Vector3(transform.position.x + positionOffset.x, transform.position.y + positionOffset.y);
+
+            for (int x = 0; x < GameManager.Instance.currentBoard.tiles.GetLength(0); x++) {
+                for (int y = 0; y < GameManager.Instance.currentBoard.tiles.GetLength(1); y++) {
+                    Vector3 position = new Vector3(x * tileScale.x, y * tileScale.y);
+
+                    Gizmos.color = GameManager.Instance.currentBoard.tiles[x, y].unit == null ? Color.white : Color.red;
+                    Gizmos.DrawWireCube(position + offset, new Vector3(1, 0, 1));
+                }
+            }
+        }
+    }
+
 }

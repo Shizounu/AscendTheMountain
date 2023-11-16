@@ -21,7 +21,7 @@ public class Hand_HandButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     private bool isHovered = false;
     public void OnPointerClick(PointerEventData eventData) {
-        if (PlayerActorManager.Instance.Hand[handIndex] != null) {
+        if (PlayerActorManager.Instance.deckInformation.Hand[handIndex] != null) {
             PlayerActorManager.Instance.currentState = new InputStates.InputState_HandCardSelected(handIndex);
         }
     }
