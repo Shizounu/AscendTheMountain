@@ -5,22 +5,23 @@ using UnityEngine;
 
 namespace Combat
 {
-    public abstract class ActorManager : MonoBehaviour {
-        public bool isEnabled;
-
+    public interface IActorManager {
+        public bool isEnabled { get; }
         public abstract DeckInformation deckInformation { get;  }
 
-        public abstract void Enable();
-        public abstract void Disable();
+        void Enable();
+        void Disable();
 
     
     
     }
 
+    [System.Serializable]
+
     public class DeckInformation
     {
         public List<CardDefinition> Deck = new();
-        public Cards.CardDefinition[] Hand = new Cards.CardDefinition[6];
+        public CardDefinition[] Hand = new Cards.CardDefinition[6];
     }
 
 }

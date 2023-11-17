@@ -5,24 +5,9 @@ using UnityEngine;
 using Commands;
 
 namespace Combat {
-    public class GameManager {
-        private static GameManager _instance;
-        public static GameManager Instance { 
-            get {
-                if (_instance == null)
-                    _instance = new GameManager();
-                return _instance;
-            }
-        }
-        public static bool IsInstantiated {
-            get => _instance == null;
-        }
-
-        private GameManager() {
-            currentBoard = new Board();
-            
-        }
+    public class GameManager : Shizounu.Library.SingletonBehaviour<GameManager> {
 
         public Board currentBoard;
+    
     }
 }

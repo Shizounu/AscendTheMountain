@@ -13,15 +13,17 @@ namespace Commands
         {
 
         }
-        public Command_RemoveHandCard(int _handIndex) {
+        public Command_RemoveHandCard(int _handIndex, Actors _actor) {
             handIndex = _handIndex;
+            actor = _actor;
             
         }
         [SerializeField] private int handIndex;
-        
+        [SerializeField] private Actors actor;
 
         public void Execute(Board board) {
-            
+            board.getActorReference(actor).Hand[handIndex] = null;
+            // TODO : Make more sophisticated, proper destroy function
         }
 
         public void Unexecute(Board board)
@@ -35,16 +37,18 @@ namespace Commands
         {
             
         }
-        public Command_SummonUnit(Cards.UnitDefinition cardDefinition, Vector2Int _position) {
+        public Command_SummonUnit(Cards.UnitDefinition cardDefinition, Vector2Int _position, Actors _owner) {
             unitDef = cardDefinition;
             position = _position;
+            owner = _owner;
         }
 
         [SerializeField] private Cards.UnitDefinition unitDef;
         [SerializeField] private Vector2Int position;
+        [SerializeField] private Actors owner;
 
         public void Execute(Board board) {
-            Unit unit = new Unit(unitDef);
+            Unit unit = new Unit(unitDef, owner);
             board.tiles[position.x, position.y].unit = unit;
         }
 

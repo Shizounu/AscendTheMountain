@@ -5,31 +5,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Commands;
 
-public class PlayerActorManager : ActorManager {
-    #region Singleton Boilerplate
-    private static PlayerActorManager _instance;
-    public static PlayerActorManager Instance {
-        get {
-            return _instance;
-        }
-    }
-    #endregion
+public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActorManager>, IActorManager {
 
-    private void Awake() {
-        if (_instance != null) {
-            Debug.LogError("Two Instances of Player Actor Manager");
-            Destroy(this);
-            return;
-        }
-        _instance = this;
+    public bool isEnabled { get; set; }
 
-        currentState = new InputStates.InputState_Default();
-        Input.InputManager.Instance.InputActions.BattlefieldControls.RightClick.performed += ctx => OnCancel();
+    public DeckDefinition PlayerDeck;
+    
+    public DeckInformation deckInformation => GameManager.Instance.currentBoard.Actor1_Deck;
 
-        
-    }
-
-    public override DeckInformation deckInformation => GameManager.Instance.currentBoard.Actor1_Deck;
+   
 
 
     #region Input Functions
@@ -64,14 +48,31 @@ public class PlayerActorManager : ActorManager {
         currentState.OnCancel(this);
     }
     #endregion
-    
-    
-    public override void Enable()
+
+    private void Awake() {
+        // TODO: Initialize Deck
+        
+        //Initialize Input
+        currentState = new InputStates.InputState_Default();
+        Input.InputManager.Instance.InputActions.BattlefieldControls.RightClick.performed += ctx => OnCancel();
+
+        Enable();
+    }
+
+
+
+    public void Enable()
     {
+        //Instaniate deck
+        
+
+        //Init Input
         currentState = new InputStates.InputState_Default();
         isEnabled = true;
     }
-    public override void Disable()
+
+
+    public void Disable()
     {
         isEnabled = false;
     }
@@ -137,16 +138,31 @@ namespace InputStates
             //needs more sophisticated check
             if (GameManager.Instance.currentBoard.tiles[position.x, position.y].unit == null) {
                 //dispatch summon command 
-                GameManager.Instance.currentBoard.SetCommand(new Commands.Command_SummonUnit((UnitDefinition) sm.deckInformation.Hand[curCard], position));
+                GameManager.Instance.currentBoard.SetCommand
+                    (
+                        new Commands.Command_SummonUnit(
+                            (UnitDefinition) sm.deckInformation.Hand[curCard], 
+                            position, 
+                            Actors.Actor1
+                        )
+                    );
                 //dispatch "remove from hand" command
-                //GameManager.Instance.currentBoard.SetCommand(new Commands.Command_RemoveHandCard(curCard, Actors.Actor1));
+                GameManager.Instance.currentBoard.SetCommand
+                    (
+                        new Commands.Command_RemoveHandCard
+                        (
+                            curCard, 
+                            Actors.Actor1
+                        )
+                    );
 
                 GameManager.Instance.currentBoard.DoQueuedCommands();
 
                 //return to a base state
                 sm.currentState = new InputState_Default();
             } else {
-                //Throw visual error
+                //TODO: Throw visual error
+                
                 Debug.Log("Cant summon there");
             }
         }

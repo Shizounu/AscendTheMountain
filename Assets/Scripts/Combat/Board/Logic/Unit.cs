@@ -8,7 +8,7 @@ using Commands;
 namespace Combat
 {
     public class Unit {
-        public Unit(UnitDefinition definition) {
+        public Unit(UnitDefinition definition, Actors owner) {
             maxHealth = definition.Health;
             curHealth = definition.Health;
 
@@ -32,6 +32,8 @@ namespace Combat
                     _curHealth = maxHealth;
             }
         }
+        public Actors owner;
+
         public int maxHealth;
 
         public int attack;

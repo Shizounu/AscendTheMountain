@@ -8,6 +8,7 @@ namespace Combat
 {
 
 
+    [System.Serializable]
     public class Board {
         public Board() {
             tiles = new Tile[9, 5];
@@ -20,6 +21,8 @@ namespace Combat
         }
         public Board(Vector2Int boardSize) {
             tiles = new Tile[boardSize.x, boardSize.y];
+
+
         }
         /// <summary>
         /// Holds the information about each of the tiles
@@ -56,13 +59,26 @@ namespace Combat
             }
         }
         #endregion
-
-
-
-
-
+    
+        public DeckInformation getActorReference(Actors actors) {
+            return actors == Actors.Actor1 ? Actor1_Deck : Actor2_Deck;
+        }
     }
 
+    public enum Actors
+    {
+        /// <summary>
+        /// Defaulted to Player
+        /// </summary>
+        Actor1,
+        /// <summary>
+        /// Defaulted to AI
+        /// </summary>
+        Actor2
+    }
+    
+
+    [System.Serializable]
     public class Tile {
         public Tile(Vector2Int pos) {
             position = pos;
