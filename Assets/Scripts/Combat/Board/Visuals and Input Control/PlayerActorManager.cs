@@ -50,6 +50,8 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
     #endregion
 
     private void Awake() {
+        base.Awake();
+
         // TODO: Initialize Deck
         
         //Initialize Input

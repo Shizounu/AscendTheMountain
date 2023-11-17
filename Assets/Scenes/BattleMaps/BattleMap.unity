@@ -1029,6 +1029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6567fc3b00ea614181442f7a822f13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerDeck: {fileID: 11400000, guid: c9bb6c0db6cc17045be941329b34933e, type: 2}
   currentState:
     rid: -2
   references:

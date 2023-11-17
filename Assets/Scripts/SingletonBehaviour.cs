@@ -8,6 +8,8 @@ namespace Shizounu.Library
     /// Singleton Monobehaviour Instance
     /// Generic type T is to self replace the name of the class
     /// 
+    /// If implementing an Awake function, use Base.Awake() at the top to still retain monobehaviour functionality
+    /// 
     /// https://forum.unity.com/threads/singleton-monobehaviour-script.99971/
     /// </summary>
     /// <typeparam name="T"></typeparam>
@@ -15,7 +17,7 @@ namespace Shizounu.Library
     {
         public static T Instance { get; protected set; }
 
-        void Awake()
+        protected virtual void Awake()
         {
             if (Instance != null && Instance != this)
             {
