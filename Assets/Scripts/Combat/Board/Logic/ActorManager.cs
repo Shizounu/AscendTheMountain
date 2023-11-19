@@ -18,10 +18,21 @@ namespace Combat
 
     [System.Serializable]
 
-    public class DeckInformation
-    {
+    public class DeckInformation {
+        public DeckInformation(DeckDefinition definition) {
+            Deck = definition.Cards;
+        }
+
         public List<CardDefinition> Deck = new();
         public CardDefinition[] Hand = new Cards.CardDefinition[6];
+
+        public int getFreeHandIndex() {
+            for (int i = 0; i < Hand.Length; i++) {
+                if (Hand[i] == null)
+                    return i;
+            }
+            return -1;
+        }
     }
 
 }

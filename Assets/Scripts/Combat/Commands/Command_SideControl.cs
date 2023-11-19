@@ -1,13 +1,71 @@
+using Cards;
 using Combat;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace Commands
 {
-    /// <summary>
-    /// TODO: FIX AFTER ACTOR DEFINING ACTOR BETTER
-    /// </summary>
+
+    class Command_SetDeck : ICommand {
+        public Command_SetDeck() {
+            
+        }
+        public Command_SetDeck(List<CardDefinition> _cards, Actors _side) {
+            cards = new List<CardDefinition>(_cards);
+            side = _side;
+        }
+        List<CardDefinition> cards;
+        Actors side;
+
+
+        public void Execute(Board board) {
+            board.getActorReference(side).Deck = cards;
+            board.getActorReference(side).Deck.Shuffle();
+        }
+
+        public void Unexecute(Board board)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+
+    class Command_DrawCard : ICommand {
+        public Command_DrawCard() {
+            
+        }
+        public Command_DrawCard(Actors _side) {
+            side = _side;
+            amount = 1;
+        }
+        public Command_DrawCard(Actors _side, int _amount) {
+            side = _side;
+            amount = _amount;
+        }
+
+        private Actors side;
+        private int amount;
+
+        public void Execute(Board board) {
+            for (int i = 0; i < amount; i++) {
+                Draw(board);
+            }
+        }
+        private void Draw(Board b) {
+            b.getActorReference(side).Hand[
+                b.getActorReference(side).getFreeHandIndex()
+                ] = b.getActorReference(side).Deck[0];
+            b.getActorReference(side).Deck.RemoveAt(0);
+
+        }
+
+        public void Unexecute(Board board)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+
     public class Command_RemoveHandCard : ICommand {
         public Command_RemoveHandCard()
         {

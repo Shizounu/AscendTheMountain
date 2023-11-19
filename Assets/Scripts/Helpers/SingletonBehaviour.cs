@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Shizounu.Library
 {
     /// <summary>
-    /// Singleton Monobehaviour Instance
+    /// Singleton Monobehaviour Instance 
     /// Generic type T is to self replace the name of the class
     /// 
     /// If implementing an Awake function, use Base.Awake() at the top to still retain monobehaviour functionality

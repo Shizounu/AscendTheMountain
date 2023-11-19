@@ -49,11 +49,14 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
     }
     #endregion
 
-    private void Awake() {
-        base.Awake();
 
-        // TODO: Initialize Deck
-        
+    private void Start()
+    {
+        GameManager.Instance.currentBoard.SetCommand(new Command_SetDeck(PlayerDeck.Cards, Actors.Actor1));
+        GameManager.Instance.currentBoard.SetCommand(new Command_DrawCard(Actors.Actor1, 3));
+        GameManager.Instance.currentBoard.DoQueuedCommands();
+
+
         //Initialize Input
         currentState = new InputStates.InputState_Default();
         Input.InputManager.Instance.InputActions.BattlefieldControls.RightClick.performed += ctx => OnCancel();
@@ -65,7 +68,6 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
 
     public void Enable()
     {
-        //Instaniate deck
         
 
         //Init Input

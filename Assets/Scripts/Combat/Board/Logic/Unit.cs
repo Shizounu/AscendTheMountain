@@ -32,7 +32,9 @@ namespace Combat
                     _curHealth = maxHealth;
             }
         }
+
         public Actors owner;
+
 
         public int maxHealth;
 
@@ -42,6 +44,6 @@ namespace Combat
 
         public List<IEffect> effects;
 
-
+        ///TODO: Set up triggers and info for the viaul system to use. 
     }
 }

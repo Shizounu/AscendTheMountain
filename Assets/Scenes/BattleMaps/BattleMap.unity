@@ -1980,9 +1980,9 @@ MonoBehaviour:
     Actor1_Deck:
       Deck: []
       Hand:
-      - {fileID: 11400000, guid: 89b860e2b8d799341be307940527709e, type: 2}
-      - {fileID: 11400000, guid: 89b860e2b8d799341be307940527709e, type: 2}
-      - {fileID: 11400000, guid: 89b860e2b8d799341be307940527709e, type: 2}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
       - {fileID: 0}
       - {fileID: 0}
       - {fileID: 0}
