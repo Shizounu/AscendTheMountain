@@ -6,6 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestingScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects: {}
+    path: Assets/Scenes/MainMenu.unity
+    guid: 4e2e6820414f0294c9800b2ae1ecfa44
+  - enabled: 1
+    path: Assets/Scenes/Map/Map.unity
+    guid: 51eaa16c753c73346a104c2122fdd2fe
+  - enabled: 1
+    path: Assets/Scenes/Map/Event.unity
+    guid: de437d5a547beb4428062fa5ef635fcf
+  - enabled: 1
+    path: Assets/Scenes/Map/Shop.unity
+    guid: a8dd73160369e994a8a181031574289d
+  - enabled: 1
+    path: Assets/Scenes/BattleMaps/BattleMap_1.unity
+    guid: 809e5f43dc4fc77439712c5bae771c09
+  - enabled: 1
+    path: Assets/Scenes/Map/Rest.unity
+    guid: 72bab2420e780374e9a95f39a8bd41fb
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 37f86845963304b4f8344ea8ecc72ce3, type: 2}

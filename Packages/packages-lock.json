@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "1709ff2e2cd444e9045f29551add2d478eda0493"
+      "hash": "99cdb85f0b12b430803f33fbaa404325323833f3"
     },
     "com.unity.2d.animation": {
       "version": "7.0.9",
@@ -89,6 +89,20 @@
         "com.unity.2d.tilemap": "1.0.0",
         "com.unity.ugui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.addressables": {
+      "version": "1.19.19",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.scriptablebuildpipeline": "1.19.6",
+        "com.unity.modules.assetbundle": "1.0.0",
+        "com.unity.modules.imageconversion": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.modules.unitywebrequestassetbundle": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -181,6 +195,13 @@
         "com.unity.render-pipelines.core": "12.1.10",
         "com.unity.shadergraph": "12.1.10"
       }
+    },
+    "com.unity.scriptablebuildpipeline": {
+      "version": "1.20.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
     },
     "com.unity.searcher": {
       "version": "4.9.1",

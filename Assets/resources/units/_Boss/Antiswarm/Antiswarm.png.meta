@@ -1,0 +1,2587 @@
+fileFormatVersion: 2
+guid: 342c38d0b07930d42935680bec36a9d0
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 70
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Antiswarm_attack000
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 608
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38fb107a3f1ec2d50800000000000000
+      internalID: 6713989581097779075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack001
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d912786b579656d60800000000000000
+      internalID: 7882822677076320669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack002
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec28431b701c6d0e0800000000000000
+      internalID: -2245395125415673138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack003
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f859df93f8d4a730800000000000000
+      internalID: 4009568109137058041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack004
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62a80f5b8432161a0800000000000000
+      internalID: -6818129565665162714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack005
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9225b9295011cbcd0800000000000000
+      internalID: -2541137374111641047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack006
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2dede36869b92210800000000000000
+      internalID: 1308781024732114221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack007
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 84
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9fee10730db75e80800000000000000
+      internalID: -8189869574886330467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack008
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 215
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afdb507d70fd74370800000000000000
+      internalID: 8306853262473412090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack009
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 346
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92ce0e8186507d3d0800000000000000
+      internalID: -3182068667061834711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack010
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 477
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb889890c14df0650800000000000000
+      internalID: 6201408428796643518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack011
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 608
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bfd5f734c258df20800000000000000
+      internalID: 3447596517458042807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack012
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 739
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbf9b488ecdc15780800000000000000
+      internalID: -8695943118542102593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack013
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 870
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9098c04540d288400800000000000000
+      internalID: 326560469597587721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack014
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1001
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a2a47771e6623690800000000000000
+      internalID: -7623918100627021150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack015
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef81bd54b55028bd0800000000000000
+      internalID: -2629533342858798850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack016
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61a68b38900869010800000000000000
+      internalID: 1195283529466407446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack017
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55a8edbb9b0292eb0800000000000000
+      internalID: -4744224750365144491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack018
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a34bc8e9bbd0a1d50800000000000000
+      internalID: 6708689694391841850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack019
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d41c4f6b54fbe42f0800000000000000
+      internalID: -986640962204417715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack020
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aed09dfd138f5810800000000000000
+      internalID: 1756266544529202853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack021
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a0f0e22815423c70800000000000000
+      internalID: 8949291379505295522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack022
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 84
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf12f620b9d8e22a0800000000000000
+      internalID: -6760310293736250884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack023
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 215
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5be8b5b0ef02f5b20800000000000000
+      internalID: 3125252941902745269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack024
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 346
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dff3071d4ed2cdb00800000000000000
+      internalID: 854608490083139581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack025
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 477
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81814426d9c5a25d0800000000000000
+      internalID: -3086552763580803048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack026
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 608
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12bba1afc8e187280800000000000000
+      internalID: -9045446260733330655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack027
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 739
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4448ebe51e3d49f0800000000000000
+      internalID: -482661321185672115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack028
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 870
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51a250c4cf19482f0800000000000000
+      internalID: -971491106811991531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack029
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1001
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb821a26c1a63a7c0800000000000000
+      internalID: -4061285768811697988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack030
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1591afe59d0fa280800000000000000
+      internalID: -9029983790232922850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack031
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4aca35c922081df0800000000000000
+      internalID: -209415004246848949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack032
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689dbc255d39100d0800000000000000
+      internalID: -3458320494417421946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack033
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4632a2d2ababae20800000000000000
+      internalID: 3362970262569104973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack034
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d2982e45f2456550800000000000000
+      internalID: 6153398087217353429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack035
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aab00bfcc6574d360800000000000000
+      internalID: 7193503615018863530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack036
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eef99aa5fa68f9e80800000000000000
+      internalID: -8169663111328325650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack037
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 84
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be36575023fc67250800000000000000
+      internalID: 5942164572108841963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack038
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 215
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08fce14169eab5dc0800000000000000
+      internalID: -3649131113447764096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack039
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 346
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e26b1dd7f6261b30800000000000000
+      internalID: 4257633343733719783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack040
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 477
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7a782ba70f5c8ee0800000000000000
+      internalID: -1257525709402244483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack041
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 608
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb5cff6b3de952ed0800000000000000
+      internalID: -2439368991005751873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_attack042
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 739
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 962faeeb48c5d80c0800000000000000
+      internalID: -4571896321502678423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_breathing000
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 870
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8f49dbd26206eaf0800000000000000
+      internalID: -367603695965614193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_breathing001
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1001
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b043da7022316ff0800000000000000
+      internalID: -44699406215987024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_breathing002
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48d655a39ecf28740800000000000000
+      internalID: 5152959002301525380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_breathing003
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0200f24a2570f640800000000000000
+      internalID: 5111714401437614607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_breathing004
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 146b11218abbc4470800000000000000
+      internalID: 8380279337161700929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_breathing005
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e6de0b1c9f77b40800000000000000
+      internalID: 5438089685365517896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_breathing006
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb239a7a87c6d4900800000000000000
+      internalID: 670311185012830908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_breathing007
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7787711126e7975a0800000000000000
+      internalID: -6523043625610807177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_breathing008
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cf6a709d232121e0800000000000000
+      internalID: -2224458062339870781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_breathing009
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 84
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bdb39a2ec0a1ac00800000000000000
+      internalID: 910185407043583411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_breathing010
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 215
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcc806a60ec084300800000000000000
+      internalID: 236453138433871051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_breathing011
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 346
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60022c7486b3e5ed0800000000000000
+      internalID: -2423434230412206074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_breathing012
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 477
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa5675d55cef65ca0800000000000000
+      internalID: -6028350927560809041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_breathing013
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc25771c78575dc60800000000000000
+      internalID: 7842303552062444237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death000
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 739
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d30f512ef6f52620800000000000000
+      internalID: 2748874718921556953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death001
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 870
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d16c5e5db135cf10800000000000000
+      internalID: 2289290674989457877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death002
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1001
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab02a534e4efdacb0800000000000000
+      internalID: -4850941611517271878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death003
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1eec9ad0ba299450800000000000000
+      internalID: 6095950509693005341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death004
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d0917017582177d0800000000000000
+      internalID: -2922510328783597360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death005
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4ec59d4a0dd816c0800000000000000
+      internalID: -4172342018437689781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death006
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c703fafff531c5bd0800000000000000
+      internalID: -2640213978513461124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death007
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3ac22c75c255de0800000000000000
+      internalID: -1345120158268742684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death008
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc360571328fddb80800000000000000
+      internalID: -8368259702985825332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death009
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d90668682a01e200800000000000000
+      internalID: 207458226502240727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death010
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 84
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d2ed8385cffbb320800000000000000
+      internalID: 2574932835753124569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death011
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 215
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8dcf37d645bd9bb0800000000000000
+      internalID: -4927583101409833587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death012
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 346
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acfa51184b74fab90800000000000000
+      internalID: -7228480036320989238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death013
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 477
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81f0efcabe6069440800000000000000
+      internalID: 4942145250375110424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death014
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 608
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b513ede2e4049c940800000000000000
+      internalID: 5316851539625521499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death015
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 739
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9164333c99796d8b0800000000000000
+      internalID: -5127744439054023143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death016
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 870
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efcc774ad1acfff00800000000000000
+      internalID: 1152862258292313342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death017
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1001
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a700118bae7eaad0800000000000000
+      internalID: -2689072652423788639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death018
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dadfe17385b5cc80800000000000000
+      internalID: -8303030761830753582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death019
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffa2f0433e5ddab50800000000000000
+      internalID: 6606171400230087423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death020
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abb6574e0764363c0800000000000000
+      internalID: -4367569762936067142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death021
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcc77ddd2eaf8eab0800000000000000
+      internalID: -4978453535766643509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death022
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e6a6d50d95b34c90800000000000000
+      internalID: -7186700894340733213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death023
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb64ffb4b5815c3b0800000000000000
+      internalID: -5492957390112340292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death024
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c431763bd0c00b9b0800000000000000
+      internalID: -5066536327807823028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death025
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 84
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30279fd8781038510800000000000000
+      internalID: 1550084378459730435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_death026
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 215
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a62cf52ee58567f0800000000000000
+      internalID: -619942115807582558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_hit000
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 346
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 860f43880547450a0800000000000000
+      internalID: -6893757240366010264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_hit001
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 477
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c330a50e4796d460800000000000000
+      internalID: 7266161410166502339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_hit002
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 608
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d372d7c599dabd7a0800000000000000
+      internalID: -6351291975282645187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle000
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 739
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b573d9926d7d469f0800000000000000
+      internalID: -476018345773287589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle001
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 870
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57ea65949ff63b110800000000000000
+      internalID: 1275486235943939701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle002
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1001
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee9f636f345f44fa0800000000000000
+      internalID: -5817255146413426194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle003
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 850c922c86676dd50800000000000000
+      internalID: 6761722082849570904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle004
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad7eb6599b91bbee0800000000000000
+      internalID: -1244372587171289126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle005
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5096091b767dca2a0800000000000000
+      internalID: -6724763303210358523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle006
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ae5d30f5c021cd0800000000000000
+      internalID: -2588993233558836645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle007
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23fe255628f9e8380800000000000000
+      internalID: -8967054425653579982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle008
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 009b10d8042084fd0800000000000000
+      internalID: -2357631928661591808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle009
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f040eeb8929b48fe0800000000000000
+      internalID: -1187620813626538993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle010
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 84
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6667c1161f40cbe60800000000000000
+      internalID: 7979258074556560998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle011
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 215
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 328a22fc9ede011b0800000000000000
+      internalID: -5687784740910618589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle012
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 346
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 804cc9f8e60d3ab60800000000000000
+      internalID: 7756272156536521736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle013
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 477
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21eb7d7f412448270800000000000000
+      internalID: 8251793075074481682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle014
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 608
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 467d07f35cf56d240800000000000000
+      internalID: 4816142152296879972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle015
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 739
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 446e8a9ddfdfddc50800000000000000
+      internalID: 6691783888062703172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_idle016
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 870
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 771abc49f8dff3710800000000000000
+      internalID: 1675336379523637623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_run000
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1001
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dc119dd590968100800000000000000
+      internalID: 109934214258957520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_run001
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa23923e1f6371d90800000000000000
+      internalID: -7127167472764374358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_run002
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75e4895e90587a560800000000000000
+      internalID: 7324969596494564951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_run003
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e14b69ccb6ce63c50800000000000000
+      internalID: 6644758247969829918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_run004
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c99f11d3d70792f00800000000000000
+      internalID: 1092528067811867036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_run005
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ded1442dc8093b0a0800000000000000
+      internalID: -6866986072312373779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_run006
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c9512168445965d0800000000000000
+      internalID: -3068829001232328247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antiswarm_run007
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 098203e6fc67548a0800000000000000
+      internalID: -6321515868665665392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Antiswarm_attack000: 6713989581097779075
+      Antiswarm_attack001: 7882822677076320669
+      Antiswarm_attack002: -2245395125415673138
+      Antiswarm_attack003: 4009568109137058041
+      Antiswarm_attack004: -6818129565665162714
+      Antiswarm_attack005: -2541137374111641047
+      Antiswarm_attack006: 1308781024732114221
+      Antiswarm_attack007: -8189869574886330467
+      Antiswarm_attack008: 8306853262473412090
+      Antiswarm_attack009: -3182068667061834711
+      Antiswarm_attack010: 6201408428796643518
+      Antiswarm_attack011: 3447596517458042807
+      Antiswarm_attack012: -8695943118542102593
+      Antiswarm_attack013: 326560469597587721
+      Antiswarm_attack014: -7623918100627021150
+      Antiswarm_attack015: -2629533342858798850
+      Antiswarm_attack016: 1195283529466407446
+      Antiswarm_attack017: -4744224750365144491
+      Antiswarm_attack018: 6708689694391841850
+      Antiswarm_attack019: -986640962204417715
+      Antiswarm_attack020: 1756266544529202853
+      Antiswarm_attack021: 8949291379505295522
+      Antiswarm_attack022: -6760310293736250884
+      Antiswarm_attack023: 3125252941902745269
+      Antiswarm_attack024: 854608490083139581
+      Antiswarm_attack025: -3086552763580803048
+      Antiswarm_attack026: -9045446260733330655
+      Antiswarm_attack027: -482661321185672115
+      Antiswarm_attack028: -971491106811991531
+      Antiswarm_attack029: -4061285768811697988
+      Antiswarm_attack030: -9029983790232922850
+      Antiswarm_attack031: -209415004246848949
+      Antiswarm_attack032: -3458320494417421946
+      Antiswarm_attack033: 3362970262569104973
+      Antiswarm_attack034: 6153398087217353429
+      Antiswarm_attack035: 7193503615018863530
+      Antiswarm_attack036: -8169663111328325650
+      Antiswarm_attack037: 5942164572108841963
+      Antiswarm_attack038: -3649131113447764096
+      Antiswarm_attack039: 4257633343733719783
+      Antiswarm_attack040: -1257525709402244483
+      Antiswarm_attack041: -2439368991005751873
+      Antiswarm_attack042: -4571896321502678423
+      Antiswarm_breathing000: -367603695965614193
+      Antiswarm_breathing001: -44699406215987024
+      Antiswarm_breathing002: 5152959002301525380
+      Antiswarm_breathing003: 5111714401437614607
+      Antiswarm_breathing004: 8380279337161700929
+      Antiswarm_breathing005: 5438089685365517896
+      Antiswarm_breathing006: 670311185012830908
+      Antiswarm_breathing007: -6523043625610807177
+      Antiswarm_breathing008: -2224458062339870781
+      Antiswarm_breathing009: 910185407043583411
+      Antiswarm_breathing010: 236453138433871051
+      Antiswarm_breathing011: -2423434230412206074
+      Antiswarm_breathing012: -6028350927560809041
+      Antiswarm_breathing013: 7842303552062444237
+      Antiswarm_death000: 2748874718921556953
+      Antiswarm_death001: 2289290674989457877
+      Antiswarm_death002: -4850941611517271878
+      Antiswarm_death003: 6095950509693005341
+      Antiswarm_death004: -2922510328783597360
+      Antiswarm_death005: -4172342018437689781
+      Antiswarm_death006: -2640213978513461124
+      Antiswarm_death007: -1345120158268742684
+      Antiswarm_death008: -8368259702985825332
+      Antiswarm_death009: 207458226502240727
+      Antiswarm_death010: 2574932835753124569
+      Antiswarm_death011: -4927583101409833587
+      Antiswarm_death012: -7228480036320989238
+      Antiswarm_death013: 4942145250375110424
+      Antiswarm_death014: 5316851539625521499
+      Antiswarm_death015: -5127744439054023143
+      Antiswarm_death016: 1152862258292313342
+      Antiswarm_death017: -2689072652423788639
+      Antiswarm_death018: -8303030761830753582
+      Antiswarm_death019: 6606171400230087423
+      Antiswarm_death020: -4367569762936067142
+      Antiswarm_death021: -4978453535766643509
+      Antiswarm_death022: -7186700894340733213
+      Antiswarm_death023: -5492957390112340292
+      Antiswarm_death024: -5066536327807823028
+      Antiswarm_death025: 1550084378459730435
+      Antiswarm_death026: -619942115807582558
+      Antiswarm_hit000: -6893757240366010264
+      Antiswarm_hit001: 7266161410166502339
+      Antiswarm_hit002: -6351291975282645187
+      Antiswarm_idle000: -476018345773287589
+      Antiswarm_idle001: 1275486235943939701
+      Antiswarm_idle002: -5817255146413426194
+      Antiswarm_idle003: 6761722082849570904
+      Antiswarm_idle004: -1244372587171289126
+      Antiswarm_idle005: -6724763303210358523
+      Antiswarm_idle006: -2588993233558836645
+      Antiswarm_idle007: -8967054425653579982
+      Antiswarm_idle008: -2357631928661591808
+      Antiswarm_idle009: -1187620813626538993
+      Antiswarm_idle010: 7979258074556560998
+      Antiswarm_idle011: -5687784740910618589
+      Antiswarm_idle012: 7756272156536521736
+      Antiswarm_idle013: 8251793075074481682
+      Antiswarm_idle014: 4816142152296879972
+      Antiswarm_idle015: 6691783888062703172
+      Antiswarm_idle016: 1675336379523637623
+      Antiswarm_run000: 109934214258957520
+      Antiswarm_run001: -7127167472764374358
+      Antiswarm_run002: 7324969596494564951
+      Antiswarm_run003: 6644758247969829918
+      Antiswarm_run004: 1092528067811867036
+      Antiswarm_run005: -6866986072312373779
+      Antiswarm_run006: -3068829001232328247
+      Antiswarm_run007: -6321515868665665392
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
