@@ -23,6 +23,7 @@ public class BoardRenderer : MonoBehaviour
 
     private void Start() {
         InitializeBoard(GameManager.Instance.currentBoard.tiles);
+        GameManager.Instance.onCommand += ProcessCommand;
     }
 
     public void ProcessCommand(ICommand command) {

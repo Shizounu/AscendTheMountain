@@ -61,6 +61,8 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
         currentState = new InputStates.InputState_Default();
         Input.InputManager.Instance.InputActions.BattlefieldControls.RightClick.performed += ctx => OnCancel();
 
+        
+
         Enable();
     }
 
