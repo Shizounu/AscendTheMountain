@@ -19,6 +19,11 @@ namespace Combat
                 }
             }
         }
+        public Board(OnCommandHandler onCommand) {
+            this.onCommand = onCommand;
+        }
+        OnCommandHandler onCommand;
+
         public Board(Vector2Int boardSize) {
             tiles = new Tile[boardSize.x, boardSize.y];
 
@@ -53,9 +58,15 @@ namespace Combat
         {
             while (commandQueue.Count > 0)
             {
-                commandQueue.Dequeue().Execute(this);
-                while (subCommandQueue.Count > 0)
-                    subCommandQueue.Dequeue().Execute(this);
+                ICommand curCommand = commandQueue.Dequeue();
+                curCommand.Execute(this);
+                onCommand?.Invoke(curCommand);
+
+                while (subCommandQueue.Count > 0) {
+                    curCommand = subCommandQueue.Dequeue();
+                    curCommand.Execute(this);
+                    onCommand?.Invoke(curCommand);
+                }
             }
         }
         #endregion

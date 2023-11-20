@@ -18,7 +18,7 @@ public class BoardRenderer : MonoBehaviour
     public TileVisualsManager tilePrefab;
     private void Awake()
     {
-        //GameManager.Instance.OnCommandExecute += ProcessCommand;
+        
     }
 
     private void Start() {

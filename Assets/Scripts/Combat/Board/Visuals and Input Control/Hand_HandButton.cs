@@ -1,7 +1,9 @@
+using Combat;
 using HandButtonStates;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using UnityEditor;
 using UnityEngine;
 
 using UnityEngine.EventSystems;
@@ -17,9 +19,15 @@ public class Hand_HandButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     [Space()]
     public UnityEngine.UI.Image backgroundRenderer;
     public UnityEngine.UI.Image gemRenderer;
+    public UnityEngine.UI.Image glowRenderer;
     public TMPro.TextMeshProUGUI costText;
 
-    private bool isHovered = false;
+    [SerializeField] private bool isHovered = false;
+    private void Start()
+    {
+        currentState = new HandButtonStates.HandButtonDefault();
+    }
+
     public void OnPointerClick(PointerEventData eventData) {
         if (PlayerActorManager.Instance.deckInformation.Hand[handIndex] != null) {
             PlayerActorManager.Instance.currentState = new InputStates.InputState_HandCardSelected(handIndex);
@@ -34,11 +42,10 @@ public class Hand_HandButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
         isHovered = false;
     }
 
+    // TODO: Put in something other than update
     private void Update() {
-        if (PlayerActorManager.Instance.isEnabled)
-            currentState?.DrawBase(this);
-        else
-            currentState?.DrawDisabled(this);
+        
+        currentState?.DrawBase(this);
         if (isHovered)
             currentState?.OnHover(this);
     }
@@ -49,10 +56,51 @@ public class Hand_HandButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
 namespace HandButtonStates {
     [System.Serializable]
     public abstract class HandButtonVisualState {
-        public Sprite sprite;
         public abstract void DrawBase(Hand_HandButton handButton);
-        public abstract void DrawDisabled(Hand_HandButton handButton);
         public abstract void OnHover(Hand_HandButton handButton);
         public abstract void OnClick(Hand_HandButton handButton);
+    }
+
+    public class HandButtonDefault : HandButtonVisualState {
+        [SerializeField] private float glowValue;
+        private static float glowIncrease = .75f;
+        private static float glowDecrease = .5f;
+        public override void DrawBase(Hand_HandButton handButton)
+        {
+
+            if(GameManager.Instance.currentBoard.Actor1_Deck.Hand[handButton.handIndex] != null) {
+                handButton.costText.text = $"{GameManager.Instance.currentBoard.Actor1_Deck.Hand[handButton.handIndex].Cost}";
+            } else {
+                handButton.costText.text = "X"; //TODO Change to nothing later, or leave it - could be nice
+            }
+
+            //lower bound check
+            if (glowValue > 0)
+                glowValue -= glowDecrease * Time.deltaTime;
+            else
+                glowValue = 0;
+
+            //upper bound check
+            if (glowValue > 1)
+                glowValue = 1;
+
+            handButton.glowRenderer.color = new Color(
+                handButton.glowRenderer.color.r,
+                handButton.glowRenderer.color.g,
+                handButton.glowRenderer.color.b,
+                glowValue
+            );
+
+        }
+
+        public override void OnClick(Hand_HandButton handButton)
+        {
+            
+        }
+
+        public override void OnHover(Hand_HandButton handButton)
+        {
+            glowValue += (glowDecrease + glowIncrease) * Time.deltaTime;
+        }
     }
 }
