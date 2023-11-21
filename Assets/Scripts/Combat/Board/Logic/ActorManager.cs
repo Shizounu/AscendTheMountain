@@ -20,12 +20,9 @@ namespace Combat
     [System.Serializable]
 
     public class DeckInformation {
-        public DeckInformation(DeckDefinition definition) {
-            Deck = definition.Cards;
-        }
 
-
-        private int _MaxManagems;
+        [Header("Mana")]
+        [SerializeField] private int _MaxManagems;
         public int MaxManagems
         {
             get => _MaxManagems;
@@ -38,7 +35,7 @@ namespace Combat
 
         }
 
-        private int _CurManagems;
+        [SerializeField] private int _CurManagems;
         public int CurManagems
         {
             get => _CurManagems;
@@ -50,6 +47,7 @@ namespace Combat
 
         }
 
+        [Header("Cards")]
         public List<CardDefinition> Deck = new();
         public CardDefinition[] Hand = new Cards.CardDefinition[6];
 
@@ -60,6 +58,11 @@ namespace Combat
             }
             return -1;
         }
+
+        [Header("Enabling and Disabling")]
+        public IActorManager actorManager;
+        public void Enable() => actorManager?.Enable();
+        public void Disable() => actorManager?.Disable();
     }
 
 }

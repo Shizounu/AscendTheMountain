@@ -20,6 +20,8 @@ namespace Commands
 
 
         public void Execute(Board board) {
+
+
             board.getActorReference(side).Deck = cards;
             board.getActorReference(side).Deck.Shuffle();
         }

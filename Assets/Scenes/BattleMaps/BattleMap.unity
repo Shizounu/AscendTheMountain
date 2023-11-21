@@ -891,6 +891,7 @@ GameObject:
   - component: {fileID: 325886568}
   - component: {fileID: 325886567}
   - component: {fileID: 325886566}
+  - component: {fileID: 325886569}
   m_Layer: 5
   m_Name: End Turn
   m_TagString: Untagged
@@ -962,7 +963,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 325886567}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 325886569}
+        m_TargetAssemblyTypeName: Hand_EndTurn, Assembly-CSharp
+        m_MethodName: onButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &325886567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1001,6 +1014,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325886564}
   m_CullTransparentMesh: 1
+--- !u!114 &325886569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325886564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af1d122ba9bfd54f8e5e4c7bbda494f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &365916946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2100,8 +2125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentBoard:
     Actor1_Deck:
-      MaxManagems: 0
-      CurManagems: 0
+      _MaxManagems: 0
+      _CurManagems: 0
       Deck: []
       Hand:
       - {fileID: 0}
@@ -2111,8 +2136,8 @@ MonoBehaviour:
       - {fileID: 0}
       - {fileID: 0}
     Actor2_Deck:
-      MaxManagems: 0
-      CurManagems: 0
+      _MaxManagems: 0
+      _CurManagems: 0
       Deck: []
       Hand:
       - {fileID: 0}
@@ -2141,6 +2166,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5488807759124564129, guid: 381bd0b925fdf1342b3919335d082f2e, type: 3}
   m_PrefabInstance: {fileID: 5488807758480022422}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1085946419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1085946420}
+  m_Layer: 0
+  m_Name: TileHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1085946420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085946419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2007046789}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1219126776
 GameObject:
   m_ObjectHideFlags: 0
@@ -3170,6 +3226,7 @@ MonoBehaviour:
   tileScale: {x: 1.05, y: 1.05}
   positionOffset: {x: -4.5, y: -2.5}
   tilePrefab: {fileID: 5329985981604404004, guid: 20437bc52ee83804799e75d5d4161473, type: 3}
+  tileHolder: {fileID: 1085946420}
 --- !u!4 &2007046789
 Transform:
   m_ObjectHideFlags: 0
@@ -3183,6 +3240,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 398412075}
+  - {fileID: 1085946420}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

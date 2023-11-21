@@ -16,6 +16,9 @@ public class BoardRenderer : MonoBehaviour
 
     [Header("Prefabs")]
     public TileVisualsManager tilePrefab;
+
+    [Header("References")]
+    public Transform tileHolder;
     private void Awake()
     {
         
@@ -42,7 +45,7 @@ public class BoardRenderer : MonoBehaviour
             for (int y = 0; y < tiles.GetLength(1); y++) {
                 Vector3 position = new Vector3(x * tileScale.x, y * tileScale.y);
 
-                GameObject temp = Instantiate(tilePrefab, position + offset, Quaternion.identity, this.transform).gameObject;
+                GameObject temp = Instantiate(tilePrefab, position + offset, Quaternion.identity, tileHolder).gameObject;
                 temp.GetComponent<TileClick>().position = new Vector2Int(x, y); //initializes the info for TileClick as putting it in another place would have made code significantly harder to read
             }
         }

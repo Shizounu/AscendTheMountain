@@ -16,6 +16,7 @@ namespace Combat {
         protected override void Awake() {
             base.Awake();
 
+            
             currentBoard = new Board(onCommand);
         }
     }

@@ -25,6 +25,8 @@ namespace Editor
             EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
             EditorGUILayout.LabelField("<color=gray><size=15><b>Debug Actions</b></size></color>", style);
 
+            GUILayout.Toggle(actorManager.isEnabled, "Is Active");
+
             if (GUILayout.Button("Draw Card")) {
                 GameManager.Instance.currentBoard.SetCommand(new Commands.Command_DrawCard(Actors.Actor1));
             }

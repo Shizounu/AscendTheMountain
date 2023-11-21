@@ -52,18 +52,23 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
 
     private void Start()
     {
+        //Register for Enabling
+        GameManager.Instance.currentBoard.Actor1_Deck.actorManager = this;
+
+
+        //Init deck
         GameManager.Instance.currentBoard.SetCommand(new Command_SetDeck(PlayerDeck.Cards, Actors.Actor1));
         GameManager.Instance.currentBoard.SetCommand(new Command_DrawCard(Actors.Actor1, 3));
-        GameManager.Instance.currentBoard.DoQueuedCommands();
 
 
         //Initialize Input
         currentState = new InputStates.InputState_Default();
         Input.InputManager.Instance.InputActions.BattlefieldControls.RightClick.performed += ctx => OnCancel();
 
-        
 
-        Enable();
+        GameManager.Instance.currentBoard.SetCommand(new Command_SwitchSide(Actors.Actor2));
+        
+        GameManager.Instance.currentBoard.DoQueuedCommands();
     }
 
 
@@ -142,7 +147,8 @@ namespace InputStates
         public override void OnTileSelect(PlayerActorManager sm, Vector2Int position)
         {
             //needs more sophisticated check
-            if (GameManager.Instance.currentBoard.tiles[position.x, position.y].unit == null) {
+            if (GameManager.Instance.currentBoard.tiles[position.x, position.y].unit == null && 
+                GameManager.Instance.currentBoard.Actor1_Deck.CurManagems >= GameManager.Instance.currentBoard.Actor1_Deck.Hand[curCard].Cost) {
                 //dispatch summon command 
                 GameManager.Instance.currentBoard.SetCommand
                     (
@@ -162,6 +168,15 @@ namespace InputStates
                         )
                     );
 
+                GameManager.Instance.currentBoard.SetCommand
+                    (
+                        new Commands.Command_SubCurrentMana
+                        (
+                            Actors.Actor1,
+                            GameManager.Instance.currentBoard.Actor1_Deck.Hand[curCard].Cost
+                        )
+                    );
+
                 GameManager.Instance.currentBoard.DoQueuedCommands();
 
                 //return to a base state
@@ -169,7 +184,7 @@ namespace InputStates
             } else {
                 //TODO: Throw visual error
                 
-                Debug.Log("Cant summon there");
+                Debug.Log("Cant summon there or the cost too high");
             }
         }
     }
