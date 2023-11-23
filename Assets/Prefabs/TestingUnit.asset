@@ -15,6 +15,6 @@ MonoBehaviour:
   Name: Test Unit
   animatorController: {fileID: 0}
   Cost: 1
-  Health: 0
-  Attack: 0
-  MoveDistance: 0
+  Health: 1
+  Attack: 1
+  MoveDistance: 2

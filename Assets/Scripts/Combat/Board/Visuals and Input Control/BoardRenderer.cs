@@ -4,7 +4,9 @@ using UnityEngine;
 
 using Combat;
 using Commands;
-public class BoardRenderer : MonoBehaviour
+using Shizounu.Library;
+
+public class BoardRenderer : SingletonBehaviour<BoardRenderer>
 {
     [Header("References")]
     public TileVisualsManager[,] tiles;
@@ -19,10 +21,6 @@ public class BoardRenderer : MonoBehaviour
 
     [Header("References")]
     public Transform tileHolder;
-    private void Awake()
-    {
-        
-    }
 
     private void Start() {
         InitializeBoard(GameManager.Instance.currentBoard.tiles);
@@ -59,7 +57,7 @@ public class BoardRenderer : MonoBehaviour
                 for (int y = 0; y < GameManager.Instance.currentBoard.tiles.GetLength(1); y++) {
                     Vector3 position = new Vector3(x * tileScale.x, y * tileScale.y);
 
-                    Gizmos.color = GameManager.Instance.currentBoard.tiles[x, y].unit == null ? Color.white : Color.red;
+                    Gizmos.color = GameManager.Instance.currentBoard.tiles[x, y].unit == null ? Color.white : Color.magenta;
                     Gizmos.DrawWireCube(position + offset, new Vector3(1, 1, 0));
                 }
             }

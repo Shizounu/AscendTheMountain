@@ -1,4 +1,5 @@
 ﻿using Combat;
+using Commands;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -51,6 +52,32 @@ namespace Editor
             if (GUILayout.Button("Sub Cur Mana", UnityEditor.EditorStyles.miniButtonRight))
             {
                 GameManager.Instance.currentBoard.SetCommand(new Commands.Command_SubCurrentMana(Actors.Actor1, 1));
+            }
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Move true", UnityEditor.EditorStyles.miniButtonLeft))
+            {
+                for (int x = 0; x < GameManager.Instance.currentBoard.tiles.GetLength(0); x++) {
+                    for (int y = 0; y < GameManager.Instance.currentBoard.tiles.GetLength(1); y++) {
+                        if (GameManager.Instance.currentBoard.tiles[x,y].unit != null) {
+                            GameManager.Instance.currentBoard.SetCommand(new Command_SetCanMove(GameManager.Instance.currentBoard.tiles[x, y].unit, true));
+                        }
+                    }
+                }
+            }
+            if (GUILayout.Button("Attack True", UnityEditor.EditorStyles.miniButtonRight))
+            {
+                for (int x = 0; x < GameManager.Instance.currentBoard.tiles.GetLength(0); x++)
+                {
+                    for (int y = 0; y < GameManager.Instance.currentBoard.tiles.GetLength(1); y++)
+                    {
+                        if (GameManager.Instance.currentBoard.tiles[x, y].unit != null)
+                        {
+                            GameManager.Instance.currentBoard.SetCommand(new Command_SetCanAttack(GameManager.Instance.currentBoard.tiles[x, y].unit, true));
+                        }
+                    }
+                }
             }
             GUILayout.EndHorizontal();
 
