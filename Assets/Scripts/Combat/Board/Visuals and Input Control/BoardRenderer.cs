@@ -4,7 +4,9 @@ using UnityEngine;
 
 using Combat;
 using Commands;
-public class BoardRenderer : MonoBehaviour
+using Shizounu.Library;
+
+public class BoardRenderer : SingletonBehaviour<BoardRenderer>
 {
     [Header("References")]
     public TileVisualsManager[,] tiles;
@@ -16,13 +18,13 @@ public class BoardRenderer : MonoBehaviour
 
     [Header("Prefabs")]
     public TileVisualsManager tilePrefab;
-    private void Awake()
-    {
-        //GameManager.Instance.OnCommandExecute += ProcessCommand;
-    }
+
+    [Header("References")]
+    public Transform tileHolder;
 
     private void Start() {
         InitializeBoard(GameManager.Instance.currentBoard.tiles);
+        GameManager.Instance.onCommand += ProcessCommand;
     }
 
     public void ProcessCommand(ICommand command) {
@@ -41,7 +43,7 @@ public class BoardRenderer : MonoBehaviour
             for (int y = 0; y < tiles.GetLength(1); y++) {
                 Vector3 position = new Vector3(x * tileScale.x, y * tileScale.y);
 
-                GameObject temp = Instantiate(tilePrefab, position + offset, Quaternion.identity, this.transform).gameObject;
+                GameObject temp = Instantiate(tilePrefab, position + offset, Quaternion.identity, tileHolder).gameObject;
                 temp.GetComponent<TileClick>().position = new Vector2Int(x, y); //initializes the info for TileClick as putting it in another place would have made code significantly harder to read
             }
         }
@@ -55,7 +57,7 @@ public class BoardRenderer : MonoBehaviour
                 for (int y = 0; y < GameManager.Instance.currentBoard.tiles.GetLength(1); y++) {
                     Vector3 position = new Vector3(x * tileScale.x, y * tileScale.y);
 
-                    Gizmos.color = GameManager.Instance.currentBoard.tiles[x, y].unit == null ? Color.white : Color.red;
+                    Gizmos.color = GameManager.Instance.currentBoard.tiles[x, y].unit == null ? Color.white : Color.magenta;
                     Gizmos.DrawWireCube(position + offset, new Vector3(1, 1, 0));
                 }
             }

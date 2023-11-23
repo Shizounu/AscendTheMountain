@@ -17,7 +17,8 @@ namespace Combat
             moveDistance = definition.MoveDistance;
 
             effects = definition.effects;
-            
+
+            canMove = false;
         }
 
         private int _curHealth;
@@ -25,23 +26,24 @@ namespace Combat
             get => _curHealth;
             set {
                 _curHealth = value;
-                if(_curHealth <= 0) {
-
-                }
                 if (_curHealth > maxHealth)
                     _curHealth = maxHealth;
             }
         }
+
         public Actors owner;
+
 
         public int maxHealth;
 
         public int attack;
+        public bool canAttack;
 
         public int moveDistance;
+        public bool canMove;
 
         public List<IEffect> effects;
 
-
+        ///TODO: Set up triggers and info for the viaul system to use. 
     }
 }
