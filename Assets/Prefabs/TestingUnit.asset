@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestingUnit
   m_EditorClassIdentifier: 
   Name: Test Unit
-  animatorController: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: 30a18f92fb97aa84c956ae8101f0da17, type: 2}
   Cost: 1
   Health: 1
   Attack: 1

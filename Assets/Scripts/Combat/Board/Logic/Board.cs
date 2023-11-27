@@ -25,22 +25,7 @@ namespace Combat
             Actor1_Deck = new();
             Actor2_Deck = new();
         }
-        public Board(OnCommandHandler onCommand) {
-            this.onCommand = onCommand;
-
-            tiles = new Tile[9, 5];
-            for (int x = 0; x < tiles.GetLength(0); x++)
-            {
-                for (int y = 0; y < tiles.GetLength(1); y++)
-                {
-                    tiles[x, y] = new(new Vector2Int(x, y));
-                }
-            }
-
-            Actor1_Deck = new();
-            Actor2_Deck = new();
-        }
-        OnCommandHandler onCommand;
+        public OnCommandHandler onCommand;
 
         /// <summary>
         /// Holds the information about each of the tiles

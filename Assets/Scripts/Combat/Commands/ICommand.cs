@@ -12,7 +12,7 @@ namespace Commands
     }
     public interface IVisualCommand
     {
-        void Visuals();
+        void Visuals(BoardRenderer boardRenderer);
     }
 }
 

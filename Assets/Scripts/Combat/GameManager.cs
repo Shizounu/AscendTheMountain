@@ -11,13 +11,12 @@ namespace Combat {
     public class GameManager : Shizounu.Library.SingletonBehaviour<GameManager> {
 
         public Board currentBoard;
-        public event OnCommandHandler onCommand;   
 
         protected override void Awake() {
+            
             base.Awake();
 
-            
-            currentBoard = new Board(onCommand);
+            currentBoard = new Board();
         }
     }
 }

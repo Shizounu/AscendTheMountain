@@ -80,6 +80,19 @@ namespace Editor
                 }
             }
             GUILayout.EndHorizontal();
+            if (GUILayout.Button("Kill All"))
+            {
+                for (int x = 0; x < GameManager.Instance.currentBoard.tiles.GetLength(0); x++)
+                {
+                    for (int y = 0; y < GameManager.Instance.currentBoard.tiles.GetLength(1); y++)
+                    {
+                        if (GameManager.Instance.currentBoard.tiles[x, y].unit != null)
+                        {
+                            GameManager.Instance.currentBoard.SetCommand(new Command_KillUnit(GameManager.Instance.currentBoard.tiles[x, y].unit));
+                        }
+                    }
+                }
+            }
 
             GameManager.Instance.currentBoard.DoQueuedCommands();
 

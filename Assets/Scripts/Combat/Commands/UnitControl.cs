@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Commands
 {
-    public class Command_SummonUnit : ICommand
+    public class Command_SummonUnit : ICommand, IVisualCommand
     {
         public Command_SummonUnit()
         {
@@ -22,9 +22,10 @@ namespace Commands
         [SerializeField] private Vector2Int position;
         [SerializeField] private Actors owner;
 
+        Unit unit;
         public void Execute(Board board)
         {
-            Unit unit = new Unit(unitDef, owner);
+            unit = new Unit(unitDef, owner);
             board.tiles[position.x, position.y].unit = unit;
         }
 
@@ -32,9 +33,14 @@ namespace Commands
         {
             throw new System.NotImplementedException();
         }
+
+        public void Visuals(BoardRenderer boardRenderer)
+        {
+            boardRenderer.SpawnUnitVisuals(unit, unitDef.animatorController, position);
+        }
     }
 
-    public class Command_RemoveUnit : ICommand
+    public class Command_RemoveUnit : ICommand, IVisualCommand
     {
         public Command_RemoveUnit()
         {
@@ -59,16 +65,29 @@ namespace Commands
 
                 }
             }
-            unit = null;
+            
         }
 
         public void Unexecute(Board board)
         {
             throw new System.NotImplementedException();
         }
+
+        public void Visuals(BoardRenderer boardRenderer)
+        {
+            boardRenderer.StartCoroutine(waitForAnimFinish(boardRenderer));
+        }
+
+        IEnumerator waitForAnimFinish(BoardRenderer boardRenderer)
+        {
+            //yield return new WaitForSeconds(1);
+            BoardRenderer.Destroy(boardRenderer.units[unit].gameObject);
+            yield return new WaitUntil(() => !boardRenderer.units[unit].isPlayingDeathAnim);
+            boardRenderer.units.Remove(unit);
+        }
     }
 
-    public class Command_MoveUnit : ICommand {
+    public class Command_MoveUnit : ICommand, IVisualCommand {
         public Command_MoveUnit()
         {
             
@@ -90,6 +109,7 @@ namespace Commands
         private Vector2Int startPos;
         private List<Vector2Int> path;
 
+        Unit unitRef;
         public void Execute(Board board) {
             foreach (Vector2Int position in path){
                 Move(board, position);
@@ -97,7 +117,7 @@ namespace Commands
         }
         private void Move(Board board, Vector2Int moveTo)
         {
-            Unit unitRef = board.tiles[startPos.x, startPos.y].unit;
+            unitRef = board.tiles[startPos.x, startPos.y].unit;
             board.tiles[startPos.x, startPos.y].unit = null;
             board.tiles[moveTo.x, moveTo.y].unit = unitRef;
             startPos = moveTo;
@@ -107,9 +127,23 @@ namespace Commands
         {
             throw new System.NotImplementedException();
         }
+
+        public void Visuals(BoardRenderer boardRenderer)
+        {
+            UnitRenderer unitRenderer = boardRenderer.units[unitRef];
+
+            unitRenderer.StartCoroutine(DoMoveStepsVisual(unitRenderer));
+        }
+
+        IEnumerator DoMoveStepsVisual(UnitRenderer unitRenderer) {
+            for (int i = 0; i < path.Count; i++) {
+                unitRenderer.animRef = unitRenderer.StartCoroutine(unitRenderer.Move(path[i]));
+                yield return new WaitUntil(() => unitRenderer.animRef == null);
+            }
+        }
     }
 
-    public class Command_DamageUnit : ICommand
+    public class Command_DamageUnit : ICommand, IVisualCommand
     {
         public Command_DamageUnit() {
             
@@ -133,9 +167,14 @@ namespace Commands
         {
             throw new System.NotImplementedException();
         }
+
+        public void Visuals(BoardRenderer boardRenderer)
+        {
+            boardRenderer.units[target].OnDamage();
+        }
     }
 
-    public class Command_KillUnit : ICommand {
+    public class Command_KillUnit : ICommand, IVisualCommand {
         public Command_KillUnit(Unit unit)
         {
             this.unit = unit;
@@ -151,6 +190,11 @@ namespace Commands
         public void Unexecute(Board board)
         {
             throw new System.NotImplementedException();
+        }
+
+        public void Visuals(BoardRenderer boardRenderer)
+        {
+            boardRenderer.units[unit].OnDeath();
         }
     }
 

@@ -70,8 +70,6 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
         GameManager.Instance.currentBoard.DoQueuedCommands();
     }
 
-
-
     public void Enable()
     {
         //Init Input
@@ -201,6 +199,7 @@ namespace InputStates
         }
     }
 
+    [System.Serializable]
     public class InputState_UnitSelected : InputState {
         public InputState_UnitSelected(Vector2Int unitPosition) {
             this.unitPosition = unitPosition;
@@ -233,7 +232,38 @@ namespace InputStates
 
             if (unit.canMove && currentBoard.getMovePositions(unitPosition, unit.moveDistance).Contains(position))
             {
-                currentBoard.SetCommand(new Commands.Command_MoveUnit(unitPosition, position));
+                if(Vector2Int.Distance(unitPosition, position) <= 1) {
+                    currentBoard.SetCommand(new Commands.Command_MoveUnit(unitPosition, position));
+                } else {
+                    Vector2Int tempPos = unitPosition;
+                    Vector2Int dir = unitPosition - position;
+                    List<Vector2Int> path = new();
+
+                    for (int x = 0; x < Mathf.Abs(dir.x); x++) {
+                        if(dir.x > 0) {
+                            path.Add(tempPos + Vector2Int.left);
+                            tempPos += Vector2Int.left;
+                        } else {
+                            path.Add(tempPos + Vector2Int.right);
+                            tempPos += Vector2Int.right;
+                        }
+                    }
+
+                    for (int y = 0; y < Mathf.Abs(dir.y); y++)
+                    {
+                        if (dir.y > 0)
+                        {
+                            path.Add(tempPos + Vector2Int.down);
+                            tempPos += Vector2Int.down;
+                        }
+                        else
+                        {
+                            path.Add(tempPos + Vector2Int.up);
+                            tempPos += Vector2Int.up;
+                        }
+                    }
+                    currentBoard.SetCommand(new Commands.Command_MoveUnit(unitPosition, path));
+                }
                 currentBoard.SetCommand(new Commands.Command_SetCanMove(unit, false));
                 currentBoard.DoQueuedCommands();
 

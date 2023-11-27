@@ -18,21 +18,44 @@ public class BoardRenderer : SingletonBehaviour<BoardRenderer>
 
     [Header("Prefabs")]
     public TileVisualsManager tilePrefab;
+    public UnitRenderer unitRenderer;
 
     [Header("References")]
+    public Transform unitHolder;
     public Transform tileHolder;
+    public Dictionary<Unit, UnitRenderer> units;
+    
 
     private void Start() {
         InitializeBoard(GameManager.Instance.currentBoard.tiles);
-        GameManager.Instance.onCommand += ProcessCommand;
+        GameManager.Instance.currentBoard.onCommand = ProcessCommand;
+        visualCommands = new Queue<IVisualCommand>();
+        units = new();
     }
 
     public void ProcessCommand(ICommand command) {
         IVisualCommand visualCommand = Helpers.GetInterface<IVisualCommand>(command);
         if (visualCommand == null)
             return;
-        visualCommands.Enqueue(visualCommand); 
+        visualCommands.Enqueue(visualCommand);
+
+        DoCommand();
     }
+
+    public void DoCommand() {
+        while (visualCommands.Count > 0) {
+            visualCommands.Dequeue().Visuals(this);
+        }
+    }
+
+    public void SpawnUnitVisuals(Unit unit, RuntimeAnimatorController rac, Vector2Int position) {
+        UnitRenderer renderer = Instantiate(unitRenderer, unitHolder);
+        renderer.Initialize(rac);
+        renderer.transform.position = tiles[position.x, position.y].transform.position;
+
+        units.Add(unit, renderer);
+    }
+
 
     
     public void InitializeBoard(Tile[,] boardArray) {
@@ -43,12 +66,13 @@ public class BoardRenderer : SingletonBehaviour<BoardRenderer>
             for (int y = 0; y < tiles.GetLength(1); y++) {
                 Vector3 position = new Vector3(x * tileScale.x, y * tileScale.y);
 
-                GameObject temp = Instantiate(tilePrefab, position + offset, Quaternion.identity, tileHolder).gameObject;
-                temp.GetComponent<TileClick>().position = new Vector2Int(x, y); //initializes the info for TileClick as putting it in another place would have made code significantly harder to read
+                TileVisualsManager temp = Instantiate(tilePrefab, position + offset, Quaternion.identity, tileHolder);
+                temp.gameObject.GetComponent<TileClick>().position = new Vector2Int(x, y); //initializes the info for TileClick as putting it in another place would have made code significantly harder to read
+
+                tiles[x, y] = temp;
             }
         }
     }
-
     private void OnDrawGizmos() {
         if (Application.isPlaying) {
             Vector3 offset = new Vector3(transform.position.x + positionOffset.x, transform.position.y + positionOffset.y);
