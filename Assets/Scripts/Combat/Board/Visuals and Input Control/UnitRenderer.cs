@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class UnitRenderer : MonoBehaviour
 {
     [Header("Anim values")]
     public float moveTime = 1f;
+    public float deathAnimDelay = 0.25f;
 
     [Header("references")]
     [SerializeField] private Animator animator;
@@ -38,18 +39,19 @@ public class UnitRenderer : MonoBehaviour
     {
         animator.SetTrigger("OnHit");
     }
-
-    public bool isPlayingDeathAnim {
-        get
-        {
-            string animName = animator.runtimeAnimatorController.name.Replace("_Animator", "_death");
-            //Debug.Log($"{animator.GetCurrentAnimatorStateInfo(0).shortNameHash}, {Animator.StringToHash(animName)}, {animName}");
-            return !animator.GetCurrentAnimatorStateInfo(0).IsName(animName) && animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1;
-        }
-    }
     public void OnDeath()
     {
         animator.SetTrigger("OnDeath");
+    }
+
+
+    public float getDeathAnimLength()
+    {
+        string deathAnimName = animator.runtimeAnimatorController.name.Replace("_Animator", "_death");
+        string idleAnimName = animator.runtimeAnimatorController.name.Replace("_Animator", "_idle");
+
+        return animator.runtimeAnimatorController.animationClips.Where((AnimationClip clip) => clip.name == idleAnimName).ToArray()[0].length +
+              animator.runtimeAnimatorController.animationClips.Where((AnimationClip clip) => clip.name == deathAnimName).ToArray()[0].length + deathAnimDelay;
     }
 
 

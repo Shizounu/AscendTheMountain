@@ -50,8 +50,8 @@ namespace Commands
         {
             unit = _unit;
         }
-        [SerializeField] private Unit unit;
 
+        [SerializeField] private Unit unit;
         public void Execute(Board board)
         {
             for (int x = 0; x < board.tiles.GetLength(0); x++)
@@ -81,8 +81,8 @@ namespace Commands
         IEnumerator waitForAnimFinish(BoardRenderer boardRenderer)
         {
             //yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(boardRenderer.units[unit].getDeathAnimLength());
             BoardRenderer.Destroy(boardRenderer.units[unit].gameObject);
-            yield return new WaitUntil(() => !boardRenderer.units[unit].isPlayingDeathAnim);
             boardRenderer.units.Remove(unit);
         }
     }
