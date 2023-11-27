@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Test Unit
   animatorController: {fileID: 9100000, guid: 30a18f92fb97aa84c956ae8101f0da17, type: 2}
+  Icon: {fileID: -8982391045973066017, guid: 9571eeb765260a2439e3109ff8bc07f3, type: 3}
   Cost: 1
   Health: 1
   Attack: 1
