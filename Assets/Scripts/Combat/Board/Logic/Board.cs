@@ -25,22 +25,7 @@ namespace Combat
             Actor1_Deck = new();
             Actor2_Deck = new();
         }
-        public Board(OnCommandHandler onCommand) {
-            this.onCommand = onCommand;
-
-            tiles = new Tile[9, 5];
-            for (int x = 0; x < tiles.GetLength(0); x++)
-            {
-                for (int y = 0; y < tiles.GetLength(1); y++)
-                {
-                    tiles[x, y] = new(new Vector2Int(x, y));
-                }
-            }
-
-            Actor1_Deck = new();
-            Actor2_Deck = new();
-        }
-        OnCommandHandler onCommand;
+        public OnCommandHandler onCommand;
 
         /// <summary>
         /// Holds the information about each of the tiles
@@ -132,6 +117,27 @@ namespace Combat
             }
 
             return getPositions(unitPos, moveDist);
+        }
+    
+        public List<Vector2Int> getAttackPositions(Vector2Int position) {
+            bool isInBounds(Vector2Int pos)
+            {
+                return pos.x < tiles.GetLength(0) && pos.x >= 0 &&
+                       pos.y < tiles.GetLength(1) && pos.y >= 0;
+            }
+
+            List<Vector2Int> result = new();
+
+            if (isInBounds(position + Vector2Int.up))
+                result.Add(position + Vector2Int.up);
+            if (isInBounds(position + Vector2Int.down))
+                result.Add(position + Vector2Int.down);
+            if (isInBounds(position + Vector2Int.right))
+                result.Add(position + Vector2Int.right);
+            if (isInBounds(position + Vector2Int.left))
+                result.Add(position + Vector2Int.left);
+
+            return result;
         }
     }
 

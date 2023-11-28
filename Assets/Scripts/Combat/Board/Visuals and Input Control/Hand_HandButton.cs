@@ -20,6 +20,7 @@ public class Hand_HandButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public UnityEngine.UI.Image backgroundRenderer;
     public UnityEngine.UI.Image gemRenderer;
     public UnityEngine.UI.Image glowRenderer;
+    public UnityEngine.UI.Image iconRenderer;
     public TMPro.TextMeshProUGUI costText;
 
     [SerializeField] private bool isHovered = false;
@@ -74,6 +75,26 @@ namespace HandButtonStates {
                 handButton.costText.text = "X"; //TODO Change to nothing later, or leave it - could be nice
             }
 
+            //animate the hand unit
+            if(GameManager.Instance.currentBoard.Actor1_Deck.Hand[handButton.handIndex] != null) {
+                handButton.iconRenderer.sprite = GameManager.Instance.currentBoard.Actor1_Deck.Hand[handButton.handIndex].Icon;
+                handButton.iconRenderer.color = new Color(
+                    handButton.iconRenderer.color.r,
+                    handButton.iconRenderer.color.g,
+                    handButton.iconRenderer.color.b,
+                    1
+                );
+            } else {
+                handButton.iconRenderer.sprite = null;
+                handButton.iconRenderer.color = new Color(
+                    handButton.iconRenderer.color.r,
+                    handButton.iconRenderer.color.g,
+                    handButton.iconRenderer.color.b,
+                    0
+                );
+            }
+
+            
             //lower bound check
             if (glowValue > 0)
                 glowValue -= glowDecrease * Time.deltaTime;

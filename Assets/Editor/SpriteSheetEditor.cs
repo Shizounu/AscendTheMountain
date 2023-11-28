@@ -8,6 +8,12 @@ using System;
 using System.Text.RegularExpressions;
 using System.Linq;
 
+
+/// <summary>
+/// TODO: Fix Animations, such as Idle looping
+/// 
+/// </summary>
+
 namespace Editor.SpriteSheedEditor {
     public class SpriteSheetEditor : EditorWindow {
 
