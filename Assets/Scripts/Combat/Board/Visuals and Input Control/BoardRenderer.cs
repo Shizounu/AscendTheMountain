@@ -50,7 +50,7 @@ public class BoardRenderer : SingletonBehaviour<BoardRenderer>
 
     public void SpawnUnitVisuals(Unit unit, RuntimeAnimatorController rac, Vector2Int position) {
         UnitRenderer renderer = Instantiate(unitRenderer, unitHolder);
-        renderer.Initialize(rac);
+        renderer.Initialize(rac, unit.owner);
         renderer.transform.position = tiles[position.x, position.y].transform.position;
 
         units.Add(unit, renderer);

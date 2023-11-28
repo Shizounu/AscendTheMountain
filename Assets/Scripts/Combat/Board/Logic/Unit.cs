@@ -19,6 +19,8 @@ namespace Combat
             effects = definition.effects;
 
             canMove = false;
+
+            this.owner = owner;
         }
 
         private int _curHealth;
