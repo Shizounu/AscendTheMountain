@@ -44,7 +44,10 @@ public class UnitRenderer : MonoBehaviour
         animator.SetTrigger("OnDeath");
     }
 
-
+    public void OnAttack()
+    {
+        animator.SetTrigger("OnAttack");
+    }
     public float getDeathAnimLength()
     {
         string deathAnimName = animator.runtimeAnimatorController.name.Replace("_Animator", "_death");

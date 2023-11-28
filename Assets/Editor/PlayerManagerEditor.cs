@@ -1,4 +1,5 @@
-﻿using Combat;
+﻿using Cards;
+using Combat;
 using Commands;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,6 +10,8 @@ namespace Editor
 {
     [CustomEditor(typeof(PlayerActorManager))]
     public class PlayerManagerEditor : UnityEditor.Editor {
+
+        
 
         public override void OnInspectorGUI() {
             base.OnInspectorGUI();
@@ -55,6 +58,9 @@ namespace Editor
             }
             GUILayout.EndHorizontal();
 
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Move true", UnityEditor.EditorStyles.miniButtonLeft))
             {
@@ -80,8 +86,11 @@ namespace Editor
                 }
             }
             GUILayout.EndHorizontal();
-            if (GUILayout.Button("Kill All"))
-            {
+
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+
+            if (GUILayout.Button("Kill All")) {
                 for (int x = 0; x < GameManager.Instance.currentBoard.tiles.GetLength(0); x++)
                 {
                     for (int y = 0; y < GameManager.Instance.currentBoard.tiles.GetLength(1); y++)
@@ -92,6 +101,15 @@ namespace Editor
                         }
                     }
                 }
+            }
+
+            
+            if(GUILayout.Button("Summon Testing Unit") && actorManager.testingDefinition != null) {
+                GameManager.Instance.currentBoard.SetCommand(new Command_SummonUnit(
+                    actorManager.testingDefinition,
+                    new Vector2Int(7, 2), 
+                    Actors.Actor2)
+                );
             }
 
             GameManager.Instance.currentBoard.DoQueuedCommands();

@@ -4,9 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Commands;
-using static UnityEngine.RuleTile.TilingRuleOutput;
-using UnityEngine.UIElements;
-using System.Threading;
+
 
 public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActorManager>, IActorManager {
 
@@ -49,6 +47,9 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
     }
     #endregion
 
+#if UNITY_EDITOR
+    public UnitDefinition testingDefinition;
+#endif
 
     private void Start()
     {
@@ -124,7 +125,7 @@ namespace InputStates
         public override void OnTileSelect(PlayerActorManager sm, Vector2Int position)
         {
             //If selected tile has a Unit -> Transfer into that unit control
-            if (currentBoard.tiles[position.x, position.y].unit != null) {
+            if (currentBoard.tiles[position.x, position.y].unit != null && currentBoard.tiles[position.x, position.y].unit.owner == Actors.Actor1) {
                 sm.currentState = new InputState_UnitSelected(position);
             }
             //If selected tile has no Unit -> Remain here
@@ -264,27 +265,25 @@ namespace InputStates
                     }
                     currentBoard.SetCommand(new Commands.Command_MoveUnit(unitPosition, path));
                 }
-                currentBoard.SetCommand(new Commands.Command_SetCanMove(unit, false));
-                currentBoard.DoQueuedCommands();
 
                 sm.currentState = new InputState_Default();
                 return;
             }
 
-            List<Vector2Int> attackPos = new List<Vector2Int>() {
-                unitPosition + Vector2Int.left,
-                unitPosition + Vector2Int.right,
-                unitPosition + Vector2Int.up,
-                unitPosition + Vector2Int.down
-            };
-            if(unit.canAttack && attackPos.Contains(position)) {
-                if (currentBoard.tiles[position.x, position.y].unit != null && currentBoard.tiles[position.x, position.y].unit.owner != Actors.Actor1) {
-                    currentBoard.SetCommand(new Command_DamageUnit(unit.attack, currentBoard.tiles[position.x, position.y].unit));
+            ///TODO: potential rare bug where you can attack using an enemy unit? Havent been able to reproduce
+
+            if( unit.canAttack && 
+                currentBoard.getAttackPositions(unitPosition).Contains(position))
+            {
+                if (currentBoard.tiles[position.x, position.y].unit != null && currentBoard.tiles[position.x, position.y].unit.owner == Actors.Actor1) {
+                    currentBoard.SetCommand(new Command_AttackUnit(unit, currentBoard.tiles[position.x, position.y].unit));
 
                     currentBoard.DoQueuedCommands();
+                    Debug.Log("Attacked");
                 } 
             } else {
                 sm.currentState = new InputState_Default();
+                Debug.Log("Not attacking");
                 return;
             }
 
@@ -305,15 +304,10 @@ namespace InputStates
             }
             if (unit.canAttack)
             {
-                List<Vector2Int> attackPos = new List<Vector2Int>() {
-                    unitPosition + Vector2Int.left,
-                    unitPosition + Vector2Int.right,
-                    unitPosition + Vector2Int.up,
-                    unitPosition + Vector2Int.down
-                };
+                
                 Vector3 offset = new Vector3(BoardRenderer.Instance.transform.position.x + BoardRenderer.Instance.positionOffset.x, BoardRenderer.Instance.transform.position.y + BoardRenderer.Instance.positionOffset.y);
                 Gizmos.color = Color.red;
-                foreach (var pos in attackPos)
+                foreach (var pos in currentBoard.getAttackPositions(unitPosition))
                 {
                     Vector3 position = new Vector3(pos.x * BoardRenderer.Instance.tileScale.x, pos.y * BoardRenderer.Instance.tileScale.y);
                     Gizmos.DrawWireCube(position + offset, new Vector3(BoardRenderer.Instance.tileScale.x, BoardRenderer.Instance.tileScale.y, 0));

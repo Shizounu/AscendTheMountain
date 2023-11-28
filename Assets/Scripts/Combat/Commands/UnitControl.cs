@@ -2,6 +2,7 @@ using Combat;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Commands
 {
@@ -140,6 +141,35 @@ namespace Commands
                 unitRenderer.animRef = unitRenderer.StartCoroutine(unitRenderer.Move(path[i]));
                 yield return new WaitUntil(() => unitRenderer.animRef == null);
             }
+        }
+    }
+
+    public class Command_AttackUnit : ICommand, IVisualCommand {
+        public Command_AttackUnit()
+        {
+            
+        }
+        public Command_AttackUnit(Unit attacker, Unit defender)
+        {
+            this.attacker = attacker;
+            this.defender = defender;
+        }
+        Unit attacker;
+        Unit defender;
+
+        public void Execute(Board board)
+        {
+            board.SetSubCommand(new Command_DamageUnit(attacker.attack, defender));
+        }
+
+        public void Unexecute(Board board)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Visuals(BoardRenderer boardRenderer)
+        {
+            boardRenderer.units[attacker].OnAttack();
         }
     }
 
