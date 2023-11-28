@@ -18,9 +18,11 @@ public class UnitRenderer : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void Initialize(RuntimeAnimatorController runtimeAnimatorController)
+    public void Initialize(RuntimeAnimatorController runtimeAnimatorController, Combat.Actors side)
     {
         animator.runtimeAnimatorController = runtimeAnimatorController;
+        if(side == Combat.Actors.Actor2)
+            GetComponent<SpriteRenderer>().flipX = true;
     }
 
     public Coroutine animRef;
@@ -34,7 +36,6 @@ public class UnitRenderer : MonoBehaviour
         animator.SetBool("IsWalking", false);
         animRef = null;
     }
-
     public void OnDamage()
     {
         animator.SetTrigger("OnHit");
@@ -43,7 +44,6 @@ public class UnitRenderer : MonoBehaviour
     {
         animator.SetTrigger("OnDeath");
     }
-
     public void OnAttack()
     {
         animator.SetTrigger("OnAttack");

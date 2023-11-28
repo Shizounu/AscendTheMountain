@@ -1179,6 +1179,7 @@ MonoBehaviour:
   PlayerDeck: {fileID: 11400000, guid: c9bb6c0db6cc17045be941329b34933e, type: 2}
   currentState:
     rid: -2
+  testingDefinition: {fileID: 11400000, guid: 89b860e2b8d799341be307940527709e, type: 2}
   references:
     version: 2
     RefIds:

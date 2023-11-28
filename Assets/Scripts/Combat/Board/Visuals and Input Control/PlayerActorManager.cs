@@ -272,10 +272,9 @@ namespace InputStates
 
             ///TODO: potential rare bug where you can attack using an enemy unit? Havent been able to reproduce
 
-            if( unit.canAttack && 
-                currentBoard.getAttackPositions(unitPosition).Contains(position))
+            if( unit.canAttack && currentBoard.getAttackPositions(unitPosition).Contains(position))
             {
-                if (currentBoard.tiles[position.x, position.y].unit != null && currentBoard.tiles[position.x, position.y].unit.owner == Actors.Actor1) {
+                if (currentBoard.tiles[position.x, position.y].unit != null && currentBoard.tiles[position.x, position.y].unit.owner == Actors.Actor2) {
                     currentBoard.SetCommand(new Command_AttackUnit(unit, currentBoard.tiles[position.x, position.y].unit));
 
                     currentBoard.DoQueuedCommands();
