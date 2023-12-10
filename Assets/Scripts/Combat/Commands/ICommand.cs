@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+///TODO: Possibly put under combat
 namespace Commands
 {
     public interface ICommand
