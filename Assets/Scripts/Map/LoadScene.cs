@@ -11,13 +11,14 @@ namespace Map {
         public IntReference sceneIndex;
         public ScriptableEvent eventReference;    
         public void DoSwitchScene(){
-            ActivateOnFinishLoad(
+            StartCoroutine(ActivateOnFinishLoad(
                 SceneManager.LoadSceneAsync(sceneIndex, LoadSceneMode.Additive),
                 eventReference
-            );
+            ));
         }
         private IEnumerator ActivateOnFinishLoad(AsyncOperation operation, ScriptableEvent scriptableEvent){
-            yield return operation;
+            yield return new WaitUntil(() => operation.isDone);
+            Debug.Log("Scene Finished Loading");
             scriptableEvent.Invoke();
         }
     }

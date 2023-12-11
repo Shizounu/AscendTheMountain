@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -4744569096540333971, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
+      propertyPath: eventReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 93edf5b615fd77744b44e29453cbe914, type: 2}
+    - target: {fileID: -4744569096540333971, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
       propertyPath: sceneIndex.Variable
       value: 
       objectReference: {fileID: 11400000, guid: bd9c1a866b9beaf4eaf37330afb3d3b1, type: 2}
@@ -63,5 +67,44 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 373522322791368743, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 373522322791368743, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 373522322791368743, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4845929121419109069}
+    - target: {fileID: 373522322791368743, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 373522322791368743, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DoSwitchScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 373522322791368743, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Map.LoadScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 373522322791368743, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
+      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
+--- !u!114 &4845929121419109069 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4744569096540333971, guid: fcda45d827d1ce7408317c9ec98246b6, type: 3}
+  m_PrefabInstance: {fileID: 9036425747325188768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4ac047d662e2a4a8b3a0dac4e1f4d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

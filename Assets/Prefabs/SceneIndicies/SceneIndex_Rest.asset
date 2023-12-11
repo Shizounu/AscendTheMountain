@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 259196b43342e394cbda542ae6ad87e5, type: 3}
   m_Name: SceneIndex_Rest
   m_EditorClassIdentifier: 
-  initialValue: 5
+  initialValue: 4
   onRuntimeValueChange: {fileID: 0}

@@ -401,10 +401,10 @@ MonoBehaviour:
   OnFinalNode:
     m_PersistentCalls:
       m_Calls: []
-  mapSceneIndex:
-    useConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: b9e5d2a8be7b19f4c8ebdc6b2a13d263, type: 2}
+  toDisable:
+  - {fileID: 1445207659}
+  - {fileID: 1859765520}
+  - {fileID: 1922893524}
   OnDisableMap: {fileID: 11400000, guid: 93edf5b615fd77744b44e29453cbe914, type: 2}
   OnEnableMap: {fileID: 11400000, guid: 43b89a754914d55439e363fd6f86aa81, type: 2}
   mapGenerator: {fileID: 1922893525}

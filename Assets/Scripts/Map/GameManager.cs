@@ -21,13 +21,9 @@ namespace Map{
         public UnityEvent OnFinalNode;
 
         [Space(), Header("Scene Managment")]
-        public IntReference mapSceneIndex;
-        [Space()]
+        public List<GameObject> toDisable;
         public ScriptableEvent OnDisableMap;
-        public ChangeMapActivityListener disableListener;
-        [Space()]
         public ScriptableEvent OnEnableMap;
-        public ChangeMapActivityListener enableListener;
         
         [Header("References")]
         [SerializeField] private MapGenerator mapGenerator;
@@ -37,8 +33,9 @@ namespace Map{
         private void Start()
         {
             mapGenerator.GenerateMap();
-            disableListener = new ChangeMapActivityListener(OnDisableMap, () => SetActiveMap(false));
-            enableListener = new ChangeMapActivityListener(OnEnableMap, () => SetActiveMap(true));
+            OnDisableMap += new SwitchCam(false, toDisable);
+            OnEnableMap += new SwitchCam(true, toDisable);
+
         }
 
         private void Update()
@@ -50,12 +47,6 @@ namespace Map{
             }
         }
 
-        private void SetActiveMap(bool value){
-            Scene s = SceneManager.GetSceneByBuildIndex(mapSceneIndex);
-            GameObject[] rootObjects = s.GetRootGameObjects();
-            for (int i = 0; i < rootObjects.Length; i++) 
-                rootObjects[i].SetActive(value);
-        }
 
         private bool IsNonContinuable()
         {
@@ -63,6 +54,20 @@ namespace Map{
                 return false;
             return currentNode.connectedNodes.Count == 0;
         }
+    }
 
+    public class SwitchCam : IScriptableEventListener {
+        public SwitchCam(bool state, List<GameObject> disable) {
+            this.state = state;
+            this.disable = disable;
+        }
+        bool state;
+        List<GameObject> disable;
+
+        public void EventResponse() {
+            foreach (var item in disable) {
+                item.SetActive(state);
+            }
+        }
     }
 }
