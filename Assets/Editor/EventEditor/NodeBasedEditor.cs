@@ -215,6 +215,8 @@ namespace Editor.EventEditor{
                 nodes = new List<Node>();
             }
 
+            //TODO: Fix creating nodes
+
             //nodes.Add(new Node(mousePosition, 200, 50, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode));
         }
 
