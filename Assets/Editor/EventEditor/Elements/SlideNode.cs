@@ -2,37 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using Map.Events.Enumeration;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using Editor.EventEditor.Utilities;
 using Editor.EventEditor.Windows;
+
 namespace Editor.EventEditor.Elements
 {
-    public class MultipleChoiceEventNode : EventNode
+    public class SlideNode : BaseNode
     {
 
         public override void Initialize(Vector2 position, EventGraphView graphView)
         {
             base.Initialize(position, graphView);
-            SlideType = SlideType.MultipleChoice;
+
+            NodeType = NodeType.Slide;
 
             Choices.Add("New Choice");
         }
-        public override void Draw()
-        {
-            base.Draw();
 
-            //Add connection button
+
+
+        protected override void MakeMain()
+        {
             Button addChoiceButton = ElementUtility.CreateButton("Add Choice", () => { CreateChoicePort("New Choice"); Choices.Add("New Choice"); });
             addChoiceButton.AddToClassList("ds-node__button");
             mainContainer.Insert(1, addChoiceButton);
+        }
 
-
+        protected override void MakeOutput()
+        {
             foreach (var choice in Choices)
                 CreateChoicePort(choice);
-
-            RefreshExpandedState();
         }
 
         private void CreateChoicePort(string choice)

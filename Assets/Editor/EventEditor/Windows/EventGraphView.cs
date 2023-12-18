@@ -7,13 +7,13 @@ using System;
 using UnityEngine.UIElements;
 using UnityEditor;
 using Editor.EventEditor.Elements;
-using Map.Events.Enumeration;
 using Editor.EventEditor.Utilities;
 
 
 namespace Editor.EventEditor.Windows
 {
     public class EventGraphView : GraphView {
+        
         private GraphSearchWindow searchWindow;
         private EventEditorWindow editorWindow;
 
@@ -26,6 +26,9 @@ namespace Editor.EventEditor.Windows
             AddSearchWindow();
         }
 
+
+
+        #region Context Menu
         private void AddSearchWindow()
         {
             if(searchWindow == null)
@@ -33,7 +36,6 @@ namespace Editor.EventEditor.Windows
             searchWindow.Initialize(this);
             nodeCreationRequest = context => SearchWindow.Open(new SearchWindowContext(context.screenMousePosition), searchWindow);
         }
-
         private void AddManipulators()
         {
             this.AddManipulator(new ContentDragger());
@@ -41,12 +43,11 @@ namespace Editor.EventEditor.Windows
             this.AddManipulator(new RectangleSelector());
             SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
 
-            this.AddManipulator(CreateContextualMenu("Add Node (Single Choice)", SlideType.SingleChoice));
-            this.AddManipulator(CreateContextualMenu("Add Node (Multiple Choice)", SlideType.MultipleChoice));
+            this.AddManipulator(CreateContextualMenu("Add Slide", NodeType.Slide));
+            
 
             this.AddManipulator(CreateGroupContextualMenu());
         }
-
         private IManipulator CreateGroupContextualMenu()
         {
             ContextualMenuManipulator contextualMenuManipulator = new(
@@ -58,25 +59,8 @@ namespace Editor.EventEditor.Windows
             return contextualMenuManipulator;
         }
 
-        public GraphElement CreateGroup(string title, Vector2 localMousePosition)
-        {
-            Group group = new Group()
-            {
-                title = title
-            };
-            group.SetPosition(new Rect(localMousePosition, Vector2.zero));
 
-            foreach (GraphElement selectedElement in selection) {
-                if(selectedElement is EventNode) {
-                    EventNode node = selectedElement as EventNode;
-                    group.AddElement(node);
-                }
-            }
-
-            return group;
-        }
-
-        private IManipulator CreateContextualMenu(string actionTitle, SlideType type)
+        private IManipulator CreateContextualMenu(string actionTitle, NodeType type)
         {
             ContextualMenuManipulator contextualMenuManipulator = new(
                 menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode(type, getLocalMousePosition(actionEvent.eventInfo.localMousePosition))))
@@ -85,9 +69,33 @@ namespace Editor.EventEditor.Windows
             return contextualMenuManipulator;
         }
 
-        public EventNode CreateNode(SlideType type, Vector2 pos)
+
+        #endregion
+
+        #region Create Element Functions 
+        public GraphElement CreateGroup(string title, Vector2 localMousePosition)
         {
-            EventNode node = (type == SlideType.SingleChoice) ? new SingleChoiceEventNode() : new MultipleChoiceEventNode();
+            Group group = new Group()
+            {
+                title = title
+            };
+            group.SetPosition(new Rect(localMousePosition, Vector2.zero));
+
+            foreach (GraphElement selectedElement in selection)
+            {
+                if (selectedElement is BaseNode)
+                {
+                    BaseNode node = selectedElement as BaseNode;
+                    group.AddElement(node);
+                }
+            }
+
+            return group;
+        }
+
+        public BaseNode CreateNode(NodeType type, Vector2 pos)
+        {
+            BaseNode node = GetNode(type);
 
             node.Initialize(pos, this);
             node.Draw();
@@ -98,9 +106,21 @@ namespace Editor.EventEditor.Windows
         private void AddGridBackground()
         {
             GridBackground grid = new GridBackground();
-            
+
             grid.StretchToParentSize(); //sets the size
             Insert(0, grid); //adds it to the graph view
+        }
+        #endregion
+
+        #region Helpers
+        private BaseNode GetNode(NodeType type)
+        {
+            switch (type)
+            {
+                case NodeType.Slide:
+                    return new SlideNode();
+                default: return null;
+            }
         }
 
         private void AddStyles()
@@ -116,7 +136,8 @@ namespace Editor.EventEditor.Windows
             List<Port> compatiblePorts = new();
 
             ports.ForEach(port => {
-                if(port.direction != startPort.direction) {
+                if (port.direction != startPort.direction)
+                {
                     compatiblePorts.Add(port);
                 }
             });
@@ -124,14 +145,18 @@ namespace Editor.EventEditor.Windows
             return compatiblePorts;
         }
 
-        public Vector2 getLocalMousePosition(Vector2 mousePosition, bool isSearchWindow = false) {
+        public Vector2 getLocalMousePosition(Vector2 mousePosition, bool isSearchWindow = false)
+        {
             Vector2 worldMousePosition = mousePosition;
-            if(searchWindow) {
+            if (searchWindow)
+            {
                 worldMousePosition -= editorWindow.position.position;
             }
 
             Vector2 localMousePosition = contentViewContainer.WorldToLocal(worldMousePosition);
             return localMousePosition;
         }
+
+        #endregion
     }
 }

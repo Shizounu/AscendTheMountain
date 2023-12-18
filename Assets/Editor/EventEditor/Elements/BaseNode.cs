@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEditor.Experimental.GraphView;
-using Map.Events.Enumeration;
 using UnityEngine.UIElements;
 using Editor.EventEditor.Utilities;
 using Editor.EventEditor.Windows;
@@ -11,12 +10,12 @@ using Editor.EventEditor.Windows;
 namespace Editor.EventEditor.Elements
 {
     //TODO: Expand to fit wanted capabilities better, add extras for underlying actions
-    public class EventNode : Node
+    public abstract class BaseNode : Node
     {
         public string SlideName { get; set; }
         public List<string> Choices { get; set; } 
         public string Text { get; set; }
-        public SlideType SlideType { get; set; }
+        public NodeType NodeType { get; set; }
         protected EventGraphView graphView { get; set; }
 
 
@@ -35,7 +34,22 @@ namespace Editor.EventEditor.Elements
         }
 
         public virtual void Draw() {
-            //Title Container
+            MakeTitle();
+
+            MakeMain();
+
+            MakeInput();
+
+            MakeOutput();
+
+            MakeExtension();
+
+            //Redraws visuals
+            RefreshExpandedState();
+        }
+        
+        #region Section Constructors
+        protected virtual void MakeTitle() {
             TextField slideNameTextField = Utilities.ElementUtility.CreateTextField(SlideName);
             titleContainer.Insert(0, slideNameTextField);
 
@@ -44,11 +58,16 @@ namespace Editor.EventEditor.Elements
                 "ds-node__text-field__hidden",
                 "ds-node__filename-text-field"
             );
+        }
 
-            //input
+        protected virtual void MakeInput() {
             Port inputPort = this.CreatePort("Incoming", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
             inputContainer.Add(inputPort);
+        }
+        protected virtual void MakeMain() { }
+        protected virtual void MakeOutput() { }
 
+        protected virtual void MakeExtension() {
             //Extension container
             VisualElement customDataContainer = new();
             customDataContainer.AddToClassList("ds-node__custom-data-container");
@@ -63,9 +82,7 @@ namespace Editor.EventEditor.Elements
             textFoldout.Add(textTextField);
             customDataContainer.Add(textFoldout);
             extensionContainer.Add(customDataContainer);
-
-            //Redraws visuals
-            RefreshExpandedState();
         }
+        #endregion
     }
 }

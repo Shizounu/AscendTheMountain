@@ -24,16 +24,12 @@ namespace Editor.EventEditor.Windows
             {
                 new SearchTreeGroupEntry(new GUIContent("Create Element")),
                 new SearchTreeGroupEntry(new GUIContent("Dialogue Node"), 1),
-                new SearchTreeEntry(new GUIContent("Single Choice", indentationIcon))
+                new SearchTreeEntry(new GUIContent("Slide Node", indentationIcon))
                 {
                     level = 2,
-                    userData = Map.Events.Enumeration.SlideType.SingleChoice
+                    userData = NodeType.Slide
                 },
-                new SearchTreeEntry(new GUIContent("Multiple Choice", indentationIcon))
-                {
-                    level = 2,
-                    userData = Map.Events.Enumeration.SlideType.MultipleChoice
-                },
+
 
                 new SearchTreeGroupEntry(new GUIContent("Dialogue Group"), 1),
                 new SearchTreeEntry(new GUIContent("Single Group", indentationIcon))
@@ -50,15 +46,9 @@ namespace Editor.EventEditor.Windows
             Vector2 localPos = graphView.getLocalMousePosition(context.screenMousePosition, true);
             switch (SearchTreeEntry.userData) 
             {
-                case Map.Events.Enumeration.SlideType.SingleChoice:
+                case NodeType.Slide:
                     {
-                        SingleChoiceEventNode node = (SingleChoiceEventNode)graphView.CreateNode(Map.Events.Enumeration.SlideType.SingleChoice, localPos);
-                        graphView.AddElement(node);
-                        return true;
-                    }
-                case Map.Events.Enumeration.SlideType.MultipleChoice:
-                    {
-                        MultipleChoiceEventNode node = (MultipleChoiceEventNode)graphView.CreateNode(Map.Events.Enumeration.SlideType.MultipleChoice, localPos);
+                        SlideNode node = (SlideNode)graphView.CreateNode(NodeType.Slide, localPos);
                         graphView.AddElement(node);
                         return true;
                     }
