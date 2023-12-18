@@ -29,6 +29,13 @@ namespace Editor.EventEditor.Windows
                     level = 2,
                     userData = NodeType.Slide
                 },
+                
+                new SearchTreeGroupEntry(new GUIContent("Actions"), 2),
+                new SearchTreeEntry(new GUIContent("Add Gold", indentationIcon))
+                {
+                    level= 3,
+                    userData = NodeType.AddGoldAction
+                },
 
 
                 new SearchTreeGroupEntry(new GUIContent("Dialogue Group"), 1),
@@ -49,6 +56,12 @@ namespace Editor.EventEditor.Windows
                 case NodeType.Slide:
                     {
                         SlideNode node = (SlideNode)graphView.CreateNode(NodeType.Slide, localPos);
+                        graphView.AddElement(node);
+                        return true;
+                    }
+                case NodeType.AddGoldAction:
+                    {
+                        NodeAction_AddGold node = (NodeAction_AddGold)graphView.CreateNode(NodeType.AddGoldAction, localPos);
                         graphView.AddElement(node);
                         return true;
                     }

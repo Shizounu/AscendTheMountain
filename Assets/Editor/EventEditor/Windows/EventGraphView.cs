@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 using UnityEditor;
 using Editor.EventEditor.Elements;
 using Editor.EventEditor.Utilities;
-
+using System.Runtime.CompilerServices;
 
 namespace Editor.EventEditor.Windows
 {
@@ -24,9 +24,15 @@ namespace Editor.EventEditor.Windows
             AddGridBackground();
             AddStyles();
             AddSearchWindow();
+
+            AddEntryExitNodes();
         }
 
-
+        private void AddEntryExitNodes()
+        {
+            AddElement(CreateNode(NodeType.EntryNode, new Vector2(100, 300)));
+            AddElement(CreateNode(NodeType.ExitNode, new Vector2(500, 300)));
+        }
 
         #region Context Menu
         private void AddSearchWindow()
@@ -41,12 +47,14 @@ namespace Editor.EventEditor.Windows
             this.AddManipulator(new ContentDragger());
             this.AddManipulator(new SelectionDragger()); //needs to be before selector... for some reason
             this.AddManipulator(new RectangleSelector());
+            
             SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
-
+            /*
             this.AddManipulator(CreateContextualMenu("Add Slide", NodeType.Slide));
+            this.AddManipulator(CreateContextualMenu(""))
             
 
-            this.AddManipulator(CreateGroupContextualMenu());
+            this.AddManipulator(CreateGroupContextualMenu());*/
         }
         private IManipulator CreateGroupContextualMenu()
         {
@@ -117,8 +125,10 @@ namespace Editor.EventEditor.Windows
         {
             switch (type)
             {
-                case NodeType.Slide:
-                    return new SlideNode();
+                case NodeType.Slide     : return new SlideNode();
+                case NodeType.EntryNode : return new EntryNode();
+                case NodeType.ExitNode  : return new ExitNode();
+                case NodeType.AddGoldAction: return new NodeAction_AddGold();
                 default: return null;
             }
         }

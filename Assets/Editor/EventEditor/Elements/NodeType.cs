@@ -5,6 +5,8 @@ using UnityEngine;
 namespace Editor.EventEditor.Elements
 {
 	public enum NodeType {
-		Slide
+		Slide,
+		EntryNode, ExitNode,
+		AddGoldAction
 	}
 }
