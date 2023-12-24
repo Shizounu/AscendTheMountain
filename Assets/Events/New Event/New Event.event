@@ -1,0 +1,53 @@
+{
+    "EventName": "New Event",
+    "Slides": [
+        {
+            "SlideID": "",
+            "Text": "Slide Text",
+            "mapEventActions": [
+                {
+                    "ActionText": "New Choice",
+                    "ActionLogics": [
+                        {
+                            "Action": 3,
+                            "Value": "5"
+                        },
+                        {
+                            "Action": 0,
+                            "Value": "508ace5c-ea38-44a6-be0b-8821d8b98c14"
+                        }
+                    ]
+                },
+                {
+                    "ActionText": "New Choice",
+                    "ActionLogics": [
+                        {
+                            "Action": 3,
+                            "Value": "10"
+                        },
+                        {
+                            "Action": 0,
+                            "Value": "508ace5c-ea38-44a6-be0b-8821d8b98c14"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "SlideID": "",
+            "Text": "Slide Text",
+            "mapEventActions": [
+                {
+                    "ActionText": "New Choice",
+                    "ActionLogics": [
+                        {
+                            "Action": 5,
+                            "Value": "0"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "InitialSlide": "ab89de2e-1021-4f58-b295-5f8deb06b410"
+}

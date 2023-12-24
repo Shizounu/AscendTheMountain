@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 namespace Map.Events {
     [System.Serializable]
     public class MapEvent {
-        public MapEvent(string _EventName, List<MapEventSlide> _Slides){
+        public MapEvent(string _EventName, List<MapEventSlide> _Slides, string _InitialSlide)
+        {
             EventName = _EventName;
             Slides = _Slides;
+            InitialSlide = _InitialSlide;
         }
         public string EventName;
 
         public List<MapEventSlide> Slides;
 
+        /// <summary>
+        /// UUID Casted as string corresponding to the slide ID 
+        /// </summary>
+        public string InitialSlide;
         public static string GetJson(MapEvent mapEvent){
             return JsonUtility.ToJson(mapEvent, true);
         }
@@ -26,32 +32,36 @@ namespace Map.Events {
 
     [System.Serializable]
     public class MapEventSlide {
-        public MapEventSlide(string _Text, List<MapEventAction> _mapEventActions){
+        public MapEventSlide(string _Text, List<MapEventAction> _mapEventActions, string ID){
             Text = _Text;
             mapEventActions = _mapEventActions;
+            SlideID = ID;
         }
+        public string SlideID;
         public string Text;
         public List<MapEventAction> mapEventActions;
     }
 
     [System.Serializable]
     public class MapEventAction {
-        public MapEventAction(string _ActionText, List<ActionLogic> _ActionLogics){
+        public MapEventAction(string _ActionText, List<MapEventActionLogic> _ActionLogics){
             ActionText = _ActionText;
             ActionLogics = _ActionLogics;
         }
         public string ActionText;
-        public List<ActionLogic> ActionLogics; 
+        public List<MapEventActionLogic> ActionLogics; 
     }
     [System.Serializable]
-    public class ActionLogic {
-        public ActionLogic(Actions _action, int _value){
+    public class MapEventActionLogic
+    {
+        public MapEventActionLogic(Actions _action, string _value){
             Action = _action;
             Value = _value;
         }
         public Actions Action;
-        public int Value;
-    } 
+        public string Value;
+    }
+    [System.Serializable]
     public enum Actions {
         GoToSlide,
         //Health
@@ -59,7 +69,9 @@ namespace Map.Events {
         RemoveHealth,
         //Money
         AddMoney,
-        RemoveMoney
+        RemoveMoney,
+
+        Exit
     }
 
 }
