@@ -6,6 +6,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using Editor.EventEditor.Utilities;
 using Editor.EventEditor.Windows;
+using Map.Events;
 
 namespace Editor.EventEditor.Elements
 {
@@ -84,5 +85,34 @@ namespace Editor.EventEditor.Elements
             extensionContainer.Add(customDataContainer);
         }
         #endregion
+
+        protected void CreateChoicePort(string choice)
+        {
+            Port choicePort = this.CreatePort();
+
+            Button deleteChoiceButton = ElementUtility.CreateButton("X", () => {
+                if (choicePort.connected)
+                {
+                    graphView.DeleteElements(choicePort.connections);
+                }
+
+                Choices.Remove(choice);
+                graphView.RemoveElement(choicePort);
+            });
+            deleteChoiceButton.AddToClassList("ds-node__button");
+
+            TextField choiceTextField = ElementUtility.CreateTextField(choice);
+            choiceTextField.AddClasses(
+                "ds-node__text-field",
+                "ds-node__text-field__hidden",
+                "ds-node__choice-text-field"
+            );
+            choicePort.Add(choiceTextField);
+            choicePort.Add(deleteChoiceButton);
+
+            outputContainer.Add(choicePort);
+        }
+    
+        public abstract MapEventActionLogic getAction();
     }
 }

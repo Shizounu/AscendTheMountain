@@ -1,4 +1,5 @@
 using Editor.EventEditor.Utilities;
+using Map.Events;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -8,6 +9,7 @@ using UnityEngine.UIElements;
 namespace Editor.EventEditor.Elements
 {
     public class ExitNode : BaseNode {
+        
         protected override void MakeInput()
         {
             Port choicePort = this.CreatePort("End", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
@@ -37,6 +39,11 @@ namespace Editor.EventEditor.Elements
         protected override void MakeExtension()
         {
             //Removing the text body
+        }
+
+        public override MapEventActionLogic getAction()
+        {
+            return new MapEventActionLogic(Actions.Exit, "0");
         }
     }
 }

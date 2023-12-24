@@ -11,7 +11,7 @@ using System.Linq;
 
 /// <summary>
 /// TODO: Fix Animations, such as Idle looping
-/// 
+/// Make auto connections
 /// </summary>
 
 namespace Editor.SpriteSheedEditor {

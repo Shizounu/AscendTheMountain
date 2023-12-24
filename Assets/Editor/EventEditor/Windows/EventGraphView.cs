@@ -17,6 +17,7 @@ namespace Editor.EventEditor.Windows
         private GraphSearchWindow searchWindow;
         private EventEditorWindow editorWindow;
 
+        public EntryNode entryNode;
         public EventGraphView(EventEditorWindow editorWindow) {
             this.editorWindow = editorWindow;   
 
@@ -30,7 +31,8 @@ namespace Editor.EventEditor.Windows
 
         private void AddEntryExitNodes()
         {
-            AddElement(CreateNode(NodeType.EntryNode, new Vector2(100, 300)));
+            entryNode = (EntryNode)CreateNode(NodeType.EntryNode, new Vector2(100, 300));
+            AddElement(entryNode);
             AddElement(CreateNode(NodeType.ExitNode, new Vector2(500, 300)));
         }
 

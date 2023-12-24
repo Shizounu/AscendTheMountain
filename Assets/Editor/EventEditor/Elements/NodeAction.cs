@@ -5,10 +5,10 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+using Map.Events;
 namespace Editor.EventEditor.Elements
 {
     public abstract class BaseAction : BaseNode {
-        public abstract string getAction();
         public abstract string getTitle();
 
         protected override void MakeTitle()

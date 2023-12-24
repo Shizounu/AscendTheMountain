@@ -1,4 +1,5 @@
 using Editor.EventEditor.Utilities;
+using Map.Events;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -8,6 +9,7 @@ using UnityEngine.UIElements;
 namespace Editor.EventEditor.Elements
 {
     public class EntryNode : BaseNode
+
     {
         protected override void MakeInput()
         {
@@ -38,6 +40,11 @@ namespace Editor.EventEditor.Elements
         protected override void MakeExtension()
         {
             //Removing the text body
+        }
+
+        public override MapEventActionLogic getAction()
+        {
+            throw new System.NotImplementedException();
         }
     }
 

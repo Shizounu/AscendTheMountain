@@ -6,11 +6,22 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using Editor.EventEditor.Utilities;
 using Editor.EventEditor.Windows;
+using Map.Events;
+using UnityEditor;
+using System;
 
 namespace Editor.EventEditor.Elements
 {
     public class SlideNode : BaseNode
     {
+
+        public string ID;
+
+
+        public override MapEventActionLogic getAction()
+        {
+            return new MapEventActionLogic(Actions.GoToSlide, ID); //TODO Fix indexing
+        }
 
         public override void Initialize(Vector2 position, EventGraphView graphView)
         {
@@ -19,9 +30,10 @@ namespace Editor.EventEditor.Elements
             NodeType = NodeType.Slide;
 
             Choices.Add("New Choice");
+            ID = Guid.NewGuid().ToString();
         }
 
-
+        
 
         protected override void MakeMain()
         {
@@ -36,30 +48,6 @@ namespace Editor.EventEditor.Elements
                 CreateChoicePort(choice);
         }
 
-        private void CreateChoicePort(string choice)
-        {
-            Port choicePort = this.CreatePort();
-
-            Button deleteChoiceButton = ElementUtility.CreateButton("X", () => {
-                if(choicePort.connected) {
-                    graphView.DeleteElements(choicePort.connections);
-                }
-
-                Choices.Remove(choice);
-                graphView.RemoveElement(choicePort);
-            });
-            deleteChoiceButton.AddToClassList("ds-node__button");
-            TextField choiceTextField = ElementUtility.CreateTextField(choice);
-
-            choiceTextField.AddClasses(
-                "ds-node__text-field",
-                "ds-node__text-field__hidden",
-                "ds-node__choice-text-field"
-            );
-            choicePort.Add(choiceTextField);
-            choicePort.Add(deleteChoiceButton);
-
-            outputContainer.Add(choicePort);
-        }
+     
     }
 }
