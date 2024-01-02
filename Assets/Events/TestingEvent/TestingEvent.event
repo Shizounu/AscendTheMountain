@@ -1,20 +1,16 @@
 {
-    "EventName": "New Event",
+    "EventName": "TestingEvent",
     "Slides": [
         {
-            "SlideID": "",
+            "SlideID": "a2dad8ea-ef00-4455-a13e-154c4f8025a6",
             "Text": "Slide Text",
             "mapEventActions": [
                 {
                     "ActionText": "New Choice",
                     "ActionLogics": [
                         {
-                            "Action": 3,
-                            "Value": "5"
-                        },
-                        {
                             "Action": 0,
-                            "Value": "508ace5c-ea38-44a6-be0b-8821d8b98c14"
+                            "Value": "4a09fc8d-f486-478c-a2aa-8c59ecd68a7f"
                         }
                     ]
                 },
@@ -22,19 +18,30 @@
                     "ActionText": "New Choice",
                     "ActionLogics": [
                         {
-                            "Action": 3,
-                            "Value": "10"
-                        },
-                        {
                             "Action": 0,
-                            "Value": "508ace5c-ea38-44a6-be0b-8821d8b98c14"
+                            "Value": "cdeec2ca-affc-4f45-98ac-305848cbb5da"
                         }
                     ]
                 }
             ]
         },
         {
-            "SlideID": "",
+            "SlideID": "4a09fc8d-f486-478c-a2aa-8c59ecd68a7f",
+            "Text": "Slide Text",
+            "mapEventActions": [
+                {
+                    "ActionText": "New Choice",
+                    "ActionLogics": [
+                        {
+                            "Action": 5,
+                            "Value": "0"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "SlideID": "cdeec2ca-affc-4f45-98ac-305848cbb5da",
             "Text": "Slide Text",
             "mapEventActions": [
                 {
@@ -49,5 +56,5 @@
             ]
         }
     ],
-    "InitialSlide": "ab89de2e-1021-4f58-b295-5f8deb06b410"
+    "InitialSlide": "a2dad8ea-ef00-4455-a13e-154c4f8025a6"
 }

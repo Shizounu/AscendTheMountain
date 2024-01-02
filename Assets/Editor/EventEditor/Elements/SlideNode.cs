@@ -20,7 +20,7 @@ namespace Editor.EventEditor.Elements
 
         public override MapEventActionLogic getAction()
         {
-            return new MapEventActionLogic(Actions.GoToSlide, ID); //TODO Fix indexing
+            return new MapEventActionLogic(Actions.GoToSlide, ID);
         }
 
         public override void Initialize(Vector2 position, EventGraphView graphView)

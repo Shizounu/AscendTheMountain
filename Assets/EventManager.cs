@@ -7,29 +7,58 @@ using System.IO;
 
 namespace Map.Events
 {
+    /// <summary>
+    /// Apply Vertical Layout Group and Content Size fitter to Content for this to work as itnended
+    /// </summary>
     public class EventManager : MonoBehaviour
     {
+        [SerializeField] private MapEvent curEvent;
+
         [Header("References")]
-        public TextMeshProUGUI header;
-        public TextMeshProUGUI body;
-        public Transform content;
+        [SerializeField] private TextMeshProUGUI header;
+        [SerializeField] private TextMeshProUGUI body;
+        [SerializeField] private Transform content;
 
         [Header("Prefabs")]
-        public ActionButton actionButtonPrefab;
+        [SerializeField] private ActionButton actionButtonPrefab;
+
+
+        private void Start()
+        {
+            Init();
+        }
+
 
         [ContextMenu("Do Init")]
         public void Init()  {
+            List<MapEvent> events = GetEvents();
+
+            curEvent = events[Random.Range(0, events.Count)];
+
+            DrawSlide(curEvent, curEvent.InitialSlide);
+        }
+
+        private List<MapEvent> GetEvents() {
+            List<MapEvent> result = new List<MapEvent>();
+
             string path = Application.dataPath + "/Events/";
             DirectoryInfo eventDirectory = new DirectoryInfo(path);
             DirectoryInfo[] eventFolders = eventDirectory.GetDirectories();
 
-            foreach (var mapEvent in eventFolders) {
+            foreach (var mapEvent in eventFolders)
+            {
                 FileInfo[] files = mapEvent.GetFiles();
-                foreach (var file in files) { 
-                    Debug.Log(file.FullName);
+                foreach (var file in files) {
+                    if (file.FullName.EndsWith(".event"))
+                    { // regex equivalent : .*\.event$
+                        using (StreamReader sr = file.OpenText()) {
+                            result.Add(MapEvent.FromJson(sr.ReadToEnd()));
+                        }
+                    }
                 }
             }
 
+            return result;
         }
 
         private void DrawSlide(MapEvent mapEvent, string slideID) {
