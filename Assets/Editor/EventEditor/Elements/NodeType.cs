@@ -7,6 +7,7 @@ namespace Editor.EventEditor.Elements
 	public enum NodeType {
 		Slide,
 		EntryNode, ExitNode,
-		AddGoldAction
+		AddGoldAction, RemoveGoldAction,
+		AddHealthAction, RemoveHealthAction
 	}
 }

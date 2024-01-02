@@ -131,6 +131,9 @@ namespace Editor.EventEditor.Windows
                 case NodeType.EntryNode : return new EntryNode();
                 case NodeType.ExitNode  : return new ExitNode();
                 case NodeType.AddGoldAction: return new NodeAction_AddGold();
+                case NodeType.RemoveGoldAction: return new NodeAction_RemoveGold();
+                case NodeType.AddHealthAction: return new NodeAction_AddHealth();
+                case NodeType.RemoveHealthAction: return new NodeAction_RemoveHealth();
                 default: return null;
             }
         }

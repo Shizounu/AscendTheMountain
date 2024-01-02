@@ -36,6 +36,21 @@ namespace Editor.EventEditor.Windows
                     level= 3,
                     userData = NodeType.AddGoldAction
                 },
+                new SearchTreeEntry(new GUIContent("Remove Gold", indentationIcon))
+                {
+                    level= 3,
+                    userData = NodeType.RemoveGoldAction
+                },
+                new SearchTreeEntry(new GUIContent("Add Health", indentationIcon))
+                {
+                    level= 3,
+                    userData = NodeType.AddHealthAction
+                },
+                new SearchTreeEntry(new GUIContent("Remove Health", indentationIcon))
+                {
+                    level= 3,
+                    userData = NodeType.RemoveHealthAction
+                },
 
 
                 new SearchTreeGroupEntry(new GUIContent("Dialogue Group"), 1),
@@ -59,9 +74,12 @@ namespace Editor.EventEditor.Windows
                         graphView.AddElement(node);
                         return true;
                     }
+                case NodeType.AddHealthAction:
+                case NodeType.RemoveHealthAction:
+                case NodeType.RemoveGoldAction:
                 case NodeType.AddGoldAction:
                     {
-                        NodeAction_AddGold node = (NodeAction_AddGold)graphView.CreateNode(NodeType.AddGoldAction, localPos);
+                        BaseNode node = graphView.CreateNode((NodeType)SearchTreeEntry.userData, localPos);
                         graphView.AddElement(node);
                         return true;
                     }

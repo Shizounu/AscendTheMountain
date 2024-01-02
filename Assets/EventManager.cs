@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using System.IO;
+using Shizounu.Library.ScriptableArchitecture;
 
 namespace Map.Events
 {
@@ -12,9 +13,14 @@ namespace Map.Events
     /// </summary>
     public class EventManager : MonoBehaviour
     {
-        [SerializeField] private MapEvent curEvent;
+        [Header("Player Values")]
+        public ScriptableInt playerHealth;
+        public ScriptableInt playerGold;
+
 
         [Header("References")]
+        [SerializeField] private MapEvent curEvent;
+
         [SerializeField] private TextMeshProUGUI header;
         [SerializeField] private TextMeshProUGUI body;
         [SerializeField] private Transform content;
@@ -84,8 +90,33 @@ namespace Map.Events
             newButton.callback.AddListener(() => DoActionLogic(action.ActionLogics));
         }
         private void DoActionLogic(List<MapEventActionLogic> logic) {
-            Debug.Log($"Did action with logic {logic}");
+            for (int i = 0; i < logic.Count; i++) {
+                switch (logic[i].Action)
+                {
+                    case Actions.GoToSlide:
+                        DrawSlide(curEvent, logic[i].Value);
+                        break;
+                    case Actions.AddHealth:
+                        playerHealth.runtimeValue += int.Parse(logic[i].Value);
+                        break;
+                    case Actions.RemoveHealth:
+                        playerHealth.runtimeValue -= int.Parse(logic[i].Value);
+                        break;
+                    case Actions.AddMoney:
+                        playerGold.runtimeValue += int.Parse(logic[i].Value);
+                        break;
+                    case Actions.RemoveMoney:
+                        playerGold.runtimeValue -= int.Parse(logic[i].Value); // TODO: Needs more sofisticated approach for "paying"
+                        break;
+                    case Actions.Exit:
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
+
+
     }
 
 }
