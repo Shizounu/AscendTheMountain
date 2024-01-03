@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using System.IO;
 using Shizounu.Library.ScriptableArchitecture;
+using UnityEngine.SceneManagement;
 
 namespace Map.Events
 {
@@ -14,9 +15,11 @@ namespace Map.Events
     public class EventManager : MonoBehaviour
     {
         [Header("Player Values")]
-        public ScriptableInt playerHealth;
-        public ScriptableInt playerGold;
+        [SerializeField] ScriptableInt playerHealth;
+        [SerializeField] ScriptableInt playerGold;
 
+        [SerializeField] private ScriptableEvent enableMap;
+        [SerializeField] private ScriptableInt eventSceneIndex;
 
         [Header("References")]
         [SerializeField] private MapEvent curEvent;
@@ -76,10 +79,13 @@ namespace Map.Events
 
             body.text = slide.Text;
 
+
+            while (content.childCount > 0){
+                DestroyImmediate(content.GetChild(0).gameObject);
+            }
+
             foreach (var item in slide.mapEventActions)
                 AddActionButton(item);
-            
-
         }
 
         private void AddActionButton(MapEventAction action)
@@ -108,7 +114,9 @@ namespace Map.Events
                     case Actions.RemoveMoney:
                         playerGold.runtimeValue -= int.Parse(logic[i].Value); // TODO: Needs more sofisticated approach for "paying"
                         break;
-                    case Actions.Exit:
+                    case Actions.Exit: 
+                        SceneManager.UnloadSceneAsync(eventSceneIndex.runtimeValue);
+                        enableMap.Invoke();
                         break;
                     default:
                         break;

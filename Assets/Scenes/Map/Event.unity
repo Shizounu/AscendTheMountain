@@ -1144,8 +1144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b87902684c009543bf54c1c02d2f915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 0}
-  playerGold: {fileID: 0}
+  playerHealth: {fileID: 11400000, guid: da4c29976a226b94db8909d668ceabd9, type: 2}
+  playerGold: {fileID: 11400000, guid: ac36a816d9a907a408012b91b999ab96, type: 2}
+  enableMap: {fileID: 11400000, guid: 43b89a754914d55439e363fd6f86aa81, type: 2}
+  eventSceneIndex: {fileID: 11400000, guid: bcb908c837de795429b589ba9dcb75c3, type: 2}
   curEvent:
     EventName: 
     Slides: []

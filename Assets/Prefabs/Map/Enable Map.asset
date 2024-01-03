@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a9100e495ea54d45b13f320be826ea4, type: 3}
-  m_Name: OnEnableMap
+  m_Name: Enable Map
   m_EditorClassIdentifier: 
