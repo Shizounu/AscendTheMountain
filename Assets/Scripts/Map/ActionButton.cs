@@ -11,8 +11,8 @@ namespace Map.Events
 {
     public class ActionButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        [Header("Visuals")]
-        [SerializeField] private float timeTillFullGlow = 1f;
+        //[Header("Visuals")]
+        //[SerializeField] private float timeTillFullGlow = 1f;
 
         [Header("References")]
         [SerializeField] private Image glowRenderer;

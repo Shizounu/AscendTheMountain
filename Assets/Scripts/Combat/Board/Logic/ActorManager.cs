@@ -12,9 +12,6 @@ namespace Combat
 
         void Enable();
         void Disable();
-
-    
-    
     }
 
     [System.Serializable]
