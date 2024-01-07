@@ -6,6 +6,7 @@ using Shizounu.Library.AI;
 using Commands;
 using JetBrains.Annotations;
 using UnityEngine.InputSystem.LowLevel;
+using Unity.VisualScripting;
 
 namespace Combat
 {
@@ -72,45 +73,33 @@ namespace Combat
         public DeckInformation getActorReference(Actors actors) {
             return actors == Actors.Actor1 ? Actor1_Deck : Actor2_Deck;
         }
-
         public List<Vector2Int> getMovePositions(Vector2Int unitPos, int moveDist){
-            bool isInBounds(Vector2Int pos) {
-                return pos.x < tiles.GetLength(0) && pos.x >= 0 &&
-                       pos.y < tiles.GetLength(1) && pos.y >= 0;
-            }
-            bool isStandable(Tile tile) {
-                return tile.unit == null;
-            }
-            bool isPassable(Tile tile) {
-                return tile.unit == null || tile.unit.owner == tiles[unitPos.x, unitPos.y].unit.owner;
-            }
-
             List<Vector2Int> getPositions(Vector2Int curPos, int remainDist ) {
                 List<Vector2Int> result = new();
-                if (isStandable(tiles[curPos.x, curPos.y]))
+                if (tiles[curPos.x, curPos.y].isFree)
                     result.Add(curPos);
                 Vector2Int nextPos;
 
                 nextPos = curPos + Vector2Int.left;
                 if (isInBounds(nextPos) && !result.Contains(nextPos))
-                    if (isPassable(tiles[nextPos.x, nextPos.y]) && remainDist > 0)
+                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
                         result.AddRange(getPositions(nextPos, remainDist - 1));
 
                 nextPos = curPos + Vector2Int.right;
                 if (isInBounds(nextPos) && !result.Contains(nextPos))
-                    if (isPassable(tiles[nextPos.x, nextPos.y]) && remainDist > 0)
+                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
                         result.AddRange(getPositions(nextPos, remainDist - 1));
 
                 
                 nextPos = curPos + Vector2Int.up;
                 if (isInBounds(nextPos) && !result.Contains(nextPos))
-                    if (isPassable(tiles[nextPos.x, nextPos.y]) && remainDist > 0)
+                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
                         result.AddRange(getPositions(nextPos, remainDist - 1));
 
           
                 nextPos = curPos + Vector2Int.down;
                 if (isInBounds(nextPos) && !result.Contains(nextPos))
-                    if (isPassable(tiles[nextPos.x, nextPos.y]) && remainDist > 0)
+                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
                         result.AddRange(getPositions(nextPos, remainDist - 1));
                 
                 return result;
@@ -118,13 +107,43 @@ namespace Combat
 
             return getPositions(unitPos, moveDist);
         }
-    
-        public List<Vector2Int> getAttackPositions(Vector2Int position) {
-            bool isInBounds(Vector2Int pos)
+        public List<Vector2Int> getMovePositions(Vector2Int unitPos)
+        {
+            List<Vector2Int> getPositions(Vector2Int curPos, int remainDist)
             {
-                return pos.x < tiles.GetLength(0) && pos.x >= 0 &&
-                       pos.y < tiles.GetLength(1) && pos.y >= 0;
+                List<Vector2Int> result = new();
+                if (tiles[curPos.x, curPos.y].isFree)
+                    result.Add(curPos);
+                Vector2Int nextPos;
+
+                nextPos = curPos + Vector2Int.left;
+                if (isInBounds(nextPos) && !result.Contains(nextPos))
+                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
+                        result.AddRange(getPositions(nextPos, remainDist - 1));
+
+                nextPos = curPos + Vector2Int.right;
+                if (isInBounds(nextPos) && !result.Contains(nextPos))
+                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
+                        result.AddRange(getPositions(nextPos, remainDist - 1));
+
+
+                nextPos = curPos + Vector2Int.up;
+                if (isInBounds(nextPos) && !result.Contains(nextPos))
+                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
+                        result.AddRange(getPositions(nextPos, remainDist - 1));
+
+
+                nextPos = curPos + Vector2Int.down;
+                if (isInBounds(nextPos) && !result.Contains(nextPos))
+                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
+                        result.AddRange(getPositions(nextPos, remainDist - 1));
+
+                return result;
             }
+
+            return getPositions(unitPos, GetUnitFromPos(unitPos).moveDistance);
+        }
+        public List<Vector2Int> getAttackPositions(Vector2Int position) {
 
             List<Vector2Int> result = new();
 
@@ -139,6 +158,66 @@ namespace Combat
 
             return result;
         }
+        public List<Vector2Int> getSummonPositions(Actors actor)
+        {
+            List<Vector2Int> unitPositions = new();
+            for (int x = 0; x < tiles.GetLength(0); x++) {
+                for (int y = 0; y < tiles.GetLength(1); y++) {
+                    if (GetUnitFromPos(x, y)?.owner == actor)
+                        unitPositions.Add(new Vector2Int(x, y));
+                }
+            }
+            List<Vector2Int> result = new();   
+
+            for (int i = 0; i < unitPositions.Count; i++) {
+                List<Vector2Int> surroundingTiles = new List<Vector2Int>() {
+                    Vector2Int.up + Vector2Int.left,
+                    Vector2Int.up, 
+                    Vector2Int.up + Vector2Int.right,
+                    Vector2Int.left, 
+                    Vector2Int.right, 
+                    Vector2Int.down + Vector2Int.left,
+                    Vector2Int.down, 
+                    Vector2Int.down + Vector2Int.right
+                };
+
+                for (int j = 0; j < unitPositions.Count; j++) {
+                    Vector2Int pos = unitPositions[i] + surroundingTiles[j];
+                    if (isInBounds(pos)) {
+                        if (tiles[pos.x, pos.y].isFree)
+                            result.Add(pos);
+                    }
+                }
+
+
+            }
+            return result;
+        }
+        public List<Vector2Int> GetUnitPositions(Actors owner) {
+            List<Vector2Int> unitPositions = new List<Vector2Int>();
+            for (int x = 0; x < tiles.GetLength(0); x++) {
+                for (int y = 0; y < tiles.GetLength(1); y++) {
+                    if(GetUnitFromPos(x,y)?.owner == owner)
+                        unitPositions.Add(new Vector2Int(x, y));
+                }
+            }
+            return unitPositions;
+        }
+
+        #region Helpers
+        public Unit GetUnitFromPos(Vector2Int pos) {
+            return tiles[pos.x, pos.y].unit;
+        }
+        public Unit GetUnitFromPos(int x, int y)
+        {
+            return tiles[x, y].unit;
+        }
+        public bool isInBounds(Vector2Int pos)
+        {
+            return pos.x < tiles.GetLength(0) && pos.x >= 0 &&
+                   pos.y < tiles.GetLength(1) && pos.y >= 0;
+        }
+        #endregion
     }
 
     public enum Actors
@@ -162,5 +241,13 @@ namespace Combat
         public Vector2Int position;
         public Unit unit;
         public Obstacle obstacle;
+
+        public bool isFree => unit == null;
+
+        public bool getIsPassable(Actors owner)
+        {
+            return unit == null || unit.owner == owner;
+            
+        }
     }
 }
