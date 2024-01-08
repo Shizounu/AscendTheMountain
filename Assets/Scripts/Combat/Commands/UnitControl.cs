@@ -7,11 +7,7 @@ namespace Commands
 {
     public class Command_SummonUnit : ICommand, IVisualCommand
     {
-        public Command_SummonUnit()
-        {
-
-        }
-        public Command_SummonUnit(Cards.UnitDefinition cardDefinition, Vector2Int _position, Actors _owner, bool canMove = false, bool canAttack = false)
+        public Command_SummonUnit(Cards.UnitDefinition cardDefinition, Vector2Int _position, Actors _owner, bool canMove = false, bool canAttack = false, bool payCost = false, bool removeFromHand = false, int handIndex = 0)
         {
             unitDef = cardDefinition;
             position = _position;
@@ -19,14 +15,20 @@ namespace Commands
 
             this.canMove = canMove;
             this.canAttack = canAttack;
-            
+            this.payCost = payCost;
+            this.removeFromHand = removeFromHand;
+            this.handIndex = handIndex;
         }
+
         [SerializeField] private Cards.UnitDefinition unitDef;
         [SerializeField] private Vector2Int position;
         [SerializeField] private Actors owner;
 
         [SerializeField] private bool canMove;
         [SerializeField] private bool canAttack;
+        [SerializeField] private bool payCost;
+        [SerializeField] private bool removeFromHand;
+        [SerializeField] private int handIndex;
         Unit unit;
         public void Execute(Board board)
         {
@@ -35,6 +37,15 @@ namespace Commands
 
             board.SetSubCommand(new Command_SetCanMove(unit, canMove));
             board.SetSubCommand(new Command_SetCanAttack(unit, canAttack));
+
+            if(payCost)
+                board.SetSubCommand(new Command_SubCurrentMana(owner, unitDef.Cost));
+            if (removeFromHand)
+            {
+
+
+                board.SetSubCommand(new Command_RemoveHandCard(handIndex, owner));
+            }
         }
 
         public void Unexecute(Board board)
@@ -47,6 +58,8 @@ namespace Commands
             boardRenderer.SpawnUnitVisuals(unit, unitDef.animatorController, position);
         }
     }
+
+    
 
     public class Command_RemoveUnit : ICommand, IVisualCommand
     {
@@ -96,10 +109,6 @@ namespace Commands
     }
 
     public class Command_MoveUnit : ICommand, IVisualCommand {
-        public Command_MoveUnit()
-        {
-            
-        }
         /// <summary>
         /// for moving one tile
         /// </summary>
@@ -111,17 +120,19 @@ namespace Commands
         public Command_MoveUnit(Vector2Int startPos, List<Vector2Int> path)
         {
             this.startPos = startPos;
+            
             this.path = new(path);
         }
-
         private Vector2Int startPos;
         private List<Vector2Int> path;
 
         Unit unitRef;
         public void Execute(Board board) {
+            Unit u = board.GetUnitFromPos(startPos);
             foreach (Vector2Int position in path){
                 Move(board, position);
             }
+            board.SetSubCommand(new Command_SetCanMove(u, false));
         }
         private void Move(Board board, Vector2Int moveTo)
         {

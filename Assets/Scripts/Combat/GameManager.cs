@@ -18,5 +18,10 @@ namespace Combat {
 
             currentBoard = new Board();
         }
+
+        private void OnDestroy()
+        {
+            currentBoard = null;
+        }
     }
 }

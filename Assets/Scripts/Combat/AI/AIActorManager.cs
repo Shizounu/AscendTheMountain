@@ -69,10 +69,18 @@ public class AIActorManager : MonoBehaviour, IActorManager
         //Summoning
         List<Vector2Int> summonPositions = board.getSummonPositions(activeActor);
         for (int i = 0; i < board.getActorReference(activeActor).Hand.Length; i++) {
-            if (board.getActorReference(activeActor).Hand[i]?.Cost < board.getActorReference(activeActor).CurManagems) {
+            if (board.getActorReference(activeActor).Hand[i]?.Cost <= board.getActorReference(activeActor).CurManagems) {
+                
                 foreach (Vector2Int pos in summonPositions)
                     if (board.getActorReference(activeActor).Hand[i].GetType() == typeof(UnitDefinition))
-                        possibleActions.Add(new Command_SummonUnit((UnitDefinition)board.getActorReference(activeActor).Hand[i], pos, activeActor));
+                        possibleActions.Add(
+                            new Command_SummonUnit(
+                                (UnitDefinition)board.getActorReference(activeActor).Hand[i], 
+                                pos, 
+                                activeActor,
+                                false, false, true, true, i
+                           )
+                        );
                     else //TODO add other card types
                         Debug.LogError("Unrecognized card type in AI hand");
 
@@ -98,7 +106,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         }
 
         //Ending Turn
-        possibleActions.Add(new Command_SwitchSide(activeActor == Actors.Actor1 ? Actors.Actor2 : Actors.Actor1));
+        possibleActions.Add(new Command_EnableSide(activeActor == Actors.Actor1 ? Actors.Actor2 : Actors.Actor1));
 
         return possibleActions;
     }

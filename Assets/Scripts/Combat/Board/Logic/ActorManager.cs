@@ -71,12 +71,12 @@ namespace Combat
 
             newDeck.Hand = new CardDefinition[]
             {
-                Hand[0].Clone(),
-                Hand[1].Clone(),
-                Hand[2].Clone(),
-                Hand[3].Clone(),
-                Hand[4].Clone(),
-                Hand[5].Clone(),
+                Hand[0]?.Clone(),
+                Hand[1]?.Clone(),
+                Hand[2]?.Clone(),
+                Hand[3]?.Clone(),
+                Hand[4]?.Clone(),
+                Hand[5]?.Clone(),
             };
 
             return newDeck;

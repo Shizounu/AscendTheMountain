@@ -44,6 +44,7 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
             return;
         }
         currentState.OnCancel(this);
+        Debug.Log("canceled out of state");
     }
     #endregion
 
@@ -66,7 +67,7 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
 
 
         GameManager.Instance.currentBoard.SetCommand(new Command_InitSide(Actors.Actor1, PlayerDeck));
-        GameManager.Instance.currentBoard.SetCommand(new Command_SwitchSide(Actors.Actor2)); //Needs to be initialized by calling the opposite side
+        GameManager.Instance.currentBoard.SetCommand(new Command_EnableSide(Actors.Actor1)); 
         GameManager.Instance.currentBoard.DoQueuedCommands();
     }
 
@@ -154,35 +155,22 @@ namespace InputStates
         {
             //needs more sophisticated check
             if (currentBoard.tiles[position.x, position.y].unit == null &&
-                currentBoard.Actor1_Deck.CurManagems >= currentBoard.Actor1_Deck.Hand[curCard].Cost) {
+                currentBoard.Actor1_Deck.CurManagems >= currentBoard.Actor1_Deck.Hand[curCard].Cost &&
+                currentBoard.getSummonPositions(Actors.Actor1).Contains(position)) {
                 //dispatch summon command 
                 currentBoard.SetCommand
                     (
                         new Commands.Command_SummonUnit(
                             (UnitDefinition) sm.deckInformation.Hand[curCard], 
                             position, 
-                            Actors.Actor1
-                        )
-                    );
-                //dispatch "remove from hand" command
-                currentBoard.SetCommand
-                    (
-                        new Commands.Command_RemoveHandCard
-                        (
-                            curCard, 
-                            Actors.Actor1
-                        )
-                    );
-
-                currentBoard.SetCommand
-                    (
-                        new Commands.Command_SubCurrentMana
-                        (
                             Actors.Actor1,
-                            currentBoard.Actor1_Deck.Hand[curCard].Cost
+                            false,
+                            false,
+                            true,
+                            true,
+                            curCard
                         )
                     );
-
                 currentBoard.DoQueuedCommands();
 
                 //return to a base state
@@ -196,6 +184,14 @@ namespace InputStates
 
         public override void DrawGizmos(PlayerActorManager sm)
         {
+            List<Vector2Int> summonPositions = currentBoard.getSummonPositions(Actors.Actor1);
+            Gizmos.color = Color.green;
+            Vector3 offset = new Vector3(BoardRenderer.Instance.transform.position.x + BoardRenderer.Instance.positionOffset.x, BoardRenderer.Instance.transform.position.y + BoardRenderer.Instance.positionOffset.y);
+            foreach (Vector2Int pos in summonPositions)
+            {
+                Vector3 position = new Vector3(pos.x * BoardRenderer.Instance.tileScale.x, pos.y * BoardRenderer.Instance.tileScale.y);
+                Gizmos.DrawWireCube(position + offset, new Vector3(BoardRenderer.Instance.tileScale.x, BoardRenderer.Instance.tileScale.y, 0));
+            }
         }
     }
 
@@ -234,7 +230,9 @@ namespace InputStates
             {
                 if(Vector2Int.Distance(unitPosition, position) <= 1) {
                     currentBoard.SetCommand(new Commands.Command_MoveUnit(unitPosition, position));
+                
                 } else {
+
                     Vector2Int tempPos = unitPosition;
                     Vector2Int dir = unitPosition - position;
                     List<Vector2Int> path = new();

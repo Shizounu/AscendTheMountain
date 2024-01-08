@@ -198,7 +198,7 @@ namespace Combat
                     Vector2Int.down + Vector2Int.right
                 };
 
-                for (int j = 0; j < unitPositions.Count; j++) {
+                for (int j = 0; j < surroundingTiles.Count; j++) {
                     Vector2Int pos = unitPositions[i] + surroundingTiles[j];
                     if (isInBounds(pos)) {
                         if (tiles[pos.x, pos.y].isFree)
@@ -265,7 +265,7 @@ namespace Combat
 
         public Tile Clone() {
             Tile t = new Tile(position);
-            t.unit = unit.Clone();
+            t.unit = unit?.Clone();
             return t;
         }
 
