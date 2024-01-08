@@ -66,7 +66,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         List<ICommand> possibleActions = new List<ICommand>();
 
 
-        //Summining
+        //Summoning
         List<Vector2Int> summonPositions = board.getSummonPositions(activeActor);
         for (int i = 0; i < board.getActorReference(activeActor).Hand.Length; i++) {
             if (board.getActorReference(activeActor).Hand[i]?.Cost < board.getActorReference(activeActor).CurManagems) {
@@ -82,21 +82,23 @@ public class AIActorManager : MonoBehaviour, IActorManager
         //Moving & Attacking
         List<Vector2Int> unitPositions = board.GetUnitPositions(activeActor);
         for (int i = 0; i < unitPositions.Count; i++) {
-            List<Vector2Int> movePositions = board.getMovePositions(unitPositions[i], board.GetUnitFromPos(unitPositions[i]).moveDistance);
-            foreach (Vector2Int movePos in movePositions)
-                possibleActions.Add(new Command_MoveUnit(unitPositions[i], movePos));
-            
+            if (board.GetUnitFromPos(unitPositions[i]).canMove) {
+                List<Vector2Int> movePositions = board.getMovePositions(unitPositions[i], board.GetUnitFromPos(unitPositions[i]).moveDistance);
+                foreach (Vector2Int movePos in movePositions)
+                    possibleActions.Add(new Command_MoveUnit(unitPositions[i], movePos));
+            }
 
-            List<Vector2Int> attackPositions = board.getAttackPositions(unitPositions[i]);
-            foreach (Vector2Int attackPos in attackPositions)
-                if (board.GetUnitFromPos(attackPos) != null)
-                    possibleActions.Add(new Command_AttackUnit(board.GetUnitFromPos(unitPositions[i]), board.GetUnitFromPos(attackPos)));
+            if (board.GetUnitFromPos(unitPositions[i]).canAttack)
+            {
+                List<Vector2Int> attackPositions = board.getAttackPositions(unitPositions[i]);
+                foreach (Vector2Int attackPos in attackPositions)
+                    if (board.GetUnitFromPos(attackPos) != null)
+                        possibleActions.Add(new Command_AttackUnit(board.GetUnitFromPos(unitPositions[i]), board.GetUnitFromPos(attackPos)));
+            }
         }
 
-        
-
-
-
+        //Ending Turn
+        possibleActions.Add(new Command_SwitchSide(activeActor == Actors.Actor1 ? Actors.Actor2 : Actors.Actor1));
 
         return possibleActions;
     }

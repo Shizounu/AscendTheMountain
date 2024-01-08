@@ -13,5 +13,10 @@ namespace Cards
         public Sprite Icon;
         [Header("Stats")]
         public int Cost;
+
+        public CardDefinition Clone()
+        {
+            return MemberwiseClone() as CardDefinition;
+        }
     }
 }

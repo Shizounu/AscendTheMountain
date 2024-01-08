@@ -56,10 +56,31 @@ namespace Combat
             return -1;
         }
 
-        [Header("Enabling and Disabling")]
         public IActorManager actorManager;
         public void Enable() => actorManager?.Enable();
         public void Disable() => actorManager?.Disable();
+    
+        public DeckInformation Clone() {
+            DeckInformation newDeck = new DeckInformation();
+            newDeck._MaxManagems = _MaxManagems;
+            newDeck._CurManagems = _CurManagems;
+            
+            newDeck.Deck = new List<CardDefinition>();
+            foreach (CardDefinition card in Deck)
+                newDeck.Deck.Add(card.Clone());
+
+            newDeck.Hand = new CardDefinition[]
+            {
+                Hand[0].Clone(),
+                Hand[1].Clone(),
+                Hand[2].Clone(),
+                Hand[3].Clone(),
+                Hand[4].Clone(),
+                Hand[5].Clone(),
+            };
+
+            return newDeck;
+        }
     }
 
 }

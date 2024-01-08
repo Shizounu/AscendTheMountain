@@ -14,7 +14,7 @@ namespace Combat
 
 
     [System.Serializable]
-    public class Board : ICloneable {
+    public class Board {
         public Board() {
             tiles = new Tile[9, 5];
 
@@ -26,6 +26,20 @@ namespace Combat
 
             Actor1_Deck = new();
             Actor2_Deck = new();
+        }
+
+        public Board(Board boardToCopy)
+        {
+            tiles = new Tile[9, 5];
+
+            for (int x = 0; x < tiles.GetLength(0); x++)
+                for (int y = 0; y < tiles.GetLength(1); y++)
+                    tiles[x, y] = boardToCopy.tiles[x,y].Clone();
+
+            Actor1_Deck = boardToCopy.Actor1_Deck.Clone();
+            Actor2_Deck = boardToCopy.Actor2_Deck.Clone();
+            commandQueue = boardToCopy.commandQueue;
+            subCommandQueue = boardToCopy.subCommandQueue;
         }
 
         public OnCommandHandler onCommand;
@@ -221,11 +235,6 @@ namespace Combat
             return pos.x < tiles.GetLength(0) && pos.x >= 0 &&
                    pos.y < tiles.GetLength(1) && pos.y >= 0;
         }
-
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
         #endregion
 
 
@@ -251,9 +260,14 @@ namespace Combat
         }
         public Vector2Int position;
         public Unit unit;
-        public Obstacle obstacle;
 
         public bool isFree => unit == null;
+
+        public Tile Clone() {
+            Tile t = new Tile(position);
+            t.unit = unit.Clone();
+            return t;
+        }
 
         public bool getIsPassable(Actors owner)
         {

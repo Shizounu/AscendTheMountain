@@ -46,6 +46,11 @@ namespace Combat
 
         public List<IEffect> effects;
 
+        public Unit Clone()
+        {
+            return MemberwiseClone() as Unit;
+        }
+
         ///TODO: Set up triggers and info for the viaul system to use. 
     }
 }
