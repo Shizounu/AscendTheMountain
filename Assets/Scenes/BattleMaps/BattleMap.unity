@@ -2797,6 +2797,52 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5488807759124564129, guid: 381bd0b925fdf1342b3919335d082f2e, type: 3}
   m_PrefabInstance: {fileID: 1540509431}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1556910634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1556910635}
+  - component: {fileID: 1556910636}
+  m_Layer: 0
+  m_Name: AI Actor Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1556910635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556910634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2007046789}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1556910636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556910634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88deac861895cf43a3932deb97aeeb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurState: {fileID: 11400000, guid: 9339ac40eac6eeb469e0fef84daccd68, type: 2}
+  deck: {fileID: 11400000, guid: c9bb6c0db6cc17045be941329b34933e, type: 2}
 --- !u!1 &1568860802
 GameObject:
   m_ObjectHideFlags: 0
@@ -3276,6 +3322,7 @@ Transform:
   - {fileID: 398412075}
   - {fileID: 1085946420}
   - {fileID: 1755064711}
+  - {fileID: 1556910635}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

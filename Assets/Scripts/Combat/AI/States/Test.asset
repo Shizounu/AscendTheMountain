@@ -13,9 +13,4 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   boardEvaluationConditions: []
-  transitions:
-  - TransitionConditions:
-    - condition: {fileID: 0}
-      threshhold: 0
-      invert: 0
-    transitionTo: {fileID: 0}
+  transitions: []

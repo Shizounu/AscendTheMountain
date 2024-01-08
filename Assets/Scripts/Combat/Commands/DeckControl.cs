@@ -7,6 +7,30 @@ using UnityEngine;
 namespace Commands
 {
 
+    public class Command_InitSide : ICommand {
+        public Command_InitSide(Actors side, DeckDefinition deck) {
+            this.side = side;
+            this.deckDef = deck;
+        }
+        Actors side;
+        DeckDefinition deckDef;
+        public void Execute(Board board)
+        {
+            board.SetSubCommand(new Command_SetDeck(deckDef.Cards, side));
+            board.SetSubCommand(new Command_DrawCard(side, 3));
+
+            Vector2Int pos = new Vector2Int(side == Actors.Actor1 ? 0 : 8, 2);
+            board.SetSubCommand(new Command_SummonUnit(deckDef.SideGeneral, pos, side, true, true));
+            
+        }
+
+        public void Unexecute(Board board)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+
+
     public class Command_SetDeck : ICommand {
         public Command_SetDeck() {
             

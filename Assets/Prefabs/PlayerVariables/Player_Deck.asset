@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bc0050ee52a8d4eaca183246e93445, type: 3}
   m_Name: Player_Deck
   m_EditorClassIdentifier: 
+  SideGeneral: {fileID: 11400000, guid: 89b860e2b8d799341be307940527709e, type: 2}
   Cards:
   - {fileID: 11400000, guid: 89b860e2b8d799341be307940527709e, type: 2}
   - {fileID: 11400000, guid: 89b860e2b8d799341be307940527709e, type: 2}

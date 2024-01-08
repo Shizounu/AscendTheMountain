@@ -7,13 +7,14 @@ using Commands;
 using JetBrains.Annotations;
 using UnityEngine.InputSystem.LowLevel;
 using Unity.VisualScripting;
+using System;
 
 namespace Combat
 {
 
 
     [System.Serializable]
-    public class Board {
+    public class Board : ICloneable {
         public Board() {
             tiles = new Tile[9, 5];
 
@@ -26,6 +27,7 @@ namespace Combat
             Actor1_Deck = new();
             Actor2_Deck = new();
         }
+
         public OnCommandHandler onCommand;
 
         /// <summary>
@@ -69,7 +71,8 @@ namespace Combat
             }
         }
         #endregion
-    
+
+        #region Board Info Methods
         public DeckInformation getActorReference(Actors actors) {
             return actors == Actors.Actor1 ? Actor1_Deck : Actor2_Deck;
         }
@@ -203,7 +206,8 @@ namespace Combat
             }
             return unitPositions;
         }
-
+        #endregion
+        
         #region Helpers
         public Unit GetUnitFromPos(Vector2Int pos) {
             return tiles[pos.x, pos.y].unit;
@@ -217,7 +221,14 @@ namespace Combat
             return pos.x < tiles.GetLength(0) && pos.x >= 0 &&
                    pos.y < tiles.GetLength(1) && pos.y >= 0;
         }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
         #endregion
+
+
     }
 
     public enum Actors

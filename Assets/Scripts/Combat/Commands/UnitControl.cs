@@ -2,7 +2,6 @@ using Combat;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Commands
 {
@@ -12,22 +11,30 @@ namespace Commands
         {
 
         }
-        public Command_SummonUnit(Cards.UnitDefinition cardDefinition, Vector2Int _position, Actors _owner)
+        public Command_SummonUnit(Cards.UnitDefinition cardDefinition, Vector2Int _position, Actors _owner, bool canMove = false, bool canAttack = false)
         {
             unitDef = cardDefinition;
             position = _position;
             owner = _owner;
-        }
 
+            this.canMove = canMove;
+            this.canAttack = canAttack;
+            
+        }
         [SerializeField] private Cards.UnitDefinition unitDef;
         [SerializeField] private Vector2Int position;
         [SerializeField] private Actors owner;
 
+        [SerializeField] private bool canMove;
+        [SerializeField] private bool canAttack;
         Unit unit;
         public void Execute(Board board)
         {
             unit = new Unit(unitDef, owner);
             board.tiles[position.x, position.y].unit = unit;
+
+            board.SetSubCommand(new Command_SetCanMove(unit, canMove));
+            board.SetSubCommand(new Command_SetCanAttack(unit, canAttack));
         }
 
         public void Unexecute(Board board)

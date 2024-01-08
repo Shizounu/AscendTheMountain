@@ -54,12 +54,10 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
     private void Start()
     {
         //Register for Enabling
-        GameManager.Instance.currentBoard.Actor1_Deck.actorManager = this;
+        deckInformation.actorManager = this;
 
 
-        //Init deck
-        GameManager.Instance.currentBoard.SetCommand(new Command_SetDeck(PlayerDeck.Cards, Actors.Actor1));
-        GameManager.Instance.currentBoard.SetCommand(new Command_DrawCard(Actors.Actor1, 3));
+       
 
 
         //Initialize Input
@@ -67,7 +65,8 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
         Input.InputManager.Instance.InputActions.BattlefieldControls.RightClick.performed += ctx => OnCancel();
 
 
-        GameManager.Instance.currentBoard.SetCommand(new Command_SwitchSide(Actors.Actor2));
+        GameManager.Instance.currentBoard.SetCommand(new Command_InitSide(Actors.Actor1, PlayerDeck));
+        GameManager.Instance.currentBoard.SetCommand(new Command_SwitchSide(Actors.Actor2)); //Needs to be initialized by calling the opposite side
         GameManager.Instance.currentBoard.DoQueuedCommands();
     }
 
