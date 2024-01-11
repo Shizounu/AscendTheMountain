@@ -2,15 +2,11 @@ using Cards;
 using Combat;
 using Commands;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEditor.Build;
 using UnityEngine;
 
 public class AIActorManager : MonoBehaviour, IActorManager
 {
-    public Combat.AI.StateMachine.State CurState;
     public DeckDefinition deck;
 
     public bool isEnabled => throw new System.NotImplementedException();
@@ -47,7 +43,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
     }
 
 
-    #region Board Evaluation
+    #region Board Generation
     Dictionary<string, BoardInfo> CachedBoards = new();
     [Serializable]
     public class BoardInfo {
@@ -270,13 +266,6 @@ public class AIActorManager : MonoBehaviour, IActorManager
         return possibleActions;
     }
     
-    public int EvaluateBoard(BoardInfo board)
-    {
-        //Add UUID to each evaulation for comparing if evaluation is dirty or not 
-        //Create dictionary of UUID - Evaluation pair, if UUID was already used, use the cached evaluation
-        //Possibly over engineered as board states wont double that much TBH 
-        return 0; //TODO write eval method
-    }
 
     [ContextMenu("Test Stuff")]
     public void Test() {
@@ -288,5 +277,19 @@ public class AIActorManager : MonoBehaviour, IActorManager
         Debug.LogWarning($"Time Elapsed {stopwatch.ElapsedMilliseconds} ms. Added");
 
     }
+    #endregion
+
+    #region Board Evaluation
+    public Combat.AI.StateMachine.State CurState;
+
+
+    public int EvaluateBoard(BoardInfo board)
+    {
+        //Add UUID to each evaulation for comparing if evaluation is dirty or not 
+        //Create dictionary of UUID - Evaluation pair, if UUID was already used, use the cached evaluation
+        //Possibly over engineered as board states wont double that much TBH 
+        return 0; //TODO write eval method
+    }
+
     #endregion
 }
