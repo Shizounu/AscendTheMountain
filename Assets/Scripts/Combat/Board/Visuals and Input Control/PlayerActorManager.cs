@@ -261,6 +261,7 @@ namespace InputStates
                         }
                     }
                     currentBoard.SetCommand(new Commands.Command_MoveUnit(unitPosition, path));
+                    currentBoard.DoQueuedCommands();
                 }
 
                 sm.currentState = new InputState_Default();
