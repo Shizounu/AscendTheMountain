@@ -7,6 +7,7 @@ using Commands;
 
 namespace Combat
 {
+    [System.Serializable]
     public class Unit {
         public Unit(UnitDefinition definition, Actors owner) {
             maxHealth = definition.Health;
@@ -21,6 +22,19 @@ namespace Combat
             canMove = false;
 
             this.owner = owner;
+        }
+        public Unit(Unit unitToCopy){
+            maxHealth = unitToCopy.maxHealth;
+            curHealth = unitToCopy.curHealth;
+            attack = unitToCopy.attack;
+            moveDistance = unitToCopy.moveDistance;
+            effects = unitToCopy.effects;
+            
+            canMove = unitToCopy.canMove;
+            canAttack = unitToCopy.canAttack;
+            
+            owner = unitToCopy.owner;
+
         }
 
         private int _curHealth;
@@ -45,11 +59,6 @@ namespace Combat
         public bool canMove;
 
         public List<IEffect> effects;
-
-        public Unit Clone()
-        {
-            return MemberwiseClone() as Unit;
-        }
 
         ///TODO: Set up triggers and info for the viaul system to use. 
     }

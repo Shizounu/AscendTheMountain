@@ -1,4 +1,5 @@
 using Combat;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,11 +42,8 @@ namespace Commands
             if(payCost)
                 board.SetSubCommand(new Command_SubCurrentMana(owner, unitDef.Cost));
             if (removeFromHand)
-            {
-
-
                 board.SetSubCommand(new Command_RemoveHandCard(handIndex, owner));
-            }
+            
         }
 
         public void Unexecute(Board board)
@@ -58,8 +56,6 @@ namespace Commands
             boardRenderer.SpawnUnitVisuals(unit, unitDef.animatorController, position);
         }
     }
-
-    
 
     public class Command_RemoveUnit : ICommand, IVisualCommand
     {
@@ -123,23 +119,28 @@ namespace Commands
             
             this.path = new(path);
         }
-        private Vector2Int startPos;
+        public Vector2Int startPos;
+        /// <summary>
+        /// ADDED TO FIX NULL REF AND I DONT KNOW WHY IT FIXES IT AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        /// </summary>
+        public Vector2Int curPos;
         private List<Vector2Int> path;
 
         Unit unitRef;
         public void Execute(Board board) {
-            Unit u = board.GetUnitFromPos(startPos);
-            foreach (Vector2Int position in path){
+            unitRef = board.GetUnitFromPos(startPos);
+            curPos = startPos;
+            foreach (Vector2Int position in path)
                 Move(board, position);
-            }
-            board.SetSubCommand(new Command_SetCanMove(u, false));
+            
+            board.SetSubCommand(new Command_SetCanMove(unitRef, false));
         }
         private void Move(Board board, Vector2Int moveTo)
         {
-            unitRef = board.tiles[startPos.x, startPos.y].unit;
-            board.tiles[startPos.x, startPos.y].unit = null;
+            //save unit for moving
+            board.tiles[curPos.x, curPos.y].unit = null;
             board.tiles[moveTo.x, moveTo.y].unit = unitRef;
-            startPos = moveTo;
+            curPos = moveTo;
         }
 
         public void Unexecute(Board board)
@@ -150,7 +151,6 @@ namespace Commands
         public void Visuals(BoardRenderer boardRenderer)
         {
             UnitRenderer unitRenderer = boardRenderer.units[unitRef];
-
             unitRenderer.StartCoroutine(DoMoveStepsVisual(unitRenderer));
         }
 
@@ -193,9 +193,6 @@ namespace Commands
 
     public class Command_DamageUnit : ICommand, IVisualCommand
     {
-        public Command_DamageUnit() {
-            
-        }
         public Command_DamageUnit(int amount, Unit target) {
             this.amount = amount;
             this.target = target;
@@ -247,9 +244,6 @@ namespace Commands
     }
 
     public class Command_SetCanMove : ICommand {
-        public Command_SetCanMove(){
-            
-        }
         public Command_SetCanMove(Unit unit, bool value)
         {
             this.unit = unit;

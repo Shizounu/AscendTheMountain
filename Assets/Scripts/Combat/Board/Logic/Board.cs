@@ -8,6 +8,8 @@ using JetBrains.Annotations;
 using UnityEngine.InputSystem.LowLevel;
 using Unity.VisualScripting;
 using System;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Combat
 {
@@ -34,12 +36,10 @@ namespace Combat
 
             for (int x = 0; x < tiles.GetLength(0); x++)
                 for (int y = 0; y < tiles.GetLength(1); y++)
-                    tiles[x, y] = boardToCopy.tiles[x,y].Clone();
+                    tiles[x, y] = new Tile(boardToCopy.tiles[x,y]);
 
             Actor1_Deck = boardToCopy.Actor1_Deck.Clone();
             Actor2_Deck = boardToCopy.Actor2_Deck.Clone();
-            commandQueue = boardToCopy.commandQueue;
-            subCommandQueue = boardToCopy.subCommandQueue;
         }
 
         public OnCommandHandler onCommand;
@@ -214,8 +214,9 @@ namespace Combat
             List<Vector2Int> unitPositions = new List<Vector2Int>();
             for (int x = 0; x < tiles.GetLength(0); x++) {
                 for (int y = 0; y < tiles.GetLength(1); y++) {
-                    if(GetUnitFromPos(x,y)?.owner == owner)
-                        unitPositions.Add(new Vector2Int(x, y));
+                    if(GetUnitFromPos(x,y) != null)
+                        if(GetUnitFromPos(x,y).owner == owner)
+                            unitPositions.Add(new Vector2Int(x, y));
                 }
             }
             return unitPositions;
@@ -234,6 +235,26 @@ namespace Combat
         {
             return pos.x < tiles.GetLength(0) && pos.x >= 0 &&
                    pos.y < tiles.GetLength(1) && pos.y >= 0;
+        }
+        public string GetJSON()
+        {
+            Board copy = new Board(this);
+            return JsonUtility.ToJson(copy, true);
+        }
+        public string GetHash() {
+            string JSON = GetJSON();
+
+            // https://stackoverflow.com/questions/3984138/hash-string-in-c-sharp
+
+            byte[] buffer;
+            using (HashAlgorithm algorithm = SHA256.Create())
+                buffer = algorithm.ComputeHash(Encoding.UTF8.GetBytes(JSON));
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in buffer)
+                sb.Append(b.ToString("X2"));
+
+            return sb.ToString();
+
         }
         #endregion
 
@@ -258,16 +279,15 @@ namespace Combat
         public Tile(Vector2Int pos) {
             position = pos;
         }
+        public Tile(Tile tileToCopy) {
+            position = tileToCopy.position;
+            if(tileToCopy.unit != null)
+                unit = new Unit(tileToCopy.unit);
+        }
         public Vector2Int position;
         public Unit unit;
 
         public bool isFree => unit == null;
-
-        public Tile Clone() {
-            Tile t = new Tile(position);
-            t.unit = unit?.Clone();
-            return t;
-        }
 
         public bool getIsPassable(Actors owner)
         {
