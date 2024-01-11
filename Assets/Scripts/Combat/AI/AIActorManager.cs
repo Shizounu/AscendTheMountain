@@ -47,50 +47,52 @@ public class AIActorManager : MonoBehaviour, IActorManager
     }
 
     #region Board Evaluation
-    public struct BoardInfo {
-        public BoardInfo(List<ICommand> moves, int boardEvaluation, List<Board> resultingBoards, Board board) {
+    [Serializable]
+    public class BoardInfo {
+        public BoardInfo(List<ICommand> moves, Board board, AIActorManager manager) {
             this.moves  = moves;
-            this.boardEvaluation = boardEvaluation;
-            this.resultingBoards = resultingBoards;
             this.board = board;
+            this.manager = manager;
         }
 
-        /// <summary>
-        /// The moves the AI took to get here
-        /// </summary>
+        //References
+        public AIActorManager manager;
+        
+        //Info
         public List<ICommand> moves;
-        public int boardEvaluation;
-        public List<Board> resultingBoards;
-
         public Board board;
+
+        //Evaluation Logic
+        private bool dirtyEvaluation = true; //Create logic for setting dirty flag
+        private int cachedEvaluation; 
+
+        public int GetEvaluation() {
+            if(dirtyEvaluation) {
+                manager.EvaluateBoard(board);
+                dirtyEvaluation = false;
+            }
+            return cachedEvaluation;
+        }
+
+        //Optimization
+        public List<string> resultingBoards = new();
+
     }
 
     /// <summary>
-    /// working variable for GetPossibleBoards function. 
     /// WARNING!!!! : This works under the assumption that the hashes are actually properly unique. Not guranteed and could be a potential future error point
     /// </summary>
     public Dictionary<string, BoardInfo> GetPossibleBoards(Board baseBoard, Actors currentActor) {
         Dictionary<string, BoardInfo> resultingBoards = new();
-        List<List<ICommand>> possibleTurns = GetPossibleTurns((baseBoard, new List<ICommand>()), currentActor, 30);
-        foreach (List<ICommand> turn in possibleTurns) {
-            Board currentBoard = new Board(baseBoard);
-            for (int i = 0; i < turn.Count; i++) {
-                currentBoard.SetCommand(turn[i]);
-            }
-            currentBoard.DoQueuedCommands();
-            string boardHash = currentBoard.GetHash();
+        List<(List<ICommand>, Board)> possibleTurns = GetPossibleTurns((baseBoard, new List<ICommand>()), currentActor, 30);
+        foreach ((List<ICommand>, Board) turn in possibleTurns) {
+            string boardHash = turn.Item2.GetHash();
 
 
             if (!resultingBoards.ContainsKey(boardHash)) {
-                BoardInfo boardInfo = new BoardInfo(
-                    turn,
-                    EvaluateBoard(currentBoard),
-                    new List<Board>(), //change to use hash strings
-                    currentBoard
-                    );
-
-                Debug.Log($"Added Unique Board, actions to get there: {turn.Count}");
-                resultingBoards.Add(currentBoard.GetHash(), boardInfo);
+                BoardInfo boardInfo = new BoardInfo(turn.Item1, turn.Item2, this);
+                Debug.Log($"Added Unique Board, actions to get there: {turn.Item1.Count}");
+                resultingBoards.Add(boardHash, boardInfo);
             } else {
                 Debug.Log("Culled Dup");
             }
@@ -98,9 +100,9 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
         return resultingBoards;
     }
-    //TODO: Also return already generated boards
-    public List<List<ICommand>> GetPossibleTurns((Board, List<ICommand>) baseBoard, Actors currentActor, int curDepth = 30) {
-        List<List<ICommand>> results = new List<List<ICommand>>();
+
+    public List<(List<ICommand>, Board)> GetPossibleTurns((Board, List<ICommand>) baseBoard, Actors currentActor, int curDepth = 30) {
+        List<(List<ICommand>, Board)> results = new();
 
 
         List<ICommand> possibleMoves = GetPossibleActions(baseBoard.Item1, currentActor);
@@ -114,10 +116,10 @@ public class AIActorManager : MonoBehaviour, IActorManager
             commands.Add(possibleMove);
 
             if (possibleMove.GetType() == typeof(Command_EnableSide)) { //Enabling Other Side
-                results.Add(commands);
+                results.Add((commands, curBoard));
             } else if(curDepth == 0) {
                 commands.Add(new Command_EnableSide(currentActor == Actors.Actor1 ? Actors.Actor2 : Actors.Actor1));
-                results.Add(commands);
+                results.Add((commands, curBoard));
             }  else {
                 results.AddRange(GetPossibleTurns((curBoard, commands), currentActor, curDepth - 1));
             }
@@ -129,15 +131,13 @@ public class AIActorManager : MonoBehaviour, IActorManager
     {
         List<ICommand> possibleActions = new List<ICommand>();
 
-        //TODO: Invert check, to first check for if its a unit and then check generate & iterate through positions
         //Summoning
-        List<Vector2Int> summonPositions = board.getSummonPositions(activeActor);
         for (int i = 0; i < board.getActorReference(activeActor).Hand.Length; i++) {
-            if(board.getActorReference(activeActor).Hand[i] != null) {
+            if (board.getActorReference(activeActor).Hand[i] != null) {
                 if (board.getActorReference(activeActor).Hand[i].Cost <= board.getActorReference(activeActor).CurManagems) {
-                    foreach (Vector2Int pos in summonPositions) { 
-                        if (board.getActorReference(activeActor).Hand[i].GetType() == typeof(UnitDefinition))
-                        {
+                    if (board.getActorReference(activeActor).Hand[i].GetType() == typeof(UnitDefinition)) {
+                        List<Vector2Int> summonPositions = board.getSummonPositions(activeActor);
+                        foreach (Vector2Int pos in summonPositions) {
                             possibleActions.Add(
                                 new Command_SummonUnit(
                                     (UnitDefinition)board.getActorReference(activeActor).Hand[i],
@@ -148,13 +148,14 @@ public class AIActorManager : MonoBehaviour, IActorManager
                                )
                             );
                         }
-                        else //TODO add other card types
-                            Debug.LogError("Unrecognized card type in AI hand");                
+                    } else {
+                        Debug.LogError("Unrecognized card type in AI hand");
                     }
+
+
                 }
             }
         }
-
 
 
         List<Vector2Int> unitPositions = board.GetUnitPositions(activeActor);
