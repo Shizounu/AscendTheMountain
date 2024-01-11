@@ -61,5 +61,9 @@ namespace Combat
         public List<IEffect> effects;
 
         ///TODO: Set up triggers and info for the viaul system to use. 
+ 
+        public string GetJSON(bool prettyPrint = false) {
+            return JsonUtility.ToJson(this, prettyPrint);
+        }
     }
 }

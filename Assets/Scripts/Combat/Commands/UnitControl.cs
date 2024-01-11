@@ -104,6 +104,8 @@ namespace Commands
         }
     }
 
+
+    //BUG WHEN PLAYER MOVES
     public class Command_MoveUnit : ICommand, IVisualCommand {
         /// <summary>
         /// for moving one tile

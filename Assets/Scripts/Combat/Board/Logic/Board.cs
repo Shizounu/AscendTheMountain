@@ -239,8 +239,22 @@ namespace Combat
         public string GetJSON()
         {
             Board copy = new Board(this);
-            return JsonUtility.ToJson(copy, true);
+            string Decks = JsonUtility.ToJson(copy, true);
+            string tileString = "";
+
+            for (int x = 0;x < tiles.GetLength(0);x++) {
+                for (int y = 0;y < tiles.GetLength(1);y++) {
+                    if (tiles[x,y].unit == null) {
+                        tileString += "null |";
+                    } else {
+                        tileString += $"{tiles[x, y].unit.GetJSON()}";
+                    }
+                }
+            }
+
+            return Decks + tileString;
         }
+
         public string GetHash() {
             string JSON = GetJSON();
 

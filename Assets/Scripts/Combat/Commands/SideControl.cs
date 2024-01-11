@@ -23,7 +23,7 @@ namespace Commands
                 board.SetSubCommand(new Command_SetEnable(Actors.Actor2, false));
             } else {
                 board.SetSubCommand(new Command_OnTurnStart(side));
-                board.SetSubCommand(new Command_SetEnable(Actors.Actor1, true));
+                board.SetSubCommand(new Command_SetEnable(Actors.Actor1, false));
                 board.SetSubCommand(new Command_SetEnable(Actors.Actor2, true));
 
             }
@@ -61,8 +61,8 @@ namespace Commands
 
                 }
             }
-            board.SetSubCommand(new Command_AddMaxMana(Actors.Actor2, 1));
-            board.SetSubCommand(new Command_AddCurrentMana(Actors.Actor2, 69));
+            board.SetSubCommand(new Command_AddMaxMana(Side, 1));
+            board.SetSubCommand(new Command_AddCurrentMana(Side, 69));
         }
 
         public void Unexecute(Board board)
