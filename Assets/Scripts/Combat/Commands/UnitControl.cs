@@ -46,11 +46,6 @@ namespace Commands
             
         }
 
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void Visuals(BoardRenderer boardRenderer)
         {
             boardRenderer.SpawnUnitVisuals(unit, unitDef.animatorController, position);
@@ -83,11 +78,6 @@ namespace Commands
                 }
             }
             
-        }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
         }
 
         public void Visuals(BoardRenderer boardRenderer)
@@ -145,11 +135,6 @@ namespace Commands
             curPos = moveTo;
         }
 
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void Visuals(BoardRenderer boardRenderer)
         {
             UnitRenderer unitRenderer = boardRenderer.units[unitRef];
@@ -182,11 +167,6 @@ namespace Commands
             board.SetSubCommand(new Command_DamageUnit(attacker.attack, defender));
         }
 
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void Visuals(BoardRenderer boardRenderer)
         {
             boardRenderer.units[attacker].OnAttack();
@@ -210,11 +190,6 @@ namespace Commands
             }
         }
 
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void Visuals(BoardRenderer boardRenderer)
         {
             boardRenderer.units[target].OnDamage();
@@ -232,11 +207,6 @@ namespace Commands
             //TODO Throw on death
 
             board.SetSubCommand(new Command_RemoveUnit(unit));
-        }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
         }
 
         public void Visuals(BoardRenderer boardRenderer)
@@ -258,11 +228,6 @@ namespace Commands
         {
             unit.canMove = value;
         }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
-        }
     }
     public class Command_SetCanAttack : ICommand
     {
@@ -281,11 +246,6 @@ namespace Commands
         public void Execute(Board board)
         {
             unit.canAttack = value;
-        }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

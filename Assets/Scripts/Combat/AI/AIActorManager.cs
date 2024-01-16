@@ -38,7 +38,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
             }
         }
 
-
+        PopulatePermutations(GameManager.Instance.currentBoard, Actors.Actor2);
 
     }
 
@@ -46,35 +46,18 @@ public class AIActorManager : MonoBehaviour, IActorManager
     #region Board Generation
     Dictionary<string, BoardInfo> CachedBoards = new();
     [Serializable]
-    public class BoardInfo {
-        public BoardInfo(Board board, List<ICommand> moves, AIActorManager manager) {
+    public struct BoardInfo {
+        public BoardInfo(Board board, List<ICommand> moves) {
             this.moves = moves;
             this.board = board;
-            this.manager = manager;
+            this.resultingBoards = new();
         }
-
-        //References
-        public AIActorManager manager;
 
         //Info
-        public List<ICommand> moves;
         public Board board;
+        public List<ICommand> moves;
 
-        //Evaluation Logic
-        private bool dirtyEvaluation = true; //Create logic for setting dirty flag
-        private int cachedEvaluation;
-
-        public int GetEvaluation() {
-            if (dirtyEvaluation) {
-                manager.EvaluateBoard(this);
-                dirtyEvaluation = false;
-            }
-            return cachedEvaluation;
-        }
-
-        //Optimization
-        public List<string> resultingBoards = new();
-
+        public List<string> resultingBoards;
     }
     /* OBSOLETE
     /// <summary>
@@ -132,6 +115,11 @@ public class AIActorManager : MonoBehaviour, IActorManager
         return results;
     }*/
 
+    /// <summary>
+    /// Macro cause I got bored of writing this so often
+    /// </summary>
+    /// <param name="currentActor"></param>
+    /// <returns></returns>
     private Command_EnableSide switchSideCommand(Actors currentActor) {
         return new Command_EnableSide(currentActor == Actors.Actor1 ? Actors.Actor2 : Actors.Actor1);
     }
@@ -141,7 +129,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         string baseBoardHash = board.GetHash();
         //Should only ever be relevant for the first ever board. Populates it into the dict
         if (!CachedBoards.ContainsKey(baseBoardHash)) {
-            BoardInfo boardInfo = new BoardInfo(board, (actionsTaken == null ? new() : actionsTaken), this);
+            BoardInfo boardInfo = new BoardInfo(board, (actionsTaken == null ? new() : actionsTaken));
             CachedBoards.Add(baseBoardHash, boardInfo);
             result.Add(baseBoardHash, boardInfo);
         }
@@ -157,7 +145,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
                 List<ICommand> curActionsTaken = new();
                 curActionsTaken.AddRange(CachedBoards[baseBoardHash].moves);
                 curActionsTaken.Add(possibleMove);
-                BoardInfo boardInfo = new BoardInfo(curBoard, curActionsTaken, this);
+                BoardInfo boardInfo = new BoardInfo(curBoard, curActionsTaken);
 
                 CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
 
@@ -172,14 +160,12 @@ public class AIActorManager : MonoBehaviour, IActorManager
         }
         return result;
     }
-    public void PopulatePermutations(Board board, Actors currentActor, List<ICommand> actionsTaken = null, int curDepth = 30)
-    {
-
+    public void PopulatePermutations(Board board, Actors currentActor, List<ICommand> actionsTaken = null, int curDepth = 30) {
         string baseBoardHash = board.GetHash();
         //Should only ever be relevant for the first ever board. Populates it into the dict
         if (!CachedBoards.ContainsKey(baseBoardHash))
         {
-            BoardInfo boardInfo = new BoardInfo(board, (actionsTaken == null ? new() : actionsTaken), this);
+            BoardInfo boardInfo = new BoardInfo(board, (actionsTaken == null ? new() : actionsTaken));
             CachedBoards.Add(baseBoardHash, boardInfo);
         }
 
@@ -191,20 +177,18 @@ public class AIActorManager : MonoBehaviour, IActorManager
             curBoard.DoQueuedCommands();
 
             string curBoardHash = curBoard.GetHash();
-            if (!CachedBoards.ContainsKey(curBoardHash))
-            {
+            if (!CachedBoards.ContainsKey(curBoardHash)) {
                 List<ICommand> curActionsTaken = new();
                 curActionsTaken.AddRange(CachedBoards[baseBoardHash].moves);
                 curActionsTaken.Add(possibleMove);
-                BoardInfo boardInfo = new BoardInfo(curBoard, curActionsTaken, this);
+                BoardInfo boardInfo = new BoardInfo(curBoard, curActionsTaken);
 
                 CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
 
                 CachedBoards.Add(curBoardHash, boardInfo);
 
                 Debug.Log($"Added Unique Board, actions to get there: {curActionsTaken.Count}");
-                if (curDepth > 0)
-                {
+                if (curDepth > 0) {
                     PopulatePermutations(curBoard, currentActor, curActionsTaken, curDepth - 1);
                 }
             }
@@ -285,9 +269,6 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
     public int EvaluateBoard(BoardInfo board)
     {
-        //Add UUID to each evaulation for comparing if evaluation is dirty or not 
-        //Create dictionary of UUID - Evaluation pair, if UUID was already used, use the cached evaluation
-        //Possibly over engineered as board states wont double that much TBH 
         return 0; //TODO write eval method
     }
 

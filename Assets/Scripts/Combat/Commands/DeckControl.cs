@@ -23,11 +23,6 @@ namespace Commands
             board.SetSubCommand(new Command_SummonUnit(deckDef.SideGeneral, pos, side, true, true));
             
         }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 
 
@@ -48,11 +43,6 @@ namespace Commands
 
             board.getActorReference(side).Deck = cards;
             board.getActorReference(side).Deck.Shuffle();
-        }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
         }
     }
 
@@ -80,11 +70,6 @@ namespace Commands
         {
             board.getActorReference(side).Deck.AddRange(cards);
             board.getActorReference(side).Deck.Shuffle();
-        }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
         }
     }
 
@@ -116,11 +101,6 @@ namespace Commands
             b.getActorReference(side).Deck.RemoveAt(0);
 
         }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 
     public class Command_RemoveHandCard : ICommand {
@@ -139,11 +119,6 @@ namespace Commands
         public void Execute(Board board) {
             board.getActorReference(actor).Hand[handIndex] = null;
             // TODO : Make more sophisticated, proper destroy function
-        }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
         }
     }
 
@@ -164,11 +139,6 @@ namespace Commands
         {
             board.getActorReference(side).CurManagems += amount;
         }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
-        }
     }
     public class Command_SubCurrentMana : ICommand
     {
@@ -187,11 +157,6 @@ namespace Commands
         public void Execute(Board board)
         {
             board.getActorReference(side).CurManagems -= amount;
-        }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
         }
     }
 
@@ -214,11 +179,6 @@ namespace Commands
         {
             board.getActorReference(side).MaxManagems += amount;
         }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
-        }
     }
     public class Command_SubMaxMana : ICommand
     {
@@ -237,11 +197,6 @@ namespace Commands
         public void Execute(Board board)
         {
             board.getActorReference(side).MaxManagems -= amount;
-        }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

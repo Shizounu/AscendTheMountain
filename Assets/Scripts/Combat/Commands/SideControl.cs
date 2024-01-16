@@ -28,11 +28,6 @@ namespace Commands
 
             }
         }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
-        }
     }
     
 
@@ -64,11 +59,6 @@ namespace Commands
             board.SetSubCommand(new Command_AddMaxMana(Side, 1));
             board.SetSubCommand(new Command_AddCurrentMana(Side, 69));
         }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 
     public class Command_SetEnable : ICommand {
@@ -86,11 +76,6 @@ namespace Commands
                 board.getActorReference(side).Enable();
             else 
                 board.getActorReference(side).Disable();
-        }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
