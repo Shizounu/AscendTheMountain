@@ -55,6 +55,13 @@ public class AIActorManager : MonoBehaviour, IActorManager
     }
 
     #region Command Pool
+    private void Awake()
+    {
+        MoveCommandPool = new(x => x.ReturnToPool(new Command_MoveUnit(new Vector2Int(), new Vector2Int())));
+        SummonCommandPool = new(x => x.ReturnToPool(new Command_SummonUnit(null, Vector2Int.zero, Actors.Actor1, false, false, true, true, 0)));
+        AttackCommandPool = new(x => x.ReturnToPool(new Command_AttackUnit(null, null)));
+    }
+
     public class ObjectPool<T> where T : ICommand {
         public ObjectPool(Action<ObjectPool<T>> addToPoolFunc, int defaultCount = 128) {
             pool = new();
@@ -69,14 +76,16 @@ public class AIActorManager : MonoBehaviour, IActorManager
             if(pool.Count == 0)
                 Debug.LogError("Empty Move pool");
             return pool.Dequeue();
+        }
+
+        public void ReturnToPool(T obj) {
+            pool.Enqueue(obj);
         } 
-        
-        public void ReturnToPool(T obj) => pool.Enqueue(obj);
     }
 
-    public ObjectPool<Command_MoveUnit> MoveCommandPool = new (x => x.ReturnToPool(new Command_MoveUnit(new Vector2Int(), new Vector2Int())));
-    public ObjectPool<Command_SummonUnit> SummonCommandPool = new (x => x.ReturnToPool(new Command_SummonUnit(null, Vector2Int.zero, Actors.Actor1, false, false, true, true, 0)));
-    public ObjectPool<Command_AttackUnit> AttackCommandPool = new(x => x.ReturnToPool(new Command_AttackUnit(null, null)));
+    public ObjectPool<Command_MoveUnit> MoveCommandPool;
+    public ObjectPool<Command_SummonUnit> SummonCommandPool;
+    public ObjectPool<Command_AttackUnit> AttackCommandPool;
     public void HandleCommandDisposal(ICommand command) {
         if(command.GetType() == typeof(Command_MoveUnit)) {
             MoveCommandPool.ReturnToPool((Command_MoveUnit)command); return;
@@ -93,7 +102,6 @@ public class AIActorManager : MonoBehaviour, IActorManager
     }
 
     #endregion
-
 
     #region Board Generation
     Dictionary<string, BoardInfo> CachedBoards = new();
@@ -247,7 +255,6 @@ public class AIActorManager : MonoBehaviour, IActorManager
             }
         }
     }
-    
     public List<ICommand> GetPossibleActions(Board board, Actors activeActor)
     {
         List<ICommand> possibleActions = new List<ICommand>();
