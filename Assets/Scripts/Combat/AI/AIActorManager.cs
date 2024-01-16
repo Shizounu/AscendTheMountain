@@ -39,8 +39,47 @@ public class AIActorManager : MonoBehaviour, IActorManager
         }
 
         PopulatePermutations(GameManager.Instance.currentBoard, Actors.Actor2);
-
     }
+
+    #region Command Pool
+    public class ObjectPool<T> where T : ICommand {
+        public ObjectPool(Action<ObjectPool<T>> addToPoolFunc, int defaultCount = 128) {
+            pool = new();
+            for (int i = 0; i < defaultCount; i++) {
+                addToPoolFunc(this);
+            }
+        }
+
+        private Queue<T> pool;
+
+        public T GetFromPool() { 
+            if(pool.Count == 0)
+                Debug.LogError("Empty Move pool");
+            return pool.Dequeue();
+        } 
+        
+        public void ReturnToPool(T obj) => pool.Enqueue(obj);
+    }
+
+    public ObjectPool<Command_MoveUnit> MoveCommandPool = new (x => x.ReturnToPool(new Command_MoveUnit(new Vector2Int(), new Vector2Int())));
+    public ObjectPool<Command_SummonUnit> SummonCommandPool = new (x => x.ReturnToPool(new Command_SummonUnit(null, Vector2Int.zero, Actors.Actor1, false, false, true, true, 0)));
+    public ObjectPool<Command_AttackUnit> AttackCommandPool = new(x => x.ReturnToPool(new Command_AttackUnit(null, null)));
+    public void HandleCommand(ICommand command) {
+        if(command.GetType() == typeof(Command_MoveUnit)) {
+            MoveCommandPool.ReturnToPool((Command_MoveUnit)command); return;
+        }
+        if(command.GetType() == typeof(Command_SummonUnit)) {
+            SummonCommandPool.ReturnToPool((Command_SummonUnit)command); return;
+        }
+        if(command.GetType() == typeof(Command_AttackUnit)) {
+            AttackCommandPool.ReturnToPool((Command_AttackUnit)command); return;
+        }
+
+
+        command = null;
+    }
+
+    #endregion
 
 
     #region Board Generation
@@ -173,6 +212,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         foreach (ICommand possibleMove in possibleMoves)
         {
             Board curBoard = new Board(board);
+            curBoard.onCommand = HandleCommand;
             curBoard.SetCommand(possibleMove);
             curBoard.DoQueuedCommands();
 
@@ -194,7 +234,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
             }
         }
     }
-
+    
     public List<ICommand> GetPossibleActions(Board board, Actors activeActor)
     {
         List<ICommand> possibleActions = new List<ICommand>();
@@ -206,15 +246,12 @@ public class AIActorManager : MonoBehaviour, IActorManager
                     if (board.getActorReference(activeActor).Hand[i].GetType() == typeof(UnitDefinition)) {
                         List<Vector2Int> summonPositions = board.getSummonPositions(activeActor);
                         foreach (Vector2Int pos in summonPositions) {
-                            possibleActions.Add(
-                                new Command_SummonUnit(
-                                    (UnitDefinition)board.getActorReference(activeActor).Hand[i],
-                                    pos,
-                                    activeActor,
-                                    false, false, //Cant immediately attack or move
-                                    true, true, i //Remove from hand & pay cost
-                               )
-                            );
+                            Command_SummonUnit com = SummonCommandPool.GetFromPool();
+                            com.position = pos;
+                            com.unitDef = (UnitDefinition)board.getActorReference(activeActor).Hand[i];
+                            com.owner = activeActor;
+                            com.handIndex = i;
+                            possibleActions.Add(com);
                         }
                     } else {
                         Debug.LogError("Unrecognized card type in AI hand");
@@ -231,16 +268,26 @@ public class AIActorManager : MonoBehaviour, IActorManager
             //Move actions
             if (board.GetUnitFromPos(unitPositions[i]).canMove) {
                 List<Vector2Int> movePositions = board.getMovePositions(unitPositions[i], board.GetUnitFromPos(unitPositions[i]).moveDistance);
-                foreach (Vector2Int movePos in movePositions)
-                    possibleActions.Add(new Command_MoveUnit(unitPositions[i], movePos));
+                foreach (Vector2Int movePos in movePositions) { 
+                    Command_MoveUnit moveUnit = MoveCommandPool.GetFromPool();
+                    moveUnit.startPos = unitPositions[i];
+                    moveUnit.path = new() { movePos };
+
+                    possibleActions.Add(moveUnit);
+                }
             }
 
             //Attack actions
             if (board.GetUnitFromPos(unitPositions[i]).canAttack) {
                 List<Vector2Int> attackPositions = board.getAttackPositions(unitPositions[i]);
                 foreach (Vector2Int attackPos in attackPositions)
-                    if (board.GetUnitFromPos(attackPos) != null && board.GetUnitFromPos(attackPos).owner != activeActor)
-                        possibleActions.Add(new Command_AttackUnit(board.GetUnitFromPos(unitPositions[i]), board.GetUnitFromPos(attackPos)));
+                    if (board.GetUnitFromPos(attackPos) != null && board.GetUnitFromPos(attackPos).owner != activeActor) {
+                        Command_AttackUnit attackUnit = AttackCommandPool.GetFromPool();
+                        attackUnit.attacker = board.GetUnitFromPos(unitPositions[i]);
+                        attackUnit.defender = board.GetUnitFromPos(attackPos);
+
+                        possibleActions.Add(attackUnit);
+                    }
             }
         }
 

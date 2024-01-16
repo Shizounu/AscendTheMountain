@@ -21,15 +21,15 @@ namespace Commands
             this.handIndex = handIndex;
         }
 
-        [SerializeField] private Cards.UnitDefinition unitDef;
-        [SerializeField] private Vector2Int position;
-        [SerializeField] private Actors owner;
+        [SerializeField] public Cards.UnitDefinition unitDef;
+        [SerializeField] public Vector2Int position;
+        [SerializeField] public Actors owner;
 
         [SerializeField] private bool canMove;
         [SerializeField] private bool canAttack;
         [SerializeField] private bool payCost;
         [SerializeField] private bool removeFromHand;
-        [SerializeField] private int handIndex;
+        [SerializeField] public int handIndex;
         Unit unit;
         public void Execute(Board board)
         {
@@ -101,7 +101,7 @@ namespace Commands
         /// for moving one tile
         /// </summary>
         /// <param name="closePosition"></param>
-        public Command_MoveUnit(Vector2Int startPos,Vector2Int closePosition) {
+        public Command_MoveUnit(Vector2Int startPos, Vector2Int closePosition) {
             this.startPos = startPos;
             path = new() { closePosition };
         }
@@ -116,7 +116,7 @@ namespace Commands
         /// ADDED TO FIX NULL REF AND I DONT KNOW WHY IT FIXES IT AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         /// </summary>
         public Vector2Int curPos;
-        private List<Vector2Int> path;
+        public List<Vector2Int> path;
 
         Unit unitRef;
         public void Execute(Board board) {
@@ -159,8 +159,8 @@ namespace Commands
             this.attacker = attacker;
             this.defender = defender;
         }
-        Unit attacker;
-        Unit defender;
+        public Unit attacker;
+        public Unit defender;
 
         public void Execute(Board board)
         {
