@@ -17,15 +17,13 @@ namespace Commands
 
         public void Execute(Board board)
         {
+            board.SetSubCommand(new Command_OnTurnStart(side));
             if(side == Actors.Actor1) {
-                board.SetSubCommand(new Command_OnTurnStart(side));
                 board.SetSubCommand(new Command_SetEnable(Actors.Actor1, true));
                 board.SetSubCommand(new Command_SetEnable(Actors.Actor2, false));
             } else {
-                board.SetSubCommand(new Command_OnTurnStart(side));
                 board.SetSubCommand(new Command_SetEnable(Actors.Actor1, false));
                 board.SetSubCommand(new Command_SetEnable(Actors.Actor2, true));
-
             }
         }
     }

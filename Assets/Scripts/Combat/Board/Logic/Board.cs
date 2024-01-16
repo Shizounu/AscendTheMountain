@@ -15,7 +15,7 @@ namespace Combat
 {
 
 
-    [System.Serializable]
+    [Serializable]
     public class Board {
         public Board() {
             tiles = new Tile[9, 5];
@@ -57,7 +57,7 @@ namespace Combat
         private Queue<ICommand> commandQueue = new Queue<ICommand>();
         /// <summary>
         /// Sub command queue is for commands that get executed my other commands and need to happen right after them
-        /// Not manually added to, only by other commands. All commands added by a command go herek
+        /// Not manually added to, only by other commands. All commands added by a command go here
         /// </summary>
         private Queue<ICommand> subCommandQueue = new Queue<ICommand>();
         public void SetCommand(ICommand command)

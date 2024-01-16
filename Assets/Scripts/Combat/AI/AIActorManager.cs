@@ -2,6 +2,7 @@ using Cards;
 using Combat;
 using Commands;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,10 +30,22 @@ public class AIActorManager : MonoBehaviour, IActorManager
     public void Enable()
     {
         Debug.Log("Starting AI");
+        //Delay cause instant start doesnt pass the right info for no reason
+        StartCoroutine(DelayedStart());
+    }
 
+    IEnumerator DelayedStart(float time = 0.01f) {
+        yield return new WaitForSecondsRealtime(time);
+        EnableActions();
+    }
+
+    void EnableActions()
+    {
         //Check for state transitions
-        foreach (var transition in CurState.transitions) {
-            if (transition.Evaluate(GameManager.Instance.currentBoard)) {
+        foreach (var transition in CurState.transitions)
+        {
+            if (transition.Evaluate(GameManager.Instance.currentBoard))
+            {
                 CurState = transition.transitionTo;
                 break;
             }
@@ -64,7 +77,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
     public ObjectPool<Command_MoveUnit> MoveCommandPool = new (x => x.ReturnToPool(new Command_MoveUnit(new Vector2Int(), new Vector2Int())));
     public ObjectPool<Command_SummonUnit> SummonCommandPool = new (x => x.ReturnToPool(new Command_SummonUnit(null, Vector2Int.zero, Actors.Actor1, false, false, true, true, 0)));
     public ObjectPool<Command_AttackUnit> AttackCommandPool = new(x => x.ReturnToPool(new Command_AttackUnit(null, null)));
-    public void HandleCommand(ICommand command) {
+    public void HandleCommandDisposal(ICommand command) {
         if(command.GetType() == typeof(Command_MoveUnit)) {
             MoveCommandPool.ReturnToPool((Command_MoveUnit)command); return;
         }
@@ -212,7 +225,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         foreach (ICommand possibleMove in possibleMoves)
         {
             Board curBoard = new Board(board);
-            curBoard.onCommand = HandleCommand;
+            curBoard.onCommand = HandleCommandDisposal;
             curBoard.SetCommand(possibleMove);
             curBoard.DoQueuedCommands();
 
