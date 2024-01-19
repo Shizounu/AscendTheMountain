@@ -5,33 +5,31 @@ using UnityEngine;
 
 namespace Commands
 {
-    public class Command_EnableSide : ICommand {
-        /// <summary>
-        /// Argument is the side that is to be disabled
-        /// </summary>
-        /// <param name="disabledSide"></param>
-        public Command_EnableSide(Actors disabledSide) {
+    public class Command_EnableSide : Pool.Poolable<Command_EnableSide>, ICommand {
+        public Command_EnableSide Init(Actors disabledSide) {
             this.side = disabledSide;
+            return this;
         }
         Actors side;
 
         public void Execute(Board board)
         {
-            board.SetSubCommand(new Command_OnTurnStart(side));
+            board.SetSubCommand(Command_OnTurnStart.GetAvailable().Init(side));
             if(side == Actors.Actor1) {
-                board.SetSubCommand(new Command_SetEnable(Actors.Actor1, true));
-                board.SetSubCommand(new Command_SetEnable(Actors.Actor2, false));
+                board.SetSubCommand(Command_SetEnable.GetAvailable().Init(Actors.Actor1, true));
+                board.SetSubCommand(Command_SetEnable.GetAvailable().Init(Actors.Actor2, false));
             } else {
-                board.SetSubCommand(new Command_SetEnable(Actors.Actor1, false));
-                board.SetSubCommand(new Command_SetEnable(Actors.Actor2, true));
+                board.SetSubCommand(Command_SetEnable.GetAvailable().Init(Actors.Actor1, false));
+                board.SetSubCommand(Command_SetEnable.GetAvailable().Init(Actors.Actor2, true));
             }
+            ReturnToPool(this);
         }
     }
     
-
-    public class Command_OnTurnStart : ICommand{ 
-        public Command_OnTurnStart(Actors side) {
+    public class Command_OnTurnStart : Pool.Poolable<Command_OnTurnStart>, ICommand{ 
+        public Command_OnTurnStart Init(Actors side) {
             this.Side = side;
+            return this;
         }
         Actors Side;
 
@@ -47,23 +45,26 @@ namespace Commands
                 {
                     if (Tiles[x, y].unit?.owner == Side)
                     {
-                        board.SetSubCommand(new Command_SetCanMove(Tiles[x, y].unit, true));
-                        board.SetSubCommand(new Command_SetCanAttack(Tiles[x, y].unit, true));
+                        board.SetSubCommand(Command_SetCanMove.GetAvailable().Init(Tiles[x, y].unit, true));
+                        board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(Tiles[x, y].unit, true));
                         //TODO: Add on turn start effect triggering
                     }
 
                 }
             }
-            board.SetSubCommand(new Command_AddMaxMana(Side, 1));
-            board.SetSubCommand(new Command_AddCurrentMana(Side, 69));
+            board.SetSubCommand(Command_ChangeCurrentMana.GetAvailable().Init(Side, 1));
+            board.SetSubCommand(Command_ChangeCurrentMana.GetAvailable().Init(Side, 69));
+
+            ReturnToPool(this);
         }
     }
 
-    public class Command_SetEnable : ICommand {
-        public Command_SetEnable(Actors side, bool val)
+    public class Command_SetEnable : Pool.Poolable<Command_SetEnable>, ICommand {
+        public Command_SetEnable Init(Actors side, bool val)
         {
             this.side = side;
             this.val = val;
+            return this;
         }
         Actors side;
         bool val;
@@ -74,6 +75,8 @@ namespace Commands
                 board.getActorReference(side).Enable();
             else 
                 board.getActorReference(side).Disable();
+
+            ReturnToPool(this);
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Combat
             Actor1_Deck = boardToCopy.Actor1_Deck.Clone();
             Actor2_Deck = boardToCopy.Actor2_Deck.Clone();
         }
-
+        
         public OnCommandHandler onCommand;
 
         /// <summary>

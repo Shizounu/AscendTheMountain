@@ -19,7 +19,9 @@ public class AIActorManager : MonoBehaviour, IActorManager
         //Register for enabling
         deckInformation.actorManager = this;
 
-        GameManager.Instance.currentBoard.SetCommand(new Command_InitSide(Actors.Actor2, deck));
+        boardPool = new();
+
+        GameManager.Instance.currentBoard.SetCommand(Command_InitSide.GetAvailable().Init(Actors.Actor2, deck));
         GameManager.Instance.currentBoard.DoQueuedCommands();
     }
 
@@ -53,111 +55,15 @@ public class AIActorManager : MonoBehaviour, IActorManager
         PopulatePermutations(GameManager.Instance.currentBoard, Actors.Actor2);
     }
 
-    #region Command Pool
-    public ObjectPool<Command_MoveUnit> CP_Move;
-    public ObjectPool<Command_SummonUnit> CP_Summon;
-    public ObjectPool<Command_AttackUnit> CP_Attack;
-    public ObjectPool<Command_SetCanMove> CP_SetCanMove;
-    public ObjectPool<Command_SetCanAttack> CP_SetCanAttack;
-    public ObjectPool<Command_RemoveHandCard> CP_RemoveHandCard;
-    public ObjectPool<Command_SubCurrentMana> CP_SubCurrentMana;
-
-    public class ObjectPool<T> where T : ICommand
-    {
-        public ObjectPool(Action<ObjectPool<T>> addToPoolFunc, int defaultCount = 256)
-        {
-            pool = new();
-            this.addToPoolFunc = addToPoolFunc;
-            curCapacity = defaultCount;
-
-            AddItemsToPool(curCapacity);
-        }
-
-        private Action<ObjectPool<T>> addToPoolFunc;
-        private int curCapacity;
-        public Queue<T> pool;
-
-
-
-        public void AddItemsToPool(int c)
-        {
-            for (int i = 0; i < c; i++)
-            {
-                addToPoolFunc(this);
-            }
-        }
-
-        public T GetFromPool()
-        {
-            if (pool.Count == 0)
-            {
-                Debug.LogWarning($"Pool of Type {pool.GetType()} is Empty. Doubling to {curCapacity * 2}");
-                AddItemsToPool(curCapacity);
-                curCapacity *= 2;
-            }
-            return pool.Dequeue();
-        }
-
-        public void ReturnToPool(T obj)
-        {
-            pool.Enqueue(obj);
-        }
-    }
-
-    private void Awake()
-    {
-        CP_Move = new(x => x.pool.Enqueue(new Command_MoveUnit(new Vector2Int(), new Vector2Int())));
-        CP_Summon = new(x => x.pool.Enqueue(new Command_SummonUnit(null, Vector2Int.zero, Actors.Actor1, false, false, true, true, 0)));
-        CP_Attack = new(x => x.pool.Enqueue(new Command_AttackUnit(null, null)));
-
-        CP_SetCanMove = new(x => x.pool.Enqueue(new Command_SetCanMove(null, false)));
-        CP_SetCanAttack = new( x => x.pool.Enqueue(new Command_SetCanAttack(null, false)));
-        CP_RemoveHandCard = new(x => x.pool.Enqueue(new Command_RemoveHandCard(0, Actors.Actor1)));
-        CP_SubCurrentMana = new(x => x.pool.Enqueue(new Command_SubCurrentMana(Actors.Actor1, 0)));
-
-        boardPool = new();
-    }
-
-
-
-    public void HandleCommandDisposal(ICommand command) {
-        if(command.GetType() == typeof(Command_MoveUnit)) {
-            CP_Move.ReturnToPool((Command_MoveUnit)command); return;
-        }
-        if(command.GetType() == typeof(Command_SummonUnit)) {
-            CP_Summon.ReturnToPool((Command_SummonUnit)command); return;
-        }
-        if(command.GetType() == typeof(Command_AttackUnit)) {
-            CP_Attack.ReturnToPool((Command_AttackUnit)command); return;
-        }
-        if(command.GetType() == typeof(Command_SetCanMove)) {
-            CP_SetCanMove.ReturnToPool((Command_SetCanMove)command); return;
-        }
-        if (command.GetType() == typeof(Command_SetCanAttack)) {
-            CP_SetCanAttack.ReturnToPool((Command_SetCanAttack)command); return;
-        }
-        if (command.GetType() == typeof(Command_RemoveHandCard)) {
-            CP_RemoveHandCard.ReturnToPool((Command_RemoveHandCard)command); return;
-        }
-        if (command.GetType() == typeof(Command_SubCurrentMana)) {
-            CP_SubCurrentMana.ReturnToPool((Command_SubCurrentMana)command); return;
-        }
-
-
-        Debug.LogWarning($"Deleted Other Command : {command.GetType()}");
-        command = null;
-    }
-
-    #endregion
-
     #region Board Pool
     public BoardPool boardPool;
     public class BoardPool {
-        public BoardPool(int count = 256) {
+        public BoardPool(int count = 8) {
             AddToPool(count);
+            capacity = count;
         }
 
-        int curCount;
+        int capacity;
         Queue<Board> pool = new(); 
 
         public void AddToPool(int count) {
@@ -167,8 +73,8 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
         public Board GetFromPool(Board boardToCopy) {
             if(pool.Count == 0) {
-                AddToPool(curCount);
-                curCount *= 2;
+                AddToPool(capacity);
+                capacity *= 2;
             }
             Board board = pool.Dequeue();
 
@@ -177,6 +83,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
                     board.tiles[x, y] = new Tile(boardToCopy.tiles[x, y]);
             board.Actor1_Deck = boardToCopy.Actor1_Deck.Clone();
             board.Actor2_Deck = boardToCopy.Actor2_Deck.Clone();
+            board.onCommand = null;
 
             return board;
         }
@@ -261,16 +168,8 @@ public class AIActorManager : MonoBehaviour, IActorManager
         return results;
     }*/
 
-    /// <summary>
-    /// Macro cause I got bored of writing this so often
-    /// </summary>
-    /// <param name="currentActor"></param>
-    /// <returns></returns>
-    private Command_EnableSide switchSideCommand(Actors currentActor) {
-        return new Command_EnableSide(currentActor == Actors.Actor1 ? Actors.Actor2 : Actors.Actor1);
-    }
     //TODO: Update with optimizations made
-    public Dictionary<string, BoardInfo> GetPopulatePermutations(Board board, Actors currentActor, List<ICommand> actionsTaken = null, int curDepth = 30) {
+    /*public Dictionary<string, BoardInfo> GetPopulatePermutations(Board board, Actors currentActor, List<ICommand> actionsTaken = null, ICommand lastAction = null, int curDepth = 30) {
         Dictionary<string, BoardInfo> result = new();
 
         string baseBoardHash = board.GetHash();
@@ -281,7 +180,13 @@ public class AIActorManager : MonoBehaviour, IActorManager
             result.Add(baseBoardHash, boardInfo);
         }
 
-        List<ICommand> possibleMoves = GetPossibleActions(board, currentActor);
+        List<ICommand> possibleMoves = GetPossibleActions(board, currentActor); 
+        List<ICommand> curActionsTaken = new();
+        if(actionsTaken != null)
+            curActionsTaken.AddRange(CachedBoards[baseBoardHash].moves);
+        if(lastAction != null)
+            curActionsTaken.Add(lastAction);
+
         foreach (ICommand possibleMove in possibleMoves) {
             Board curBoard = new Board(board);
             curBoard.SetCommand(possibleMove);
@@ -289,9 +194,6 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
             string curBoardHash = curBoard.GetHash();
             if(!CachedBoards.ContainsKey(curBoardHash)) {
-                List<ICommand> curActionsTaken = new();
-                curActionsTaken.AddRange(CachedBoards[baseBoardHash].moves);
-                curActionsTaken.Add(possibleMove);
                 BoardInfo boardInfo = new BoardInfo(curBoard, curActionsTaken);
 
                 CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
@@ -301,13 +203,13 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
                 Debug.Log($"Added Unique Board, actions to get there: {curActionsTaken.Count}");
                 if (curDepth > 0){
-                    result.Merge(GetPopulatePermutations(curBoard, currentActor, curActionsTaken, curDepth - 1));
+                    result.Merge(GetPopulatePermutations(curBoard, currentActor, curActionsTaken, possibleMove, curDepth - 1));
                 }
             }
         }
         return result;
-    }
-    public void PopulatePermutations(Board board, Actors currentActor, List<ICommand> actionsTaken = null, int curDepth = 30) {
+    }*/
+    public void PopulatePermutations(Board board, Actors currentActor, List<ICommand> actionsTaken = null, ICommand lastCommand = null, int curDepth = 30) {
         string baseBoardHash = board.GetHash();
         //Should only ever be relevant for the first ever board. Populates it into the dict
         if (!CachedBoards.ContainsKey(baseBoardHash)) {
@@ -316,34 +218,36 @@ public class AIActorManager : MonoBehaviour, IActorManager
         }
 
         List<ICommand> possibleMoves = GetPossibleActions(board, currentActor);
-        foreach (ICommand possibleMove in possibleMoves)
-        {
+        List<ICommand> curActionsTaken = new();
+        if(actionsTaken != null)
+            curActionsTaken.AddRange(actionsTaken);
+        if(lastCommand != null)
+            curActionsTaken.Add(lastCommand);
+
+        foreach (ICommand possibleMove in possibleMoves) {
             curBoard = boardPool.GetFromPool(board);
-            curBoard.onCommand = HandleCommandDisposal;
             curBoard.SetCommand(possibleMove);
             curBoard.DoQueuedCommands();
-
             string curBoardHash = curBoard.GetHash();
-            if (!CachedBoards.ContainsKey(curBoardHash)) {
-                List<ICommand> curActionsTaken = new();
-                curActionsTaken.AddRange(CachedBoards[baseBoardHash].moves);
-                curActionsTaken.Add(possibleMove);
-                BoardInfo boardInfo = new BoardInfo(curBoard, curActionsTaken);
 
-                CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
+            if (CachedBoards.ContainsKey(curBoardHash))
+                continue;
 
-                CachedBoards.Add(curBoardHash, boardInfo);
+            
+            BoardInfo boardInfo = new BoardInfo(curBoard, curActionsTaken);
+            CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
+            CachedBoards.Add(curBoardHash, boardInfo);
 
-                Debug.Log($"Added Unique Board, actions to get there: {curActionsTaken.Count}");
-                if (curDepth > 0) {
-                    PopulatePermutations(curBoard, currentActor, curActionsTaken, curDepth - 1);
-                }
-            } else {
-                //Debug.LogWarning("Found duplicate board, discarding");
-            }
-            boardPool.ReturnToPool(board);
+            Debug.Log($"Added Unique Board, actions to get there: {curActionsTaken.Count}");
+            if (curDepth < 0) 
+                continue;
+
+            PopulatePermutations(curBoard, currentActor, curActionsTaken, possibleMove, curDepth - 1);
+            
         }
+        boardPool.ReturnToPool(board);
     }
+
     public List<ICommand> GetPossibleActions(Board board, Actors activeActor)
     {
         List<ICommand> possibleActions = new List<ICommand>();
@@ -354,16 +258,11 @@ public class AIActorManager : MonoBehaviour, IActorManager
                 if (board.getActorReference(activeActor).Hand[i].Cost <= board.getActorReference(activeActor).CurManagems) {
                     if (board.getActorReference(activeActor).Hand[i].GetType() == typeof(UnitDefinition)) {
                         List<Vector2Int> summonPositions = board.getSummonPositions(activeActor);
-                        foreach (Vector2Int pos in summonPositions) {
-                            Command_SummonUnit com = CP_Summon.GetFromPool();
-
-                            com.InitForPooling(
-                                (UnitDefinition)board.getActorReference(activeActor).Hand[i], pos, activeActor,
-                                false, false, true, true, i,
-                                CP_SetCanMove.GetFromPool(), CP_SetCanAttack.GetFromPool(), CP_SubCurrentMana.GetFromPool(), CP_RemoveHandCard.GetFromPool()
-                                );
-                            
-                            possibleActions.Add(com);
+                        foreach (Vector2Int pos in summonPositions) {                           
+                            possibleActions.Add(
+                                Command_SummonUnit.GetAvailable().Init(
+                                    (UnitDefinition)board.getActorReference(activeActor).Hand[i], pos, activeActor,
+                                    false, false, true, true, i));
                         }
                     } else {
                         Debug.LogError("Unrecognized card type in AI hand");
@@ -381,11 +280,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
             if (board.GetUnitFromPos(unitPositions[i]).canMove) {
                 List<Vector2Int> movePositions = board.getMovePositions(unitPositions[i], board.GetUnitFromPos(unitPositions[i]).moveDistance);
                 foreach (Vector2Int movePos in movePositions) { 
-                    Command_MoveUnit moveUnit = CP_Move.GetFromPool();
-
-                    moveUnit.InitForPooling(unitPositions[i], movePos, CP_SetCanMove.GetFromPool());
-
-                    possibleActions.Add(moveUnit);
+                    possibleActions.Add(Command_MoveUnit.GetAvailable().Init(unitPositions[i], movePos));
                 }
             }
 
@@ -394,11 +289,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
                 List<Vector2Int> attackPositions = board.getAttackPositions(unitPositions[i]);
                 foreach (Vector2Int attackPos in attackPositions)
                     if (board.GetUnitFromPos(attackPos) != null && board.GetUnitFromPos(attackPos).owner != activeActor) {
-                        Command_AttackUnit attackUnit = CP_Attack.GetFromPool();
-
-                        attackUnit.InitForPooling(board.GetUnitFromPos(unitPositions[i]), board.GetUnitFromPos(attackPos), CP_SetCanAttack.GetFromPool());
-
-                        possibleActions.Add(attackUnit);
+                        possibleActions.Add(Command_AttackUnit.GetAvailable().Init(board.GetUnitFromPos(unitPositions[i]), board.GetUnitFromPos(attackPos)));
                     }
             }
         }
@@ -416,7 +307,12 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
     public int EvaluateBoard(BoardInfo board)
     {
-        return 0; //TODO write eval method
+        int eval = 0;
+        for (int i = 0; i < CurState.boardEvaluationConditions.Count; i++) {
+            eval += CurState.boardEvaluationConditions[i].Evaluate(board.board);
+        }
+
+        return eval;
     }
 
     #endregion

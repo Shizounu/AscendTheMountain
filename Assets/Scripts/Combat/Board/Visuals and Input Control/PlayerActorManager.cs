@@ -57,17 +57,13 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
         //Register for Enabling
         deckInformation.actorManager = this;
 
-
-       
-
-
         //Initialize Input
         currentState = new InputStates.InputState_Default();
         Input.InputManager.Instance.InputActions.BattlefieldControls.RightClick.performed += ctx => OnCancel();
 
 
-        GameManager.Instance.currentBoard.SetCommand(new Command_InitSide(Actors.Actor1, PlayerDeck));
-        GameManager.Instance.currentBoard.SetCommand(new Command_EnableSide(Actors.Actor1)); 
+        GameManager.Instance.currentBoard.SetCommand(Command_InitSide.GetAvailable().Init(Actors.Actor1, PlayerDeck));
+        GameManager.Instance.currentBoard.SetCommand(Command_EnableSide.GetAvailable().Init(Actors.Actor1)); 
         GameManager.Instance.currentBoard.DoQueuedCommands();
     }
 
@@ -160,7 +156,7 @@ namespace InputStates
                 //dispatch summon command 
                 currentBoard.SetCommand
                     (
-                        new Commands.Command_SummonUnit(
+                        Command_SummonUnit.GetAvailable().Init(
                             (UnitDefinition) sm.deckInformation.Hand[curCard], 
                             position, 
                             Actors.Actor1,
@@ -228,41 +224,8 @@ namespace InputStates
 
             if (unit.canMove && currentBoard.getMovePositions(unitPosition, unit.moveDistance).Contains(position))
             {
-                if(Vector2Int.Distance(unitPosition, position) <= 1) {
-                    currentBoard.SetCommand(new Commands.Command_MoveUnit(unitPosition, position));
-                
-                } else {
 
-                    Vector2Int tempPos = unitPosition;
-                    Vector2Int dir = unitPosition - position;
-                    List<Vector2Int> path = new();
-
-                    for (int x = 0; x < Mathf.Abs(dir.x); x++) {
-                        if(dir.x > 0) {
-                            path.Add(tempPos + Vector2Int.left);
-                            tempPos += Vector2Int.left;
-                        } else {
-                            path.Add(tempPos + Vector2Int.right);
-                            tempPos += Vector2Int.right;
-                        }
-                    }
-
-                    for (int y = 0; y < Mathf.Abs(dir.y); y++)
-                    {
-                        if (dir.y > 0)
-                        {
-                            path.Add(tempPos + Vector2Int.down);
-                            tempPos += Vector2Int.down;
-                        }
-                        else
-                        {
-                            path.Add(tempPos + Vector2Int.up);
-                            tempPos += Vector2Int.up;
-                        }
-                    }
-                    currentBoard.SetCommand(new Commands.Command_MoveUnit(unitPosition, path));
-                    currentBoard.DoQueuedCommands();
-                }
+                currentBoard.SetCommand(Command_MoveUnit.GetAvailable().Init(unitPosition, position));
 
                 sm.currentState = new InputState_Default();
                 return;
@@ -273,7 +236,7 @@ namespace InputStates
             if( unit.canAttack && currentBoard.getAttackPositions(unitPosition).Contains(position))
             {
                 if (currentBoard.tiles[position.x, position.y].unit != null && currentBoard.tiles[position.x, position.y].unit.owner == Actors.Actor2) {
-                    currentBoard.SetCommand(new Command_AttackUnit(unit, currentBoard.tiles[position.x, position.y].unit));
+                    currentBoard.SetCommand(Command_AttackUnit.GetAvailable().Init(unit, currentBoard.tiles[position.x, position.y].unit));
 
                     currentBoard.DoQueuedCommands();
                     Debug.Log("Attacked");
