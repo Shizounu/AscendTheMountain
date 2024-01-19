@@ -2,6 +2,7 @@ using Combat;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build;
 using UnityEngine;
 
 namespace Commands
@@ -21,6 +22,30 @@ namespace Commands
             this.handIndex = handIndex;
         }
 
+        public void InitForPooling(
+            Cards.UnitDefinition unitDefinition, Vector2Int position, Actors owner,
+            bool canMove, bool canAttack, bool payCost, bool removeFromHand, int handIndex,
+            Command_SetCanMove Com_canMove, Command_SetCanAttack Com_canAttack, Command_SubCurrentMana Com_curMana, Command_RemoveHandCard Com_removeHandCard) {
+
+            pooling = true;
+            
+            this.unitDef = unitDefinition;
+            this.position = position;
+            this.owner = owner;
+
+            this.canMove = canMove;
+            this.canAttack = canAttack;
+            this.payCost = payCost;
+            this.removeFromHand = removeFromHand;
+
+            this.Com_canAttack = Com_canAttack;
+            this.Com_canMove = Com_canMove;
+            this.Com_subCurrentMana = Com_curMana;
+            this.Com_removeHandCard = Com_removeHandCard;
+        }
+        bool pooling = false;
+
+
         [SerializeField] public Cards.UnitDefinition unitDef;
         [SerializeField] public Vector2Int position;
         [SerializeField] public Actors owner;
@@ -30,19 +55,53 @@ namespace Commands
         [SerializeField] private bool payCost;
         [SerializeField] private bool removeFromHand;
         [SerializeField] public int handIndex;
+
+        Command_SetCanMove Com_canMove;
+        Command_SetCanAttack Com_canAttack;
+        Command_RemoveHandCard Com_removeHandCard;
+        Command_SubCurrentMana Com_subCurrentMana;
+
+
+
         Unit unit;
         public void Execute(Board board)
         {
-            unit = new Unit(unitDef, owner);
-            board.tiles[position.x, position.y].unit = unit;
+            if (!pooling) {
+                unit = new Unit(unitDef, owner);
+                board.tiles[position.x, position.y].unit = unit;
 
-            board.SetSubCommand(new Command_SetCanMove(unit, canMove));
-            board.SetSubCommand(new Command_SetCanAttack(unit, canAttack));
+                board.SetSubCommand(new Command_SetCanMove(unit, canMove));
+                board.SetSubCommand(new Command_SetCanAttack(unit, canAttack));
 
-            if(payCost)
-                board.SetSubCommand(new Command_SubCurrentMana(owner, unitDef.Cost));
-            if (removeFromHand)
-                board.SetSubCommand(new Command_RemoveHandCard(handIndex, owner));
+                if(payCost)
+                    board.SetSubCommand(new Command_SubCurrentMana(owner, unitDef.Cost));
+                if (removeFromHand)
+                    board.SetSubCommand(new Command_RemoveHandCard(handIndex, owner));
+            } else {
+                unit = new Unit(unitDef, owner);
+                board.tiles[position.x, position.y].unit = unit;
+
+                Com_canMove.unit = unit;
+                Com_canMove.value = canMove;
+                board.SetSubCommand(Com_canMove);
+
+                Com_canAttack.unit = unit;
+                Com_canAttack.value = canAttack;
+                board.SetSubCommand(Com_canAttack);
+
+                if (removeFromHand) {
+                    Com_removeHandCard.actor = owner;
+                    Com_removeHandCard.handIndex = handIndex;
+                    board.SetSubCommand(Com_removeHandCard);
+                }
+                if (payCost) {
+                    Com_subCurrentMana.side = owner;
+                    Com_subCurrentMana.amount = unitDef.Cost;
+                    board.SetSubCommand(Com_subCurrentMana);
+                }
+
+
+            }
             
         }
 
@@ -94,13 +153,7 @@ namespace Commands
         }
     }
 
-
-    //BUG WHEN PLAYER MOVES
     public class Command_MoveUnit : ICommand, IVisualCommand {
-        /// <summary>
-        /// for moving one tile
-        /// </summary>
-        /// <param name="closePosition"></param>
         public Command_MoveUnit(Vector2Int startPos, Vector2Int closePosition) {
             this.startPos = startPos;
             path = new() { closePosition };
@@ -111,6 +164,18 @@ namespace Commands
             
             this.path = new(path);
         }
+
+        public void InitForPooling(Vector2Int startPos, Vector2Int closePosition, Command_SetCanMove Com_canMove)
+        {
+            pooling = true;
+            this.startPos = startPos;
+            this.path = new() { closePosition };
+            CanMoveCommand = Com_canMove;
+        }
+
+        bool pooling = false;
+        Command_SetCanMove CanMoveCommand;
+
         public Vector2Int startPos;
         /// <summary>
         /// ADDED TO FIX NULL REF AND I DONT KNOW WHY IT FIXES IT AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -120,12 +185,23 @@ namespace Commands
 
         Unit unitRef;
         public void Execute(Board board) {
-            unitRef = board.GetUnitFromPos(startPos);
-            curPos = startPos;
-            foreach (Vector2Int position in path)
-                Move(board, position);
+            if (pooling) {
+                unitRef = board.GetUnitFromPos(startPos);
+                curPos = startPos;
+                foreach (Vector2Int position in path)
+                    Move(board, position);
             
-            board.SetSubCommand(new Command_SetCanMove(unitRef, false));
+                board.SetSubCommand(new Command_SetCanMove(unitRef, false));
+            } else {
+                unitRef = board.GetUnitFromPos(startPos);
+                curPos = startPos;
+                foreach (Vector2Int position in path)
+                    Move(board, position);
+
+                CanMoveCommand.unit = unitRef;
+                CanMoveCommand.value = false;
+                board.SetSubCommand(CanMoveCommand);
+            }
         }
         private void Move(Board board, Vector2Int moveTo)
         {
@@ -159,12 +235,34 @@ namespace Commands
             this.attacker = attacker;
             this.defender = defender;
         }
+
+        public void InitForPooling(Unit attacker, Unit defender, Command_SetCanAttack canAttack)
+        {
+            pooling = true;
+            this.attacker = attacker;
+            this.defender = defender;
+
+            this.setCanAttack = canAttack;
+        }
+        bool pooling;
+        Command_SetCanAttack setCanAttack;
+
         public Unit attacker;
         public Unit defender;
 
         public void Execute(Board board)
         {
-            board.SetSubCommand(new Command_DamageUnit(attacker.attack, defender));
+            if (pooling) {
+                board.SetSubCommand(new Command_DamageUnit(attacker.attack, defender));
+                board.SetSubCommand(new Command_SetCanAttack(attacker, false)); 
+            } else {
+                board.SetSubCommand(new Command_DamageUnit(attacker.attack, defender));
+
+                setCanAttack.value = false; 
+                setCanAttack.unit = attacker;
+                board.SetSubCommand(setCanAttack);
+            }
+
         }
 
         public void Visuals(BoardRenderer boardRenderer)
@@ -221,8 +319,8 @@ namespace Commands
             this.unit = unit;
             this.value = value;
         }
-        Unit unit;
-        bool value;
+        public Unit unit;
+        public bool value;
 
         public void Execute(Board board)
         {
@@ -231,17 +329,13 @@ namespace Commands
     }
     public class Command_SetCanAttack : ICommand
     {
-        public Command_SetCanAttack()
-        {
-
-        }
         public Command_SetCanAttack(Unit unit, bool value)
         {
             this.unit = unit;
             this.value = value;
         }
-        Unit unit;
-        bool value;
+        public Unit unit;
+        public bool value;
 
         public void Execute(Board board)
         {

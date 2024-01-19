@@ -104,21 +104,16 @@ namespace Commands
     }
 
     public class Command_RemoveHandCard : ICommand {
-        public Command_RemoveHandCard()
-        {
-
-        }
         public Command_RemoveHandCard(int _handIndex, Actors _actor) {
             handIndex = _handIndex;
             actor = _actor;
             
         }
-        [SerializeField] private int handIndex;
-        [SerializeField] private Actors actor;
+        public int handIndex;
+        public Actors actor;
 
         public void Execute(Board board) {
             board.getActorReference(actor).Hand[handIndex] = null;
-            // TODO : Make more sophisticated, proper destroy function
         }
     }
 
@@ -130,8 +125,8 @@ namespace Commands
             this.side = side;
             this.amount = amount;
         }
-        private Actors side;
-        private int amount;
+        public Actors side;
+        public int amount;
 
 
 
@@ -142,15 +137,14 @@ namespace Commands
     }
     public class Command_SubCurrentMana : ICommand
     {
-        public Command_SubCurrentMana() { }
 
         public Command_SubCurrentMana(Actors side, int amount)
         {
             this.side = side;
             this.amount = amount;
         }
-        private Actors side;
-        private int amount;
+        public Actors side;
+        public int amount;
 
 
 
