@@ -52,7 +52,7 @@ namespace Commands
 
                 }
             }
-            board.SetSubCommand(Command_ChangeCurrentMana.GetAvailable().Init(Side, 1));
+            board.SetSubCommand(Command_ChangeMaxMana.GetAvailable().Init(Side, 1));
             board.SetSubCommand(Command_ChangeCurrentMana.GetAvailable().Init(Side, 69));
 
             ReturnToPool(this);
