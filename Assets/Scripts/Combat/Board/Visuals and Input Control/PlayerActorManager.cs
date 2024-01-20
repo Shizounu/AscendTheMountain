@@ -208,7 +208,7 @@ namespace InputStates
             sm.currentState = new InputState_HandCardSelected(handIndex);
         }
         private bool isAvailablePos(Vector2Int position) {
-            List<Vector2Int> positions = currentBoard.getMovePositions(unitPosition, unit.moveDistance);
+            List<Vector2Int> positions = currentBoard.getMovePositions(unitPosition,Actors.Actor1 ,unit.moveDistance);
             foreach (var pos in positions) 
                 if(position == pos)
                     return true;
@@ -222,7 +222,7 @@ namespace InputStates
             }
 
 
-            if (unit.canMove && currentBoard.getMovePositions(unitPosition, unit.moveDistance).Contains(position))
+            if (unit.canMove && currentBoard.getMovePositions(unitPosition, Actors.Actor1,unit.moveDistance).Contains(position))
             {
 
                 currentBoard.SetCommand(Command_MoveUnit.GetAvailable().Init(unitPosition, position));
@@ -254,7 +254,7 @@ namespace InputStates
         {
             if (unit.canMove)
             {
-                List<Vector2Int> positions = currentBoard.getMovePositions(unitPosition, 2);
+                List<Vector2Int> positions = currentBoard.getMovePositions(unitPosition, Actors.Actor1,2);
                 Gizmos.color = Color.blue;
                 Vector3 offset = new Vector3(BoardRenderer.Instance.transform.position.x + BoardRenderer.Instance.positionOffset.x, BoardRenderer.Instance.transform.position.y + BoardRenderer.Instance.positionOffset.y);
                 foreach (Vector2Int pos in positions) {

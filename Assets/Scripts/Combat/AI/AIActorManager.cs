@@ -31,17 +31,18 @@ public class AIActorManager : MonoBehaviour, IActorManager
     }
     public void Enable()
     {
-        //Delay cause instant start doesnt pass the right info for no apparent reason
-        StartCoroutine(DelayedStart());
-    }
-
-    IEnumerator DelayedStart(float time = 0.01f) {
-        yield return new WaitForSecondsRealtime(time);
+        if(curBoard.curCommandCount > 0) {
+            curBoard.SetCommand(Command_EnableSide.GetAvailable().Init(Actors.Actor1));
+            return;
+        }
+        //StartCoroutine(EnableActions());
         EnableActions();
     }
 
-    void EnableActions()
-    {
+    void EnableActions() {
+        //There to fix an issue with this activating before mana was applied and me having no clue how to fix it 
+        //yield return new WaitForEndOfFrame();
+
         //Check for state transitions
         foreach (var transition in CurState.transitions)
         {
@@ -238,8 +239,8 @@ public class AIActorManager : MonoBehaviour, IActorManager
             CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
             CachedBoards.Add(curBoardHash, boardInfo);
 
-            Debug.Log($"Added Unique Board, actions to get there: {curActionsTaken.Count}");
-            if (curDepth < 0) 
+            Debug.Log($"Added Unique Board, actions to get there: {curActionsTaken.Count + 1}");
+            if (curDepth <= 0) 
                 continue;
 
             PopulatePermutations(curBoard, currentActor, curActionsTaken, possibleMove, curDepth - 1);
@@ -278,7 +279,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         for (int i = 0; i < unitPositions.Count; i++) {
             //Move actions
             if (board.GetUnitFromPos(unitPositions[i]).canMove) {
-                List<Vector2Int> movePositions = board.getMovePositions(unitPositions[i], board.GetUnitFromPos(unitPositions[i]).moveDistance);
+                List<Vector2Int> movePositions = board.getMovePositions(unitPositions[i], activeActor, board.GetUnitFromPos(unitPositions[i]).moveDistance);
                 foreach (Vector2Int movePos in movePositions) { 
                     possibleActions.Add(Command_MoveUnit.GetAvailable().Init(unitPositions[i], movePos));
                 }
