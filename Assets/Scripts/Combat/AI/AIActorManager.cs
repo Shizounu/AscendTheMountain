@@ -35,13 +35,13 @@ public class AIActorManager : MonoBehaviour, IActorManager
             curBoard.SetCommand(Command_EnableSide.GetAvailable().Init(Actors.Actor1));
             return;
         }
-        //StartCoroutine(EnableActions());
-        EnableActions();
+        StartCoroutine(EnableActions());
+        //EnableActions();
     }
 
-    void EnableActions() {
+    IEnumerator EnableActions() {
         //There to fix an issue with this activating before mana was applied and me having no clue how to fix it 
-        //yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
 
         //Check for state transitions
         foreach (var transition in CurState.transitions)

@@ -173,23 +173,24 @@ namespace Combat
             return pos.x < tiles.GetLength(0) && pos.x >= 0 &&
                    pos.y < tiles.GetLength(1) && pos.y >= 0;
         }
+        //TODO Concat issue here giving memory leak, String.FastAllocateString
         public string GetJSON()
         {
-            Board copy = new Board(this);
-            string Decks = JsonUtility.ToJson(copy, true);
-            string tileString = "";
+            StringBuilder stringBuilder = new StringBuilder();
 
+            stringBuilder.Append(JsonUtility.ToJson(this));
             for (int x = 0;x < tiles.GetLength(0);x++) {
                 for (int y = 0;y < tiles.GetLength(1);y++) {
                     if (tiles[x,y].unit == null) {
-                        tileString += "null |";
+                        stringBuilder.Append("null |");
                     } else {
-                        tileString += $"{tiles[x, y].unit.GetJSON()}";
+                        stringBuilder.Append(tiles[x, y].unit.GetJSON());
+                        stringBuilder.Append(" |");
                     }
                 }
             }
 
-            return Decks + tileString;
+            return stringBuilder.ToString();
         }
 
         public string GetHash() {
