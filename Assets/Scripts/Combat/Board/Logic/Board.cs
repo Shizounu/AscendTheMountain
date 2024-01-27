@@ -194,6 +194,7 @@ namespace Combat
         }
 
         public string GetHash() {
+            return GetJSON();
             string JSON = GetJSON();
 
             // https://stackoverflow.com/questions/3984138/hash-string-in-c-sharp

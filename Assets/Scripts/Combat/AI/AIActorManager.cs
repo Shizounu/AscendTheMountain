@@ -113,103 +113,53 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
         public List<string> resultingBoards;
     }
-    /* OBSOLETE
-    /// <summary>
-    /// WARNING!!!! : This works under the assumption that the hashes are actually properly unique. Not guranteed and could be a potential future error point
-    /// </summary>
-    
-    public Dictionary<string, BoardInfo> GetPossibleBoards(Board baseBoard, Actors currentActor) {
-        System.Diagnostics.Stopwatch timer = new System.Diagnostics.Stopwatch();
-        timer.Start();
-
-        Dictionary<string, BoardInfo> resultingBoards = new();
-        List<(List<ICommand>, Board)> possibleTurns = GetPossibleTurns((baseBoard, new List<ICommand>()), currentActor, 30);
-        foreach ((List<ICommand>, Board) turn in possibleTurns) {
-            string boardHash = turn.Item2.GetHash();
-
-
-            if (!resultingBoards.ContainsKey(boardHash)) {
-                BoardInfo boardInfo = new BoardInfo(turn.Item2, turn.Item1, this);
-                Debug.Log($"Added Unique Board, actions to get there: {turn.Item1.Count}");
-                resultingBoards.Add(boardHash, boardInfo);
-            } else {
-                Debug.Log("Culled Dup");
-            }
-        }
-
-        timer.Stop();
-        Debug.LogWarning($"Time Elampsed {timer.ElapsedMilliseconds} ms");
-
-        return resultingBoards;
-    }
-    
-    public List<(List<ICommand>, Board)> GetPossibleTurns((Board, List<ICommand>) baseBoard, Actors currentActor, int curDepth = 30) {
-        List<(List<ICommand>, Board)> results = new();
-
-
-        List<ICommand> possibleMoves = GetPossibleActions(baseBoard.Item1, currentActor);
-        foreach (ICommand possibleMove in possibleMoves) {
-            Board curBoard = new Board(baseBoard.Item1);
-            curBoard.SetCommand(possibleMove);
-            curBoard.DoQueuedCommands();
-
-            List<ICommand> commands = new List<ICommand>();
-            commands.AddRange(baseBoard.Item2);
-            commands.Add(possibleMove);
-
-            if (possibleMove.GetType() == typeof(Command_EnableSide)) { //Enabling Other Side
-                results.Add((commands, curBoard));
-            } else if (curDepth == 0) {
-                commands.Add(new Command_EnableSide(currentActor == Actors.Actor1 ? Actors.Actor2 : Actors.Actor1));
-                results.Add((commands, curBoard));
-            } else {
-                results.AddRange(GetPossibleTurns((curBoard, commands), currentActor, curDepth - 1));
-            }
-        }
-        return results;
-    }*/
 
     //TODO: Update with optimizations made
-    /*public Dictionary<string, BoardInfo> GetPopulatePermutations(Board board, Actors currentActor, List<ICommand> actionsTaken = null, ICommand lastAction = null, int curDepth = 30) {
-        Dictionary<string, BoardInfo> result = new();
+    public Dictionary<string, BoardInfo> GetPossibleBoards(Board board, Actors currentActor, List<ICommand> actionsTaken = null, ICommand lastCommand = null, int curDepth = 30) {
+        Dictionary<string, BoardInfo> resultingBoards = new();
+
 
         string baseBoardHash = board.GetHash();
         //Should only ever be relevant for the first ever board. Populates it into the dict
         if (!CachedBoards.ContainsKey(baseBoardHash)) {
             BoardInfo boardInfo = new BoardInfo(board, (actionsTaken == null ? new() : actionsTaken));
             CachedBoards.Add(baseBoardHash, boardInfo);
-            result.Add(baseBoardHash, boardInfo);
+            resultingBoards.Add(baseBoardHash, boardInfo);
         }
 
-        List<ICommand> possibleMoves = GetPossibleActions(board, currentActor); 
+        List<ICommand> possibleMoves = GetPossibleActions(board, currentActor);
         List<ICommand> curActionsTaken = new();
-        if(actionsTaken != null)
-            curActionsTaken.AddRange(CachedBoards[baseBoardHash].moves);
-        if(lastAction != null)
-            curActionsTaken.Add(lastAction);
+        if (actionsTaken != null)
+            curActionsTaken.AddRange(actionsTaken);
+        if (lastCommand != null)
+            curActionsTaken.Add(lastCommand);
 
         foreach (ICommand possibleMove in possibleMoves) {
-            Board curBoard = new Board(board);
+            curBoard = boardPool.GetFromPool(board);
             curBoard.SetCommand(possibleMove);
             curBoard.DoQueuedCommands();
-
             string curBoardHash = curBoard.GetHash();
-            if(!CachedBoards.ContainsKey(curBoardHash)) {
-                BoardInfo boardInfo = new BoardInfo(curBoard, curActionsTaken);
 
-                CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
+            if (CachedBoards.ContainsKey(curBoardHash))
+                continue;
 
-                CachedBoards.Add(curBoardHash, boardInfo);
-                result.Add(curBoardHash, boardInfo);
 
-                Debug.Log($"Added Unique Board, actions to get there: {curActionsTaken.Count}");
-                if (curDepth > 0){
-                    result.Merge(GetPopulatePermutations(curBoard, currentActor, curActionsTaken, possibleMove, curDepth - 1));
-                }
-            }
+            BoardInfo boardInfo = new BoardInfo(curBoard, curActionsTaken);
+            CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
+            CachedBoards.Add(curBoardHash, boardInfo);
+            resultingBoards.Add(curBoardHash, boardInfo);
+
+            if (curDepth <= 0)
+                continue;
+
+            resultingBoards.Merge(GetPossibleBoards(curBoard, currentActor, curActionsTaken, possibleMove, curDepth - 1));
+
         }
-        return result;
-    }*/
+        boardPool.ReturnToPool(board);
+
+        return resultingBoards;
+    }
+
     public void PopulatePermutations(Board board, Actors currentActor, List<ICommand> actionsTaken = null, ICommand lastCommand = null, int curDepth = 30) {
         string baseBoardHash = board.GetHash();
         //Should only ever be relevant for the first ever board. Populates it into the dict
@@ -239,7 +189,6 @@ public class AIActorManager : MonoBehaviour, IActorManager
             CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
             CachedBoards.Add(curBoardHash, boardInfo);
 
-            Debug.Log($"Added Unique Board, actions to get there: {curActionsTaken.Count + 1}");
             if (curDepth <= 0) 
                 continue;
 
@@ -306,6 +255,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
     public Combat.AI.StateMachine.State CurState;
 
 
+
     public int EvaluateBoard(BoardInfo board)
     {
         int eval = 0;
@@ -315,6 +265,5 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
         return eval;
     }
-
     #endregion
 }
