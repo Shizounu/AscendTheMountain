@@ -43,6 +43,7 @@ namespace Commands.Pool
             }
         }
         public T GetElement() {
+            return new();
             if (pool.Count <= 0) { 
                 AddElements(capacity);
                 capacity *= 2;
@@ -50,7 +51,7 @@ namespace Commands.Pool
             return pool.Dequeue();
         }
         public void ReturnElement(T element) {
-            pool.Enqueue(element);
+            //pool.Enqueue(element);
         }
 
     }
