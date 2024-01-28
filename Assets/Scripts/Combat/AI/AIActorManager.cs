@@ -4,6 +4,7 @@ using Commands;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AIActorManager : MonoBehaviour, IActorManager
@@ -309,7 +310,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
     }
 
     public BoardEvaluation EvaluateBoard(BoardInfo curBoard, Actors maximizingActor, int alpha = int.MinValue, int beta = int.MaxValue,int depth = 3) {
-        if(depth == 0)
+        if(depth == 0 || curBoard.resultingBoards.Count == 0)
             return new(EvaluatePosition(curBoard), curBoard);
 
         if (maximizingActor == Actors.Actor2) {

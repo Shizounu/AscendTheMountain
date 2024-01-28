@@ -34,7 +34,9 @@ namespace Combat {
                 isFirst = false;
                 return;
             }
+            
             rootBoard = new Board(currentBoard);
+            Debug.Log("Made root board copy");
         }
 
         public Board GetRootBoardCopy() {
