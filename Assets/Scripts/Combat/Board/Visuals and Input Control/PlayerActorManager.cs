@@ -65,6 +65,8 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
         GameManager.Instance.currentBoard.SetCommand(Command_InitSide.GetAvailable().Init(Actors.Actor1, PlayerDeck));
         GameManager.Instance.currentBoard.SetCommand(Command_EnableSide.GetAvailable().Init(Actors.Actor1)); 
         GameManager.Instance.currentBoard.DoQueuedCommands();
+        GameManager.Instance.InitRootBoard();
+
     }
 
     public void Enable()

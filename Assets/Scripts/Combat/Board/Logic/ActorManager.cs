@@ -17,7 +17,6 @@ namespace Combat
     [System.Serializable]
 
     public class DeckInformation {
-
         [Header("Mana")]
         [SerializeField] private int _MaxManagems;
         public int MaxManagems
