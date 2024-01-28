@@ -55,12 +55,12 @@ public class AIActorManager : MonoBehaviour, IActorManager
             }
         }
 
-        //PopulatePermutations(GameManager.Instance.currentBoard, Actors.Actor2);
 
         System.Diagnostics.Stopwatch sw = System.Diagnostics.Stopwatch.StartNew();
 
 
-        BoardEvaluation eval = EvaluateBoard(new BoardInfo("",new()), Actors.Actor2);
+        //PopulatePermutations(GameManager.Instance.currentBoard, Actors.Actor2);
+        BoardEvaluation eval = EvaluateBoard(new BoardInfo(curBoard.GetHash(),Actors.Actor2, new()), Actors.Actor2);
 
         sw.Stop();
 
@@ -113,17 +113,17 @@ public class AIActorManager : MonoBehaviour, IActorManager
     Board curBoard = new();
     [Serializable]
     public struct BoardInfo {
-        public BoardInfo(string preceedingBoard,List<ICommand> moves) {
+        public BoardInfo(string preceedingBoard, Actors activeActor, List<ICommand> moves) {
             this.preceedingBoard = preceedingBoard;
             this.moves = moves;
+            this.activeActor = activeActor;
             this.resultingBoards = new();
         }
 
         //Info
         public string preceedingBoard;
-
+        public Actors activeActor;
         public List<ICommand> moves;
-
         public List<string> resultingBoards;
     }
 
@@ -139,7 +139,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         string baseBoardHash = board.GetHash();
         //Should only ever be relevant for the first ever board. Populates it into the dict
         if (!CachedBoards.ContainsKey(baseBoardHash)) {
-            BoardInfo boardInfo = new BoardInfo("", (actionsTaken == null ? new() : actionsTaken));
+            BoardInfo boardInfo = new BoardInfo("", currentActor, (actionsTaken == null ? new() : actionsTaken));
             CachedBoards.Add(baseBoardHash, boardInfo);
             resultingBoards.Add(baseBoardHash, boardInfo);
         }
@@ -152,20 +152,22 @@ public class AIActorManager : MonoBehaviour, IActorManager
             curActionsTaken.Add(lastCommand);
 
         foreach (ICommand possibleMove in possibleMoves) {
+            //Generate Board resulting from this move
             curBoard = boardPool.GetFromPool(board);
             curBoard.SetCommand(possibleMove);
             curBoard.SetCommand(GetEnableSide(currentActor));
             curBoard.DoQueuedCommands();
             string curBoardHash = curBoard.GetHash();
 
+            BoardInfo boardInfo = new BoardInfo(baseBoardHash, currentActor, curActionsTaken);
+            resultingBoards.Add(curBoardHash, boardInfo);
+            
+            
             if (CachedBoards.ContainsKey(curBoardHash))
                 continue;
-
-
-            BoardInfo boardInfo = new BoardInfo(baseBoardHash, curActionsTaken);
+            //Serialize it into lookup table
             CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
             CachedBoards.Add(curBoardHash, boardInfo);
-            resultingBoards.Add(curBoardHash, boardInfo);
 
             if (curDepth <= 0)
                 continue;
@@ -182,7 +184,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         string baseBoardHash = board.GetHash();
         //Should only ever be relevant for the first ever board. Populates it into the dict
         if (!CachedBoards.ContainsKey(baseBoardHash)) {
-            BoardInfo boardInfo = new BoardInfo("",(actionsTaken == null ? new() : actionsTaken));
+            BoardInfo boardInfo = new BoardInfo("",currentActor, (actionsTaken == null ? new() : actionsTaken));
             CachedBoards.Add(baseBoardHash, boardInfo);
         }
 
@@ -204,7 +206,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
                 continue;
 
             
-            BoardInfo boardInfo = new BoardInfo(baseBoardHash, curActionsTaken);
+            BoardInfo boardInfo = new BoardInfo(baseBoardHash, currentActor, curActionsTaken);
             CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
             CachedBoards.Add(curBoardHash, boardInfo);
 
@@ -270,8 +272,8 @@ public class AIActorManager : MonoBehaviour, IActorManager
    
     
     public Board GetBoardFromInfo(BoardInfo boardInfo) {
+        //create command stack leading to board
         Stack<BoardInfo> infos = new();
-
         BoardInfo curInfo = boardInfo;
         do
         {
@@ -309,48 +311,50 @@ public class AIActorManager : MonoBehaviour, IActorManager
         return Actors.Actor1;
     }
 
-    public BoardEvaluation EvaluateBoard(BoardInfo curBoard, Actors maximizingActor, int alpha = int.MinValue, int beta = int.MaxValue,int depth = 3) {
+    public BoardEvaluation EvaluateBoard(BoardInfo curBoard, Actors currentActor, int alpha = int.MinValue, int beta = int.MaxValue,int depth = 3) {
         if(depth == 0 || curBoard.resultingBoards.Count == 0)
-            return new(EvaluatePosition(curBoard), curBoard);
+            return new(EvaluatePosition(curBoard), curBoard); //Return evaluation of the current board
 
-        if (maximizingActor == Actors.Actor2) {
+        if (currentActor == Actors.Actor2) {
             //Maximizes
-            BoardEvaluation value = new BoardEvaluation(int.MinValue, new());
-            Dictionary<string, BoardInfo> possibleMoves = GetPossibleBoards(GetBoardFromInfo(curBoard), maximizingActor);
+            BoardEvaluation currentBest = new BoardEvaluation(int.MinValue, new()); //sets evaluation to smalles value possible so everything is larger
+            
+            Dictionary<string, BoardInfo> possibleMoves = GetPossibleBoards(GetBoardFromInfo(curBoard), currentActor);
             foreach (var item in possibleMoves) {
-                BoardEvaluation cur = EvaluateBoard(item.Value, invertActor(maximizingActor), alpha, beta, depth - 1);
-                if(cur.eval > value.eval)
-                    value = cur;
+                BoardEvaluation cur = EvaluateBoard(item.Value, invertActor(currentActor), alpha, beta, depth - 1);
+                if(cur.eval > currentBest.eval) //checks if current is better than best
+                    currentBest = cur; //current becomes new best if its best
 
-                if (value.eval > beta)
+                if (currentBest.eval > beta) //Move is so good it wouldnt be let through
                     break;
-                alpha = Math.Max(value.eval, alpha);
+                alpha = Math.Max(currentBest.eval, alpha);
             }
-            return value;
+            return currentBest;
 
         } else {
             //Minimizes
-            BoardEvaluation value = new BoardEvaluation(int.MaxValue, new());
-            Dictionary<string, BoardInfo> possibleMoves = GetPossibleBoards(GetBoardFromInfo(curBoard), maximizingActor);
+            BoardEvaluation currentBest = new BoardEvaluation(int.MaxValue, new());
+            Dictionary<string, BoardInfo> possibleMoves = GetPossibleBoards(GetBoardFromInfo(curBoard), currentActor);
 
             foreach (var item in possibleMoves) {
-                BoardEvaluation cur = EvaluateBoard(item.Value, invertActor(maximizingActor), alpha, beta, depth - 1);
-                if (cur.eval < value.eval)
-                    value = cur;
+                BoardEvaluation cur = EvaluateBoard(item.Value, invertActor(currentActor), alpha, beta, depth - 1);
+                if (cur.eval < currentBest.eval)
+                    currentBest = cur;
 
-                if (value.eval < alpha)
+                if (currentBest.eval < alpha) //Move is so bad it wouldnt be let through
                     break;
-                beta = Math.Min(value.eval, beta);
+                beta = Math.Min(currentBest.eval, beta);
             }
-            return value;
+            return currentBest;
         }
     }
 
     public int EvaluatePosition(BoardInfo board)
     {
+        Board curBoard = GetBoardFromInfo(board);
         int eval = 0;
         for (int i = 0; i < CurState.boardEvaluationConditions.Count; i++) {
-            eval += CurState.boardEvaluationConditions[i].Evaluate(GetBoardFromInfo(board));
+            eval += CurState.boardEvaluationConditions[i].Evaluate(curBoard) * CurState.boardEvaluationConditions[i].Weight;
         }
 
         return eval;
