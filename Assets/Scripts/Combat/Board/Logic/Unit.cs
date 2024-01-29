@@ -9,7 +9,7 @@ using Combat.Cards;
 namespace Combat
 {
     [System.Serializable]
-    public class Unit {
+    public class Unit : ICopyable<Unit> {
         public Unit(CardInstance_Unit definition, Actors owner) {
             maxHealth = definition.UnitHealth;
             curHealth = definition.UnitHealth;
@@ -55,10 +55,14 @@ namespace Combat
         public int moveDistance;
         public bool canMove;
 
-        ///TODO: Set up triggers and info for the viaul system to use. 
+        
  
         public string GetJSON(bool prettyPrint = false) {
             return JsonUtility.ToJson(this, prettyPrint);
+        }
+
+        public Unit GetCopy() {
+            return new Unit(this);
         }
     }
 }

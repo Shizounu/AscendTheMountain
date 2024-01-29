@@ -17,7 +17,7 @@ namespace Combat
 
 
     [Serializable]
-    public class Board {
+    public class Board : ICopyable<Board> {
         public Board() {
             tiles = new Tile[9, 5];
 
@@ -31,19 +31,17 @@ namespace Combat
             Actor2_Deck = new();
         }
 
-        public Board(Board boardToCopy)
+        private Board(Board baseBoard)
         {
             tiles = new Tile[9, 5];
 
             for (int x = 0; x < tiles.GetLength(0); x++)
                 for (int y = 0; y < tiles.GetLength(1); y++)
-                    tiles[x, y] = new Tile(boardToCopy.tiles[x,y]);
-
-            //TODO: Make new and improved clone logic
-            /*
-            Actor1_Deck = boardToCopy.Actor1_Deck.Clone();
-            Actor2_Deck = boardToCopy.Actor2_Deck.Clone();
-        */
+                    tiles[x, y] = new Tile(baseBoard.tiles[x,y]);
+            
+            Actor1_Deck = baseBoard.Actor1_Deck.GetCopy();
+            Actor2_Deck = baseBoard.Actor2_Deck.GetCopy();
+        
         }
         
         public OnCommandHandler onCommand;
@@ -93,20 +91,6 @@ namespace Combat
         #endregion
 
         #region Board Info Methods
-        public List<Vector2Int> Mask4 = new List<Vector2Int>() {
-            Vector2Int.left, Vector2Int.right, Vector2Int.up, Vector2Int.down
-        };
-        public List<Vector2Int> Mask8 = new List<Vector2Int>() {
-            Vector2Int.up + Vector2Int.left,
-            Vector2Int.up,
-            Vector2Int.up + Vector2Int.right,
-            Vector2Int.left,
-            Vector2Int.right,
-            Vector2Int.down + Vector2Int.left,
-            Vector2Int.down,
-            Vector2Int.down + Vector2Int.right
-        };
-
         public DeckInformation getActorReference(Actors actors) {
             return actors == Actors.Actor1 ? Actor1_Deck : Actor2_Deck;
         }
@@ -118,8 +102,8 @@ namespace Combat
             if (moveDist <= 0)
                 return result;
 
-            for (int i = 0; i < Mask4.Count; i++) {
-                Vector2Int curPos = basePos + Mask4[i];
+            for (int i = 0; i < BoardHelpers.Mask4.Length; i++) {
+                Vector2Int curPos = basePos + BoardHelpers.Mask4[i];
                 if (isInBounds(curPos) && !result.Contains(curPos) && tiles[curPos.x, curPos.y].getIsPassable(owner)) {
                     result.AddRange(getMovePositions(curPos, owner,moveDist - 1));
                 }
@@ -131,9 +115,9 @@ namespace Combat
 
             List<Vector2Int> result = new();
 
-            for (int i = 0; i < Mask4.Count; i++)
-                if(isInBounds(position + Mask4[i]))
-                    result.Add(position + Mask4[i]);
+            for (int i = 0; i < BoardHelpers.Mask4.Length; i++)
+                if(isInBounds(position + BoardHelpers.Mask4[i]))
+                    result.Add(position + BoardHelpers.Mask4[i]);
             return result;
         }
         public List<Vector2Int> getSummonPositions(Actors actor)
@@ -142,8 +126,8 @@ namespace Combat
             List<Vector2Int> result = new();   
 
             for (int i = 0; i < unitPositions.Count; i++)
-                for (int j = 0; j < Mask8.Count; j++) {
-                    Vector2Int pos = unitPositions[i] + Mask8[j];
+                for (int j = 0; j < BoardHelpers.Mask8.Length; j++) {
+                    Vector2Int pos = unitPositions[i] + BoardHelpers.Mask8[j];
                     if (isInBounds(pos))
                         if (tiles[pos.x, pos.y].isFree)
                             result.Add(pos);
@@ -176,7 +160,8 @@ namespace Combat
             return pos.x < tiles.GetLength(0) && pos.x >= 0 &&
                    pos.y < tiles.GetLength(1) && pos.y >= 0;
         }
-        //TODO Concat issue here giving memory leak, String.FastAllocateString
+        
+
         public string GetJSON()
         {
             StringBuilder stringBuilder = new StringBuilder();
@@ -212,43 +197,13 @@ namespace Combat
             return sb.ToString();
 
         }
+
+        public Board GetCopy()
+        {
+            return new Board(this);
+        }
         #endregion
 
 
-    }
-
-    public enum Actors
-    {
-        /// <summary>
-        /// Defaulted to Player
-        /// </summary>
-        Actor1,
-        /// <summary>
-        /// Defaulted to AI
-        /// </summary>
-        Actor2
-    }
-    
-
-    [System.Serializable]
-    public class Tile {
-        public Tile(Vector2Int pos) {
-            position = pos;
-        }
-        public Tile(Tile tileToCopy) {
-            position = tileToCopy.position;
-            if(tileToCopy.unit != null)
-                unit = new Unit(tileToCopy.unit);
-        }
-        public Vector2Int position;
-        public Unit unit;
-
-        public bool isFree => unit == null;
-
-        public bool getIsPassable(Actors owner)
-        {
-            return unit == null || unit.owner == owner;
-            
-        }
     }
 }

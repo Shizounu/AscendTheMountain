@@ -7,25 +7,40 @@ using Combat.Cards;
 
 namespace Combat
 {
-    public interface IActorManager {
-        public bool isEnabled { get; }
-        public abstract DeckInformation deckInformation { get;  }
-
-        void Init();
-        void Enable();
-        void Disable();
-    }
-
     [System.Serializable]
 
-    public class DeckInformation {
+    public class DeckInformation : ICopyable<DeckInformation> {
+        public DeckInformation() { }
+        private DeckInformation(DeckInformation deckInformation) {
+            this.MaxManagems = deckInformation.MaxManagems;
+            this.CurManagems = deckInformation.CurManagems;
+
+            this.Deck = new();
+            foreach (var item in deckInformation.Deck)
+                this.Deck.Add(GetCardCopy(item));
+            
+            this.Hand = new CardInstance[6];
+            for (var i = 0; i < 6; i++) 
+                this.Hand[i] = GetCardCopy(deckInformation.Hand[i]);
+            
+
+        }
+        private CardInstance GetCardCopy(CardInstance instance) {
+            if(instance?.GetType() == typeof(CardInstance_Unit)) {
+                return ((CardInstance_Unit)instance).GetCopy();
+            }
+
+
+            return null; 
+        }
+
+
         [Header("Mana")]
         [SerializeField] private int _MaxManagems;
         public int MaxManagems
         {
             get => _MaxManagems;
-            set
-            {
+            set {
                 _MaxManagems = value;
                 _MaxManagems = Math.Clamp(_MaxManagems, 0, 10);
                 CurManagems = CurManagems; //There to update mana to fit new max mana
@@ -56,10 +71,12 @@ namespace Combat
             return -1;
         }
 
-        [Header("Units")]
-        public Unit General; // TODO: Better way of referencing units than by a direct reference, ID stuff
-        public List<Unit> currentUnits;
-        
+        //[Header("Units")]
+        // TODO: Create way of indexing units
+
+        public DeckInformation GetCopy() {
+            return new DeckInformation(this);
+        }
     }
 
 }

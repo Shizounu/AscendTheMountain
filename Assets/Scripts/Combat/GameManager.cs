@@ -35,12 +35,12 @@ namespace Combat {
                 return;
             }
             
-            rootBoard = new Board(currentBoard);
+            rootBoard = currentBoard.GetCopy();
             Debug.Log("Made root board copy");
         }
 
         public Board GetRootBoardCopy() {
-            return new Board(rootBoard);
+            return rootBoard.GetCopy();
         }
     }
 }
