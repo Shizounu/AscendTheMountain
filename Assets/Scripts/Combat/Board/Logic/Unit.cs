@@ -4,20 +4,19 @@ using UnityEngine;
 
 using Cards;
 using Commands;
+using Combat.Cards;
 
 namespace Combat
 {
     [System.Serializable]
     public class Unit {
-        public Unit(UnitDefinition definition, Actors owner) {
-            maxHealth = definition.Health;
-            curHealth = definition.Health;
+        public Unit(CardInstance_Unit definition, Actors owner) {
+            maxHealth = definition.UnitHealth;
+            curHealth = definition.UnitHealth;
 
-            attack = definition.Attack;
+            attack = definition.UnitAttack;
 
-            moveDistance = definition.MoveDistance;
-
-            effects = definition.effects;
+            moveDistance = definition.UnitMoveDistance;
 
             canMove = false;
 
@@ -28,7 +27,6 @@ namespace Combat
             curHealth = unitToCopy.curHealth;
             attack = unitToCopy.attack;
             moveDistance = unitToCopy.moveDistance;
-            effects = unitToCopy.effects;
             
             canMove = unitToCopy.canMove;
             canAttack = unitToCopy.canAttack;
@@ -49,7 +47,6 @@ namespace Combat
 
         public Actors owner;
 
-
         public int maxHealth;
 
         public int attack;
@@ -57,8 +54,6 @@ namespace Combat
 
         public int moveDistance;
         public bool canMove;
-
-        public List<IEffect> effects;
 
         ///TODO: Set up triggers and info for the viaul system to use. 
  

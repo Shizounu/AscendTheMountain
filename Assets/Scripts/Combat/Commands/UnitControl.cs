@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Commands
 {
     public class Command_SummonUnit : Pool.Poolable<Command_SummonUnit>, ICommand, IVisualCommand {
-        public Command_SummonUnit Init(Cards.UnitDefinition cardDefinition, Vector2Int _position, Actors _owner, bool canMove = false, bool canAttack = false, bool payCost = false, bool removeFromHand = false, int handIndex = 0)
+        public Command_SummonUnit Init(Combat.Cards.CardInstance_Unit cardDefinition, Vector2Int _position, Actors _owner, bool canMove = false, bool canAttack = false, bool payCost = false, bool removeFromHand = false, int handIndex = 0)
         {
             unitDef = cardDefinition;
             position = _position;
@@ -24,7 +24,7 @@ namespace Commands
         }
 
 
-        Cards.UnitDefinition unitDef;
+        Combat.Cards.CardInstance_Unit unitDef;
         Vector2Int position;
         public Actors owner;
 
@@ -46,7 +46,7 @@ namespace Commands
             board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(unit, canAttack));
 
             if (payCost)
-                board.SetSubCommand(Command_ChangeCurrentMana.GetAvailable().Init(owner, -unitDef.Cost));
+                board.SetSubCommand(Command_ChangeCurrentMana.GetAvailable().Init(owner, -unitDef.cardCost));
             if (removeFromHand)
                 board.SetSubCommand(Command_RemoveHandCard.GetAvailable().Init(handIndex, owner));
 
@@ -55,7 +55,7 @@ namespace Commands
 
         public void Visuals(BoardRenderer boardRenderer)
         {
-            boardRenderer.SpawnUnitVisuals(unit, unitDef.animatorController, position);
+            boardRenderer.SpawnUnitVisuals(unit, unitDef.cardAnimator, position);
         }
     }
     public class Command_RemoveUnit : Pool.Poolable<Command_RemoveUnit>, ICommand, IVisualCommand

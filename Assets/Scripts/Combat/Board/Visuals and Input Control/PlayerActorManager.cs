@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Commands;
-
+using Combat.Cards;
 
 public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActorManager>, IActorManager {
 
@@ -54,9 +54,6 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
 
     private void Start()
     {
-        //Register for Enabling
-        deckInformation.actorManager = this;
-
         //Initialize Input
         currentState = new InputStates.InputState_Default();
         Input.InputManager.Instance.InputActions.BattlefieldControls.RightClick.performed += ctx => OnCancel();
@@ -66,7 +63,11 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
         GameManager.Instance.currentBoard.SetCommand(Command_EnableSide.GetAvailable().Init(Actors.Actor1)); 
         GameManager.Instance.currentBoard.DoQueuedCommands();
         GameManager.Instance.InitRootBoard();
+    }
 
+    public void Init()
+    {
+        throw new System.NotImplementedException();
     }
 
     public void Enable()
@@ -153,13 +154,13 @@ namespace InputStates
         {
             //needs more sophisticated check
             if (currentBoard.tiles[position.x, position.y].unit == null &&
-                currentBoard.Actor1_Deck.CurManagems >= currentBoard.Actor1_Deck.Hand[curCard].Cost &&
+                currentBoard.Actor1_Deck.CurManagems >= currentBoard.Actor1_Deck.Hand[curCard].cardCost &&
                 currentBoard.getSummonPositions(Actors.Actor1).Contains(position)) {
                 //dispatch summon command 
                 currentBoard.SetCommand
                     (
                         Command_SummonUnit.GetAvailable().Init(
-                            (UnitDefinition) sm.deckInformation.Hand[curCard], 
+                            (CardInstance_Unit) sm.deckInformation.Hand[curCard], 
                             position, 
                             Actors.Actor1,
                             false,

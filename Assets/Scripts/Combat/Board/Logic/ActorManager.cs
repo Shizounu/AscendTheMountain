@@ -1,8 +1,9 @@
-using Cards;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+using Combat.Cards;
 
 namespace Combat
 {
@@ -10,6 +11,7 @@ namespace Combat
         public bool isEnabled { get; }
         public abstract DeckInformation deckInformation { get;  }
 
+        void Init();
         void Enable();
         void Disable();
     }
@@ -30,7 +32,6 @@ namespace Combat
             }
 
         }
-
         [SerializeField] private int _CurManagems;
         public int CurManagems
         {
@@ -44,8 +45,8 @@ namespace Combat
         }
 
         [Header("Cards")]
-        public List<CardDefinition> Deck = new();
-        public CardDefinition[] Hand = new Cards.CardDefinition[6];
+        public List<CardInstance> Deck = new();
+        public CardInstance[] Hand = new CardInstance[6];
 
         public int getFreeHandIndex() {
             for (int i = 0; i < Hand.Length; i++) {
@@ -55,31 +56,10 @@ namespace Combat
             return -1;
         }
 
-        public IActorManager actorManager;
-        public void Enable() => actorManager?.Enable();
-        public void Disable() => actorManager?.Disable();
-    
-        public DeckInformation Clone() {
-            DeckInformation newDeck = new DeckInformation();
-            newDeck._MaxManagems = _MaxManagems;
-            newDeck._CurManagems = _CurManagems;
-            
-            newDeck.Deck = new List<CardDefinition>();
-            foreach (CardDefinition card in Deck)
-                newDeck.Deck.Add(card.Clone());
-
-            newDeck.Hand = new CardDefinition[]
-            {
-                Hand[0]?.Clone(),
-                Hand[1]?.Clone(),
-                Hand[2]?.Clone(),
-                Hand[3]?.Clone(),
-                Hand[4]?.Clone(),
-                Hand[5]?.Clone(),
-            };
-
-            return newDeck;
-        }
+        [Header("Units")]
+        public Unit General; // TODO: Better way of referencing units than by a direct reference, ID stuff
+        public List<Unit> currentUnits;
+        
     }
 
 }

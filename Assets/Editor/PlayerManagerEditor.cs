@@ -106,7 +106,7 @@ namespace Editor
             
             if(GUILayout.Button("Summon Testing Unit") && actorManager.testingDefinition != null) {
                 GameManager.Instance.currentBoard.SetCommand(Command_SummonUnit.GetAvailable().Init(
-                    actorManager.testingDefinition,
+                    new Combat.Cards.CardInstance_Unit(actorManager.testingDefinition),
                     new Vector2Int(7, 2), 
                     Actors.Actor2)
                 );

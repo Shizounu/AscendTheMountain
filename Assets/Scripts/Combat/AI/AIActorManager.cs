@@ -1,5 +1,6 @@
 using Cards;
 using Combat;
+using Combat.Cards;
 using Commands;
 using System;
 using System.Collections;
@@ -17,14 +18,15 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
     private void Start()
     {
-        //Register for enabling
-        deckInformation.actorManager = this;
-
         boardPool = new();
 
         GameManager.Instance.currentBoard.SetCommand(Command_InitSide.GetAvailable().Init(Actors.Actor2, deck));
         GameManager.Instance.currentBoard.DoQueuedCommands();
         GameManager.Instance.InitRootBoard();
+    }
+    public void Init()
+    {
+        throw new System.NotImplementedException();
     }
 
     public void Disable()
@@ -94,10 +96,13 @@ public class AIActorManager : MonoBehaviour, IActorManager
             for (int x = 0; x < board.tiles.GetLength(0); x++)
                 for (int y = 0; y < board.tiles.GetLength(1); y++)
                     board.tiles[x, y] = new Tile(boardToCopy.tiles[x, y]);
+            
+            //TODO: Make new clone commands
+            /*
             board.Actor1_Deck = boardToCopy.Actor1_Deck.Clone();
             board.Actor2_Deck = boardToCopy.Actor2_Deck.Clone();
             board.onCommand = null;
-
+            */
             return board;
         }
         public void ReturnToPool(Board b) {
@@ -225,13 +230,13 @@ public class AIActorManager : MonoBehaviour, IActorManager
         //Summoning
         for (int i = 0; i < board.getActorReference(activeActor).Hand.Length; i++) {
             if (board.getActorReference(activeActor).Hand[i] != null) {
-                if (board.getActorReference(activeActor).Hand[i].Cost <= board.getActorReference(activeActor).CurManagems) {
+                if (board.getActorReference(activeActor).Hand[i].cardCost <= board.getActorReference(activeActor).CurManagems) {
                     if (board.getActorReference(activeActor).Hand[i].GetType() == typeof(UnitDefinition)) {
                         List<Vector2Int> summonPositions = board.getSummonPositions(activeActor);
                         foreach (Vector2Int pos in summonPositions) {                           
                             possibleActions.Add(
                                 Command_SummonUnit.GetAvailable().Init(
-                                    (UnitDefinition)board.getActorReference(activeActor).Hand[i], pos, activeActor,
+                                    (CardInstance_Unit)board.getActorReference(activeActor).Hand[i], pos, activeActor,
                                     false, false, true, true, i));
                         }
                     } else {

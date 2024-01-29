@@ -39,8 +39,11 @@ namespace Combat
                 for (int y = 0; y < tiles.GetLength(1); y++)
                     tiles[x, y] = new Tile(boardToCopy.tiles[x,y]);
 
+            //TODO: Make new and improved clone logic
+            /*
             Actor1_Deck = boardToCopy.Actor1_Deck.Clone();
             Actor2_Deck = boardToCopy.Actor2_Deck.Clone();
+        */
         }
         
         public OnCommandHandler onCommand;

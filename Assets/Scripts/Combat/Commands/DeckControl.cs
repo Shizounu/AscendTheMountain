@@ -1,5 +1,6 @@
 using Cards;
 using Combat;
+using Combat.Cards;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +21,7 @@ namespace Commands
             board.SetSubCommand(Command_DrawCard.GetAvailable().Init(side, 3));
 
             Vector2Int pos = new Vector2Int(side == Actors.Actor1 ? 0 : 8, 2);
-            board.SetSubCommand(Command_SummonUnit.GetAvailable().Init(deckDef.SideGeneral, pos, side, true, true));
+            //board.SetSubCommand(Command_SummonUnit.GetAvailable().Init(deckDef.SideGeneral, pos, side, true, true)); //TODO: Make summon general command
 
             ReturnToPool(this);
             
@@ -36,26 +37,33 @@ namespace Commands
         Actors side;
 
 
-        public void Execute(Board board) { 
-            board.getActorReference(side).Deck = cards;
+        public void Execute(Board board) {
+            foreach (var card in cards) {
+                if(card.GetType() == typeof(UnitDefinition)) {
+                    board.getActorReference(side).Deck.Add(new CardInstance_Unit((UnitDefinition)card));
+                } else {
+                    throw new System.NotImplementedException();
+                }
+            }
+
             board.getActorReference(side).Deck.Shuffle();
 
             ReturnToPool(this);
         }
     }
     public class Command_AddToDeck : Pool.Poolable<Command_AddToDeck>, ICommand {
-        public Command_AddToDeck Init(CardDefinition _card, Actors _side){
-            cards = new List<CardDefinition> { _card };
+        public Command_AddToDeck Init(CardInstance _card, Actors _side){
+            cards = new List<CardInstance> { _card };
             side = _side;
             return this;
         }
-        public Command_AddToDeck Init(List<CardDefinition> _cards, Actors _side)
+        public Command_AddToDeck Init(List<CardInstance> _cards, Actors _side)
         {
-            cards = new List<CardDefinition>(_cards);
+            cards = new List<CardInstance>(_cards);
             side = _side;
             return this;
         }
-        List<CardDefinition> cards;
+        List<CardInstance> cards;
         Actors side;
 
 

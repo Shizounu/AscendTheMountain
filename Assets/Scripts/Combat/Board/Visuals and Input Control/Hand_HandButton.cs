@@ -70,14 +70,14 @@ namespace HandButtonStates {
         {
 
             if(GameManager.Instance.currentBoard.Actor1_Deck.Hand[handButton.handIndex] != null) {
-                handButton.costText.text = $"{GameManager.Instance.currentBoard.Actor1_Deck.Hand[handButton.handIndex].Cost}";
+                handButton.costText.text = $"{GameManager.Instance.currentBoard.Actor1_Deck.Hand[handButton.handIndex].cardCost}";
             } else {
                 handButton.costText.text = "X"; //TODO Change to nothing later, or leave it - could be nice
             }
 
             //animate the hand unit
             if(GameManager.Instance.currentBoard.Actor1_Deck.Hand[handButton.handIndex] != null) {
-                handButton.iconRenderer.sprite = GameManager.Instance.currentBoard.Actor1_Deck.Hand[handButton.handIndex].Icon;
+                handButton.iconRenderer.sprite = GameManager.Instance.currentBoard.Actor1_Deck.Hand[handButton.handIndex].cardIcon;
                 handButton.iconRenderer.color = new Color(
                     handButton.iconRenderer.color.r,
                     handButton.iconRenderer.color.g,

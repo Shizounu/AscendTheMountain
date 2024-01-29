@@ -71,11 +71,12 @@ namespace Commands
 
         public void Execute(Board board)
         {
+            /*
             if(val)
                 board.getActorReference(side).Enable();
             else 
                 board.getActorReference(side).Disable();
-
+            */
             ReturnToPool(this);
         }
     }
