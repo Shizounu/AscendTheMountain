@@ -63,6 +63,21 @@ namespace Combat
         public List<CardInstance> Deck = new();
         public CardInstance[] Hand = new CardInstance[6];
 
+        [Header("Units")]
+        // TODO: Create way of indexing units
+        public UnitReference GeneralID;
+
+        public bool livingUnitIDs_isDirty = true; 
+        private List<UnitReference> _LivingUnitIDs; 
+        public List<UnitReference> LivingUnitIDs {
+            get => _LivingUnitIDs;
+            set {
+                _LivingUnitIDs = value;
+                livingUnitIDs_isDirty = true;
+            }
+        }
+
+
         public int getFreeHandIndex() {
             for (int i = 0; i < Hand.Length; i++) {
                 if (Hand[i] == null)
@@ -70,13 +85,21 @@ namespace Combat
             }
             return -1;
         }
-
-        //[Header("Units")]
-        // TODO: Create way of indexing units
-
         public DeckInformation GetCopy() {
             return new DeckInformation(this);
         }
+    }
+
+    public struct UnitReference {
+        public UnitReference(string unitID, Unit unitReference, Vector2Int unitPosition) {
+            this.unitID = unitID;
+            this.unitPosition = unitPosition;
+            this.unitReference = unitReference;
+        }
+
+        public string unitID;
+        public Unit unitReference;
+        public Vector2Int unitPosition; 
     }
 
 }

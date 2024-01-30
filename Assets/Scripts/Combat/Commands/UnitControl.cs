@@ -1,14 +1,46 @@
 using Combat;
-using System;
+using Combat.Cards;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build;
 using UnityEngine;
 
 namespace Commands
 {
+    public class Command_SummonGeneral : Pool.Poolable<Command_SummonGeneral>, ICommand, IVisualCommand {
+        public Command_SummonGeneral Init(CardInstance_Unit generalCard, Vector2Int position, Actors owner) {
+            this.generalCard = generalCard;
+            this.position = position;
+            this.owner = owner;
+
+            return this; 
+        }
+
+        public CardInstance_Unit generalCard;
+        public Vector2Int position;
+        public Actors owner;
+
+        private Unit general;
+
+        public void Execute(Board board) {
+            general = new Unit(generalCard, owner);
+            board.tiles[position.x, position.y].unitID = general.UnitID;
+
+            
+            board.GetActorReference(owner).GeneralID = new UnitReference(general.UnitID, general, position);
+            board.GetActorReference(owner).LivingUnitIDs.Add(board.GetActorReference(owner).GeneralID);
+
+            board.SetSubCommand(Command_SetCanMove.GetAvailable().Init(general.UnitID, true));
+            board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(general.UnitID, true));
+        }
+
+        public void Visuals(BoardRenderer boardRenderer)
+        {
+            boardRenderer.SpawnUnitVisuals(general, generalCard.cardAnimator, position);
+
+        }
+    }
     public class Command_SummonUnit : Pool.Poolable<Command_SummonUnit>, ICommand, IVisualCommand {
-        public Command_SummonUnit Init(Combat.Cards.CardInstance_Unit cardDefinition, Vector2Int _position, Actors _owner, bool canMove = false, bool canAttack = false, bool payCost = false, bool removeFromHand = false, int handIndex = 0)
+        public Command_SummonUnit Init(CardInstance_Unit cardDefinition, Vector2Int _position, Actors _owner, bool canMove = false, bool canAttack = false, bool payCost = false, bool removeFromHand = false, int handIndex = 0)
         {
             unitDef = cardDefinition;
             position = _position;
@@ -24,7 +56,7 @@ namespace Commands
         }
 
 
-        Combat.Cards.CardInstance_Unit unitDef;
+        CardInstance_Unit unitDef;
         Vector2Int position;
         public Actors owner;
 
@@ -40,10 +72,12 @@ namespace Commands
         {
 
             unit = new Unit(unitDef, owner);
-            board.tiles[position.x, position.y].unit = unit;
+            board.tiles[position.x, position.y].unitID = unit.UnitID;
 
-            board.SetSubCommand(Command_SetCanMove.GetAvailable().Init(unit, canMove));
-            board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(unit, canAttack));
+            board.GetActorReference(owner).LivingUnitIDs.Add(new UnitReference(unit.UnitID, unit, position));
+
+            board.SetSubCommand(Command_SetCanMove.GetAvailable().Init(unit.UnitID, canMove));
+            board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(unit.UnitID, canAttack));
 
             if (payCost)
                 board.SetSubCommand(Command_ChangeCurrentMana.GetAvailable().Init(owner, -unitDef.cardCost));
@@ -60,26 +94,20 @@ namespace Commands
     }
     public class Command_RemoveUnit : Pool.Poolable<Command_RemoveUnit>, ICommand, IVisualCommand
     {
-        public Command_RemoveUnit Init(Unit _unit)
+        public Command_RemoveUnit Init(string unitID)
         {
-            unit = _unit;
+            this.unitID = unitID;
             return this;
         }
 
-        [SerializeField] private Unit unit;
+        string unitID;
         public void Execute(Board board)
         {
-            for (int x = 0; x < board.tiles.GetLength(0); x++)
-            {
-                for (int y = 0; y < board.tiles.GetLength(1); y++)
-                {
-                    if (board.tiles[x, y].unit == unit)
-                    {
-                        board.tiles[x, y].unit = null;
-                    }
+            UnitReference unitRef = board.GetUnitReferenceFromID(unitID);
+            board.tiles[unitRef.unitPosition.x, unitRef.unitPosition.y].unitID = "";
+            unitRef.unitReference = null;
+            board.GetActorReference(unitRef.unitReference.owner).LivingUnitIDs.Remove(unitRef);
 
-                }
-            }
             ReturnToPool(this);
 
         }
@@ -92,9 +120,9 @@ namespace Commands
         IEnumerator waitForAnimFinish(BoardRenderer boardRenderer)
         {
             //yield return new WaitForSeconds(1);
-            yield return new WaitForSeconds(boardRenderer.units[unit].getDeathAnimLength());
-            BoardRenderer.Destroy(boardRenderer.units[unit].gameObject);
-            boardRenderer.units.Remove(unit);
+            yield return new WaitForSeconds(boardRenderer.units[unitID].getDeathAnimLength());
+            BoardRenderer.Destroy(boardRenderer.units[unitID].gameObject);
+            boardRenderer.units.Remove(unitID);
         }
     }
     public class Command_MoveUnit : Pool.Poolable<Command_MoveUnit>, ICommand, IVisualCommand {
@@ -109,26 +137,26 @@ namespace Commands
         public Vector2Int curPos;
         public Vector2Int goalPos;
 
-        Unit unitRef;
+        string unitID;
         public void Execute(Board board) {
-            unitRef = board.GetUnitFromPos(startPos);
+            unitID = board.GetUnitFromPos(startPos).UnitID;
             curPos = startPos;
             
             Move(board, goalPos);
 
-            board.SetSubCommand(Command_SetCanMove.GetAvailable().Init(unitRef, false));
+            board.SetSubCommand(Command_SetCanMove.GetAvailable().Init(unitID, false));
             ReturnToPool(this);
         }
         private void Move(Board board, Vector2Int moveTo)
         {
-            board.tiles[curPos.x, curPos.y].unit = null;
-            board.tiles[moveTo.x, moveTo.y].unit = unitRef;
+            board.tiles[curPos.x, curPos.y].unitID = "";
+            board.tiles[moveTo.x, moveTo.y].unitID = unitID;
             curPos = moveTo;
         }
 
         public void Visuals(BoardRenderer boardRenderer)
         {
-            UnitRenderer unitRenderer = boardRenderer.units[unitRef];
+            UnitRenderer unitRenderer = boardRenderer.units[unitID];
             unitRenderer.StartCoroutine(DoMoveStepsVisual(unitRenderer));
         }
 
@@ -138,99 +166,98 @@ namespace Commands
         }
     }
     public class Command_AttackUnit : Pool.Poolable<Command_AttackUnit>, ICommand, IVisualCommand {
-        public Command_AttackUnit Init(Unit attacker, Unit defender) {
-            this.attacker = attacker;
-            this.defender = defender;
+        public Command_AttackUnit Init(string attackerID, string defenderID) {
+            this.attackerID = attackerID;
+            this.defenderID = defenderID;
             return this;
         }
 
-        Unit attacker;
-        Unit defender;
+        string attackerID;
+        string defenderID;
 
         public void Execute(Board board)
         {
-            board.SetSubCommand(Command_DamageUnit.GetAvailable().Init(attacker.attack, defender));
-            board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(attacker, false));
+            board.SetSubCommand(Command_DamageUnit.GetAvailable().Init(board.GetUnitReferenceFromID(attackerID).unitReference.attack, defenderID));
+            board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(attackerID, false));
             ReturnToPool(this);
         }
 
         public void Visuals(BoardRenderer boardRenderer)
         {
-            boardRenderer.units[attacker].OnAttack();
+            boardRenderer.units[attackerID].OnAttack();
         }
     }
-    public class Command_DamageUnit : Pool.Poolable<Command_DamageUnit>, ICommand, IVisualCommand
-    {
-        public Command_DamageUnit Init(int amount, Unit target) {
+    public class Command_DamageUnit : Pool.Poolable<Command_DamageUnit>, ICommand, IVisualCommand {
+        public Command_DamageUnit Init(int amount, string targetID) {
             this.amount = amount;
-            this.target = target;
+            this.targetID = targetID;
             return this;
         }
         int amount;
-        Unit target;
+        string targetID;
 
         public void Execute(Board board)
         {
-            target.curHealth -= amount;
-            if(target.curHealth <= 0) {
-                board.SetSubCommand(Command_KillUnit.GetAvailable().Init(target));
+            board.GetUnitReferenceFromID(targetID).unitReference.curHealth -= amount;
+            if(board.GetUnitReferenceFromID(targetID).unitReference.curHealth <= 0) {
+                board.SetSubCommand(Command_KillUnit.GetAvailable().Init(targetID));
             }
             ReturnToPool(this);
         }
 
         public void Visuals(BoardRenderer boardRenderer)
         {
-            boardRenderer.units[target].OnDamage();
+            boardRenderer.units[targetID].OnDamage();
         }
     }
     public class Command_KillUnit : Pool.Poolable<Command_KillUnit>, ICommand, IVisualCommand {
-        public Command_KillUnit Init(Unit unit) {
-            this.unit = unit;
+        public Command_KillUnit Init(string unitID) {
+            this.unitID = unitID;
             return this;
         }
-        Unit unit;
+        string unitID;
         public void Execute(Board board)
         {
-            //TODO Throw on death
-
-            board.SetSubCommand(Command_RemoveUnit.GetAvailable().Init(unit));
+            board.SetSubCommand(Command_RemoveUnit.GetAvailable().Init(unitID));
 
             ReturnToPool(this);
         }
 
         public void Visuals(BoardRenderer boardRenderer)
         {
-            boardRenderer.units[unit].OnDeath();
+            boardRenderer.units[unitID].OnDeath();
         }
     }
     public class Command_SetCanMove : Pool.Poolable<Command_SetCanMove>, ICommand {
-        public Command_SetCanMove Init(Unit unit, bool value) {
-            this.unit = unit;
+        public Command_SetCanMove Init(string unitID, bool value) {
+            this.unitID = unitID;
             this.value = value;
             return this;
         }
-        public Unit unit;
+
+        public string unitID;
         public bool value;
 
         public void Execute(Board board)
         {
-            unit.canMove = value;
+            
+            board.GetUnitReferenceFromID(this.unitID).unitReference.canMove = value;
             ReturnToPool(this);
         }
     }
     public class Command_SetCanAttack : Pool.Poolable<Command_SetCanAttack>,  ICommand
     {
-        public Command_SetCanAttack Init(Unit unit, bool value) {
-            this.unit = unit;
+        public Command_SetCanAttack Init(string unitID, bool value) {
+            this.unitID = unitID;
             this.value = value;
             return this;
         }
-        Unit unit;
+        string unitID;
         bool value;
 
         public void Execute(Board board)
         {
-            unit.canAttack = value;
+            board.GetUnitReferenceFromID(this.unitID).unitReference.canAttack = value;
             ReturnToPool(this);
         }
     }

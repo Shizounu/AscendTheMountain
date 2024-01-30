@@ -37,21 +37,11 @@ namespace Commands
 
         public void Execute(Board board)
         {
-
-
-            for (int x = 0; x < Tiles.GetLength(0); x++)
-            {
-                for (int y = 0; y < Tiles.GetLength(1); y++)
-                {
-                    if (Tiles[x, y].unit?.owner == Side)
-                    {
-                        board.SetSubCommand(Command_SetCanMove.GetAvailable().Init(Tiles[x, y].unit, true));
-                        board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(Tiles[x, y].unit, true));
-                        //TODO: Add on turn start effect triggering
-                    }
-
-                }
+            foreach (var unit in board.GetActorReference(Side).LivingUnitIDs) {
+                board.SetSubCommand(Command_SetCanMove.GetAvailable().Init(unit.unitID, true));
+                board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(unit.unitID, true));
             }
+
             board.SetSubCommand(Command_ChangeMaxMana.GetAvailable().Init(Side, 1));
             board.SetSubCommand(Command_ChangeCurrentMana.GetAvailable().Init(Side, 69));
 
@@ -73,9 +63,9 @@ namespace Commands
         {
             /*
             if(val)
-                board.getActorReference(side).Enable();
+                board.GetActorReference(side).Enable();
             else 
-                board.getActorReference(side).Disable();
+                board.GetActorReference(side).Disable();
             */
             ReturnToPool(this);
         }

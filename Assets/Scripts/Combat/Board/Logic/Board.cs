@@ -11,6 +11,7 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 using UnityEngine.Rendering;
+using static UnityEditor.PlayerSettings;
 
 namespace Combat
 {
@@ -91,10 +92,10 @@ namespace Combat
         #endregion
 
         #region Board Info Methods
-        public DeckInformation getActorReference(Actors actors) {
+        public DeckInformation GetActorReference(Actors actors) {
             return actors == Actors.Actor1 ? Actor1_Deck : Actor2_Deck;
         }
-        public List<Vector2Int> getMovePositions(Vector2Int basePos, Actors owner, int moveDist) {
+        public List<Vector2Int> GetMovePositions(Vector2Int basePos, Actors owner, int moveDist) {
             List<Vector2Int> result = new();
             if (tiles[basePos.x, basePos.y].isFree)
                 result.Add(basePos);
@@ -104,14 +105,14 @@ namespace Combat
 
             for (int i = 0; i < BoardHelpers.Mask4.Length; i++) {
                 Vector2Int curPos = basePos + BoardHelpers.Mask4[i];
-                if (isInBounds(curPos) && !result.Contains(curPos) && tiles[curPos.x, curPos.y].getIsPassable(owner)) {
-                    result.AddRange(getMovePositions(curPos, owner,moveDist - 1));
+                if (isInBounds(curPos) && !result.Contains(curPos) && tiles[curPos.x, curPos.y].getIsPassable(this,owner)) {
+                    result.AddRange(GetMovePositions(curPos, owner,moveDist - 1));
                 }
             }
 
             return result;
         }
-        public List<Vector2Int> getAttackPositions(Vector2Int position) {
+        public List<Vector2Int> GetAttackPositions(Vector2Int position) {
 
             List<Vector2Int> result = new();
 
@@ -120,7 +121,7 @@ namespace Combat
                     result.Add(position + BoardHelpers.Mask4[i]);
             return result;
         }
-        public List<Vector2Int> getSummonPositions(Actors actor)
+        public List<Vector2Int> GetSummonPositions(Actors actor)
         {
             List<Vector2Int> unitPositions = GetUnitPositions(actor);
             List<Vector2Int> result = new();   
@@ -145,15 +146,17 @@ namespace Combat
             }
             return unitPositions;
         }
+        
+        
         #endregion
         
         #region Helpers
         public Unit GetUnitFromPos(Vector2Int pos) {
-            return tiles[pos.x, pos.y].unit;
+            return GetAllUnits().Find(unitRef => unitRef.unitID == tiles[pos.x, pos.y].unitID).unitReference;
         }
         public Unit GetUnitFromPos(int x, int y)
         {
-            return tiles[x, y].unit;
+            return GetAllUnits().Find(unitRef => unitRef.unitID == tiles[x, y].unitID).unitReference;
         }
         public bool isInBounds(Vector2Int pos)
         {
@@ -161,6 +164,20 @@ namespace Combat
                    pos.y < tiles.GetLength(1) && pos.y >= 0;
         }
         
+        List<UnitReference> references = new();
+        public List<UnitReference> GetAllUnits() {
+            if (!Actor1_Deck.livingUnitIDs_isDirty && !Actor2_Deck.livingUnitIDs_isDirty)
+                return references;
+
+            references = new();
+            references.AddRange(Actor2_Deck.LivingUnitIDs);
+            references.AddRange(Actor1_Deck.LivingUnitIDs);
+
+            return references;
+        }
+        public UnitReference GetUnitReferenceFromID(string ID) {
+            return GetAllUnits().Find(unitRef => unitRef.unitID == ID);
+        }
 
         public string GetJSON()
         {
@@ -169,10 +186,10 @@ namespace Combat
             stringBuilder.Append(JsonUtility.ToJson(this));
             for (int x = 0;x < tiles.GetLength(0);x++) {
                 for (int y = 0;y < tiles.GetLength(1);y++) {
-                    if (tiles[x,y].unit == null) {
+                    if (tiles[x,y].unitID == "") {
                         stringBuilder.Append("null |");
                     } else {
-                        stringBuilder.Append(tiles[x, y].unit.GetJSON());
+                        stringBuilder.Append(tiles[x, y].unitID);
                         stringBuilder.Append(" |");
                     }
                 }

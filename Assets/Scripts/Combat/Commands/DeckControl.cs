@@ -40,13 +40,13 @@ namespace Commands
         public void Execute(Board board) {
             foreach (var card in cards) {
                 if(card.GetType() == typeof(UnitDefinition)) {
-                    board.getActorReference(side).Deck.Add(new CardInstance_Unit((UnitDefinition)card));
+                    board.GetActorReference(side).Deck.Add(new CardInstance_Unit((UnitDefinition)card));
                 } else {
                     throw new System.NotImplementedException();
                 }
             }
 
-            board.getActorReference(side).Deck.Shuffle();
+            board.GetActorReference(side).Deck.Shuffle();
 
             ReturnToPool(this);
         }
@@ -69,8 +69,8 @@ namespace Commands
 
         public void Execute(Board board)
         {
-            board.getActorReference(side).Deck.AddRange(cards);
-            board.getActorReference(side).Deck.Shuffle();
+            board.GetActorReference(side).Deck.AddRange(cards);
+            board.GetActorReference(side).Deck.Shuffle();
 
             ReturnToPool(this);
         }
@@ -98,10 +98,10 @@ namespace Commands
             ReturnToPool(this);
         }
         private void Draw(Board b) {
-            b.getActorReference(side).Hand[
-                b.getActorReference(side).getFreeHandIndex()
-                ] = b.getActorReference(side).Deck[0];
-            b.getActorReference(side).Deck.RemoveAt(0);
+            b.GetActorReference(side).Hand[
+                b.GetActorReference(side).getFreeHandIndex()
+                ] = b.GetActorReference(side).Deck[0];
+            b.GetActorReference(side).Deck.RemoveAt(0);
 
         }
     }
@@ -116,7 +116,7 @@ namespace Commands
         public Actors actor;
 
         public void Execute(Board board) {
-            board.getActorReference(actor).Hand[handIndex] = null;
+            board.GetActorReference(actor).Hand[handIndex] = null;
             ReturnToPool(this);
         }
     }
@@ -132,7 +132,7 @@ namespace Commands
 
         public void Execute(Board board)
         {
-            board.getActorReference(side).CurManagems += amount;
+            board.GetActorReference(side).CurManagems += amount;
 
             ReturnToPool(this);
         }
@@ -152,7 +152,7 @@ namespace Commands
 
         public void Execute(Board board)
         {
-            board.getActorReference(side).MaxManagems += amount;
+            board.GetActorReference(side).MaxManagems += amount;
 
             ReturnToPool(this);
         }

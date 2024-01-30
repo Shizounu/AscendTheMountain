@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Combat
@@ -14,20 +15,17 @@ namespace Combat
         public Tile(Tile tileToCopy)
         {
             position = tileToCopy.position;
-            if (tileToCopy.unit != null)
-                unit = tileToCopy.unit.GetCopy();
+            unitID = tileToCopy.unitID;
         }
         public Vector2Int position;
-        public Unit unit;
+        public string unitID;
 
 
 
-        public bool isFree => unit == null;
+        public bool isFree => unitID == "";
 
-        public bool getIsPassable(Actors owner)
-        {
-            return unit == null || unit.owner == owner;
-
+        public bool getIsPassable(Board board, Actors owner) {
+            return unitID == "" || board.GetActorReference(owner).LivingUnitIDs.Any(unitRef => unitRef.unitID == unitID);
         }
 
         public Tile GetCopy() {

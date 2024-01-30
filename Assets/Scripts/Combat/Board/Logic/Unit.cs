@@ -5,6 +5,8 @@ using UnityEngine;
 using Cards;
 using Commands;
 using Combat.Cards;
+using UnityEditor;
+using System;
 
 namespace Combat
 {
@@ -21,6 +23,8 @@ namespace Combat
             canMove = false;
 
             this.owner = owner;
+
+            UnitID = Guid.NewGuid().ToString();
         }
         public Unit(Unit unitToCopy){
             maxHealth = unitToCopy.maxHealth;
@@ -33,6 +37,8 @@ namespace Combat
             
             owner = unitToCopy.owner;
 
+            UnitID = unitToCopy.UnitID;
+
         }
 
         private int _curHealth;
@@ -44,6 +50,8 @@ namespace Combat
                     _curHealth = maxHealth;
             }
         }
+
+        public readonly string UnitID;
 
         public Actors owner;
 

@@ -14,19 +14,16 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
     public bool isEnabled => throw new System.NotImplementedException();
 
-    public DeckInformation deckInformation => GameManager.Instance.currentBoard.getActorReference(Actors.Actor2);
+    public DeckInformation deckInformation => GameManager.Instance.currentBoard.GetActorReference(Actors.Actor2);
 
     private void Start()
     {
         boardPool = new();
 
+    }
+    public void Init() {
         GameManager.Instance.currentBoard.SetCommand(Command_InitSide.GetAvailable().Init(Actors.Actor2, deck));
         GameManager.Instance.currentBoard.DoQueuedCommands();
-        GameManager.Instance.InitRootBoard();
-    }
-    public void Init()
-    {
-        throw new System.NotImplementedException();
     }
 
     public void Disable()
@@ -228,15 +225,15 @@ public class AIActorManager : MonoBehaviour, IActorManager
         List<ICommand> possibleActions = new List<ICommand>();
 
         //Summoning
-        for (int i = 0; i < board.getActorReference(activeActor).Hand.Length; i++) {
-            if (board.getActorReference(activeActor).Hand[i] != null) {
-                if (board.getActorReference(activeActor).Hand[i].cardCost <= board.getActorReference(activeActor).CurManagems) {
-                    if (board.getActorReference(activeActor).Hand[i].GetType() == typeof(UnitDefinition)) {
-                        List<Vector2Int> summonPositions = board.getSummonPositions(activeActor);
+        for (int i = 0; i < board.GetActorReference(activeActor).Hand.Length; i++) {
+            if (board.GetActorReference(activeActor).Hand[i] != null) {
+                if (board.GetActorReference(activeActor).Hand[i].cardCost <= board.GetActorReference(activeActor).CurManagems) {
+                    if (board.GetActorReference(activeActor).Hand[i].GetType() == typeof(UnitDefinition)) {
+                        List<Vector2Int> summonPositions = board.GetSummonPositions(activeActor);
                         foreach (Vector2Int pos in summonPositions) {                           
                             possibleActions.Add(
                                 Command_SummonUnit.GetAvailable().Init(
-                                    (CardInstance_Unit)board.getActorReference(activeActor).Hand[i], pos, activeActor,
+                                    (CardInstance_Unit)board.GetActorReference(activeActor).Hand[i], pos, activeActor,
                                     false, false, true, true, i));
                         }
                     } else {
@@ -253,7 +250,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         for (int i = 0; i < unitPositions.Count; i++) {
             //Move actions
             if (board.GetUnitFromPos(unitPositions[i]).canMove) {
-                List<Vector2Int> movePositions = board.getMovePositions(unitPositions[i], activeActor, board.GetUnitFromPos(unitPositions[i]).moveDistance);
+                List<Vector2Int> movePositions = board.GetMovePositions(unitPositions[i], activeActor, board.GetUnitFromPos(unitPositions[i]).moveDistance);
                 foreach (Vector2Int movePos in movePositions) { 
                     possibleActions.Add(Command_MoveUnit.GetAvailable().Init(unitPositions[i], movePos));
                 }
@@ -261,10 +258,10 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
             //Attack actions
             if (board.GetUnitFromPos(unitPositions[i]).canAttack) {
-                List<Vector2Int> attackPositions = board.getAttackPositions(unitPositions[i]);
+                List<Vector2Int> attackPositions = board.GetAttackPositions(unitPositions[i]);
                 foreach (Vector2Int attackPos in attackPositions)
                     if (board.GetUnitFromPos(attackPos) != null && board.GetUnitFromPos(attackPos).owner != activeActor) {
-                        possibleActions.Add(Command_AttackUnit.GetAvailable().Init(board.GetUnitFromPos(unitPositions[i]), board.GetUnitFromPos(attackPos)));
+                        possibleActions.Add(Command_AttackUnit.GetAvailable().Init(board.GetUnitFromPos(unitPositions[i]).UnitID, board.GetUnitFromPos(attackPos).UnitID));
                     }
             }
         }

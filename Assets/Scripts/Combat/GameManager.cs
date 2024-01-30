@@ -9,6 +9,10 @@ namespace Combat {
     public delegate void OnCommandHandler(ICommand command);
 
     public class GameManager : Shizounu.Library.SingletonBehaviour<GameManager> {
+        [Header("Actor References")]
+        public IActorManager player;
+        public IActorManager enemy;
+
 
         public Board currentBoard;
         private Board rootBoard;
@@ -19,25 +23,20 @@ namespace Combat {
             currentBoard = new Board();
         }
 
+        private void Start()
+        {
+            player.Init();
+            enemy.Init();
+
+            rootBoard = currentBoard.GetCopy();
+        }
+
         private void OnDestroy()
         {
             currentBoard = null;
         }
 
-        /// <summary>
-        /// Will only trigger on second call
-        /// Done to solve a problem with race conditions and having to figure out what is actually the root board
-        /// </summary>
-        bool isFirst = true;
-        public void InitRootBoard() {
-            if (isFirst) {
-                isFirst = false;
-                return;
-            }
-            
-            rootBoard = currentBoard.GetCopy();
-            Debug.Log("Made root board copy");
-        }
+        
 
         public Board GetRootBoardCopy() {
             return rootBoard.GetCopy();
