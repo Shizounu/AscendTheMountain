@@ -2127,15 +2127,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 398412076}
   enemy: {fileID: 1556910636}
+  boardRenderer: {fileID: 0}
   currentBoard:
     Actor1_Deck:
       _MaxManagems: 0
       _CurManagems: 0
-      livingUnitIDs_isDirty: 1
+      GeneralReference:
+        unitID: 
+        unitReference:
+          owner: 0
+          maxHealth: 0
+          attack: 0
+          canAttack: 0
+          moveDistance: 0
+          canMove: 0
+        unitPosition: {x: 0, y: 0}
     Actor2_Deck:
       _MaxManagems: 0
       _CurManagems: 0
-      livingUnitIDs_isDirty: 1
+      GeneralReference:
+        unitID: 
+        unitReference:
+          owner: 0
+          maxHealth: 0
+          attack: 0
+          canAttack: 0
+          moveDistance: 0
+          canMove: 0
+        unitPosition: {x: 0, y: 0}
+    currentUnitIndex: 0
 --- !u!4 &962846306
 Transform:
   m_ObjectHideFlags: 0
