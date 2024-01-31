@@ -24,12 +24,18 @@ public class BoardRenderer : SingletonBehaviour<BoardRenderer>
     public Transform unitHolder;
     public Transform tileHolder;
     public Dictionary<string, UnitRenderer> units;
-    
+
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+    }
 
     private void Start() {
-        InitializeBoard(GameManager.Instance.currentBoard.tiles);
-        GameManager.Instance.currentBoard.onCommand = ProcessCommand;
         visualCommands = new Queue<IVisualCommand>();
+        InitializeBoard(GameManager.Instance.currentBoard.tiles);
+        GameManager.Instance.currentBoard.onCommand += ProcessCommand;
         units = new();
     }
 

@@ -4,13 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Combat.Cards;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Combat
 {
     [System.Serializable]
-
     public class DeckInformation : ICopyable<DeckInformation> {
-        public DeckInformation() { }
+        public DeckInformation() {
+            LivingUnitReferences = new();
+            Deck = new();
+            Hand = new CardInstance[6];
+        }
         private DeckInformation(DeckInformation deckInformation) {
             this.MaxManagems = deckInformation.MaxManagems;
             this.CurManagems = deckInformation.CurManagems;
@@ -22,19 +26,20 @@ namespace Combat
             this.Hand = new CardInstance[6];
             for (var i = 0; i < 6; i++) 
                 this.Hand[i] = GetCardCopy(deckInformation.Hand[i]);
-            
 
+            this.GeneralReference = deckInformation.GeneralReference.GetCopy();
+            this.LivingUnitReferences = new();
+            foreach (var item in deckInformation.LivingUnitReferences)
+                this.LivingUnitReferences.Add(item.GetCopy());
         }
         private CardInstance GetCardCopy(CardInstance instance) {
-            if(instance?.GetType() == typeof(CardInstance_Unit)) {
-                return ((CardInstance_Unit)instance).GetCopy();
-            }
+            if(instance == null) return null;
+            if(instance.GetType() == typeof(CardInstance_Unit)) return ((CardInstance_Unit)instance).GetCopy();
 
-
-            return null; 
+            throw new System.NullReferenceException();
         }
 
-
+        #region Mana
         [Header("Mana")]
         [SerializeField] private int _MaxManagems;
         public int MaxManagems
@@ -58,26 +63,36 @@ namespace Combat
             }
 
         }
+        #endregion
 
-        [Header("Cards")]
+        #region Cards
         public List<CardInstance> Deck = new();
         public CardInstance[] Hand = new CardInstance[6];
+        #endregion
 
-        [Header("Units")]
-        // TODO: Create way of indexing units
-        public UnitReference GeneralID;
-
-        public bool livingUnitIDs_isDirty = true; 
-        private List<UnitReference> _LivingUnitIDs; 
-        public List<UnitReference> LivingUnitIDs {
-            get => _LivingUnitIDs;
-            set {
-                _LivingUnitIDs = value;
-                livingUnitIDs_isDirty = true;
+        #region Unit Reference
+        public UnitReference GeneralReference;
+        private List<UnitReference> LivingUnitReferences = new();
+        public List<UnitReference> GetLivingUnits()
+        {
+            List<UnitReference> refs = new List<UnitReference>();
+            //Should fire only once when the first actor gets initiated
+            if (GeneralReference != null) {
+                refs.Add(GeneralReference);
             }
+
+            refs.AddRange(LivingUnitReferences);
+            return refs;
         }
+        public void AddLivingUnitReference(UnitReference unitRef) {
+            LivingUnitReferences.Add(unitRef);
+        }
+        public void AddLivingUnitReference(string unitID, Unit unitInstance, Vector2Int unitPosition) {
+            LivingUnitReferences.Add(new UnitReference(unitID, unitInstance, unitPosition));
+        }
+        #endregion
 
-
+        #region Helper Functions
         public int getFreeHandIndex() {
             for (int i = 0; i < Hand.Length; i++) {
                 if (Hand[i] == null)
@@ -88,18 +103,38 @@ namespace Combat
         public DeckInformation GetCopy() {
             return new DeckInformation(this);
         }
+        public string GetHash() {
+            return JsonUtility.ToJson(this);
+        }
+        #endregion
     }
 
-    public struct UnitReference {
+    [System.Serializable]
+    public class UnitReference : ICopyable<UnitReference> {
         public UnitReference(string unitID, Unit unitReference, Vector2Int unitPosition) {
             this.unitID = unitID;
             this.unitPosition = unitPosition;
             this.unitReference = unitReference;
         }
+        private UnitReference(UnitReference unitRef) {
+            this.unitID = unitRef.unitID;
+            this.unitPosition = unitRef.unitPosition;
+
+            this.unitReference = unitRef.unitReference.GetCopy();
+        }
+
 
         public string unitID;
         public Unit unitReference;
         public Vector2Int unitPosition; 
+
+        public void ChangePosition(Vector2Int newPosition) {
+            unitPosition = newPosition;
+        }
+
+        public UnitReference GetCopy() {
+            return new UnitReference(this);
+        }
     }
 
 }

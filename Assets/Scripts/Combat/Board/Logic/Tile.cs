@@ -11,6 +11,7 @@ namespace Combat
         public Tile(Vector2Int pos)
         {
             position = pos;
+            unitID = "";
         }
         public Tile(Tile tileToCopy)
         {
@@ -25,7 +26,7 @@ namespace Combat
         public bool isFree => unitID == "";
 
         public bool getIsPassable(Board board, Actors owner) {
-            return unitID == "" || board.GetActorReference(owner).LivingUnitIDs.Any(unitRef => unitRef.unitID == unitID);
+            return unitID == "" || board.GetActorReference(owner).GetLivingUnits().Any(unitRef => unitRef.unitID == unitID);
         }
 
         public Tile GetCopy() {

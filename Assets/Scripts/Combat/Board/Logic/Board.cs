@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using System.Text;
 using UnityEngine.Rendering;
 using static UnityEditor.PlayerSettings;
+using System.Linq;
 
 namespace Combat
 {
@@ -30,6 +31,8 @@ namespace Combat
 
             Actor1_Deck = new();
             Actor2_Deck = new();
+
+            currentUnitIndex = 0;
         }
 
         private Board(Board baseBoard)
@@ -42,10 +45,11 @@ namespace Combat
             
             Actor1_Deck = baseBoard.Actor1_Deck.GetCopy();
             Actor2_Deck = baseBoard.Actor2_Deck.GetCopy();
-        
+
+            this.currentUnitIndex = baseBoard.currentUnitIndex;
         }
         
-        public OnCommandHandler onCommand;
+        public event OnCommandHandler onCommand;
 
         /// <summary>
         /// Holds the information about each of the tiles
@@ -105,31 +109,32 @@ namespace Combat
 
             for (int i = 0; i < BoardHelpers.Mask4.Length; i++) {
                 Vector2Int curPos = basePos + BoardHelpers.Mask4[i];
-                if (isInBounds(curPos) && !result.Contains(curPos) && tiles[curPos.x, curPos.y].getIsPassable(this,owner)) {
+                if (IsInBounds(curPos) && !result.Contains(curPos) && tiles[curPos.x, curPos.y].getIsPassable(this,owner)) {
                     result.AddRange(GetMovePositions(curPos, owner,moveDist - 1));
                 }
             }
 
             return result;
         }
-        public List<Vector2Int> GetAttackPositions(Vector2Int position) {
+        public List<Vector2Int> GetAttackPositions(Vector2Int position, Actors owner) {
 
             List<Vector2Int> result = new();
 
             for (int i = 0; i < BoardHelpers.Mask4.Length; i++)
-                if(isInBounds(position + BoardHelpers.Mask4[i]))
-                    result.Add(position + BoardHelpers.Mask4[i]);
+                if(IsInBounds(position + BoardHelpers.Mask4[i]))
+                    if (tiles[position.x, position.y].unitID != "")
+                        if(GetUnitReference(position).unitReference.owner != owner)
+                            result.Add(position + BoardHelpers.Mask4[i]);
             return result;
         }
-        public List<Vector2Int> GetSummonPositions(Actors actor)
-        {
+        public List<Vector2Int> GetSummonPositions(Actors actor) {
             List<Vector2Int> unitPositions = GetUnitPositions(actor);
             List<Vector2Int> result = new();   
 
             for (int i = 0; i < unitPositions.Count; i++)
                 for (int j = 0; j < BoardHelpers.Mask8.Length; j++) {
                     Vector2Int pos = unitPositions[i] + BoardHelpers.Mask8[j];
-                    if (isInBounds(pos))
+                    if (IsInBounds(pos))
                         if (tiles[pos.x, pos.y].isFree)
                             result.Add(pos);
                 }
@@ -137,53 +142,59 @@ namespace Combat
         }
         public List<Vector2Int> GetUnitPositions(Actors owner) {
             List<Vector2Int> unitPositions = new List<Vector2Int>();
-            for (int x = 0; x < tiles.GetLength(0); x++) {
-                for (int y = 0; y < tiles.GetLength(1); y++) {
-                    if(GetUnitFromPos(x,y) != null)
-                        if(GetUnitFromPos(x,y).owner == owner)
-                            unitPositions.Add(new Vector2Int(x, y));
-                }
-            }
+            foreach (var item in GetActorReference(owner).GetLivingUnits())
+                unitPositions.Add(item.unitPosition);
             return unitPositions;
         }
-        
-        
         #endregion
-        
+
+        #region UID
+        public int currentUnitIndex; 
+        public string GetUID() {
+            currentUnitIndex += 1;
+            return UnitIDManager.Instance.GetUID(currentUnitIndex - 1);
+        }
+        #endregion
+
         #region Helpers
-        public Unit GetUnitFromPos(Vector2Int pos) {
-            return GetAllUnits().Find(unitRef => unitRef.unitID == tiles[pos.x, pos.y].unitID).unitReference;
+        public UnitReference GetUnitReference(string ID) {
+            return GetAllUnits().Find(unitRef => unitRef.unitID == ID);
         }
-        public Unit GetUnitFromPos(int x, int y)
-        {
-            return GetAllUnits().Find(unitRef => unitRef.unitID == tiles[x, y].unitID).unitReference;
+        public UnitReference GetUnitReference(Vector2Int pos) {
+            return GetAllUnits().Find(unitRef => unitRef.unitPosition == pos);
         }
-        public bool isInBounds(Vector2Int pos)
+        public UnitReference GetUnitReference(int x, int y) {
+            return GetAllUnits().Find(unitRef => unitRef.unitPosition == new Vector2Int(x,y));
+        }
+        public UnitReference GetUnitReference(Unit unit) {
+            return GetAllUnits().Find(unitref => unitref.unitReference == unit);
+        }
+        public bool IsInBounds(Vector2Int pos)
         {
             return pos.x < tiles.GetLength(0) && pos.x >= 0 &&
                    pos.y < tiles.GetLength(1) && pos.y >= 0;
         }
         
-        List<UnitReference> references = new();
         public List<UnitReference> GetAllUnits() {
-            if (!Actor1_Deck.livingUnitIDs_isDirty && !Actor2_Deck.livingUnitIDs_isDirty)
-                return references;
-
-            references = new();
-            references.AddRange(Actor2_Deck.LivingUnitIDs);
-            references.AddRange(Actor1_Deck.LivingUnitIDs);
+            List<UnitReference> references = new();
+            references.AddRange(Actor2_Deck.GetLivingUnits());
+            references.AddRange(Actor1_Deck.GetLivingUnits());
 
             return references;
         }
-        public UnitReference GetUnitReferenceFromID(string ID) {
-            return GetAllUnits().Find(unitRef => unitRef.unitID == ID);
-        }
 
-        public string GetJSON()
-        {
+
+
+        #endregion
+
+        #region Hashing stuff
+        public string GetJSON() {
             StringBuilder stringBuilder = new StringBuilder();
 
-            stringBuilder.Append(JsonUtility.ToJson(this));
+            stringBuilder.Append(Actor1_Deck.GetHash());
+            stringBuilder.Append(Actor2_Deck.GetHash());
+
+            //stringBuilder.Append(JsonUtility.ToJson(this));
             for (int x = 0;x < tiles.GetLength(0);x++) {
                 for (int y = 0;y < tiles.GetLength(1);y++) {
                     if (tiles[x,y].unitID == "") {
@@ -220,7 +231,5 @@ namespace Combat
             return new Board(this);
         }
         #endregion
-
-
     }
 }

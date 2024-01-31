@@ -12,7 +12,7 @@ namespace Combat
 {
     [System.Serializable]
     public class Unit : ICopyable<Unit> {
-        public Unit(CardInstance_Unit definition, Actors owner) {
+        public Unit(CardInstance_Unit definition, Actors owner, string UnitID) {
             maxHealth = definition.UnitHealth;
             curHealth = definition.UnitHealth;
 
@@ -24,7 +24,7 @@ namespace Combat
 
             this.owner = owner;
 
-            UnitID = Guid.NewGuid().ToString();
+            this.UnitID = UnitID;
         }
         public Unit(Unit unitToCopy){
             maxHealth = unitToCopy.maxHealth;

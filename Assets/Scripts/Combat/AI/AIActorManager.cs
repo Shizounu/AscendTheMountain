@@ -32,10 +32,6 @@ public class AIActorManager : MonoBehaviour, IActorManager
     }
     public void Enable()
     {
-        if(curBoard.curCommandCount > 0) {
-            curBoard.SetCommand(Command_EnableSide.GetAvailable().Init(Actors.Actor1));
-            return;
-        }
         StartCoroutine(EnableActions());
         //EnableActions();
     }
@@ -58,13 +54,13 @@ public class AIActorManager : MonoBehaviour, IActorManager
         System.Diagnostics.Stopwatch sw = System.Diagnostics.Stopwatch.StartNew();
 
 
-        //PopulatePermutations(GameManager.Instance.currentBoard, Actors.Actor2);
-        BoardEvaluation eval = EvaluateBoard(new BoardInfo(curBoard.GetHash(),Actors.Actor2, new()), Actors.Actor2);
+        PopulatePermutations(GameManager.Instance.currentBoard, Actors.Actor2);
+        //BoardEvaluation eval = EvaluateBoard(new BoardInfo(curBoard.GetHash(),Actors.Actor2, new()), Actors.Actor2);
 
         sw.Stop();
 
         Debug.Log($"{sw.ElapsedMilliseconds}ms");
-        Debug.Log(eval.eval);
+        //Debug.Log(eval.eval);
     }
 
     #region Board Pool
@@ -84,7 +80,8 @@ public class AIActorManager : MonoBehaviour, IActorManager
         }
 
         public Board GetFromPool(Board boardToCopy) {
-            if(pool.Count == 0) {
+            return boardToCopy.GetCopy();
+            /*if(pool.Count == 0) {
                 AddToPool(capacity);
                 capacity *= 2;
             }
@@ -94,16 +91,15 @@ public class AIActorManager : MonoBehaviour, IActorManager
                 for (int y = 0; y < board.tiles.GetLength(1); y++)
                     board.tiles[x, y] = new Tile(boardToCopy.tiles[x, y]);
             
-            //TODO: Make new clone commands
-            /*
-            board.Actor1_Deck = boardToCopy.Actor1_Deck.Clone();
+            
+            board.Actor1_Deck = boardToCopy.Actor1_Deck.get
             board.Actor2_Deck = boardToCopy.Actor2_Deck.Clone();
             board.onCommand = null;
-            */
             return board;
+            */
         }
         public void ReturnToPool(Board b) {
-            pool.Enqueue(b);
+            //pool.Enqueue(b);
         }
     }
 
@@ -129,8 +125,8 @@ public class AIActorManager : MonoBehaviour, IActorManager
         public List<string> resultingBoards;
     }
 
-    private Command_EnableSide GetEnableSide(Actors currentActor) {
-        return Command_EnableSide.GetAvailable().Init(currentActor == Actors.Actor1 ? Actors.Actor2 : Actors.Actor1);
+    private Command_EndTurn GetEnableSide(Actors currentActor) {
+        return Command_EndTurn.GetAvailable().Init(currentActor == Actors.Actor1 ? Actors.Actor2 : Actors.Actor1);
     }
 
     
@@ -212,6 +208,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
             CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
             CachedBoards.Add(curBoardHash, boardInfo);
 
+            //Debug.Log($"Added board with move count {curActionsTaken.Count + 1}");
             if (curDepth <= 0) 
                 continue;
 
@@ -228,7 +225,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         for (int i = 0; i < board.GetActorReference(activeActor).Hand.Length; i++) {
             if (board.GetActorReference(activeActor).Hand[i] != null) {
                 if (board.GetActorReference(activeActor).Hand[i].cardCost <= board.GetActorReference(activeActor).CurManagems) {
-                    if (board.GetActorReference(activeActor).Hand[i].GetType() == typeof(UnitDefinition)) {
+                    if (board.GetActorReference(activeActor).Hand[i].GetType() == typeof(CardInstance_Unit)) {
                         List<Vector2Int> summonPositions = board.GetSummonPositions(activeActor);
                         foreach (Vector2Int pos in summonPositions) {                           
                             possibleActions.Add(
@@ -249,19 +246,19 @@ public class AIActorManager : MonoBehaviour, IActorManager
         List<Vector2Int> unitPositions = board.GetUnitPositions(activeActor);
         for (int i = 0; i < unitPositions.Count; i++) {
             //Move actions
-            if (board.GetUnitFromPos(unitPositions[i]).canMove) {
-                List<Vector2Int> movePositions = board.GetMovePositions(unitPositions[i], activeActor, board.GetUnitFromPos(unitPositions[i]).moveDistance);
+            if (board.GetUnitReference(unitPositions[i]).unitReference.canMove) {
+                List<Vector2Int> movePositions = board.GetMovePositions(unitPositions[i], activeActor, board.GetUnitReference(unitPositions[i]).unitReference.moveDistance);
                 foreach (Vector2Int movePos in movePositions) { 
                     possibleActions.Add(Command_MoveUnit.GetAvailable().Init(unitPositions[i], movePos));
                 }
             }
 
             //Attack actions
-            if (board.GetUnitFromPos(unitPositions[i]).canAttack) {
-                List<Vector2Int> attackPositions = board.GetAttackPositions(unitPositions[i]);
+            if (board.GetUnitReference(unitPositions[i]).unitReference.canAttack) {
+                List<Vector2Int> attackPositions = board.GetAttackPositions(unitPositions[i], activeActor);
                 foreach (Vector2Int attackPos in attackPositions)
-                    if (board.GetUnitFromPos(attackPos) != null && board.GetUnitFromPos(attackPos).owner != activeActor) {
-                        possibleActions.Add(Command_AttackUnit.GetAvailable().Init(board.GetUnitFromPos(unitPositions[i]).UnitID, board.GetUnitFromPos(attackPos).UnitID));
+                    if (board.GetUnitReference(attackPos) != null && board.GetUnitReference(attackPos).unitReference.owner != activeActor) {
+                        possibleActions.Add(Command_AttackUnit.GetAvailable().Init(board.GetUnitReference(unitPositions[i]).unitReference.UnitID, board.GetUnitReference(attackPos).unitReference.UnitID));
                     }
             }
         }
@@ -271,7 +268,6 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
         return possibleActions;
     }
-   
     
     public Board GetBoardFromInfo(BoardInfo boardInfo) {
         //create command stack leading to board

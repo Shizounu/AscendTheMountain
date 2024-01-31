@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace Commands
 {
-    public class Command_EnableSide : Pool.Poolable<Command_EnableSide>, ICommand {
-        public Command_EnableSide Init(Actors disabledSide) {
+    public class Command_EndTurn : Pool.Poolable<Command_EndTurn>, ICommand {
+        public Command_EndTurn Init(Actors disabledSide) {
             this.side = disabledSide;
             return this;
         }
@@ -33,17 +33,15 @@ namespace Commands
         }
         Actors Side;
 
-        Tile[,] Tiles => GameManager.Instance.currentBoard.tiles;
-
         public void Execute(Board board)
         {
-            foreach (var unit in board.GetActorReference(Side).LivingUnitIDs) {
+            foreach (var unit in board.GetActorReference(Side).GetLivingUnits()) {
                 board.SetSubCommand(Command_SetCanMove.GetAvailable().Init(unit.unitID, true));
                 board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(unit.unitID, true));
             }
 
             board.SetSubCommand(Command_ChangeMaxMana.GetAvailable().Init(Side, 1));
-            board.SetSubCommand(Command_ChangeCurrentMana.GetAvailable().Init(Side, 69));
+            board.SetSubCommand(Command_ChangeCurrentMana.GetAvailable().Init(Side, 69)); //Number chosen to be a high number that would fill the entire mana bar, gets culled down to Maxmana during set
 
             ReturnToPool(this);
         }
@@ -56,17 +54,12 @@ namespace Commands
             this.val = val;
             return this;
         }
-        Actors side;
-        bool val;
+        public Actors side;
+        public bool val;
 
         public void Execute(Board board)
         {
-            /*
-            if(val)
-                board.GetActorReference(side).Enable();
-            else 
-                board.GetActorReference(side).Disable();
-            */
+            //Gets triggered in game maanger, I also dont know why I did it that way
             ReturnToPool(this);
         }
     }

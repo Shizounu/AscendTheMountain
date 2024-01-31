@@ -22,15 +22,17 @@ namespace Commands
         private Unit general;
 
         public void Execute(Board board) {
-            general = new Unit(generalCard, owner);
-            board.tiles[position.x, position.y].unitID = general.UnitID;
+            string ID = board.GetUID();
+            general = new Unit(generalCard, owner, ID);
+            board.GetActorReference(owner).GeneralReference = new UnitReference(ID, general, position);
+            board.tiles[position.x, position.y].unitID = ID;
 
-            
-            board.GetActorReference(owner).GeneralID = new UnitReference(general.UnitID, general, position);
-            board.GetActorReference(owner).LivingUnitIDs.Add(board.GetActorReference(owner).GeneralID);
 
-            board.SetSubCommand(Command_SetCanMove.GetAvailable().Init(general.UnitID, true));
-            board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(general.UnitID, true));
+
+            board.SetSubCommand(Command_SetCanMove.GetAvailable().Init(ID, true));
+            board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(ID, true));
+
+            ReturnToPool(this);
         }
 
         public void Visuals(BoardRenderer boardRenderer)
@@ -70,14 +72,15 @@ namespace Commands
         Unit unit;
         public void Execute(Board board)
         {
+            string ID = board.GetUID();
 
-            unit = new Unit(unitDef, owner);
-            board.tiles[position.x, position.y].unitID = unit.UnitID;
+            unit = new Unit(unitDef, owner, ID);
+            board.tiles[position.x, position.y].unitID = ID;
+            board.GetActorReference(owner).AddLivingUnitReference(ID, unit, position);
 
-            board.GetActorReference(owner).LivingUnitIDs.Add(new UnitReference(unit.UnitID, unit, position));
 
-            board.SetSubCommand(Command_SetCanMove.GetAvailable().Init(unit.UnitID, canMove));
-            board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(unit.UnitID, canAttack));
+            board.SetSubCommand(Command_SetCanMove.GetAvailable().Init(ID, canMove));
+            board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(ID, canAttack));
 
             if (payCost)
                 board.SetSubCommand(Command_ChangeCurrentMana.GetAvailable().Init(owner, -unitDef.cardCost));
@@ -103,10 +106,10 @@ namespace Commands
         string unitID;
         public void Execute(Board board)
         {
-            UnitReference unitRef = board.GetUnitReferenceFromID(unitID);
+            UnitReference unitRef = board.GetUnitReference(unitID);
             board.tiles[unitRef.unitPosition.x, unitRef.unitPosition.y].unitID = "";
             unitRef.unitReference = null;
-            board.GetActorReference(unitRef.unitReference.owner).LivingUnitIDs.Remove(unitRef);
+            board.GetActorReference(unitRef.unitReference.owner).GetLivingUnits().Remove(unitRef);
 
             ReturnToPool(this);
 
@@ -134,12 +137,12 @@ namespace Commands
 
 
         public Vector2Int startPos;
-        public Vector2Int curPos;
+        private Vector2Int curPos;
         public Vector2Int goalPos;
 
         string unitID;
         public void Execute(Board board) {
-            unitID = board.GetUnitFromPos(startPos).UnitID;
+            unitID = board.GetUnitReference(startPos).unitID;
             curPos = startPos;
             
             Move(board, goalPos);
@@ -152,6 +155,7 @@ namespace Commands
             board.tiles[curPos.x, curPos.y].unitID = "";
             board.tiles[moveTo.x, moveTo.y].unitID = unitID;
             curPos = moveTo;
+            board.GetUnitReference(unitID).ChangePosition(curPos);
         }
 
         public void Visuals(BoardRenderer boardRenderer)
@@ -177,7 +181,7 @@ namespace Commands
 
         public void Execute(Board board)
         {
-            board.SetSubCommand(Command_DamageUnit.GetAvailable().Init(board.GetUnitReferenceFromID(attackerID).unitReference.attack, defenderID));
+            board.SetSubCommand(Command_DamageUnit.GetAvailable().Init(board.GetUnitReference(attackerID).unitReference.attack, defenderID));
             board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(attackerID, false));
             ReturnToPool(this);
         }
@@ -198,8 +202,8 @@ namespace Commands
 
         public void Execute(Board board)
         {
-            board.GetUnitReferenceFromID(targetID).unitReference.curHealth -= amount;
-            if(board.GetUnitReferenceFromID(targetID).unitReference.curHealth <= 0) {
+            board.GetUnitReference(targetID).unitReference.curHealth -= amount;
+            if(board.GetUnitReference(targetID).unitReference.curHealth <= 0) {
                 board.SetSubCommand(Command_KillUnit.GetAvailable().Init(targetID));
             }
             ReturnToPool(this);
@@ -238,10 +242,8 @@ namespace Commands
         public string unitID;
         public bool value;
 
-        public void Execute(Board board)
-        {
-            
-            board.GetUnitReferenceFromID(this.unitID).unitReference.canMove = value;
+        public void Execute(Board board) {
+            board.GetUnitReference(this.unitID).unitReference.canMove = value;
             ReturnToPool(this);
         }
     }
@@ -257,7 +259,7 @@ namespace Commands
 
         public void Execute(Board board)
         {
-            board.GetUnitReferenceFromID(this.unitID).unitReference.canAttack = value;
+            board.GetUnitReference(this.unitID).unitReference.canAttack = value;
             ReturnToPool(this);
         }
     }

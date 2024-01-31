@@ -19,12 +19,10 @@ namespace Commands
         {
             board.SetSubCommand(Command_SetDeck.GetAvailable().Init(deckDef.Cards, side));
             board.SetSubCommand(Command_DrawCard.GetAvailable().Init(side, 3));
-
             Vector2Int pos = new Vector2Int(side == Actors.Actor1 ? 0 : 8, 2);
-            //board.SetSubCommand(Command_SummonUnit.GetAvailable().Init(deckDef.SideGeneral, pos, side, true, true)); //TODO: Make summon general command
 
+            board.SetSubCommand(Command_SummonGeneral.GetAvailable().Init(new CardInstance_Unit(deckDef.SideGeneral), pos, side));
             ReturnToPool(this);
-            
         }
     }
     public class Command_SetDeck : Pool.Poolable<Command_SetDeck>, ICommand {
