@@ -10,12 +10,12 @@ namespace Combat.AI.StateMachine
             int playerHealth = 0;
             List<Vector2Int> playerUnitPositions = board.GetUnitPositions(Actors.Actor1);
             foreach (var unit in playerUnitPositions)
-                playerHealth += board.GetUnitFromPos(unit).curHealth;
+                playerHealth += board.GetUnitReference(unit).unitReference.curHealth;
 
             int AIHealth = 0;
             List<Vector2Int> AIUnitHealth= board.GetUnitPositions(Actors.Actor1);
             foreach (var unit in AIUnitHealth)
-                AIHealth += board.GetUnitFromPos(unit).curHealth;
+                AIHealth += board.GetUnitReference(unit).unitReference.curHealth;
 
             return playerHealth - AIHealth;
         }

@@ -23,13 +23,19 @@ public class BoardRenderer : SingletonBehaviour<BoardRenderer>
     [Header("References")]
     public Transform unitHolder;
     public Transform tileHolder;
-    public Dictionary<Unit, UnitRenderer> units;
-    
+    public Dictionary<string, UnitRenderer> units;
+
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+    }
 
     private void Start() {
-        InitializeBoard(GameManager.Instance.currentBoard.tiles);
-        GameManager.Instance.currentBoard.onCommand = ProcessCommand;
         visualCommands = new Queue<IVisualCommand>();
+        InitializeBoard(GameManager.Instance.currentBoard.tiles);
+        GameManager.Instance.currentBoard.onCommand += ProcessCommand;
         units = new();
     }
 
@@ -53,7 +59,7 @@ public class BoardRenderer : SingletonBehaviour<BoardRenderer>
         renderer.Initialize(rac, unit.owner);
         renderer.transform.position = tiles[position.x, position.y].transform.position;
 
-        units.Add(unit, renderer);
+        units.Add(unit.UnitID, renderer);
     }
 
 
@@ -81,7 +87,7 @@ public class BoardRenderer : SingletonBehaviour<BoardRenderer>
                 for (int y = 0; y < GameManager.Instance.currentBoard.tiles.GetLength(1); y++) {
                     Vector3 position = new Vector3(x * tileScale.x, y * tileScale.y);
 
-                    Gizmos.color = GameManager.Instance.currentBoard.tiles[x, y].unit == null ? Color.white : Color.magenta;
+                    Gizmos.color = GameManager.Instance.currentBoard.tiles[x, y].unitID == "" ? Color.white : Color.magenta;
                     Gizmos.DrawWireCube(position + offset, new Vector3(1, 1, 0));
                 }
             }

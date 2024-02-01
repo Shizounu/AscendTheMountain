@@ -7,9 +7,12 @@ using UnityEditor.PackageManager;
 
 namespace Combat {
     public delegate void OnCommandHandler(ICommand command);
-
     public class GameManager : Shizounu.Library.SingletonBehaviour<GameManager> {
+        [Header("Actor References")]
+        public PlayerActorManager player;
+        public AIActorManager enemy;
 
+        public BoardRenderer boardRenderer;
         public Board currentBoard;
         private Board rootBoard;
 
@@ -17,30 +20,47 @@ namespace Combat {
             base.Awake();
 
             currentBoard = new Board();
+            currentBoard.onCommand += SideEnableCommand;
+        }
+
+        private void Start()
+        {
+            player.Init();
+            enemy.Init();
+
+
+            rootBoard = currentBoard.GetCopy();
+            //currentBoard.onCommand += boardRenderer.ProcessCommand;
         }
 
         private void OnDestroy()
         {
             currentBoard = null;
+            rootBoard = null;
         }
 
-        /// <summary>
-        /// Will only trigger on second call
-        /// Done to solve a problem with race conditions and having to figure out what is actually the root board
-        /// </summary>
-        bool isFirst = true;
-        public void InitRootBoard() {
-            if (isFirst) {
-                isFirst = false;
-                return;
+        public void SideEnableCommand(ICommand command) {
+            if(command.GetType() == typeof(Command_SetEnable)) {
+                if (((Command_SetEnable)command).side == Actors.Actor1) {
+                    if(((Command_SetEnable)command).val) 
+                        player.Enable();
+                    else 
+                        player.Disable();
+                } else {
+                    if (((Command_SetEnable)command).val)
+                        enemy.Enable();
+                    else
+                        enemy.Disable();
+                }
+
+
             }
-            
-            rootBoard = new Board(currentBoard);
-            Debug.Log("Made root board copy");
         }
+
+        
 
         public Board GetRootBoardCopy() {
-            return new Board(rootBoard);
+            return rootBoard.GetCopy();
         }
     }
 }

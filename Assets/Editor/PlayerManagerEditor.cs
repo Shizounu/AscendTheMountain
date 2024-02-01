@@ -66,8 +66,8 @@ namespace Editor
             {
                 for (int x = 0; x < GameManager.Instance.currentBoard.tiles.GetLength(0); x++) {
                     for (int y = 0; y < GameManager.Instance.currentBoard.tiles.GetLength(1); y++) {
-                        if (GameManager.Instance.currentBoard.tiles[x,y].unit != null) {
-                            GameManager.Instance.currentBoard.SetCommand(Command_SetCanMove.GetAvailable().Init(GameManager.Instance.currentBoard.tiles[x, y].unit, true));
+                        if (GameManager.Instance.currentBoard.tiles[x,y].unitID != "") {
+                            GameManager.Instance.currentBoard.SetCommand(Command_SetCanMove.GetAvailable().Init(GameManager.Instance.currentBoard.tiles[x, y].unitID, true));
                         }
                     }
                 }
@@ -78,9 +78,9 @@ namespace Editor
                 {
                     for (int y = 0; y < GameManager.Instance.currentBoard.tiles.GetLength(1); y++)
                     {
-                        if (GameManager.Instance.currentBoard.tiles[x, y].unit != null)
+                        if (GameManager.Instance.currentBoard.tiles[x, y].unitID != "")
                         {
-                            GameManager.Instance.currentBoard.SetCommand(Command_SetCanAttack.GetAvailable().Init(GameManager.Instance.currentBoard.tiles[x, y].unit, true));
+                            GameManager.Instance.currentBoard.SetCommand(Command_SetCanAttack.GetAvailable().Init(GameManager.Instance.currentBoard.tiles[x, y].unitID, true));
                         }
                     }
                 }
@@ -95,9 +95,9 @@ namespace Editor
                 {
                     for (int y = 0; y < GameManager.Instance.currentBoard.tiles.GetLength(1); y++)
                     {
-                        if (GameManager.Instance.currentBoard.tiles[x, y].unit != null)
+                        if (GameManager.Instance.currentBoard.tiles[x, y].unitID != "")
                         {
-                            GameManager.Instance.currentBoard.SetCommand(Command_KillUnit.GetAvailable().Init(GameManager.Instance.currentBoard.tiles[x, y].unit));
+                            GameManager.Instance.currentBoard.SetCommand(Command_KillUnit.GetAvailable().Init(GameManager.Instance.currentBoard.tiles[x, y].unitID));
                         }
                     }
                 }
@@ -106,7 +106,7 @@ namespace Editor
             
             if(GUILayout.Button("Summon Testing Unit") && actorManager.testingDefinition != null) {
                 GameManager.Instance.currentBoard.SetCommand(Command_SummonUnit.GetAvailable().Init(
-                    actorManager.testingDefinition,
+                    new Combat.Cards.CardInstance_Unit(actorManager.testingDefinition),
                     new Vector2Int(7, 2), 
                     Actors.Actor2)
                 );

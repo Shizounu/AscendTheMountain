@@ -1,5 +1,6 @@
 using Cards;
 using Combat;
+using Combat.Cards;
 using Commands;
 using System;
 using System.Collections;
@@ -13,18 +14,16 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
     public bool isEnabled => throw new System.NotImplementedException();
 
-    public DeckInformation deckInformation => GameManager.Instance.currentBoard.getActorReference(Actors.Actor2);
+    public DeckInformation deckInformation => GameManager.Instance.currentBoard.GetActorReference(Actors.Actor2);
 
     private void Start()
     {
-        //Register for enabling
-        deckInformation.actorManager = this;
+        
 
-        boardPool = new();
-
+    }
+    public void Init() {
         GameManager.Instance.currentBoard.SetCommand(Command_InitSide.GetAvailable().Init(Actors.Actor2, deck));
         GameManager.Instance.currentBoard.DoQueuedCommands();
-        GameManager.Instance.InitRootBoard();
     }
 
     public void Disable()
@@ -33,10 +32,6 @@ public class AIActorManager : MonoBehaviour, IActorManager
     }
     public void Enable()
     {
-        if(curBoard.curCommandCount > 0) {
-            curBoard.SetCommand(Command_EnableSide.GetAvailable().Init(Actors.Actor1));
-            return;
-        }
         StartCoroutine(EnableActions());
         //EnableActions();
     }
@@ -60,7 +55,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
 
         //PopulatePermutations(GameManager.Instance.currentBoard, Actors.Actor2);
-        BoardEvaluation eval = EvaluateBoard(new BoardInfo(curBoard.GetHash(),Actors.Actor2, new()), Actors.Actor2);
+        BoardEvaluation eval = EvaluateBoard(new BoardInfo(curBoard,Actors.Actor2, new()), Actors.Actor2);
 
         sw.Stop();
 
@@ -68,67 +63,26 @@ public class AIActorManager : MonoBehaviour, IActorManager
         Debug.Log(eval.eval);
     }
 
-    #region Board Pool
-    public BoardPool boardPool;
-    public class BoardPool {
-        public BoardPool(int count = 8) {
-            AddToPool(count);
-            capacity = count;
-        }
-
-        int capacity;
-        Queue<Board> pool = new(); 
-
-        public void AddToPool(int count) {
-            for (int i = 0; i < count; i++)
-                pool.Enqueue(new Board());
-        }
-
-        public Board GetFromPool(Board boardToCopy) {
-            if(pool.Count == 0) {
-                AddToPool(capacity);
-                capacity *= 2;
-            }
-            Board board = pool.Dequeue();
-
-            for (int x = 0; x < board.tiles.GetLength(0); x++)
-                for (int y = 0; y < board.tiles.GetLength(1); y++)
-                    board.tiles[x, y] = new Tile(boardToCopy.tiles[x, y]);
-            board.Actor1_Deck = boardToCopy.Actor1_Deck.Clone();
-            board.Actor2_Deck = boardToCopy.Actor2_Deck.Clone();
-            board.onCommand = null;
-
-            return board;
-        }
-        public void ReturnToPool(Board b) {
-            pool.Enqueue(b);
-        }
-    }
-
-
-    #endregion
-
     #region Board Generation
     Dictionary<string, BoardInfo> CachedBoards = new();
     Board curBoard = new();
     [Serializable]
     public struct BoardInfo {
-        public BoardInfo(string preceedingBoard, Actors activeActor, List<ICommand> moves) {
-            this.preceedingBoard = preceedingBoard;
-            this.moves = moves;
+        public BoardInfo(Board board, Actors activeActor, List<ICommand> moves) {
+            this.board = board;
             this.activeActor = activeActor;
             this.resultingBoards = new();
         }
 
         //Info
-        public string preceedingBoard;
+        
         public Actors activeActor;
-        public List<ICommand> moves;
+        public Board board; 
         public List<string> resultingBoards;
     }
 
-    private Command_EnableSide GetEnableSide(Actors currentActor) {
-        return Command_EnableSide.GetAvailable().Init(currentActor == Actors.Actor1 ? Actors.Actor2 : Actors.Actor1);
+    private Command_EndTurn GetEnableSide(Actors currentActor) {
+        return Command_EndTurn.GetAvailable().Init(currentActor == Actors.Actor1 ? Actors.Actor2 : Actors.Actor1);
     }
 
     
@@ -139,7 +93,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         string baseBoardHash = board.GetHash();
         //Should only ever be relevant for the first ever board. Populates it into the dict
         if (!CachedBoards.ContainsKey(baseBoardHash)) {
-            BoardInfo boardInfo = new BoardInfo("", currentActor, (actionsTaken == null ? new() : actionsTaken));
+            BoardInfo boardInfo = new BoardInfo(board, currentActor, (actionsTaken == null ? new() : actionsTaken));
             CachedBoards.Add(baseBoardHash, boardInfo);
             resultingBoards.Add(baseBoardHash, boardInfo);
         }
@@ -153,15 +107,14 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
         foreach (ICommand possibleMove in possibleMoves) {
             //Generate Board resulting from this move
-            curBoard = boardPool.GetFromPool(board);
+            curBoard = board.GetCopy();
             curBoard.SetCommand(possibleMove);
             curBoard.SetCommand(GetEnableSide(currentActor));
             curBoard.DoQueuedCommands();
             string curBoardHash = curBoard.GetHash();
 
-            BoardInfo boardInfo = new BoardInfo(baseBoardHash, currentActor, curActionsTaken);
+            BoardInfo boardInfo = new BoardInfo(curBoard, currentActor, curActionsTaken);
             resultingBoards.Add(curBoardHash, boardInfo);
-            
             
             if (CachedBoards.ContainsKey(curBoardHash))
                 continue;
@@ -175,7 +128,6 @@ public class AIActorManager : MonoBehaviour, IActorManager
             resultingBoards.Merge(GetPossibleBoards(curBoard, currentActor, curActionsTaken, possibleMove, curDepth - 1));
 
         }
-        boardPool.ReturnToPool(board);
 
         return resultingBoards;
     }
@@ -184,7 +136,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         string baseBoardHash = board.GetHash();
         //Should only ever be relevant for the first ever board. Populates it into the dict
         if (!CachedBoards.ContainsKey(baseBoardHash)) {
-            BoardInfo boardInfo = new BoardInfo("",currentActor, (actionsTaken == null ? new() : actionsTaken));
+            BoardInfo boardInfo = new BoardInfo(board,currentActor, (actionsTaken == null ? new() : actionsTaken));
             CachedBoards.Add(baseBoardHash, boardInfo);
         }
 
@@ -196,7 +148,8 @@ public class AIActorManager : MonoBehaviour, IActorManager
             curActionsTaken.Add(lastCommand);
 
         foreach (ICommand possibleMove in possibleMoves) {
-            curBoard = boardPool.GetFromPool(board);
+            //Generate Board resulting from this move
+            curBoard = board.GetCopy();
             curBoard.SetCommand(possibleMove);
             curBoard.SetCommand(GetEnableSide(currentActor));
             curBoard.DoQueuedCommands();
@@ -205,17 +158,16 @@ public class AIActorManager : MonoBehaviour, IActorManager
             if (CachedBoards.ContainsKey(curBoardHash))
                 continue;
 
-            
-            BoardInfo boardInfo = new BoardInfo(baseBoardHash, currentActor, curActionsTaken);
+            BoardInfo boardInfo = new BoardInfo(curBoard, currentActor, curActionsTaken);
             CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
             CachedBoards.Add(curBoardHash, boardInfo);
 
+            //Debug.Log($"Added board with move count {curActionsTaken.Count + 1}");
             if (curDepth <= 0) 
                 continue;
 
             PopulatePermutations(curBoard, currentActor, curActionsTaken, possibleMove, curDepth - 1);
         }
-        boardPool.ReturnToPool(board);
     }
 
     public List<ICommand> GetPossibleActions(Board board, Actors activeActor)
@@ -223,15 +175,15 @@ public class AIActorManager : MonoBehaviour, IActorManager
         List<ICommand> possibleActions = new List<ICommand>();
 
         //Summoning
-        for (int i = 0; i < board.getActorReference(activeActor).Hand.Length; i++) {
-            if (board.getActorReference(activeActor).Hand[i] != null) {
-                if (board.getActorReference(activeActor).Hand[i].Cost <= board.getActorReference(activeActor).CurManagems) {
-                    if (board.getActorReference(activeActor).Hand[i].GetType() == typeof(UnitDefinition)) {
-                        List<Vector2Int> summonPositions = board.getSummonPositions(activeActor);
+        for (int i = 0; i < board.GetActorReference(activeActor).Hand.Length; i++) {
+            if (board.GetActorReference(activeActor).Hand[i] != null) {
+                if (board.GetActorReference(activeActor).Hand[i].cardCost <= board.GetActorReference(activeActor).CurManagems) {
+                    if (board.GetActorReference(activeActor).Hand[i].GetType() == typeof(CardInstance_Unit)) {
+                        List<Vector2Int> summonPositions = board.GetSummonPositions(activeActor);
                         foreach (Vector2Int pos in summonPositions) {                           
                             possibleActions.Add(
                                 Command_SummonUnit.GetAvailable().Init(
-                                    (UnitDefinition)board.getActorReference(activeActor).Hand[i], pos, activeActor,
+                                    (CardInstance_Unit)board.GetActorReference(activeActor).Hand[i], pos, activeActor,
                                     false, false, true, true, i));
                         }
                     } else {
@@ -247,19 +199,19 @@ public class AIActorManager : MonoBehaviour, IActorManager
         List<Vector2Int> unitPositions = board.GetUnitPositions(activeActor);
         for (int i = 0; i < unitPositions.Count; i++) {
             //Move actions
-            if (board.GetUnitFromPos(unitPositions[i]).canMove) {
-                List<Vector2Int> movePositions = board.getMovePositions(unitPositions[i], activeActor, board.GetUnitFromPos(unitPositions[i]).moveDistance);
+            if (board.GetUnitReference(unitPositions[i]).unitReference.canMove) {
+                List<Vector2Int> movePositions = board.GetMovePositions(unitPositions[i], activeActor, board.GetUnitReference(unitPositions[i]).unitReference.moveDistance);
                 foreach (Vector2Int movePos in movePositions) { 
                     possibleActions.Add(Command_MoveUnit.GetAvailable().Init(unitPositions[i], movePos));
                 }
             }
 
             //Attack actions
-            if (board.GetUnitFromPos(unitPositions[i]).canAttack) {
-                List<Vector2Int> attackPositions = board.getAttackPositions(unitPositions[i]);
+            if (board.GetUnitReference(unitPositions[i]).unitReference.canAttack) {
+                List<Vector2Int> attackPositions = board.GetAttackPositions(unitPositions[i], activeActor);
                 foreach (Vector2Int attackPos in attackPositions)
-                    if (board.GetUnitFromPos(attackPos) != null && board.GetUnitFromPos(attackPos).owner != activeActor) {
-                        possibleActions.Add(Command_AttackUnit.GetAvailable().Init(board.GetUnitFromPos(unitPositions[i]), board.GetUnitFromPos(attackPos)));
+                    if (board.GetUnitReference(attackPos) != null && board.GetUnitReference(attackPos).unitReference.owner != activeActor) {
+                        possibleActions.Add(Command_AttackUnit.GetAvailable().Init(board.GetUnitReference(unitPositions[i]).unitReference.UnitID, board.GetUnitReference(attackPos).unitReference.UnitID));
                     }
             }
         }
@@ -269,28 +221,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
         return possibleActions;
     }
-   
-    
-    public Board GetBoardFromInfo(BoardInfo boardInfo) {
-        //create command stack leading to board
-        Stack<BoardInfo> infos = new();
-        BoardInfo curInfo = boardInfo;
-        do
-        {
-            infos.Push(curInfo);
-            curInfo = CachedBoards[curInfo.preceedingBoard];
-        } while (curInfo.preceedingBoard != "");
 
-        Board board = GameManager.Instance.GetRootBoardCopy();
-        while (infos.Count > 0) {
-            curInfo = infos.Pop();
-            foreach (var info in curInfo.moves) {
-                board.SetCommand(info);
-            }
-            board.DoQueuedCommands();
-        }
-        return board;
-    }
     #endregion
 
     #region Board Evaluation
@@ -312,14 +243,14 @@ public class AIActorManager : MonoBehaviour, IActorManager
     }
 
     public BoardEvaluation EvaluateBoard(BoardInfo curBoard, Actors currentActor, int alpha = int.MinValue, int beta = int.MaxValue,int depth = 3) {
-        if(depth == 0 || curBoard.resultingBoards.Count == 0)
+        if(depth == 0)
             return new(EvaluatePosition(curBoard), curBoard); //Return evaluation of the current board
 
         if (currentActor == Actors.Actor2) {
             //Maximizes
             BoardEvaluation currentBest = new BoardEvaluation(int.MinValue, new()); //sets evaluation to smalles value possible so everything is larger
             
-            Dictionary<string, BoardInfo> possibleMoves = GetPossibleBoards(GetBoardFromInfo(curBoard), currentActor);
+            Dictionary<string, BoardInfo> possibleMoves = GetPossibleBoards(curBoard.board, currentActor);
             foreach (var item in possibleMoves) {
                 BoardEvaluation cur = EvaluateBoard(item.Value, invertActor(currentActor), alpha, beta, depth - 1);
                 if(cur.eval > currentBest.eval) //checks if current is better than best
@@ -334,7 +265,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         } else {
             //Minimizes
             BoardEvaluation currentBest = new BoardEvaluation(int.MaxValue, new());
-            Dictionary<string, BoardInfo> possibleMoves = GetPossibleBoards(GetBoardFromInfo(curBoard), currentActor);
+            Dictionary<string, BoardInfo> possibleMoves = GetPossibleBoards(curBoard.board, currentActor);
 
             foreach (var item in possibleMoves) {
                 BoardEvaluation cur = EvaluateBoard(item.Value, invertActor(currentActor), alpha, beta, depth - 1);
@@ -349,9 +280,8 @@ public class AIActorManager : MonoBehaviour, IActorManager
         }
     }
 
-    public int EvaluatePosition(BoardInfo board)
-    {
-        Board curBoard = GetBoardFromInfo(board);
+    public int EvaluatePosition(BoardInfo board) {
+        Board curBoard = board.board;
         int eval = 0;
         for (int i = 0; i < CurState.boardEvaluationConditions.Count; i++) {
             eval += CurState.boardEvaluationConditions[i].Evaluate(curBoard) * CurState.boardEvaluationConditions[i].Weight;

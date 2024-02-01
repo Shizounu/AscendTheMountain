@@ -11,8 +11,5 @@ namespace Cards
         public int Health;
         public int Attack;
         public int MoveDistance;
-
-        public List<IEffect> effects;
-
     }
 }

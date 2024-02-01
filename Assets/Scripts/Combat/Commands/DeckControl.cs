@@ -1,5 +1,6 @@
 using Cards;
 using Combat;
+using Combat.Cards;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,12 +19,10 @@ namespace Commands
         {
             board.SetSubCommand(Command_SetDeck.GetAvailable().Init(deckDef.Cards, side));
             board.SetSubCommand(Command_DrawCard.GetAvailable().Init(side, 3));
-
             Vector2Int pos = new Vector2Int(side == Actors.Actor1 ? 0 : 8, 2);
-            board.SetSubCommand(Command_SummonUnit.GetAvailable().Init(deckDef.SideGeneral, pos, side, true, true));
 
+            board.SetSubCommand(Command_SummonGeneral.GetAvailable().Init(new CardInstance_Unit(deckDef.SideGeneral), pos, side));
             ReturnToPool(this);
-            
         }
     }
     public class Command_SetDeck : Pool.Poolable<Command_SetDeck>, ICommand {
@@ -36,33 +35,40 @@ namespace Commands
         Actors side;
 
 
-        public void Execute(Board board) { 
-            board.getActorReference(side).Deck = cards;
-            board.getActorReference(side).Deck.Shuffle();
+        public void Execute(Board board) {
+            foreach (var card in cards) {
+                if(card.GetType() == typeof(UnitDefinition)) {
+                    board.GetActorReference(side).Deck.Add(new CardInstance_Unit((UnitDefinition)card));
+                } else {
+                    throw new System.NotImplementedException();
+                }
+            }
+
+            board.GetActorReference(side).Deck.Shuffle();
 
             ReturnToPool(this);
         }
     }
     public class Command_AddToDeck : Pool.Poolable<Command_AddToDeck>, ICommand {
-        public Command_AddToDeck Init(CardDefinition _card, Actors _side){
-            cards = new List<CardDefinition> { _card };
+        public Command_AddToDeck Init(CardInstance _card, Actors _side){
+            cards = new List<CardInstance> { _card };
             side = _side;
             return this;
         }
-        public Command_AddToDeck Init(List<CardDefinition> _cards, Actors _side)
+        public Command_AddToDeck Init(List<CardInstance> _cards, Actors _side)
         {
-            cards = new List<CardDefinition>(_cards);
+            cards = new List<CardInstance>(_cards);
             side = _side;
             return this;
         }
-        List<CardDefinition> cards;
+        List<CardInstance> cards;
         Actors side;
 
 
         public void Execute(Board board)
         {
-            board.getActorReference(side).Deck.AddRange(cards);
-            board.getActorReference(side).Deck.Shuffle();
+            board.GetActorReference(side).Deck.AddRange(cards);
+            board.GetActorReference(side).Deck.Shuffle();
 
             ReturnToPool(this);
         }
@@ -90,10 +96,10 @@ namespace Commands
             ReturnToPool(this);
         }
         private void Draw(Board b) {
-            b.getActorReference(side).Hand[
-                b.getActorReference(side).getFreeHandIndex()
-                ] = b.getActorReference(side).Deck[0];
-            b.getActorReference(side).Deck.RemoveAt(0);
+            b.GetActorReference(side).Hand[
+                b.GetActorReference(side).getFreeHandIndex()
+                ] = b.GetActorReference(side).Deck[0];
+            b.GetActorReference(side).Deck.RemoveAt(0);
 
         }
     }
@@ -108,7 +114,7 @@ namespace Commands
         public Actors actor;
 
         public void Execute(Board board) {
-            board.getActorReference(actor).Hand[handIndex] = null;
+            board.GetActorReference(actor).Hand[handIndex] = null;
             ReturnToPool(this);
         }
     }
@@ -124,7 +130,7 @@ namespace Commands
 
         public void Execute(Board board)
         {
-            board.getActorReference(side).CurManagems += amount;
+            board.GetActorReference(side).CurManagems += amount;
 
             ReturnToPool(this);
         }
@@ -144,7 +150,7 @@ namespace Commands
 
         public void Execute(Board board)
         {
-            board.getActorReference(side).MaxManagems += amount;
+            board.GetActorReference(side).MaxManagems += amount;
 
             ReturnToPool(this);
         }

@@ -2125,29 +2125,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89220ba2d860d8b4481325c99d694512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 398412076}
+  enemy: {fileID: 1556910636}
+  boardRenderer: {fileID: 0}
   currentBoard:
     Actor1_Deck:
       _MaxManagems: 0
       _CurManagems: 0
-      Deck: []
-      Hand:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
+      GeneralReference:
+        unitID: 
+        unitReference:
+          owner: 0
+          maxHealth: 0
+          attack: 0
+          canAttack: 0
+          moveDistance: 0
+          canMove: 0
+        unitPosition: {x: 0, y: 0}
     Actor2_Deck:
       _MaxManagems: 0
       _CurManagems: 0
-      Deck: []
-      Hand:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
+      GeneralReference:
+        unitID: 
+        unitReference:
+          owner: 0
+          maxHealth: 0
+          attack: 0
+          canAttack: 0
+          moveDistance: 0
+          canMove: 0
+        unitPosition: {x: 0, y: 0}
+    currentUnitIndex: 0
 --- !u!4 &962846306
 Transform:
   m_ObjectHideFlags: 0

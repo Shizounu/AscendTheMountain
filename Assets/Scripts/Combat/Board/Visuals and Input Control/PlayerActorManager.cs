@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Commands;
-
+using Combat.Cards;
 
 public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActorManager>, IActorManager {
 
@@ -54,19 +54,19 @@ public class PlayerActorManager : Shizounu.Library.SingletonBehaviour<PlayerActo
 
     private void Start()
     {
-        //Register for Enabling
-        deckInformation.actorManager = this;
-
         //Initialize Input
         currentState = new InputStates.InputState_Default();
         Input.InputManager.Instance.InputActions.BattlefieldControls.RightClick.performed += ctx => OnCancel();
 
 
-        GameManager.Instance.currentBoard.SetCommand(Command_InitSide.GetAvailable().Init(Actors.Actor1, PlayerDeck));
-        GameManager.Instance.currentBoard.SetCommand(Command_EnableSide.GetAvailable().Init(Actors.Actor1)); 
-        GameManager.Instance.currentBoard.DoQueuedCommands();
-        GameManager.Instance.InitRootBoard();
+    }
 
+    public void Init()
+    {
+        GameManager.Instance.currentBoard.SetCommand(Command_InitSide.GetAvailable().Init(Actors.Actor1, PlayerDeck));
+        GameManager.Instance.currentBoard.SetCommand(Command_EndTurn.GetAvailable().Init(Actors.Actor1)); 
+
+        GameManager.Instance.currentBoard.DoQueuedCommands();
     }
 
     public void Enable()
@@ -123,7 +123,7 @@ namespace InputStates
         public override void OnTileSelect(PlayerActorManager sm, Vector2Int position)
         {
             //If selected tile has a Unit -> Transfer into that unit control
-            if (currentBoard.tiles[position.x, position.y].unit != null && currentBoard.tiles[position.x, position.y].unit.owner == Actors.Actor1) {
+            if (currentBoard.tiles[position.x, position.y].unitID != "" && currentBoard.GetUnitReference(position).unitReference.owner == Actors.Actor1) {
                 sm.currentState = new InputState_UnitSelected(position);
             }
             //If selected tile has no Unit -> Remain here
@@ -152,14 +152,14 @@ namespace InputStates
         public override void OnTileSelect(PlayerActorManager sm, Vector2Int position)
         {
             //needs more sophisticated check
-            if (currentBoard.tiles[position.x, position.y].unit == null &&
-                currentBoard.Actor1_Deck.CurManagems >= currentBoard.Actor1_Deck.Hand[curCard].Cost &&
-                currentBoard.getSummonPositions(Actors.Actor1).Contains(position)) {
+            if (currentBoard.tiles[position.x, position.y].unitID == "" &&
+                currentBoard.Actor1_Deck.CurManagems >= currentBoard.Actor1_Deck.Hand[curCard].cardCost &&
+                currentBoard.GetSummonPositions(Actors.Actor1).Contains(position)) {
                 //dispatch summon command 
                 currentBoard.SetCommand
                     (
                         Command_SummonUnit.GetAvailable().Init(
-                            (UnitDefinition) sm.deckInformation.Hand[curCard], 
+                            (CardInstance_Unit) sm.deckInformation.Hand[curCard], 
                             position, 
                             Actors.Actor1,
                             false,
@@ -182,7 +182,7 @@ namespace InputStates
 
         public override void DrawGizmos(PlayerActorManager sm)
         {
-            List<Vector2Int> summonPositions = currentBoard.getSummonPositions(Actors.Actor1);
+            List<Vector2Int> summonPositions = currentBoard.GetSummonPositions(Actors.Actor1);
             Gizmos.color = Color.green;
             Vector3 offset = new Vector3(BoardRenderer.Instance.transform.position.x + BoardRenderer.Instance.positionOffset.x, BoardRenderer.Instance.transform.position.y + BoardRenderer.Instance.positionOffset.y);
             foreach (Vector2Int pos in summonPositions)
@@ -199,7 +199,7 @@ namespace InputStates
             this.unitPosition = unitPosition;
         }
         Vector2Int unitPosition;
-        Unit unit => currentBoard.tiles[unitPosition.x, unitPosition.y].unit;
+        Unit unit => GameManager.Instance.currentBoard.GetUnitReference(unitPosition).unitReference;
         public override void OnCancel(PlayerActorManager sm)
         {
             sm.currentState = new InputState_Default();
@@ -210,7 +210,7 @@ namespace InputStates
             sm.currentState = new InputState_HandCardSelected(handIndex);
         }
         private bool isAvailablePos(Vector2Int position) {
-            List<Vector2Int> positions = currentBoard.getMovePositions(unitPosition,Actors.Actor1 ,unit.moveDistance);
+            List<Vector2Int> positions = currentBoard.GetMovePositions(unitPosition,Actors.Actor1 ,unit.moveDistance);
             foreach (var pos in positions) 
                 if(position == pos)
                     return true;
@@ -224,21 +224,24 @@ namespace InputStates
             }
 
 
-            if (unit.canMove && currentBoard.getMovePositions(unitPosition, Actors.Actor1,unit.moveDistance).Contains(position))
+            if (unit.canMove && currentBoard.GetMovePositions(unitPosition, Actors.Actor1,unit.moveDistance).Contains(position))
             {
 
                 currentBoard.SetCommand(Command_MoveUnit.GetAvailable().Init(unitPosition, position));
 
                 sm.currentState = new InputState_Default();
+                currentBoard.DoQueuedCommands();
                 return;
             }
 
             ///TODO: potential rare bug where you can attack using an enemy unit? Havent been able to reproduce
 
-            if( unit.canAttack && currentBoard.getAttackPositions(unitPosition).Contains(position))
+            if( unit.canAttack && currentBoard.GetAttackPositions(unitPosition, Actors.Actor1).Contains(position))
             {
-                if (currentBoard.tiles[position.x, position.y].unit != null && currentBoard.tiles[position.x, position.y].unit.owner == Actors.Actor2) {
-                    currentBoard.SetCommand(Command_AttackUnit.GetAvailable().Init(unit, currentBoard.tiles[position.x, position.y].unit));
+                if (currentBoard.tiles[position.x, position.y].unitID != "" &&
+                    currentBoard.GetActorReference(Actors.Actor1).GetLivingUnits().Exists(unitRef => unitRef.unitID == currentBoard.tiles[position.x, position.y].unitID)) {
+                    
+                    currentBoard.SetCommand(Command_AttackUnit.GetAvailable().Init(unit.UnitID, currentBoard.GetUnitReference(position).unitID));
 
                     currentBoard.DoQueuedCommands();
                     Debug.Log("Attacked");
@@ -256,7 +259,7 @@ namespace InputStates
         {
             if (unit.canMove)
             {
-                List<Vector2Int> positions = currentBoard.getMovePositions(unitPosition, Actors.Actor1,2);
+                List<Vector2Int> positions = currentBoard.GetMovePositions(unitPosition, Actors.Actor1,2);
                 Gizmos.color = Color.blue;
                 Vector3 offset = new Vector3(BoardRenderer.Instance.transform.position.x + BoardRenderer.Instance.positionOffset.x, BoardRenderer.Instance.transform.position.y + BoardRenderer.Instance.positionOffset.y);
                 foreach (Vector2Int pos in positions) {
@@ -269,7 +272,7 @@ namespace InputStates
                 
                 Vector3 offset = new Vector3(BoardRenderer.Instance.transform.position.x + BoardRenderer.Instance.positionOffset.x, BoardRenderer.Instance.transform.position.y + BoardRenderer.Instance.positionOffset.y);
                 Gizmos.color = Color.red;
-                foreach (var pos in currentBoard.getAttackPositions(unitPosition))
+                foreach (var pos in currentBoard.GetAttackPositions(unitPosition, Actors.Actor1))
                 {
                     Vector3 position = new Vector3(pos.x * BoardRenderer.Instance.tileScale.x, pos.y * BoardRenderer.Instance.tileScale.y);
                     Gizmos.DrawWireCube(position + offset, new Vector3(BoardRenderer.Instance.tileScale.x, BoardRenderer.Instance.tileScale.y, 0));
