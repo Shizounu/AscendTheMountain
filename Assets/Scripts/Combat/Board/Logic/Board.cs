@@ -74,6 +74,11 @@ namespace Combat
         {
             commandQueue.Enqueue(command);
         }
+        public void SetCommand(List<ICommand> commands) {
+            foreach (var item in commands) {
+                SetCommand(item);
+            }
+        }
         public void SetSubCommand(ICommand subCommand)
         {
             subCommandQueue.Enqueue(subCommand);

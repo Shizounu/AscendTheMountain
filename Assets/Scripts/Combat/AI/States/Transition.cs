@@ -10,7 +10,7 @@ namespace Combat.AI.StateMachine
         [Space()]
         public State transitionTo;
 
-        public bool Evaluate(Board board) {
+        public bool Evaluate(BoardInfo board) {
             bool cur = true;
             int i = 0;
             do //this is intended to cycle through the entire list of conditions. If any evaluate to false, stop the list and return false. Else return true
@@ -27,7 +27,7 @@ namespace Combat.AI.StateMachine
         public int threshhold;
         public bool invert;
 
-        public bool Evaluate(Board board) {
+        public bool Evaluate(BoardInfo board) {
             return (condition.Evaluate(board) >= threshhold) != invert;
         }
     }

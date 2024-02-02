@@ -8,7 +8,7 @@ namespace Combat.AI.StateMachine
     public class Evaluation_Heat : Condition {
         public int HeatAmplitude; 
 
-        public override int Evaluate(Board board) {
+        public override int Evaluate(BoardInfo board) {
             return Random.Range(-HeatAmplitude, HeatAmplitude);
         }
     }

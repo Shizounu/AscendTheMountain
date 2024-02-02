@@ -6,16 +6,16 @@ namespace Combat.AI.StateMachine
 {
     [CreateAssetMenu(fileName = "new HealthDelta", menuName = "AI/Conditions/Health Delta")]
     public class Evaluation_HealthDelta : Condition {
-        public override int Evaluate(Board board) {
+        public override int Evaluate(BoardInfo boardInfo) {
             int playerHealth = 0;
-            List<Vector2Int> playerUnitPositions = board.GetUnitPositions(Actors.Actor1);
+            List<Vector2Int> playerUnitPositions = boardInfo.board.GetUnitPositions(Actors.Actor1);
             foreach (var unit in playerUnitPositions)
-                playerHealth += board.GetUnitReference(unit).unitReference.curHealth;
+                playerHealth += boardInfo.board.GetUnitReference(unit).unitReference.curHealth;
 
             int AIHealth = 0;
-            List<Vector2Int> AIUnitHealth= board.GetUnitPositions(Actors.Actor1);
+            List<Vector2Int> AIUnitHealth= boardInfo.board.GetUnitPositions(Actors.Actor1);
             foreach (var unit in AIUnitHealth)
-                AIHealth += board.GetUnitReference(unit).unitReference.curHealth;
+                AIHealth += boardInfo.board.GetUnitReference(unit).unitReference.curHealth;
 
             return playerHealth - AIHealth;
         }
