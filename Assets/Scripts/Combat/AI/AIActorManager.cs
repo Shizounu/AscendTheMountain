@@ -16,6 +16,8 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
     public DeckInformation deckInformation => GameManager.Instance.currentBoard.GetActorReference(Actors.Actor2);
 
+    public Board MainBoard => GameManager.Instance.currentBoard;
+
     private void Start()
     {
         
@@ -25,7 +27,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         GameManager.Instance.currentBoard.SetCommand(Command_InitSide.GetAvailable().Init(Actors.Actor2, deck));
         GameManager.Instance.currentBoard.DoQueuedCommands();
     }
-
+    #region Boilerplate
     public void Disable()
     {
 
@@ -55,29 +57,35 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
 
         //PopulatePermutations(GameManager.Instance.currentBoard, Actors.Actor2);
-        BoardEvaluation eval = EvaluateBoard(new BoardInfo(curBoard,Actors.Actor2, new()), Actors.Actor2);
+        BoardEvaluation eval = EvaluateBoard(new BoardInfo(MainBoard, MainBoard.GetHash(), Actors.Actor2, new()), Actors.Actor2);
 
         sw.Stop();
 
         Debug.Log($"{sw.ElapsedMilliseconds}ms");
         Debug.Log(eval.eval);
     }
+    #endregion
 
     #region Board Generation
     Dictionary<string, BoardInfo> CachedBoards = new();
-    Board curBoard = new();
     [Serializable]
     public struct BoardInfo {
-        public BoardInfo(Board board, Actors activeActor, List<ICommand> moves) {
+        public BoardInfo(Board board, string BoardHash, Actors activeActor, List<ICommand> moves) {
             this.board = board;
+            this.boardHash = BoardHash;
+            this.actionsTaken = moves;
             this.activeActor = activeActor;
             this.resultingBoards = new();
         }
 
-        //Info
         
+        //What actions were taken by whom
         public Actors activeActor;
-        public Board board; 
+        public List<ICommand> actionsTaken;
+        
+        //results from actions
+        public Board board;
+        public string boardHash;
         public List<string> resultingBoards;
     }
 
@@ -93,7 +101,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         string baseBoardHash = board.GetHash();
         //Should only ever be relevant for the first ever board. Populates it into the dict
         if (!CachedBoards.ContainsKey(baseBoardHash)) {
-            BoardInfo boardInfo = new BoardInfo(board, currentActor, (actionsTaken == null ? new() : actionsTaken));
+            BoardInfo boardInfo = new BoardInfo(board, baseBoardHash, currentActor, (actionsTaken == null ? new() : actionsTaken));
             CachedBoards.Add(baseBoardHash, boardInfo);
             resultingBoards.Add(baseBoardHash, boardInfo);
         }
@@ -107,14 +115,16 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
         foreach (ICommand possibleMove in possibleMoves) {
             //Generate Board resulting from this move
-            curBoard = board.GetCopy();
+            Board curBoard = board.GetCopy();
             curBoard.SetCommand(possibleMove);
             curBoard.SetCommand(GetEnableSide(currentActor));
             curBoard.DoQueuedCommands();
             string curBoardHash = curBoard.GetHash();
 
-            BoardInfo boardInfo = new BoardInfo(curBoard, currentActor, curActionsTaken);
-            resultingBoards.Add(curBoardHash, boardInfo);
+            BoardInfo boardInfo = new BoardInfo(curBoard, curBoardHash, currentActor, curActionsTaken);
+            if (!resultingBoards.ContainsKey(curBoardHash)) { 
+                resultingBoards.Add(curBoardHash, boardInfo);
+            }
             
             if (CachedBoards.ContainsKey(curBoardHash))
                 continue;
@@ -136,7 +146,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
         string baseBoardHash = board.GetHash();
         //Should only ever be relevant for the first ever board. Populates it into the dict
         if (!CachedBoards.ContainsKey(baseBoardHash)) {
-            BoardInfo boardInfo = new BoardInfo(board,currentActor, (actionsTaken == null ? new() : actionsTaken));
+            BoardInfo boardInfo = new BoardInfo(board, baseBoardHash,currentActor, (actionsTaken == null ? new() : actionsTaken));
             CachedBoards.Add(baseBoardHash, boardInfo);
         }
 
@@ -149,7 +159,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
         foreach (ICommand possibleMove in possibleMoves) {
             //Generate Board resulting from this move
-            curBoard = board.GetCopy();
+            Board curBoard = board.GetCopy();
             curBoard.SetCommand(possibleMove);
             curBoard.SetCommand(GetEnableSide(currentActor));
             curBoard.DoQueuedCommands();
@@ -158,7 +168,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
             if (CachedBoards.ContainsKey(curBoardHash))
                 continue;
 
-            BoardInfo boardInfo = new BoardInfo(curBoard, currentActor, curActionsTaken);
+            BoardInfo boardInfo = new BoardInfo(curBoard, curBoardHash, currentActor, curActionsTaken);
             CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
             CachedBoards.Add(curBoardHash, boardInfo);
 
@@ -172,7 +182,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
     public List<ICommand> GetPossibleActions(Board board, Actors activeActor)
     {
-        List<ICommand> possibleActions = new List<ICommand>();
+        List<ICommand> possibleActions = new();
 
         //Summoning
         for (int i = 0; i < board.GetActorReference(activeActor).Hand.Length; i++) {
@@ -234,6 +244,9 @@ public class AIActorManager : MonoBehaviour, IActorManager
         }
         public int eval;
         public BoardInfo boardInfo;
+
+        public static BoardEvaluation Minimum => new(int.MinValue, new());
+        public static BoardEvaluation Maximum => new(int.MaxValue, new());
     }
 
     private Actors invertActor(Actors actor) {
@@ -248,7 +261,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
         if (currentActor == Actors.Actor2) {
             //Maximizes
-            BoardEvaluation currentBest = new BoardEvaluation(int.MinValue, new()); //sets evaluation to smalles value possible so everything is larger
+            BoardEvaluation currentBest = BoardEvaluation.Minimum; //sets evaluation to smalles value possible so everything is larger
             
             Dictionary<string, BoardInfo> possibleMoves = GetPossibleBoards(curBoard.board, currentActor);
             foreach (var item in possibleMoves) {
@@ -264,7 +277,7 @@ public class AIActorManager : MonoBehaviour, IActorManager
 
         } else {
             //Minimizes
-            BoardEvaluation currentBest = new BoardEvaluation(int.MaxValue, new());
+            BoardEvaluation currentBest = BoardEvaluation.Maximum;
             Dictionary<string, BoardInfo> possibleMoves = GetPossibleBoards(curBoard.board, currentActor);
 
             foreach (var item in possibleMoves) {
