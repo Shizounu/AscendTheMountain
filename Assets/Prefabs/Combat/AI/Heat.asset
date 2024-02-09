@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8349133ef25fbe4c811ec4a8c7d26fe, type: 3}
-  m_Name: Test
+  m_Script: {fileID: 11500000, guid: d4ef0c354e81ba94b990cc108654945e, type: 3}
+  m_Name: Heat
   m_EditorClassIdentifier: 
-  boardEvaluationConditions: []
-  transitions: []
+  Weight: 1
+  HeatAmplitude: 3

@@ -5,92 +5,62 @@ using UnityEngine;
 
 namespace Commands
 {
-    public class Command_EnableSide : ICommand {
-        /// <summary>
-        /// Argument is the side that is to be disabled
-        /// </summary>
-        /// <param name="disabledSide"></param>
-        public Command_EnableSide(Actors disabledSide) {
+    public class Command_EndTurn : Pool.Poolable<Command_EndTurn>, ICommand {
+        public Command_EndTurn Init(Actors disabledSide) {
             this.side = disabledSide;
+            return this;
         }
         Actors side;
 
         public void Execute(Board board)
         {
+            board.SetSubCommand(Command_OnTurnStart.GetAvailable().Init(side));
             if(side == Actors.Actor1) {
-                board.SetSubCommand(new Command_OnTurnStart(side));
-                board.SetSubCommand(new Command_SetEnable(Actors.Actor1, true));
-                board.SetSubCommand(new Command_SetEnable(Actors.Actor2, false));
+                board.SetSubCommand(Command_SetEnable.GetAvailable().Init(Actors.Actor1, true));
+                board.SetSubCommand(Command_SetEnable.GetAvailable().Init(Actors.Actor2, false));
             } else {
-                board.SetSubCommand(new Command_OnTurnStart(side));
-                board.SetSubCommand(new Command_SetEnable(Actors.Actor1, false));
-                board.SetSubCommand(new Command_SetEnable(Actors.Actor2, true));
-
+                board.SetSubCommand(Command_SetEnable.GetAvailable().Init(Actors.Actor1, false));
+                board.SetSubCommand(Command_SetEnable.GetAvailable().Init(Actors.Actor2, true));
             }
-        }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
+            ReturnToPool(this);
         }
     }
     
-
-    public class Command_OnTurnStart : ICommand{ 
-        public Command_OnTurnStart(Actors side) {
+    public class Command_OnTurnStart : Pool.Poolable<Command_OnTurnStart>, ICommand{ 
+        public Command_OnTurnStart Init(Actors side) {
             this.Side = side;
+            return this;
         }
         Actors Side;
 
-        Tile[,] Tiles => GameManager.Instance.currentBoard.tiles;
-
         public void Execute(Board board)
         {
-
-
-            for (int x = 0; x < Tiles.GetLength(0); x++)
-            {
-                for (int y = 0; y < Tiles.GetLength(1); y++)
-                {
-                    if (Tiles[x, y].unit?.owner == Side)
-                    {
-                        board.SetSubCommand(new Command_SetCanMove(Tiles[x, y].unit, true));
-                        board.SetSubCommand(new Command_SetCanAttack(Tiles[x, y].unit, true));
-                        //TODO: Add on turn start effect triggering
-                    }
-
-                }
+            foreach (var unit in board.GetActorReference(Side).GetLivingUnits()) {
+                board.SetSubCommand(Command_SetCanMove.GetAvailable().Init(unit.unitID, true));
+                board.SetSubCommand(Command_SetCanAttack.GetAvailable().Init(unit.unitID, true));
             }
-            board.SetSubCommand(new Command_AddMaxMana(Side, 1));
-            board.SetSubCommand(new Command_AddCurrentMana(Side, 69));
-        }
 
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
+            board.SetSubCommand(Command_ChangeMaxMana.GetAvailable().Init(Side, 1));
+            board.SetSubCommand(Command_ChangeCurrentMana.GetAvailable().Init(Side, 69)); //Number chosen to be a high number that would fill the entire mana bar, gets culled down to Maxmana during set
+
+            ReturnToPool(this);
         }
     }
 
-    public class Command_SetEnable : ICommand {
-        public Command_SetEnable(Actors side, bool val)
+    public class Command_SetEnable : Pool.Poolable<Command_SetEnable>, ICommand {
+        public Command_SetEnable Init(Actors side, bool val)
         {
             this.side = side;
             this.val = val;
+            return this;
         }
-        Actors side;
-        bool val;
+        public Actors side;
+        public bool val;
 
         public void Execute(Board board)
         {
-            if(val)
-                board.getActorReference(side).Enable();
-            else 
-                board.getActorReference(side).Disable();
-        }
-
-        public void Unexecute(Board board)
-        {
-            throw new System.NotImplementedException();
+            //Gets triggered in game maanger, I also dont know why I did it that way
+            ReturnToPool(this);
         }
     }
 }

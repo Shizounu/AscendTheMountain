@@ -32,29 +32,29 @@ namespace Editor
             GUILayout.Toggle(actorManager.isEnabled, "Is Active");
 
             if (GUILayout.Button("Draw Card")) {
-                GameManager.Instance.currentBoard.SetCommand(new Commands.Command_DrawCard(Actors.Actor1));
+                GameManager.Instance.currentBoard.SetCommand(Command_DrawCard.GetAvailable().Init(Actors.Actor1));
             }
 
             EditorGUILayout.LabelField($"<color=cyan>{actorManager.deckInformation.CurManagems}</color> / <color=blue>{actorManager.deckInformation.MaxManagems}</color>", style);
             
             GUILayout.BeginHorizontal();
             if(GUILayout.Button("Add Max Mana", UnityEditor.EditorStyles.miniButtonLeft)) {
-                GameManager.Instance.currentBoard.SetCommand(new Commands.Command_AddMaxMana(Actors.Actor1, 1));
+                GameManager.Instance.currentBoard.SetCommand(Command_ChangeMaxMana.GetAvailable().Init(Actors.Actor1, 1));
                 
             }
             if(GUILayout.Button("Sub Max Mana", UnityEditor.EditorStyles.miniButtonRight)) {
-                GameManager.Instance.currentBoard.SetCommand(new Commands.Command_SubMaxMana(Actors.Actor1, 1));
+                GameManager.Instance.currentBoard.SetCommand(Command_ChangeMaxMana.GetAvailable().Init(Actors.Actor1, -1));
             }
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Add Cur Mana", UnityEditor.EditorStyles.miniButtonLeft))
             {
-                GameManager.Instance.currentBoard.SetCommand(new Commands.Command_AddCurrentMana(Actors.Actor1, 1));
+                GameManager.Instance.currentBoard.SetCommand(Command_ChangeCurrentMana.GetAvailable().Init(Actors.Actor1, 1));
             }
             if (GUILayout.Button("Sub Cur Mana", UnityEditor.EditorStyles.miniButtonRight))
             {
-                GameManager.Instance.currentBoard.SetCommand(new Commands.Command_SubCurrentMana(Actors.Actor1, 1));
+                GameManager.Instance.currentBoard.SetCommand(Command_ChangeCurrentMana.GetAvailable().Init(Actors.Actor1, -1));
             }
             GUILayout.EndHorizontal();
 
@@ -66,8 +66,8 @@ namespace Editor
             {
                 for (int x = 0; x < GameManager.Instance.currentBoard.tiles.GetLength(0); x++) {
                     for (int y = 0; y < GameManager.Instance.currentBoard.tiles.GetLength(1); y++) {
-                        if (GameManager.Instance.currentBoard.tiles[x,y].unit != null) {
-                            GameManager.Instance.currentBoard.SetCommand(new Command_SetCanMove(GameManager.Instance.currentBoard.tiles[x, y].unit, true));
+                        if (GameManager.Instance.currentBoard.tiles[x,y].unitID != "") {
+                            GameManager.Instance.currentBoard.SetCommand(Command_SetCanMove.GetAvailable().Init(GameManager.Instance.currentBoard.tiles[x, y].unitID, true));
                         }
                     }
                 }
@@ -78,9 +78,9 @@ namespace Editor
                 {
                     for (int y = 0; y < GameManager.Instance.currentBoard.tiles.GetLength(1); y++)
                     {
-                        if (GameManager.Instance.currentBoard.tiles[x, y].unit != null)
+                        if (GameManager.Instance.currentBoard.tiles[x, y].unitID != "")
                         {
-                            GameManager.Instance.currentBoard.SetCommand(new Command_SetCanAttack(GameManager.Instance.currentBoard.tiles[x, y].unit, true));
+                            GameManager.Instance.currentBoard.SetCommand(Command_SetCanAttack.GetAvailable().Init(GameManager.Instance.currentBoard.tiles[x, y].unitID, true));
                         }
                     }
                 }
@@ -95,9 +95,9 @@ namespace Editor
                 {
                     for (int y = 0; y < GameManager.Instance.currentBoard.tiles.GetLength(1); y++)
                     {
-                        if (GameManager.Instance.currentBoard.tiles[x, y].unit != null)
+                        if (GameManager.Instance.currentBoard.tiles[x, y].unitID != "")
                         {
-                            GameManager.Instance.currentBoard.SetCommand(new Command_KillUnit(GameManager.Instance.currentBoard.tiles[x, y].unit));
+                            GameManager.Instance.currentBoard.SetCommand(Command_KillUnit.GetAvailable().Init(GameManager.Instance.currentBoard.tiles[x, y].unitID));
                         }
                     }
                 }
@@ -105,8 +105,8 @@ namespace Editor
 
             
             if(GUILayout.Button("Summon Testing Unit") && actorManager.testingDefinition != null) {
-                GameManager.Instance.currentBoard.SetCommand(new Command_SummonUnit(
-                    actorManager.testingDefinition,
+                GameManager.Instance.currentBoard.SetCommand(Command_SummonUnit.GetAvailable().Init(
+                    new Combat.Cards.CardInstance_Unit(actorManager.testingDefinition),
                     new Vector2Int(7, 2), 
                     Actors.Actor2)
                 );

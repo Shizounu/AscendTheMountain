@@ -9,7 +9,6 @@ namespace Commands
     public interface ICommand
     {
         void Execute(Combat.Board board);
-        void Unexecute(Combat.Board board);
     }
     public interface IVisualCommand
     {

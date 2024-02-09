@@ -2125,29 +2125,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89220ba2d860d8b4481325c99d694512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 398412076}
+  enemy: {fileID: 1556910636}
+  boardRenderer: {fileID: 0}
   currentBoard:
     Actor1_Deck:
       _MaxManagems: 0
       _CurManagems: 0
-      Deck: []
-      Hand:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
+      GeneralReference:
+        unitID: 
+        unitReference:
+          owner: 0
+          maxHealth: 0
+          attack: 0
+          canAttack: 0
+          moveDistance: 0
+          canMove: 0
+        unitPosition: {x: 0, y: 0}
     Actor2_Deck:
       _MaxManagems: 0
       _CurManagems: 0
-      Deck: []
-      Hand:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
+      GeneralReference:
+        unitID: 
+        unitReference:
+          owner: 0
+          maxHealth: 0
+          attack: 0
+          canAttack: 0
+          moveDistance: 0
+          canMove: 0
+        unitPosition: {x: 0, y: 0}
+    currentUnitIndex: 0
 --- !u!4 &962846306
 Transform:
   m_ObjectHideFlags: 0
@@ -2854,8 +2862,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88deac861895cf43a3932deb97aeeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurState: {fileID: 11400000, guid: 9339ac40eac6eeb469e0fef84daccd68, type: 2}
   deck: {fileID: 11400000, guid: c9bb6c0db6cc17045be941329b34933e, type: 2}
+  CurState: {fileID: 11400000, guid: 9339ac40eac6eeb469e0fef84daccd68, type: 2}
 --- !u!1 &1568860802
 GameObject:
   m_ObjectHideFlags: 0
@@ -3317,7 +3325,7 @@ MonoBehaviour:
   tileScale: {x: 1.05, y: 1.05}
   positionOffset: {x: -4.5, y: -2.5}
   tilePrefab: {fileID: 5329985981604404004, guid: 20437bc52ee83804799e75d5d4161473, type: 3}
-  unitRenderer: {fileID: 6550348251167910877, guid: fab35e23200365d448860b2102d51397, type: 3}
+  unitRenderer: {fileID: 6376841037816204740, guid: fab35e23200365d448860b2102d51397, type: 3}
   unitHolder: {fileID: 1755064711}
   tileHolder: {fileID: 1085946420}
 --- !u!4 &2007046789

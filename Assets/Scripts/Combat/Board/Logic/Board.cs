@@ -10,13 +10,16 @@ using Unity.VisualScripting;
 using System;
 using System.Security.Cryptography;
 using System.Text;
+using UnityEngine.Rendering;
+using static UnityEditor.PlayerSettings;
+using System.Linq;
 
 namespace Combat
 {
 
 
-    [System.Serializable]
-    public class Board {
+    [Serializable]
+    public class Board : ICopyable<Board> {
         public Board() {
             tiles = new Tile[9, 5];
 
@@ -28,21 +31,25 @@ namespace Combat
 
             Actor1_Deck = new();
             Actor2_Deck = new();
+
+            currentUnitIndex = 0;
         }
 
-        public Board(Board boardToCopy)
+        private Board(Board baseBoard)
         {
             tiles = new Tile[9, 5];
 
             for (int x = 0; x < tiles.GetLength(0); x++)
                 for (int y = 0; y < tiles.GetLength(1); y++)
-                    tiles[x, y] = new Tile(boardToCopy.tiles[x,y]);
+                    tiles[x, y] = new Tile(baseBoard.tiles[x,y]);
+            
+            Actor1_Deck = baseBoard.Actor1_Deck.GetCopy();
+            Actor2_Deck = baseBoard.Actor2_Deck.GetCopy();
 
-            Actor1_Deck = boardToCopy.Actor1_Deck.Clone();
-            Actor2_Deck = boardToCopy.Actor2_Deck.Clone();
+            this.currentUnitIndex = baseBoard.currentUnitIndex;
         }
-
-        public OnCommandHandler onCommand;
+        
+        public event OnCommandHandler onCommand;
 
         /// <summary>
         /// Holds the information about each of the tiles
@@ -57,12 +64,20 @@ namespace Combat
         private Queue<ICommand> commandQueue = new Queue<ICommand>();
         /// <summary>
         /// Sub command queue is for commands that get executed my other commands and need to happen right after them
-        /// Not manually added to, only by other commands. All commands added by a command go herek
+        /// Not manually added to, only by other commands. All commands added by a command go here
         /// </summary>
         private Queue<ICommand> subCommandQueue = new Queue<ICommand>();
+        
+        public int curCommandCount => commandQueue.Count + subCommandQueue.Count;
+        
         public void SetCommand(ICommand command)
         {
             commandQueue.Enqueue(command);
+        }
+        public void SetCommand(List<ICommand> commands) {
+            foreach (var item in commands) {
+                SetCommand(item);
+            }
         }
         public void SetSubCommand(ICommand subCommand)
         {
@@ -71,8 +86,7 @@ namespace Combat
 
         public void DoQueuedCommands()
         {
-            while (commandQueue.Count > 0)
-            {
+            while (commandQueue.Count > 0) {
                 ICommand curCommand = commandQueue.Dequeue();
                 curCommand.Execute(this);
                 onCommand?.Invoke(curCommand);
@@ -87,175 +101,121 @@ namespace Combat
         #endregion
 
         #region Board Info Methods
-        public DeckInformation getActorReference(Actors actors) {
+        public DeckInformation GetActorReference(Actors actors) {
             return actors == Actors.Actor1 ? Actor1_Deck : Actor2_Deck;
         }
-        public List<Vector2Int> getMovePositions(Vector2Int unitPos, int moveDist){
-            List<Vector2Int> getPositions(Vector2Int curPos, int remainDist ) {
-                List<Vector2Int> result = new();
-                if (tiles[curPos.x, curPos.y].isFree)
-                    result.Add(curPos);
-                Vector2Int nextPos;
-
-                nextPos = curPos + Vector2Int.left;
-                if (isInBounds(nextPos) && !result.Contains(nextPos))
-                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
-                        result.AddRange(getPositions(nextPos, remainDist - 1));
-
-                nextPos = curPos + Vector2Int.right;
-                if (isInBounds(nextPos) && !result.Contains(nextPos))
-                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
-                        result.AddRange(getPositions(nextPos, remainDist - 1));
-
-                
-                nextPos = curPos + Vector2Int.up;
-                if (isInBounds(nextPos) && !result.Contains(nextPos))
-                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
-                        result.AddRange(getPositions(nextPos, remainDist - 1));
-
-          
-                nextPos = curPos + Vector2Int.down;
-                if (isInBounds(nextPos) && !result.Contains(nextPos))
-                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
-                        result.AddRange(getPositions(nextPos, remainDist - 1));
-                
-                return result;
-            }
-
-            return getPositions(unitPos, moveDist);
-        }
-        public List<Vector2Int> getMovePositions(Vector2Int unitPos)
-        {
-            List<Vector2Int> getPositions(Vector2Int curPos, int remainDist)
-            {
-                List<Vector2Int> result = new();
-                if (tiles[curPos.x, curPos.y].isFree)
-                    result.Add(curPos);
-                Vector2Int nextPos;
-
-                nextPos = curPos + Vector2Int.left;
-                if (isInBounds(nextPos) && !result.Contains(nextPos))
-                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
-                        result.AddRange(getPositions(nextPos, remainDist - 1));
-
-                nextPos = curPos + Vector2Int.right;
-                if (isInBounds(nextPos) && !result.Contains(nextPos))
-                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
-                        result.AddRange(getPositions(nextPos, remainDist - 1));
-
-
-                nextPos = curPos + Vector2Int.up;
-                if (isInBounds(nextPos) && !result.Contains(nextPos))
-                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
-                        result.AddRange(getPositions(nextPos, remainDist - 1));
-
-
-                nextPos = curPos + Vector2Int.down;
-                if (isInBounds(nextPos) && !result.Contains(nextPos))
-                    if (tiles[nextPos.x, nextPos.y].getIsPassable(GetUnitFromPos(unitPos).owner) && remainDist > 0)
-                        result.AddRange(getPositions(nextPos, remainDist - 1));
-
-                return result;
-            }
-
-            return getPositions(unitPos, GetUnitFromPos(unitPos).moveDistance);
-        }
-        public List<Vector2Int> getAttackPositions(Vector2Int position) {
-
+        public List<Vector2Int> GetMovePositions(Vector2Int basePos, Actors owner, int moveDist) {
             List<Vector2Int> result = new();
+            if (tiles[basePos.x, basePos.y].isFree)
+                result.Add(basePos);
 
-            if (isInBounds(position + Vector2Int.up))
-                result.Add(position + Vector2Int.up);
-            if (isInBounds(position + Vector2Int.down))
-                result.Add(position + Vector2Int.down);
-            if (isInBounds(position + Vector2Int.right))
-                result.Add(position + Vector2Int.right);
-            if (isInBounds(position + Vector2Int.left))
-                result.Add(position + Vector2Int.left);
+            if (moveDist <= 0)
+                return result;
+
+            for (int i = 0; i < BoardHelpers.Mask4.Length; i++) {
+                Vector2Int curPos = basePos + BoardHelpers.Mask4[i];
+                if (IsInBounds(curPos) && !result.Contains(curPos) && tiles[curPos.x, curPos.y].getIsPassable(this,owner)) {
+                    result.AddRange(GetMovePositions(curPos, owner,moveDist - 1));
+                }
+            }
 
             return result;
         }
-        public List<Vector2Int> getSummonPositions(Actors actor)
-        {
-            List<Vector2Int> unitPositions = new();
-            for (int x = 0; x < tiles.GetLength(0); x++) {
-                for (int y = 0; y < tiles.GetLength(1); y++) {
-                    if (GetUnitFromPos(x, y)?.owner == actor)
-                        unitPositions.Add(new Vector2Int(x, y));
-                }
-            }
+        public List<Vector2Int> GetAttackPositions(Vector2Int position, Actors owner) {
+
+            List<Vector2Int> result = new();
+
+            for (int i = 0; i < BoardHelpers.Mask4.Length; i++)
+                if(IsInBounds(position + BoardHelpers.Mask4[i]))
+                    if (tiles[position.x, position.y].unitID != "")
+                        if(GetUnitReference(position).unitReference.owner != owner)
+                            result.Add(position + BoardHelpers.Mask4[i]);
+            return result;
+        }
+        public List<Vector2Int> GetSummonPositions(Actors actor) {
+            List<Vector2Int> unitPositions = GetUnitPositions(actor);
             List<Vector2Int> result = new();   
 
-            for (int i = 0; i < unitPositions.Count; i++) {
-                List<Vector2Int> surroundingTiles = new List<Vector2Int>() {
-                    Vector2Int.up + Vector2Int.left,
-                    Vector2Int.up, 
-                    Vector2Int.up + Vector2Int.right,
-                    Vector2Int.left, 
-                    Vector2Int.right, 
-                    Vector2Int.down + Vector2Int.left,
-                    Vector2Int.down, 
-                    Vector2Int.down + Vector2Int.right
-                };
-
-                for (int j = 0; j < surroundingTiles.Count; j++) {
-                    Vector2Int pos = unitPositions[i] + surroundingTiles[j];
-                    if (isInBounds(pos)) {
+            for (int i = 0; i < unitPositions.Count; i++)
+                for (int j = 0; j < BoardHelpers.Mask8.Length; j++) {
+                    Vector2Int pos = unitPositions[i] + BoardHelpers.Mask8[j];
+                    if (IsInBounds(pos))
                         if (tiles[pos.x, pos.y].isFree)
                             result.Add(pos);
-                    }
                 }
-
-
-            }
             return result;
         }
         public List<Vector2Int> GetUnitPositions(Actors owner) {
             List<Vector2Int> unitPositions = new List<Vector2Int>();
-            for (int x = 0; x < tiles.GetLength(0); x++) {
-                for (int y = 0; y < tiles.GetLength(1); y++) {
-                    if(GetUnitFromPos(x,y) != null)
-                        if(GetUnitFromPos(x,y).owner == owner)
-                            unitPositions.Add(new Vector2Int(x, y));
-                }
-            }
+            foreach (var item in GetActorReference(owner).GetLivingUnits())
+                unitPositions.Add(item.unitPosition);
             return unitPositions;
         }
         #endregion
-        
+
+        #region UID
+        public int currentUnitIndex; 
+        public string GetUID() {
+            currentUnitIndex += 1;
+            return UnitIDManager.Instance.GetUID(currentUnitIndex - 1);
+        }
+        #endregion
+
         #region Helpers
-        public Unit GetUnitFromPos(Vector2Int pos) {
-            return tiles[pos.x, pos.y].unit;
+        public UnitReference GetUnitReference(string ID) {
+            return GetAllUnits().Find(unitRef => unitRef.unitID == ID);
         }
-        public Unit GetUnitFromPos(int x, int y)
-        {
-            return tiles[x, y].unit;
+        public UnitReference GetUnitReference(Vector2Int pos) {
+            return GetAllUnits().Find(unitRef => unitRef.unitPosition == pos);
         }
-        public bool isInBounds(Vector2Int pos)
+        public UnitReference GetUnitReference(int x, int y) {
+            return GetAllUnits().Find(unitRef => unitRef.unitPosition == new Vector2Int(x,y));
+        }
+        public UnitReference GetUnitReference(Unit unit) {
+            return GetAllUnits().Find(unitref => unitref.unitReference == unit);
+        }
+        public bool IsInBounds(Vector2Int pos)
         {
             return pos.x < tiles.GetLength(0) && pos.x >= 0 &&
                    pos.y < tiles.GetLength(1) && pos.y >= 0;
         }
-        public string GetJSON()
-        {
-            Board copy = new Board(this);
-            string Decks = JsonUtility.ToJson(copy, true);
-            string tileString = "";
+        
+        public List<UnitReference> GetAllUnits() {
+            List<UnitReference> references = new();
+            references.AddRange(Actor2_Deck.GetLivingUnits());
+            references.AddRange(Actor1_Deck.GetLivingUnits());
 
+            return references;
+        }
+
+
+
+        #endregion
+
+        #region Hashing stuff
+        public string GetJSON() {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.Append(Actor1_Deck.GetHash());
+            stringBuilder.Append(Actor2_Deck.GetHash());
+
+            //stringBuilder.Append(JsonUtility.ToJson(this));
             for (int x = 0;x < tiles.GetLength(0);x++) {
                 for (int y = 0;y < tiles.GetLength(1);y++) {
-                    if (tiles[x,y].unit == null) {
-                        tileString += "null |";
+                    if (tiles[x,y].unitID == "") {
+                        stringBuilder.Append("null |");
                     } else {
-                        tileString += $"{tiles[x, y].unit.GetJSON()}";
+                        stringBuilder.Append(tiles[x, y].unitID);
+                        stringBuilder.Append(" |");
                     }
                 }
             }
 
-            return Decks + tileString;
+            return stringBuilder.ToString();
         }
 
         public string GetHash() {
+            return GetJSON();
             string JSON = GetJSON();
 
             // https://stackoverflow.com/questions/3984138/hash-string-in-c-sharp
@@ -270,43 +230,11 @@ namespace Combat
             return sb.ToString();
 
         }
-        #endregion
 
-
-    }
-
-    public enum Actors
-    {
-        /// <summary>
-        /// Defaulted to Player
-        /// </summary>
-        Actor1,
-        /// <summary>
-        /// Defaulted to AI
-        /// </summary>
-        Actor2
-    }
-    
-
-    [System.Serializable]
-    public class Tile {
-        public Tile(Vector2Int pos) {
-            position = pos;
-        }
-        public Tile(Tile tileToCopy) {
-            position = tileToCopy.position;
-            if(tileToCopy.unit != null)
-                unit = new Unit(tileToCopy.unit);
-        }
-        public Vector2Int position;
-        public Unit unit;
-
-        public bool isFree => unit == null;
-
-        public bool getIsPassable(Actors owner)
+        public Board GetCopy()
         {
-            return unit == null || unit.owner == owner;
-            
+            return new Board(this);
         }
+        #endregion
     }
 }

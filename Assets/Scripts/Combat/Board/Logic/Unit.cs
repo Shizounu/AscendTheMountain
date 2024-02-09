@@ -4,36 +4,40 @@ using UnityEngine;
 
 using Cards;
 using Commands;
+using Combat.Cards;
+using UnityEditor;
+using System;
 
 namespace Combat
 {
     [System.Serializable]
-    public class Unit {
-        public Unit(UnitDefinition definition, Actors owner) {
-            maxHealth = definition.Health;
-            curHealth = definition.Health;
+    public class Unit : ICopyable<Unit> {
+        public Unit(CardInstance_Unit definition, Actors owner, string UnitID) {
+            maxHealth = definition.UnitHealth;
+            curHealth = definition.UnitHealth;
 
-            attack = definition.Attack;
+            attack = definition.UnitAttack;
 
-            moveDistance = definition.MoveDistance;
-
-            effects = definition.effects;
+            moveDistance = definition.UnitMoveDistance;
 
             canMove = false;
 
             this.owner = owner;
+
+            this.UnitID = UnitID;
         }
         public Unit(Unit unitToCopy){
             maxHealth = unitToCopy.maxHealth;
             curHealth = unitToCopy.curHealth;
             attack = unitToCopy.attack;
             moveDistance = unitToCopy.moveDistance;
-            effects = unitToCopy.effects;
             
             canMove = unitToCopy.canMove;
             canAttack = unitToCopy.canAttack;
             
             owner = unitToCopy.owner;
+
+            UnitID = unitToCopy.UnitID;
 
         }
 
@@ -47,8 +51,9 @@ namespace Combat
             }
         }
 
-        public Actors owner;
+        public readonly string UnitID;
 
+        public Actors owner;
 
         public int maxHealth;
 
@@ -58,12 +63,14 @@ namespace Combat
         public int moveDistance;
         public bool canMove;
 
-        public List<IEffect> effects;
-
-        ///TODO: Set up triggers and info for the viaul system to use. 
+        
  
         public string GetJSON(bool prettyPrint = false) {
             return JsonUtility.ToJson(this, prettyPrint);
+        }
+
+        public Unit GetCopy() {
+            return new Unit(this);
         }
     }
 }
