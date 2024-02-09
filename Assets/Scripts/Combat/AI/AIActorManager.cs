@@ -90,12 +90,8 @@ namespace Combat
 
 
             string baseBoardHash = board.GetHash();
-            //Should only ever be relevant for the first ever board. Populates it into the dict
-            if (!CachedBoards.ContainsKey(baseBoardHash)) {
-                BoardInfo boardInfo = new BoardInfo(board, baseBoardHash, currentActor, (actionsTaken == null ? new() : actionsTaken));
-                CachedBoards.Add(baseBoardHash, boardInfo);
-                resultingBoards.Add(baseBoardHash, boardInfo);
-            }
+            BoardInfo baseBoardInfo = new BoardInfo(board, baseBoardHash, currentActor, (actionsTaken == null ? new() : actionsTaken));
+            resultingBoards.Add(baseBoardHash, baseBoardInfo);
 
             List<ICommand> possibleMoves = GetPossibleActions(board, currentActor);
 
@@ -117,13 +113,6 @@ namespace Combat
                 BoardInfo boardInfo = new BoardInfo(curBoard, curBoardHash, currentActor, curActionsTaken);
                 
                 resultingBoards.Add(curBoardHash, boardInfo);
-                
-            
-                if (CachedBoards.ContainsKey(curBoardHash))
-                    continue;
-                //Serialize it into lookup table
-                CachedBoards[baseBoardHash].resultingBoards.Add(curBoardHash);
-                CachedBoards.Add(curBoardHash, boardInfo);
 
                 if (curDepth <= 0)
                     continue;
