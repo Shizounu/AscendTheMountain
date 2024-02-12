@@ -1,0 +1,2521 @@
+fileFormatVersion: 2
+guid: 769b192ae5062214f804d42dae63fb3c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 70
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bloodletter_attack000
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 739
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfcf43771fbd012b0800000000000000
+      internalID: -5615746905197445891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack001
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5d6a7530e0f51af0800000000000000
+      internalID: -426169743956087460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack002
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4af574441e47f6f30800000000000000
+      internalID: 4571000657666334628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack003
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba4a68fe0f640bbc0800000000000000
+      internalID: -3769434887484431189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack004
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 84
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d28fb15d80db66cc0800000000000000
+      internalID: -3718076596714997715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack005
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 215
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 272f414eaf6c51d20800000000000000
+      internalID: 3248721487088382578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack006
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 346
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08d1e27151f98f360800000000000000
+      internalID: 7203682516911136128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack007
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 477
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 487a4da3f71b18d30800000000000000
+      internalID: 4432018668315256708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack008
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 608
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e82aea1c12b99ef0800000000000000
+      internalID: -100853682858743576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack009
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 739
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34cff8cb4ed989cd0800000000000000
+      internalID: -2551115583163728829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack010
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 870
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d080e3b4d8cc28fe0800000000000000
+      internalID: -1188162444447578099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack011
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1001
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05cd0f0c6a4409870800000000000000
+      internalID: 8687519164189957200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack012
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 393cfaa56a2b30640800000000000000
+      internalID: 5045072435140871059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack013
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1adc3d8752f8c1120800000000000000
+      internalID: 2385939293703228833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack014
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19d5b1f7919cf2b00800000000000000
+      internalID: 806083969666473361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack015
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c21cafb60462cc70800000000000000
+      internalID: 8989857786333237958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack016
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10d8022e0232eb4b0800000000000000
+      internalID: -5422858277167788799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack017
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 031b00d4863800000800000000000000
+      internalID: 144483991728432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack018
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e75f7cb5531b66d50800000000000000
+      internalID: 6730261535882999166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack019
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 84
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea7872fa882cf7ea0800000000000000
+      internalID: -5872761496757893202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack020
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 215
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e93ac222d63798680800000000000000
+      internalID: -8752337488255868002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack021
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 346
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6635b857080697be0800000000000000
+      internalID: -1479044897770351770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack022
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 477
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fba40416175f250a0800000000000000
+      internalID: -6894178212239095105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack023
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 608
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b796dc1428889180800000000000000
+      internalID: -9108380557672802375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack024
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 739
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f2bb6661b9c22040800000000000000
+      internalID: 4621477931400278772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack025
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 870
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9455de639b3046ee0800000000000000
+      internalID: -1268885100986280631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack026
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1001
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfe62ea8366389690800000000000000
+      internalID: -7595260970400583941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack027
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f2580abfc99edc90800000000000000
+      internalID: -7143102841504640268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack028
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75a4354fbf6c5bcf0800000000000000
+      internalID: -237064619928892841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack029
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36dfe0333adaedaa0800000000000000
+      internalID: -6134274725984141981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack030
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82d529de5f59bad60800000000000000
+      internalID: 7902574854636985640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack031
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2039e0b7d692cd80800000000000000
+      internalID: -8231851315749638102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack032
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68b36e166dc3faa40800000000000000
+      internalID: 5381586971194178438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack033
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b7b6e2152bd2bc70800000000000000
+      internalID: 8985485158834943927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack034
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 84
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf7ecabf5e83a3520800000000000000
+      internalID: 2682519088473630715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack035
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 215
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4631153fdd6d18640800000000000000
+      internalID: 5080578103408923492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack036
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 346
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25f83f8e8d2764ce0800000000000000
+      internalID: -1421322356442034350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack037
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 477
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a69c6a7231e06a340800000000000000
+      internalID: 4874599122107550058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack038
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 608
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36030804415fd9ca0800000000000000
+      internalID: -6008376860512079773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_attack039
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 739
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20fd4d01012e5ed80800000000000000
+      internalID: -8221916986065232126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_breathing000
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 870
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d49b0b482102cc780800000000000000
+      internalID: -8661512719432631987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_breathing001
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1001
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d9c29763ea2f5b50800000000000000
+      internalID: 6584028336422570457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_breathing002
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66ce694a5e6bda1a0800000000000000
+      internalID: -6796575165207090074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_breathing003
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 066a86adc7ecb87a0800000000000000
+      internalID: -6373773811977247136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_breathing004
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93a85c7f5a1dc7b90800000000000000
+      internalID: -7242683589961872839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_breathing005
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07e48694a31d70db0800000000000000
+      internalID: -4825658427434316176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_breathing006
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f7849c959c77a110800000000000000
+      internalID: 1272122401774405625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_breathing007
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d4841a76eae1400800000000000000
+      internalID: 296866385563766083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_breathing008
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b25dd43a1b0eeb770800000000000000
+      internalID: 8628580989642069291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_breathing009
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 84
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2677094fa92549440800000000000000
+      internalID: 4941665516613826402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_breathing010
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 215
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48945066893104440800000000000000
+      internalID: 4917952338356160900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_breathing011
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 346
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5329569956a13350800000000000000
+      internalID: 5994755482711565151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_breathing012
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 477
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9fd14937348287a0800000000000000
+      internalID: -6376388749684514916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_breathing013
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 608
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c25aa679831a031a0800000000000000
+      internalID: -6831783370290453204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death000
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4a0f0aa66c40b500800000000000000
+      internalID: 409911569914202700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death001
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 870
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a32a1230112d68190800000000000000
+      internalID: -7960444320821960134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death002
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1001
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3300bc4c104a3cb80800000000000000
+      internalID: -8375670554475429837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death003
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 485544330aa11eba0800000000000000
+      internalID: -6061534348106771068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death004
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21f11d2250367b640800000000000000
+      internalID: 5095650377103122194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death005
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 643d3371e15c0c0c0800000000000000
+      internalID: -4557426089869978810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death006
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57861da1e9e74ace0800000000000000
+      internalID: -1394850767058147211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death007
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9c5090a26a5d7b30800000000000000
+      internalID: 4286681799973690526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death008
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92ad93a0cbebf5bf0800000000000000
+      internalID: -333338132567434711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death009
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89afc56132b76e0c0800000000000000
+      internalID: -4546811383154673000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death010
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 84
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaede51103453df70800000000000000
+      internalID: 9210798228329389742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death011
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 215
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a294e7648392cfd10800000000000000
+      internalID: 2160647242908584234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death012
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 346
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b52c433598658a460800000000000000
+      internalID: 7253142347686658651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death013
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 477
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96323216b9962c480800000000000000
+      internalID: -8880419399150656663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death014
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 608
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f8849a981ce8e300800000000000000
+      internalID: 281734567127451894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death015
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 739
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c16f96f8f0010240800000000000000
+      internalID: 4756083750769484225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death016
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 870
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5af250f34bdc57d80800000000000000
+      internalID: -8253464568051454043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death017
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1001
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 124050b6a42eaff90800000000000000
+      internalID: -6918969068250397663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death018
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0832f3c3fe6521e80800000000000000
+      internalID: -8209403585235049600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death019
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1de695258d1d2fbb0800000000000000
+      internalID: -4903626317228314927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death020
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be23ada5938bdb010800000000000000
+      internalID: 1206322831682056939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_death021
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a4a34245d071ec80800000000000000
+      internalID: -8295224977397668701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_hit000
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c072119c5af9b0e0800000000000000
+      internalID: -2253494863044382520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_hit001
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a27da956b2116650800000000000000
+      internalID: 6224276734400623268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_hit002
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ef827edbee232d20800000000000000
+      internalID: 3252494946475872228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle000
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 84
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88d9270b5d24af9e0800000000000000
+      internalID: -1586882433138909816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle001
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 215
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1b26a310f7ade910800000000000000
+      internalID: 1868334069992270621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle002
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 346
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d7baad291dfe0e80800000000000000
+      internalID: -8210346786067662889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle003
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 477
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be2672032371fca20800000000000000
+      internalID: 3084709774095770347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle004
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 608
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74d27e6bc8471ecd0800000000000000
+      internalID: -2530613367892660921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle005
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 739
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4d624d6642f8b180800000000000000
+      internalID: -9099256662807384754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle006
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 870
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae029b25d0809fc40800000000000000
+      internalID: 5546473269398937834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle007
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1001
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaab4e382ede11e70800000000000000
+      internalID: 9084303480514198186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle008
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2590b4989d6b0de50800000000000000
+      internalID: 6832161680148597074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle009
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 962d267782f2e2370800000000000000
+      internalID: 8299623014138565225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle010
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b93f1235bf4240220800000000000000
+      internalID: 2451124759046517659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle011
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e354faeee462877f0800000000000000
+      internalID: -614699228682304194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle012
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a6272057ffd522e0800000000000000
+      internalID: -2151066993704884569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle013
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea90b7a97e82863a0800000000000000
+      internalID: -6672037872755078738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle014
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50604d254d148d930800000000000000
+      internalID: 4168153835309893125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle015
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 84
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 769724fa50a0ba950800000000000000
+      internalID: 6461269109924591975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle016
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 215
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6156d27b704f474b0800000000000000
+      internalID: -5443457735608933098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle017
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 346
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c2482e0c2ed59880800000000000000
+      internalID: -8604727232224017722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle018
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 477
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89df3ac740ba5dec0800000000000000
+      internalID: -3542737496097686120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle019
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 608
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77a64579217f27cd0800000000000000
+      internalID: -2561713578800027017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle020
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 739
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8758dd2e91766f10800000000000000
+      internalID: 2262620786988177293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_idle021
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 870
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ec8940000bf249d0800000000000000
+      internalID: -2791392841592894240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_run000
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1001
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f5c90c9879fc37f0800000000000000
+      internalID: -631355551329434120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_run001
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1132
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61032374d4e2b57a0800000000000000
+      internalID: -6387460737053085674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_run002
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1263
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e83af1460d2044ae0800000000000000
+      internalID: -1566123676361841778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_run003
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1394
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f7a530e0b38e4430800000000000000
+      internalID: 3769094733854779384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_run004
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1525
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8da8fc305c3a81700800000000000000
+      internalID: 511338624274369240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_run005
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1656
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1bb04f79a2621e00800000000000000
+      internalID: 1013981346235726623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_run006
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1787
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d5786b5f0f094800800000000000000
+      internalID: 597024984235800018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloodletter_run007
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1918
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 294fc9ea108558400800000000000000
+      internalID: 325763312301962386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Bloodletter_attack000: -5615746905197445891
+      Bloodletter_attack001: -426169743956087460
+      Bloodletter_attack002: 4571000657666334628
+      Bloodletter_attack003: -3769434887484431189
+      Bloodletter_attack004: -3718076596714997715
+      Bloodletter_attack005: 3248721487088382578
+      Bloodletter_attack006: 7203682516911136128
+      Bloodletter_attack007: 4432018668315256708
+      Bloodletter_attack008: -100853682858743576
+      Bloodletter_attack009: -2551115583163728829
+      Bloodletter_attack010: -1188162444447578099
+      Bloodletter_attack011: 8687519164189957200
+      Bloodletter_attack012: 5045072435140871059
+      Bloodletter_attack013: 2385939293703228833
+      Bloodletter_attack014: 806083969666473361
+      Bloodletter_attack015: 8989857786333237958
+      Bloodletter_attack016: -5422858277167788799
+      Bloodletter_attack017: 144483991728432
+      Bloodletter_attack018: 6730261535882999166
+      Bloodletter_attack019: -5872761496757893202
+      Bloodletter_attack020: -8752337488255868002
+      Bloodletter_attack021: -1479044897770351770
+      Bloodletter_attack022: -6894178212239095105
+      Bloodletter_attack023: -9108380557672802375
+      Bloodletter_attack024: 4621477931400278772
+      Bloodletter_attack025: -1268885100986280631
+      Bloodletter_attack026: -7595260970400583941
+      Bloodletter_attack027: -7143102841504640268
+      Bloodletter_attack028: -237064619928892841
+      Bloodletter_attack029: -6134274725984141981
+      Bloodletter_attack030: 7902574854636985640
+      Bloodletter_attack031: -8231851315749638102
+      Bloodletter_attack032: 5381586971194178438
+      Bloodletter_attack033: 8985485158834943927
+      Bloodletter_attack034: 2682519088473630715
+      Bloodletter_attack035: 5080578103408923492
+      Bloodletter_attack036: -1421322356442034350
+      Bloodletter_attack037: 4874599122107550058
+      Bloodletter_attack038: -6008376860512079773
+      Bloodletter_attack039: -8221916986065232126
+      Bloodletter_breathing000: -8661512719432631987
+      Bloodletter_breathing001: 6584028336422570457
+      Bloodletter_breathing002: -6796575165207090074
+      Bloodletter_breathing003: -6373773811977247136
+      Bloodletter_breathing004: -7242683589961872839
+      Bloodletter_breathing005: -4825658427434316176
+      Bloodletter_breathing006: 1272122401774405625
+      Bloodletter_breathing007: 296866385563766083
+      Bloodletter_breathing008: 8628580989642069291
+      Bloodletter_breathing009: 4941665516613826402
+      Bloodletter_breathing010: 4917952338356160900
+      Bloodletter_breathing011: 5994755482711565151
+      Bloodletter_breathing012: -6376388749684514916
+      Bloodletter_breathing013: -6831783370290453204
+      Bloodletter_death000: 409911569914202700
+      Bloodletter_death001: -7960444320821960134
+      Bloodletter_death002: -8375670554475429837
+      Bloodletter_death003: -6061534348106771068
+      Bloodletter_death004: 5095650377103122194
+      Bloodletter_death005: -4557426089869978810
+      Bloodletter_death006: -1394850767058147211
+      Bloodletter_death007: 4286681799973690526
+      Bloodletter_death008: -333338132567434711
+      Bloodletter_death009: -4546811383154673000
+      Bloodletter_death010: 9210798228329389742
+      Bloodletter_death011: 2160647242908584234
+      Bloodletter_death012: 7253142347686658651
+      Bloodletter_death013: -8880419399150656663
+      Bloodletter_death014: 281734567127451894
+      Bloodletter_death015: 4756083750769484225
+      Bloodletter_death016: -8253464568051454043
+      Bloodletter_death017: -6918969068250397663
+      Bloodletter_death018: -8209403585235049600
+      Bloodletter_death019: -4903626317228314927
+      Bloodletter_death020: 1206322831682056939
+      Bloodletter_death021: -8295224977397668701
+      Bloodletter_hit000: -2253494863044382520
+      Bloodletter_hit001: 6224276734400623268
+      Bloodletter_hit002: 3252494946475872228
+      Bloodletter_idle000: -1586882433138909816
+      Bloodletter_idle001: 1868334069992270621
+      Bloodletter_idle002: -8210346786067662889
+      Bloodletter_idle003: 3084709774095770347
+      Bloodletter_idle004: -2530613367892660921
+      Bloodletter_idle005: -9099256662807384754
+      Bloodletter_idle006: 5546473269398937834
+      Bloodletter_idle007: 9084303480514198186
+      Bloodletter_idle008: 6832161680148597074
+      Bloodletter_idle009: 8299623014138565225
+      Bloodletter_idle010: 2451124759046517659
+      Bloodletter_idle011: -614699228682304194
+      Bloodletter_idle012: -2151066993704884569
+      Bloodletter_idle013: -6672037872755078738
+      Bloodletter_idle014: 4168153835309893125
+      Bloodletter_idle015: 6461269109924591975
+      Bloodletter_idle016: -5443457735608933098
+      Bloodletter_idle017: -8604727232224017722
+      Bloodletter_idle018: -3542737496097686120
+      Bloodletter_idle019: -2561713578800027017
+      Bloodletter_idle020: 2262620786988177293
+      Bloodletter_idle021: -2791392841592894240
+      Bloodletter_run000: -631355551329434120
+      Bloodletter_run001: -6387460737053085674
+      Bloodletter_run002: -1566123676361841778
+      Bloodletter_run003: 3769094733854779384
+      Bloodletter_run004: 511338624274369240
+      Bloodletter_run005: 1013981346235726623
+      Bloodletter_run006: 597024984235800018
+      Bloodletter_run007: 325763312301962386
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
