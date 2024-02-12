@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace Input {
     /// <summary>
     /// Singleton class holding a reference to the global class 'input actions'
