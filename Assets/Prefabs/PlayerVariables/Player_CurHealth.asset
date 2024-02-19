@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player_CurHealth
   m_EditorClassIdentifier: 
   initialValue: 50
-  onRuntimeValueChange: {fileID: 0}
+  onRuntimeValueChange: {fileID: 11400000, guid: df15d2b753598c74ea7d0f079dfa2451, type: 2}

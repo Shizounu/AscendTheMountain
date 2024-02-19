@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player_Money
   m_EditorClassIdentifier: 
   initialValue: 100
-  onRuntimeValueChange: {fileID: 0}
+  onRuntimeValueChange: {fileID: 11400000, guid: 4b89001d392d0de46a3b08b89bc1353e, type: 2}

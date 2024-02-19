@@ -7,7 +7,10 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-        _views[0].SetActive(true);
+        //if(_views != null)
+        //{
+        //    _views[0].SetActive(true);
+        //}
     }
 
     public void LoadScene(int idx)
