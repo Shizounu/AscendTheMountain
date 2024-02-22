@@ -20,6 +20,11 @@ public class HealthUIUpdater : MonoBehaviour, IScriptableEventListener
         _onHealthChanged += this;
     }
 
+    private void OnDisable()
+    {
+        _onHealthChanged -= this;
+    }
+
     public void EventResponse()
     {
         if (_playerCurrentHealth.runtimeValue <= 0)

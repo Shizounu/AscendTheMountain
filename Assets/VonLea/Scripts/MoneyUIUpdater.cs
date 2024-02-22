@@ -17,6 +17,11 @@ public class MoneyUIUpdater : MonoBehaviour, IScriptableEventListener
         _onMoneyChanged += this;
     }
 
+    private void OnDisable()
+    {
+        _onMoneyChanged -= this;
+    }
+
     public void EventResponse()
     {
         _playerMoneyText.text = _playerMoney.runtimeValue.ToString();

@@ -20,14 +20,18 @@ public class HealPlayer : MonoBehaviour
         {
             Debug.Log("reached healing limit");
             _playerCurrentHealth.runtimeValue = _playerMaxHealth.runtimeValue;
-        }else _playerCurrentHealth.runtimeValue += value;
-
-        Debug.Log("hp after healing: " + _playerCurrentHealth.runtimeValue);
+            return;
+        }
+        else
+        {
+            _playerCurrentHealth.runtimeValue += value;
+            Debug.Log("hp after healing: " + _playerCurrentHealth.runtimeValue);
+        }
     }
 
     private bool CanHeal()
     {
-        if (_playerCurrentHealth.runtimeValue <= _playerMaxHealth.runtimeValue)
+        if (_playerCurrentHealth.runtimeValue < _playerMaxHealth.runtimeValue)
         {
             return true;
         }
