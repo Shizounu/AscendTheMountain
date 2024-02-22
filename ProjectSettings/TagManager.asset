@@ -47,18 +47,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Battlemap_Foreground
+  - name: Battlemap_Background
     uniqueID: 1335703095
+    locked: 0
+  - name: Battlemap_Tiles
+    uniqueID: 1864393739
     locked: 0
   - name: BattleMap_Units
     uniqueID: 2699390215
     locked: 0
-  - name: Card Background
-    uniqueID: 4224862247
-    locked: 0
-  - name: Card Foreground
-    uniqueID: 1091092857
-    locked: 0
-  - name: Card Text
-    uniqueID: 3143911923
+  - name: Battlemap_Foreground
+    uniqueID: 2607153673
     locked: 0
