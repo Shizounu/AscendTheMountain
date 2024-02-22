@@ -168,22 +168,22 @@ namespace Combat
 
             //Summoning
             for (int i = 0; i < board.GetActorReference(activeActor).Hand.Length; i++) {
-                if (board.GetActorReference(activeActor).Hand[i] != null) {
-                    if (board.GetActorReference(activeActor).Hand[i].cardCost <= board.GetActorReference(activeActor).CurManagems) {
-                        if (board.GetActorReference(activeActor).Hand[i].GetType() == typeof(CardInstance_Unit)) {
-                            List<Vector2Int> summonPositions = board.GetSummonPositions(activeActor);
-                            foreach (Vector2Int pos in summonPositions) {                           
-                                possibleActions.Add(
-                                    Command_SummonUnit.GetAvailable().Init(
-                                        (CardInstance_Unit)board.GetActorReference(activeActor).Hand[i], pos, activeActor,
-                                        false, false, true, true, i));
-                            }
-                        } else {
-                            Debug.LogError("Unrecognized card type in AI hand");
-                        }
-
-
+                if (board.GetActorReference(activeActor).Hand[i] == null)
+                    continue;
+                
+                if (board.GetActorReference(activeActor).Hand[i].cardCost > board.GetActorReference(activeActor).CurManagems)
+                    continue;    
+                
+                if (board.GetActorReference(activeActor).Hand[i].GetType() == typeof(CardInstance_Unit)) {
+                    List<Vector2Int> summonPositions = board.GetSummonPositions(activeActor);
+                    foreach (Vector2Int pos in summonPositions) {                           
+                        possibleActions.Add(
+                            Command_SummonUnit.GetAvailable().Init(
+                                (CardInstance_Unit)board.GetActorReference(activeActor).Hand[i], pos, activeActor,
+                                false, false, true, true, i));
                     }
+                } else {
+                    Debug.LogError("Unrecognized card type in AI hand");
                 }
             }
 
@@ -207,9 +207,6 @@ namespace Combat
                         }
                 }
             }
-
-            //Ending Turn
-            //possibleActions.Add(new Command_EnableSide(activeActor == Actors.Actor1 ? Actors.Actor2 : Actors.Actor1));
 
             return possibleActions;
         }
