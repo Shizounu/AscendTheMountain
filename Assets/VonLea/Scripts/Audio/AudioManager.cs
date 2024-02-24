@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] private AudioMixerGroup _sfxMixer;
+
     private Queue<AudioSource> _audioSourcePool = new Queue<AudioSource>();
     private List<AudioSource> _currentRunningAudioSources = new List<AudioSource>();
 
@@ -43,6 +46,7 @@ public class AudioManager : MonoBehaviour
     private void AddAudioSource()
     {
         var newSource = transform.AddComponent<AudioSource>();
+        newSource.outputAudioMixerGroup = _sfxMixer;
         _audioSourcePool.Enqueue(newSource);
     }
 
