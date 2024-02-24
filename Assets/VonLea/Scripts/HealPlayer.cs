@@ -14,7 +14,7 @@ public class HealPlayer : MonoBehaviour
         if (!CanHeal()) return;
 
         Debug.Log("hp before healing: " +  _playerCurrentHealth.runtimeValue);
-        int value = _healPercentage * _playerCurrentHealth.runtimeValue / 100;
+        int value = _healPercentage * _playerMaxHealth.runtimeValue / 100;
 
         if(_playerCurrentHealth.runtimeValue + value > _playerMaxHealth.runtimeValue)
         {

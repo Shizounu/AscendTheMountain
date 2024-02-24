@@ -1176,7 +1176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMaxHealth: {fileID: 11400000, guid: 4881d43b1ebcf1748b6bbfe09082282a, type: 2}
   _playerCurrentHealth: {fileID: 11400000, guid: da4c29976a226b94db8909d668ceabd9, type: 2}
-  _healPercentage: 25
+  _healPercentage: 15
 --- !u!114 &1802523014
 MonoBehaviour:
   m_ObjectHideFlags: 0

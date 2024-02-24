@@ -6,6 +6,10 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private Queue<AudioSource> _audioSourcePool = new Queue<AudioSource>();
+    private List<AudioSource> _currentRunnindAudioSources = new List<AudioSource>();
+    // dictionary audiosource als key, value is float as timer
+    // wrapper class for audio source and float as timer, in update the timer runs out and notifies if clip ended
+    // list with current running 
 
     public AudioManager Instance;
 
@@ -41,4 +45,10 @@ public class AudioManager : MonoBehaviour
         source.clip = null;
         source.gameObject.SetActive(false);
     }
+
+    //private IEnumerator WaitForEndOfClip(AudioSource source)
+    //{
+    //    return new WaitForSeconds(source.clip.
+    //        kk);
+    //}
 }
