@@ -2,21 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class SliderValue : MonoBehaviour
 {
-    [SerializeField] private Slider _masterSlider, _musicSlider, _sfxSlider;
+    [SerializeField] private Slider _masterSlider;
+    [SerializeField] private Slider _musicSlider;
+    [SerializeField] private Slider _sfxSlider;
     [SerializeField] private AudioMixer _masterMixer;
     
     private float _masterVolume, _musicVolume, _sfxVolume;
 
+    private string _masterText = "Master";
+    private string _musicText = "MusicVolume";
+    private string _sfxText = "SfxVolume";
+
     // Start is called before the first frame update
     void Start()
     {
-        _masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", _masterVolume);
-        _musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", _musicVolume);
-        _sfxSlider.value = PlayerPrefs.GetFloat("SfxVolume", _sfxVolume);
+        _masterSlider.value = PlayerPrefs.GetFloat(_masterText, _masterVolume);
+        _musicSlider.value = PlayerPrefs.GetFloat(_musicText, _musicVolume);
+        _sfxSlider.value = PlayerPrefs.GetFloat(_sfxText, _sfxVolume);
     }
 
     #region SaveVolume
@@ -24,19 +30,19 @@ public class SliderValue : MonoBehaviour
     public void SaveMasterVolume(float volume)
     {
         _masterVolume = volume;
-        PlayerPrefs.SetFloat("MasterVolume", _masterVolume);
+        PlayerPrefs.SetFloat(_masterText, _masterVolume);
     }
 
     public void SaveMusicVolume(float volume)
     {
         _musicVolume = volume;
-        PlayerPrefs.SetFloat("MusicVolume", _musicVolume);
+        PlayerPrefs.SetFloat(_musicText, _musicVolume);
     }
 
     public void SaveSfxVolume(float volume)
     {
         _sfxVolume = volume;
-        PlayerPrefs.SetFloat("SfxVolume", _sfxVolume);
+        PlayerPrefs.SetFloat(_sfxText, _sfxVolume);
     }
 
     #endregion
@@ -45,17 +51,17 @@ public class SliderValue : MonoBehaviour
 
     public void ChangeMasterVolume(float volume)
     {
-        _masterMixer.SetFloat("Master", volume);
+        _masterMixer.SetFloat(_masterText, volume);
     }
 
     public void ChangeMusicVolume(float volume)
     {
-        _masterMixer.SetFloat("MusicVolume", volume);
+        _masterMixer.SetFloat(_musicText, volume);
     }
 
     public void ChangeSfxVolume(float volume)
     {
-        _masterMixer.SetFloat("SfxVolume", volume);
+        _masterMixer.SetFloat(_sfxText, volume);
     }
 
     #endregion
