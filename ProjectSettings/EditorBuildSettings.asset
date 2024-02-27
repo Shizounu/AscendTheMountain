@@ -26,8 +26,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map/Death.unity
     guid: f5100110d054b524eaf2e04fe959b705
-  - enabled: 1
-    path: Assets/VonLea/TestScenes/AudioTestScene.unity
-    guid: b6b272c3971c57a4087c4fa10e16e46d
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 37f86845963304b4f8344ea8ecc72ce3, type: 2}

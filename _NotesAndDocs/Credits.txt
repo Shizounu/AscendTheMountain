@@ -1,0 +1,17 @@
+Pixel Art Background: https://assetstore.unity.com/packages/2d/environments/animated-pixel-art-backgrounds-free-255208
+
+UI: https://assetstore.unity.com/packages/2d/gui/icons/2d-simple-ui-pack-218050
+
+Font: https://assetstore.unity.com/packages/2d/fonts/free-pixel-font-thaleah-140059
+
+coin and heart item asset: https://assetstore.unity.com/packages/2d/gui/icons/2d-pixel-item-asset-pack-99645
+
+rest scene background: https://w0.peakpx.com/wallpaper/1022/350/HD-wallpaper-artistic-pixel-art.jpg
+
+event scene bg: https://wallpapergod.com/images/hd/pixel-art-1920X1080-wallpaper-vpb4n6la27xdn94z.jpeg
+
+shop scene bg: https://m.gjcdn.net/fireside-post-image/900/23842690-ll-3jntsr3b-v4.webp
+
+death scene bg: https://w.wallhaven.cc/full/zm/wallhaven-zmpd3j.jpg
+
+Duelyst https://github.com/open-duelyst/duelyst

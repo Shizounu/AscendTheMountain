@@ -2487,7 +2487,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 66.06401, y: -17.007996}
+  m_AnchoredPosition: {x: 66.064026, y: -17.007996}
   m_SizeDelta: {x: 112.12802, y: 14.016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1627253454
@@ -2970,9 +2970,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'God: Erik
-
-    little helper: lea'
+  m_text: "Main Programmer & Game Designer: \nErik Simon\n\nUI Programmer & UI Designer:
+    \nLea Hoppe\n\nArt: \nDuelyst (CC0) \nUnity Asset Store\n& various others that
+    can be found in the credits file"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ede07d2920411074abd6ebe6e5f5ea36, type: 2}
   m_sharedMaterial: {fileID: -1553301319574728695, guid: ede07d2920411074abd6ebe6e5f5ea36, type: 2}
@@ -3232,7 +3232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 18, y: -79.968}
+  m_AnchoredPosition: {x: 18, y: -79.96799}
   m_SizeDelta: {x: 16, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1586562669537793736
@@ -3596,7 +3596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 66.06401, y: -37.664}
+  m_AnchoredPosition: {x: 66.064026, y: -37.664}
   m_SizeDelta: {x: 112.12802, y: 14.016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1586562670306725688
@@ -4094,7 +4094,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 66.06401, y: -58.32}
+  m_AnchoredPosition: {x: 66.064026, y: -58.320007}
   m_SizeDelta: {x: 112.12802, y: 14.016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1586562671420595073
